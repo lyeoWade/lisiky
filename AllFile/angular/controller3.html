@@ -11,9 +11,10 @@
 		$scope.a='2';
 		//$http.get(url,参数);
 		$http.get('t.php',{
-			params:{a:7,b:6}
+			params:{a:7,b:6},
+			responseType:"json"  //类似jq的type
 		}).then(function(res){
-			console.log(res);
+			console.log(res.data+5);
 		},function(){
 			alert('失败了');
 		});

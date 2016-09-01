@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input{margin:0;padding:0;}
+body{font-size:0.12rem; font-family: "Microsoft Yahei"; overflow-x: hidden; }
+img{border:none;}
+ul,ol{list-style:none;}
+input,select,textarea{outline:none; border:none; background:#FFF;}
+textarea{resize:none;}
+a{text-decoration:none;}
+
+/*清浮动*/
+.clearfix:after{content:"";display:block;clear:both;}
+.clearfix{zoom:1;}
+.fl{ float:left; }
+.fr{ float:right; }
+em{ font-style:normal;  }
+
+.m10{
+	margin:0.1rem 0;
+}
+.m0{ margin: 0 !important; }
+.p0{ padding:0 !important; }
+.cred{
+	color: #f00;
+}
+.h10{ height: 0.1rem; overflow: hidden;  }
+.h20{ height: 0.2rem; overflow: hidden;  }
+.h30{ height: 0.3rem; overflow: hidden;  }
+.h40{ height: 0.4rem; overflow: hidden;  }
+.h50{ height: 0.5rem; overflow: hidden;  }
+.h60{ height: 0.6rem; overflow: hidden;  }
+.h70{ height: 0.7rem; overflow: hidden;  }
+.h80{ height: 0.8rem; overflow: hidden;  }
+.h90{ height: 0.9rem; overflow: hidden;  }
+.hb10{ height: 0.1rem; overflow: hidden; background: #f1f1f1;  }
+
+.br1{ border-bottom: 0.01rem solid #ececec;  }
+
+.bottomline{ position: relative;  }
+.bottomline i{
+	border-bottom: 0.01rem solid #ececec;
+	position: absolute;
+	left: 0;
+	top: 1rem;
+	width: 100%;
+}
+.selectclassfiy {
+	margin-bottom: 0.05rem;
+}
