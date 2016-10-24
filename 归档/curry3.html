@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var sum=function(x,y){
+			return x+y;
+		}
+
+		var curry=function(fn,x){
+			return function(y){
+				return fn(x,y)
+			}
+		}
+		var a=curry(sum,60);
+
+		console.log(a(20))
+	</script>
+</body>
+</html>

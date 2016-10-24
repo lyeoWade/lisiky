@@ -1,0 +1,65 @@
+/*
+	git 笔记
+	
+	首先clone项目 git clone url
+
+	状态 git status 
+
+	git config --golobal user.name "513632025@qq.com"  // 修改贡献者信息
+	
+	// 撤回  git reset HEAD demo.html
+	
+	// 查看状态  git status
+	
+	工作区 暂存区 版本库 
+	
+	工作区到暂存区 git add . （全部添加）  (git add demo.html  添加单个)
+	
+	暂存区到版本库 git commit -m "注释内容" ( git commit demo.html ) // 会弹出一个记事本或者其他让你添加注释
+	
+	工作区直接到版本库
+	
+	git commit -a -m "注释"  
+	
+	
+	git log  // 查看操作记录 查看 提交历史
+	
+	
+	git diff // 工作区和暂存区的对比
+	
+	
+	git diff --cached (--staged)  //暂存区 和版本库的对比
+	
+	
+	git checkout -- demo.html  // 清空工作区多余的
+	
+	
+	git commit -m "撤销上一次的提交和这次的一起提交" --amend
+	
+	
+	git rm demo.html  //删除暂存区的文件( 在工作去已经被删除掉的 )
+	
+	git rm --cached demo.html // 删除暂存区的文件 （工作区不被删除）
+	
+	git rm -f demo.html // 删除暂存区的文件（工作区的文件也会被删除）
+	
+	
+	
+	git checkout commit_id demo.js // 恢复某一个文件
+	
+	git reset --hard id // 恢复指定的版本
+	
+	git reset --hard HEAD^  //返回上一个版本  执行一次恢复一个版本
+	
+	git reset --hard HEAD~3  恢复前三个的哪一个版本
+	
+	git reflog 
+	
+	
+	git  remote //查看远程仓库的名字
+	
+	git push 仓库名  分支(master) // 推送到远程仓库
+	
+	
+	
+*/

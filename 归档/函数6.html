@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function sum(x,y){ alert(x+y); }
+		var fun=function(fns){
+			var x=0,y=0;
+			return function (){
+				x++;
+				++y;
+				fns(x,y);
+			};
+		};
+		var f=fun(sum);
+		f();
+		f();
+	</script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.1.2.js"></script>
+	<script type="text/javascript">
+		function Namefn($scope){
+			$scope.name='李白';
+			$scope.show=function(){
+				$scope.name='杜甫';
+			}
+		}
+	</script>
+</head>
+<body>
+<div ng-controller="Namefn" ng-click="show()">
+	{{name}}
+</div>
+</body>
+</html>

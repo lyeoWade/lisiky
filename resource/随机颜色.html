@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{ margin: 0; padding: 0;  }
+		.box{ width: 100px; height: 100px;  }
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+	<script type="text/javascript" src="init.js"></script>
+	<script type="text/javascript">
+		var oBox=$$('.box');
+		oBox.style.background='#'+$_.tool.roundColor2();
+
+		console.log($_.tool.roundColor2())
+	</script>
+</body>
+</html>

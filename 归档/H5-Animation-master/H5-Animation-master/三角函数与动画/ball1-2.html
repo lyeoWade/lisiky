@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{ margin: 0; padding: 0;  }
+		#canvas{ background: #000;  }
+	</style>
+</head>
+<body>
+	<canvas id="canvas" width="600" height="600"> 你的浏览器版本过低！！！ </canvas>
+
+<script type="text/javascript">
+
+
+	var oC=document.getElementById('canvas');
+	var ctx=oC.getContext('2d');
+	var angle=0,
+	centerX=oC.width/2,
+	centerY=oC.height/2,
+	radius=40,
+	speed=0.05;
+
+
+	((function drawFrame(){
+		window.requestAnimationFrame(drawFrame);
+		ctx.clearRect(0,0,oC.width,oC.height);
+		var x=centerX-Math.cos(angle)*radius*4;
+		var y=centerY-Math.sin(angle)*radius;
+		angle+=speed;
+		ctx.save();
+		ctx.translate(x,y);
+		ctx.fillStyle="#fff";
+		ctx.beginPath();
+		ctx.arc(0,0,radius,0,Math.PI*2,false);
+		ctx.closePath();
+		ctx.fill();
+		ctx.restore();
+	})());
+</script>
+</body>
+</html>

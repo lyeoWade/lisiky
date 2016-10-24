@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>distance-between-two-points</title>
+    <style>
+        #log{
+            position: absolute;
+            font-size: 10px;
+            color: #ffffff;
+        }
+    
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="500" height="500" style="background:#000;">
+        your browser not support canvas!
+    </canvas>
+    <p id="log"></p>
+    <!-- <script src="../js/utils.js"></script> -->
+    <script>
+        window.onload = function(){
+           var oC=document.getElementById('canvas');
+           var ctx=oC.getContext('2d');
+           //
+           
+
+            var Dis1={
+                disx:Math.random()*oC.width,
+                disy:Math.random()*oC.height
+            };
+            var Dis2={
+                disx:Math.random()*oC.width,
+                disy:Math.random()*oC.height
+            };
+            ctx.fillStyle="#FFA500";
+            ctx.fillRect(Dis1.disx,Dis1.disy,10,10);
+
+            ctx.fillStyle="#fff";
+            ctx.fillRect(Dis2.disx,Dis2.disy,10,10);
+
+            Line();
+            function Line(){
+                ctx.beginPath();
+                ctx.strokeStyle='#fff';
+                ctx.moveTo(Dis1.disx,Dis1.disy);
+                ctx.lineTo(Dis2.disx,Dis2.disy);
+                ctx.stroke();
+            }
+        }
+    </script>
+</body>
+</html>

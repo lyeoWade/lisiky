@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="angular.1.2.js"></script>
+	<script type="text/javascript">
+		function filterFn($scope){
+			$scope.phone={
+				money:500,
+				num:1
+			}
+		}
+	</script>
+</head>
+<body ng-controller="filterFn">
+
+<input type="text" name="" ng-model="phone.money">
+<input type="text" name="" ng-model="phone.num">
+<div>{{phone.money * phone.num | currency:"&yen;"}}</div>
+</body>
+</html>

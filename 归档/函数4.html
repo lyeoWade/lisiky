@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var fun=function(x){
+			return function (){
+				//alert(x+'-')
+				alert(++x)
+				//alert(x+'==')
+			}
+		}
+		//alert(fun(0))
+		var f=fun(0);
+		f();
+		f();
+	</script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mod1">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var M1=angular.module('mod1',[]);
+
+		M1.controller('test',function($scope){
+			$scope.alert=function(s){
+				window.alert(s)
+			}
+			$scope.parseInt=function(s){
+				return parseInt(s);
+			}
+		});
+
+
+	</script>
+</head>
+<body>
+	<div ng-controller='test'>
+		<input type="text" name="" ng-model="str">
+		<input type="button" value="按钮" name="" ng-click="alert(parseInt(str))">
+	</div>
+</body>
+</html>

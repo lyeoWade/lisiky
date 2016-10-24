@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{ margin: 0; padding: 0;  }
+		#box{ width: 798px; height: 550px; margin: 20px auto; border: 1px solid #f00; position: relative; overflow: hidden;  }
+		/*
+			2560 - 800 = 1760 / 2 =880
+		*/
+		#box img{ position: absolute; cursor: move; } 
+	</style>
+</head>
+<body>
+	<div id="box"><img id="img" src="1.jpg" /></div>
+
+	<script type="text/javascript">
+		window.onload=function(){
+			var oImg=document.getElementById('img');
+			var oBox=document.getElementById('box');
+
+			oImg.style.marginLeft=-(oImg.offsetWidth-oBox.offsetWidth)/2+'px';
+			oImg.style.marginTop=-(oImg.offsetHeight-oBox.offsetHeight)/2+'px';
+			oImg.onmousemove=function(ev){
+				var oEvent=ev||event;
+				
+				console.log(oEvent.clientX-getPos(oImg).left)
+			};
+
+			//拖拽
+			var disX=0;
+			var disY=0;
+			oImg.onmousedown=function(ev){
+				var oEvent=ev||event;
+				disX=oEvent.clientX-oImg.offsetLeft;
+				disY=oEvent.clientY-oImg.offsetTop;
+				
+				alert(oEvent.clientX+'-'+oImg.offsetLeft);
+
+				document.onmousemove=function(ev){
+					var oEvent=ev||event;
+					var L=oEvent.clientX-disX;
+					var T=oEvent.clientY-disY;
+					oImg.style.left=L+'px';
+					oImg.style.top=T+'px';
+				}
+				document.onmouseup=function(){
+					document.onmousemove=document.onmouseup=null;
+				}
+			}
+		};
+
+		function getPos(obj){
+			var l=0,t=0;
+			while(obj){
+				l+=obj.offsetLeft;
+				t+=obj.offsetTop;
+				obj=obj.offsetParent;
+			}
+			return {
+				left:l,
+				top:t
+			}
+		};
+	</script>
+</body>
+</html>

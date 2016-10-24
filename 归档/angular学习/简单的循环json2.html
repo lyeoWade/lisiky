@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" ng-app=''>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+	<ul ng-init="arr=[{name:'blue',job:'打杂的'},{name:'lisiky',job:'小农民'}]">
+		<li ng-repeat="item in arr">姓名：{{item.name}}，工作:{{item.job}}</li>
+	</ul>
+</body>
+</html>

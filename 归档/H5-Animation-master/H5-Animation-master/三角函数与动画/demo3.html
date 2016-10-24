@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>linear-vertical-motion</title>
+</head>
+<body>
+<canvas id="canvas" width="500" height="500" style="background:#000;">
+   you browser not support canvas!
+</canvas>
+<script>
+  window.onload = function(){
+    var canvas=document.getElementById('canvas');
+    var ctx=canvas.getContext('2d'); 
+    var angle=0,
+        speedx=1,
+        speedy=0.05,
+        tanx=0,
+        tany=0;
+
+    
+    window.requestAnimationFrame(moveBall);
+
+    function moveBall(){
+      tanx+=speedx;
+      angle+=speedy;
+      tany=canvas.height/2+Math.sin(angle)*50;
+      if(tanx > canvas.width+60){
+        tanx=-60;
+      }
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+      ctx.save();
+      ctx.translate(tanx,tany);
+      ctx.fillStyle='#fff';
+      ctx.beginPath();
+      ctx.arc(0,0,60,0,Math.PI*2,false);
+      ctx.closePath();
+      ctx.fill();
+      ctx.restore();
+      window.requestAnimationFrame(moveBall);
+    }
+
+  }
+</script>
+    
+</body>
+</html>

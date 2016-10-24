@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+   <canvas id="canvas" width="500" height="500" style="background:#000;"></canvas>
+   <script src="../js/utils.js"></script>
+   <script src="../js/ball.js"></script>
+   <script>
+       window.onload = function(){
+          var canvas = document.getElementById('canvas'),
+              context = canvas.getContext('2d'),
+              ball = new Ball(10),
+              vr = 0.05, //角度增量
+              angle = 0, //旋转角度
+              radius = 150, //半径
+              centerX = canvas.width / 2,
+              centerY = canvas.height / 2;
+          
+          (function drawFrame () {
+            window.requestAnimationFrame(drawFrame, canvas);
+            context.clearRect(0, 0, canvas.width, canvas.height); //每次绘制之前都先清除画布
+            //Math.cos()  余弦,返回-1到1之间的数
+            //Math.cos(angle) * radius  -150到150之间
+            //angle 角度
+
+            ball.x = centerX + Math.cos(angle) * radius;
+            ball.y = centerY + Math.sin(angle) * radius;
+            angle += vr;
+            console.log(ball.x)
+            ball.draw(context);
+
+          }());
+       }
+    
+    </script>
+    
+</body>
+</html>

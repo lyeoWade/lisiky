@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var fun=function(){
+			var x=0;
+			return function (){
+				//alert(x+'-')
+				alert(x++)
+				//alert(x+'==')
+			}
+		}
+		//alert(fun())
+		var f=fun();
+		f();
+		f();
+		//var ff=fun();
+		//ff();
+	</script>
+</body>
+</html>

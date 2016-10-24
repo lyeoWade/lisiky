@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script type="text/javascript">
+//下面那种操作不会改变原来的数据对象？
+
+var a = { size:2,name:"good", array:[] }; 
+
+//a.name.replace("_","")
+// a.size=3
+// a.array.push(2)
+ a.array.concat().push(2);
+// Object.assign({},a)["name"] = "great";
+ //a.array.concat();
+
+console.log(a)
+</script>
+</body>
+</html>

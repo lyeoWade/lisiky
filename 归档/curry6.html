@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function curry(name){
+			return function(job){
+				return function (day){
+					return function(money){
+						console.log(name+'是'+job+'的！'+day+'天可以挣'+money+'美元.')		
+					}
+				}
+			}
+		};
+		// var fn1=curry('马云');
+		// fn1('掏粪');
+		curry('马云')("搬砖")('30')('100066600');
+	</script>
+</body>
+</html>

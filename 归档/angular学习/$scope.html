@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+
+	<script type="text/javascript">
+
+		var app=angular.module('test',[]);
+		app.controller('scopeA',function($scope,$rootScope){
+			$scope.a=12;
+			$rootScope.name='lisiky';
+		});
+		app.controller('scopeB',function($scope){
+			$scope.b=3;
+		});
+	</script>
+</head>
+<body>
+	<div ng-controller="scopeA">
+		{{a}}
+	</div>
+
+	<div ng-controller="scopeB">
+		{{b}}-{{name}}
+	</div>
+</body>
+</html>

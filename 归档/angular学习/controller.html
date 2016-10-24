@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="mod1">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var M1=angular.module('mod1',[]);
+
+		M1.controller('test',function($scope){
+			$scope.a=23;
+		});
+
+		
+	</script>
+</head>
+<body>
+	<div ng-controller="test">
+		{{a}}
+	</div>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{ margin: 0; padding: 0;  }
+		#SomeElementYouWantToAnimate{ position: absolute; left: 0; top: 0; width: 30px; height: 30px; background: #f00;  }
+	</style>
+</head>
+<body>
+	<div id="SomeElementYouWantToAnimate">asd</div>
+</body>
+</html>
+<script>
+window.requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+
+var start = null;
+var d = document.getElementById('SomeElementYouWantToAnimate');
+
+function step(timestamp) { 
+	console.log(timestamp+'--'+start)
+  if (start === null) start = timestamp;
+  var progress = timestamp - start;
+  d.style.left = Math.min(progress/10, 800) + "px";
+  
+  if (progress < 8000) {
+    requestAnimationFrame(step);
+  }
+};
+requestAnimationFrame(step);
+
+</script>

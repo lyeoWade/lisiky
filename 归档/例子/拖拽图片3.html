@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{ margin: 0; padding: 0;  }
+		#box{ width: 798px; height: 550px; margin: 20px auto; border: 1px solid #f00; position: relative; overflow: hidden;  }
+		/*
+			2560 - 800 = 1760 / 2 =880
+		*/
+		#box img{ position: absolute; left: -300px; top: -300px; cursor: move; } 
+	</style>
+</head>
+<body>
+	<div id="box">
+		<img id="img" src="2.jpg" />
+		
+	</div>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oImg=document.getElementById('img');
+			var oBox=document.getElementById('box');
+
+			
+
+			if(oImg.offsetWidth<oBox.offsetWidth){
+				oImg.style.width=oBox.offsetWidth+10+'px';
+			}
+
+			oImg.style.left=-(oImg.offsetWidth-oBox.offsetWidth)/2+'px';
+			oImg.style.top=-(oImg.offsetHeight-oBox.offsetHeight)/2+'px';
+
+			oImg.onmousemove=function(ev){
+				var oEvent=ev||event;
+			};
+
+			//拖拽
+			var disX=0;
+			var disY=0;
+			oImg.onmousedown=function(ev){
+				var oEvent=ev||event;
+				disX=oEvent.clientX-oImg.offsetLeft
+				disY=oEvent.clientY-oImg.offsetTop;
+				
+				document.onmousemove=function(ev){
+					var oEvent=ev||event;
+					var L=oEvent.clientX-disX;
+					var T=oEvent.clientY-disY;
+
+					if(L>=0){
+						L=0;
+					}else if(L<=-(Math.abs(oImg.offsetWidth)-oBox.offsetWidth)){
+						L=-(Math.abs(oImg.offsetWidth)-oBox.offsetWidth);
+					}
+
+					if(T>=0){
+						T=0;
+					}else if(T<=-(Math.abs(oImg.offsetHeight)-oBox.offsetHeight)){
+						T=-(Math.abs(oImg.offsetHeight)-oBox.offsetHeight);
+					}
+					oImg.style.left=L+'px';
+					oImg.style.top=T+'px';
+					return false;
+				}
+				document.onmouseup=function(){
+					document.onmousemove=document.onmouseup=null;
+				}
+			}
+		};
+
+		function getPos(obj){
+			var l=0,t=0;
+			while(obj){
+				l+=obj.offsetLeft;
+				t+=obj.offsetTop;
+				obj=obj.offsetParent;
+			}
+			return {
+				left:l,
+				top:t
+			}
+		};
+	</script>
+</body>
+</html>
