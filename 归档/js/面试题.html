@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		(function(){
+		    var u = { a: 1, b: 2 };
+		    var r = {
+		        m: function(k){
+		            return u[k];
+		        }
+		    }
+		    window.r = r;
+		})()
+
+		//var R = window.r;
+		alert(r.m('a'))
+	</script>
+</body>
+</html>

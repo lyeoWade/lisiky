@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+li{width:100px;height:100px; background:#ccc;margin:0 5px; float:left; list-style:none}
+</style>
+<script>
+window.onload=function()
+{	
+   document.getElementsByTagName('ul')[0].onclick=function(ev)
+   {
+		var oEvent=ev||event;
+		var oLi=oEvent.target||oEvent.srcElement;
+		console.log(oLi)
+		alert(oLi.id)
+		if(oLi.id=='d'){
+			oLi.style.background='green';  //FF
+		}else{
+			oLi.style.background='red';  //FF
+		}
+		
+	};
+	document.getElementById('btn').onclick=function(){
+		document.getElementsByTagName('ul')[0].innerHTML+='<li>12323</li>';
+	}
+};
+
+</script>
+</head>
+
+<body>
+<ul>
+	<li>
+		<div >11111111111</div>
+		<div>2222222222</div>
+		<div>3333333333333333</div>
+	</li>
+	<li id="d"></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<p>
+		<div>asdasd</div>
+	</p>
+	<p>fsdf</p>
+</ul>
+<input type="button" id="btn" value="新增" name="">
+</body>
+</html>

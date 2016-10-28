@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		(function(){
+		    var u = { a: 1, b: 2 };
+		    var r = {
+		        m: function(k){
+		            return u[k];
+		        }
+		    }
+		    window.r = r;
+		})()
+
+		var R = window.r;
+		//alert(r.m('a'))
+
+		Object.prototype.__defineGetter__('uuu', function(){ return this; });
+		console.log(R.m('uuu'));
+		delete Object.prototype['uuu']; //用了之后删除
+		// 有一个非标准的，而且将被废弃的方法 Object.prototype.__defineGetter__ 可以给对象指定一个参数并且绑定一个函数，当未来你在此对象的实例上调用此参数时，绑定的函数会被调用，该参数是被定义在 prototype 上，所以此参数就是一个实例属性，那个函数被调用时，是以当前实例为上下文。
+
+
+		//另一种方案 
+
+		
+		// Object.defineProperty(Object.prototype, 'blablabla', {
+		//     get : function(){
+		//         return this;
+		//     }
+		// });
+		// console.log(R.m('blablabla'));
+
+
+		//https://segmentfault.com/a/1190000002407109
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('myApp',[]);
+		app.controller('main',function($scope){
+			$scope.name="Bob";
+		});
+		app.directive('sonDiv',function(){
+			return {
+				template:"son:{{name}}<input type='text' ng-model='name' />",
+				scope:{}
+			}
+		});
+	</script>
+</head>
+<body>
+	<div ng-controller="main">
+		father:{{name}}<input type="texte" ng-model="name" name=""><br/>
+		<son-div></son-div>
+	</div>
+
+	<!-- 当为{}时候，没有继承父亲的值，所以儿子的值为空，改变任何一方的值均不能影响另一方的值。（不继承隔离）
+
+	@ 绑定一个局部 scope 属性到当前 dom 节点的属性值。结果总是一个字符串，因为 dom 属性是字符串。
+	& 提供一种方式执行一个表达式在父 scope 的上下文中。如果没有指定 attr 名称，则属性名称为相同的本地名称。
+	= 通过 directive 的 attr 属性的值在局部 scope 的属性和父 scope 属性名之间建立双向绑定。
+	-->
+</body>
+</html>

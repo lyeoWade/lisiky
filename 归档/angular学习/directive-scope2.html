@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('myApp',[]);
+		app.controller('main',function($scope){
+			$scope.name="Bob";
+		});
+		app.directive('sonDiv',function(){
+			return {
+				template:"son:{{name}}<input type='text' ng-model='name' />",
+				scope:false
+			}
+		});
+	</script>
+</head>
+<body>
+	<div ng-controller="main">
+		father:{{name}}<input type="texte" ng-model="name" name=""><br/>
+		<son-div></son-div>
+	</div>
+
+	<!-- 当为false时候，儿子继承父亲的值，改变父亲的值，儿子的值也随之变化，反之亦如此。（继承不隔离） -->
+</body>
+</html>

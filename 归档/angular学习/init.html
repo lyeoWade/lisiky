@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+</head>
+<body>
+	<div ng-init="a=1;b=7">
+		<!-- {{a + b}} -->
+		<span ng-bind="a+b"></span>
+	</div>
+
+	<div ng-init="person={firstName:'John',lastName:'Doe'}">
+		{{person.lastName}}
+	</div>
+
+	<div ng-init="person={firstName:'John',lastName:'Doe'}">
+		<span ng-bind="person.lastName"></span>
+	</div>
+
+
+	<div ng-init="name='wade'">
+		<input type="text" ng-model="name" name="">
+		{{name}}
+	</div>
+
+	<div ng-init="obj={name:'wade',age:'32'}">
+		<input type="text" ng-model="obj.name" name="">
+		{{obj.name}}
+	</div>
+
+	<ul ng-init="arr=['111','2222','3333','4444','5555']">
+		<li ng-repeat="x in arr">
+			{{x}}
+		</li>
+	</ul>
+
+	
+</body>
+</html>

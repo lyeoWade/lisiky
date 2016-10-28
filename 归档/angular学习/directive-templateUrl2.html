@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html ng-app="myApp" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('myApp',[]);
+		app.directive('helloAngular',function(){
+			return {
+				templateUrl:"demo.html",
+				replace:true
+			}
+		});
+		app.run(["$templateCache",function($templateCache){
+			$templateCache.put('demo.html','<div> hello-angular </div>');
+		}]);
+	</script>
+</head>
+<body>
+	<hello-angular></hello-angular>
+</body>
+</html>

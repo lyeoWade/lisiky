@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module("myApp",[]);
+		app.directive('lDirective',function(){
+			return {
+				restrict:"EAC",
+				replace:"true",
+				template:"<div>12313</div>"
+			}
+		});
+
+		app.directive('lisikyBoy',function(){
+			return {
+				restrict:"EAC",
+				template:"自定义指令"
+			}
+		});
+	</script>
+</head>
+<body>
+	
+	<l-directive></l-directive>
+
+	<lisiky-boy></lisiky-boy>
+	
+	<div class="lisiky-boy"></div>
+<!-- 
+	1.restrict
+		（字符串）可选参数，指明指令在DOM里面以什么形式被声明；取值有：E(元素),A(属性),C(类),M(注释)，其中默认值为A；当然也可以两个一起用，比如EA.表示即可以是元素也可以是属性。
+
+	2.priority
+		(数字)，可选参数，指明指令的优先级，若在单个DOM上有多个指令，则优先级高的先执行；
+	
+	3.template（字符串或者函数）可选参数
+
+	4.terminal
+		(布尔型），可选参数，可以被设置为true或false，若设置为true，则优先级低于此指令的其他指令则无效，不会被调用(优先级相同的还是会执行)
+	
+	5.replace 为true 自定义的标签就不存在
+
+	6.templateUrl（字符串或者函数）
+	
+	7.scope
+	（1）默认值false。表示继承父作用域;
+	（2）true。表示继承父作用域，并创建自己的作用域（子作用域）;
+	（3）{}。表示创建一个全新的隔离作用域；
+ -->
+</body>
+</html>

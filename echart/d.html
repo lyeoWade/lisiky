@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>ECharts</title>
+    <!-- 引入 echarts.js -->
+    <script src="echarts.common.min.js"></script>
+</head>
+<body>
+    <!-- 为ECharts准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="width: 300px;height:300px;"></div>
+    <script type="text/javascript">
+
+    	var myChart = echarts.init(document.getElementById('main'));
+	   // app.title = '堆叠柱状图';
+		option = {
+		    tooltip : {
+		        trigger: 'axis',
+		        axisPointer : {            // 坐标轴指示器，坐标轴触发有效
+		            type : 'shadow'        // 默认为直线，可选为：'line' | 'shadow'
+		        }
+		    },
+		    legend: {
+		        data:['直接访问','邮件营销','联盟广告']
+		    },
+		    xAxis : [
+		        {
+		            type : 'category',
+		            data : ['对讲机','通讯车','摄像机','4G摄像机']
+		        }
+		    ],
+		    yAxis : [
+		        {
+		            type : 'value'
+		        }
+		    ],
+		    series : [
+		       
+		        {
+		            name:'消耗',
+		            type:'bar',
+		            stack: '广告',
+		            data:[120, 132, 101, 134]
+		        },
+		        {
+		            name:'库存',
+		            type:'bar',
+		            stack: '广告',
+		            data:[220, 182, 191, 234]
+		        },
+
+		    ]
+		};
+
+		myChart.setOption(option);
+    </script>
+</body>
+</html>
