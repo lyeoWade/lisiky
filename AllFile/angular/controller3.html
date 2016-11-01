@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript" src="angular.js"></script>
+<script type="text/javascript">
+	var Mod=angular.module('test',[]);
+	Mod.controller('httpTest',function($scope,$http){
+		$scope.a='2';
+		//$http.get(url,参数);
+		$http.get('t.php',{
+			params:{a:7,b:6}
+		}).then(function(res){
+			console.log(res);
+		},function(){
+			alert('失败了');
+		});
+	});
+</script>
+<body ng-controller="httpTest">
+	
+</body>
+</html>
