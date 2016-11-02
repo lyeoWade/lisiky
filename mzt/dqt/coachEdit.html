@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <title>教练信息</title>
+
+    <!--Core CSS -->
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- 自己添加的样式文件 -->
+    <link rel="stylesheet" type="text/css" href="css/new-add-style.css">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="js/iCheck/skins/square/green.css" rel="stylesheet">
+</head>
+
+<body>
+
+<section id="container" class="format">
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row second-head">
+                <div class="col-lg-12">
+                    <div class="head-panel clearfix">
+                        <h2 class=" pull-left">教练信息</h2>
+                        <div class=" pull-right">
+                            <ul class="breadcrumb">
+                                <li><a href="#"><i class="fa fa-home"></i> 主页</a></li>
+                                <li><a href="#">教练管理</a></li>
+                                <li class="active">教练信息</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            教练信息
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="signupForm" method="get" action="">
+                                    
+                                    <div class="form-group ">
+                                        <label for="username" class="control-label col-lg-3 col-sm-3">教练姓名</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="username" name="username" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="phone" class="control-label col-lg-3 col-sm-3">手机号码</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="phone" name="phone" type="text" value="13688888888" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="idcard" class="control-label col-lg-3 col-sm-3">身份证</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="idcard" name="idcard" type="text" value="" />
+                                        </div>
+                                    </div>
+                                     <div class="form-group ">
+                                        <label for="age" class="control-label col-lg-3 col-sm-3">教练年龄</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="age" name="age" type="text" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="sex" class="control-label col-lg-3 col-sm-3">性别</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                             <select class="form-control valid" id="sex">
+                                                <option>男</option>
+                                                <option>女</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="idcardtype" class="control-label col-lg-3 col-sm-3">驾照类型</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <select class="form-control valid" id="idcardtype">
+                                                <option>C1</option>
+                                                <option>C2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="driverschool" class="control-label col-lg-3 col-sm-3">所属驾校</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="driverschool" name="driverschool" type="text" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="address" class="control-label col-lg-3 col-sm-3">地址</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="address" name="address" type="text" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="card" class="control-label col-lg-3 col-sm-3">银行卡号</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="card" name="card" type="text" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="cardholder" class="control-label col-lg-3 col-sm-3">持卡人</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="cardholder" name="cardholder" type="text" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="bank" class="control-label col-lg-3 col-sm-3">所属银行</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="bank" name="bank" type="text" value="" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="autograph" class="control-label col-lg-3 col-sm-3">签名</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            
+                                            <textarea  class="form-control" id="autograph" name="autograph" ></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="rec" class="control-label col-lg-3 col-sm-3">是否推荐</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <div class="square-green mr90 single-row pull-left">
+                                                <div class="checkbox " style="padding-left: 0;position:relative;">
+                                                    <input id="rec" type="checkbox" >
+                                                    <label for="userstatus" style="position: absolute; left: 35px; top: 9px; width:120px;">是</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="expselct" class="control-label col-lg-3 col-sm-3">体验场地选择</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <select class="form-control valid" id="expselct">
+                                                <option>江北</option>
+                                                <option>九龙坡</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="commission" class="control-label col-lg-3 col-sm-3">本月佣金</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="commission" name="commission" value="14000" type="text" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="allincome" class="control-label col-lg-3 col-sm-3">上月总收入</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="allincome" name="allincome" value="50000124" type="text" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="" class="control-label col-lg-3 col-sm-3">头像</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <img src="images/lock_thumb.jpg">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group ">
+                                        <label for="userstatus" class="control-label col-lg-3 col-sm-3">禁用账号</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <div class="square-green mr90 single-row pull-left">
+                                                <div class="checkbox " style="padding-left: 0;position:relative;">
+                                                    <input id="userstatus" type="checkbox">
+                                                    <label for="userstatus" style="position: absolute; left: 35px; top: 9px; width:120px;">是</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-lg-6 col-sm-6">
+                                            <button class="btn btn-primary col-sm-3" type="submit">保存</button>
+                                            <button class="btn btn-warning col-sm-3 pull-right" type="button">删除教练</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+
+<!-- iCheck表单美化插件 -->
+<script src="js/iCheck/jquery.icheck.js"></script>
+
+<!--icheck init -->
+<script src="js/icheck-init.js"></script>
+
+<!--this page script-->
+<script src="js/validation-init.js"></script>
+<script type="text/javascript" src="js/ifreamHeight.js"></script>
+</body>
+</html>

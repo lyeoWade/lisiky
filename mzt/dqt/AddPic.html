@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <title>新增图片集</title>
+    <!--Core CSS -->
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <!-- 自己添加的样式文件 -->
+    <link rel="stylesheet" type="text/css" href="css/new-add-style.css">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+
+    <link href="css/cropper.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
+    <link href="css/webuploader.css" rel="stylesheet">
+    <link href="css/uploadStyle.css" rel="stylesheet">
+</head>
+
+<body>
+
+<section id="container" class="format">
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            新增图片集
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="signupForm" method="get" action="">
+                                    <div class="form-group ">
+                                        <label for="pictitle" class="control-label col-lg-2 col-sm-2">图片集标题</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="pictitle" name="pictitle" type="text" placeholder="图片标题" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="phone" class="control-label col-lg-2 col-sm-2">图片集栏目</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <select class="form-control valid" id="column">
+                                                <option value="1">性感妹子</option>
+                                                <option value="2">清纯妹子</option>
+                                                <option value="3">丝袜美腿</option>
+                                                <option value="4">性感动图</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="coverpic" class="control-label col-lg-2 col-sm-2">图片集列表封面</label>
+                                        <div class="col-lg-6 col-sm-6" style="position: relative;">
+                                            <input type="file" id="coverpic" name="">
+                                            <div class="coverpicMarkTag"></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="idcard" class="control-label col-lg-2 col-sm-2">图片集</label>
+                                        <div class="col-lg-9 col-sm-9">
+                                            <!-- <div class="piclistWrap clearfix">
+                                                <div class="arcl fl"><img src="../images/uploads/1471678925image.png"></div>
+                                                <div class="picListUpload fl" style="position: relative;">
+                                                    <input type="file" id="picList" name="">
+                                                    <div class="ListpicMarkTag" style="left:0;"></div>
+                                                </div>
+                                            </div> -->
+                                           <div id="wrapper">
+                                                <div id="container">
+                                                    <!--头部，相册选择和格式选择-->
+
+                                                    <div id="uploader">
+                                                        <div class="queueList">
+                                                            <div id="dndArea" class="placeholder">
+                                                                <div id="filePicker"></div>
+                                                                <p>或将照片拖到这里，单次最多可选300张</p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="statusBar" style="display:none;">
+                                                            <div class="progress">
+                                                                <span class="text">0%</span>
+                                                                <span class="percentage"></span>
+                                                            </div><div class="info"></div>
+                                                            <div class="btns">
+                                                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="tag" class="control-label col-lg-2 col-sm-2">图片集描述</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <textarea class="form-control " id="picdesc" placeholder="对图片集的描述"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="tag" class="control-label col-lg-2 col-sm-2">图片标签</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <div id="tagWrap"><a href=""></a></div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-2 col-lg-6 col-sm-6">
+                                            <button style="background: #00b7ee; color:#fff;" class="btn col-sm-3" id="AddBtn" type="button">保存</button>
+                                            <span class="addtip"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+</section>
+
+
+<div class="container containerCut">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="img-container">
+          <img src="images/404.png" alt="Picture">
+        </div>
+      </div>
+      
+    </div>
+    <div class="row">
+      <div class="col-md-12 docs-buttons">
+        <div class="btn-group btn-group-crop">
+          <button class="btn btn-primary" data-method="getCroppedCanvas" type="button">
+            <span class="docs-tooltip" data-toggle="tooltip">保存上传</span>
+          </button>
+        </div>
+
+        <!-- Show the cropped image in modal -->
+        <div class="modal fade docs-cropped" id="getCroppedCanvasModal" aria-hidden="true" aria-labelledby="getCroppedCanvasTitle" role="dialog" tabindex="-1">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button class="close" data-dismiss="modal" type="button" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="getCroppedCanvasTitle">Cropped</h4>
+              </div>
+              <div class="modal-body"></div>
+             
+            </div>
+          </div>
+        </div><!-- /.modal -->
+
+        
+
+      </div><!-- /.docs-buttons -->
+
+    </div>
+</div>
+
+<!--Core js-->
+<script src="js/jquery.js"></script>
+
+<script src="bs3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/public.js"></script>
+ <script src="js/cropper.js"></script>
+<script src="js/main.js"></script>
+<script type="text/javascript" src="js/AddPic.js"></script>
+<script src="js/webuploader.js"></script>
+<script type="text/javascript" src="js/upload.js"></script>
+</body>
+</html>

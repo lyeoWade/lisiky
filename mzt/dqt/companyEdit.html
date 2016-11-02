@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <title>公司信息详情</title>
+
+    <!--Core CSS -->
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- 自己添加的样式文件 -->
+    <link rel="stylesheet" type="text/css" href="css/new-add-style.css">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="js/iCheck/skins/square/green.css" rel="stylesheet">
+</head>
+
+<body>
+
+<section id="container" class="format">
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row second-head">
+                <div class="col-lg-12">
+                    <div class="head-panel clearfix">
+                        <h2 class=" pull-left">公司信息详情</h2>
+                        <div class=" pull-right">
+                            <ul class="breadcrumb">
+                                <li><a href="#"><i class="fa fa-home"></i> 主页</a></li>
+                                <li><a href="#">公司管理</a></li>
+                                <li class="active">公司信息详情</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            公司信息详情
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="signupForm" method="get" action="">
+                                    
+                                    <div class="form-group ">
+                                        <label for="title" class="control-label col-lg-3 col-sm-3">标题</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="title" name="title" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="description" class="control-label col-lg-3 col-sm-3">介绍</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <textarea class="form-control" id="description"></textarea>
+                                        </div>
+                                    </div>
+                                    <div id="filewarp">
+                                        <div class="form-group ">
+                                            <label for="phone" class="control-label col-lg-3 col-sm-3">图片集</label>
+                                            <div class="col-lg-6 col-sm-6">
+                                                <input type="file" id="fileInput1" name="fileInput" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-lg-6 col-sm-6">
+                                            <button class="btn btn-warning col-sm-2" type="button" id="addbanner">新增</button>
+                                            <button class="btn btn-primary col-sm-3 col-md-offset-1 " type="button">上传</button>
+                                        </div>
+                                    </div>
+                                    
+                                    <div id="thumbnail">
+                                        <div class="form-group ">
+                                            <label for="thumbnail" class="control-label col-lg-3 col-sm-3">缩略图</label>
+                                            <div class="col-lg-8 col-sm-8">
+                                                <div class="imgwarp">
+                                                    <img src="images/weather_image.jpg">
+                                                    <a href="">删除</a>
+                                                </div>
+                                                <div class="imgwarp">
+                                                    <img src="images/weather_image.jpg">
+                                                    <a href="">删除</a>
+                                                </div>
+                                                <div class="imgwarp">
+                                                    <img src="images/weather_image.jpg">
+                                                    <a href="">删除</a>
+                                                </div>
+                                                <div class="imgwarp">
+                                                    <img src="images/weather_image.jpg">
+                                                    <a href="">删除</a>
+                                                </div>
+                                                <div class="imgwarp">
+                                                    <img src="images/weather_image.jpg">
+                                                    <a href="">删除</a>
+                                                </div>
+                                                <div class="imgwarp">
+                                                    <img src="images/weather_image.jpg">
+                                                    <a href="">删除</a>
+                                                </div>
+                                                <div class="imgwarp">
+                                                    <img src="images/weather_image.jpg">
+                                                    <a href="">删除</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-lg-6 col-sm-6">
+                                            <button class="btn btn-primary col-sm-3" type="submit">保存</button>
+                                            <button class="btn btn-warning col-sm-3 pull-right" type="button">删除信息</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+
+<!-- iCheck表单美化插件 -->
+<script src="js/iCheck/jquery.icheck.js"></script>
+
+<!--icheck init -->
+<script src="js/icheck-init.js"></script>
+
+<!--this page script-->
+<script src="js/validation-init.js"></script>
+<script type="text/javascript" src="js/ifreamHeight.js"></script>
+</body>
+</html>

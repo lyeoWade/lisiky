@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+
+    <title>预约练车记录详情</title>
+
+    <!--Core CSS -->
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- 自己添加的样式文件 -->
+    <link rel="stylesheet" type="text/css" href="css/new-add-style.css">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="js/iCheck/skins/square/green.css" rel="stylesheet">
+</head>
+
+<body>
+
+<section id="container" class="format">
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row second-head">
+                <div class="col-lg-12">
+                    <div class="head-panel clearfix">
+                        <h2 class=" pull-left">预约练车记录详情</h2>
+                        <div class=" pull-right">
+                            <ul class="breadcrumb">
+                                <li><a href="#"><i class="fa fa-home"></i> 主页</a></li>
+                                <li><a href="#">预约练车管理</a></li>
+                                <li class="active">预约练车记录详情</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            预约练车记录详情
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="signupForm" method="get" action="">
+                                    
+                                    <div class="form-group ">
+                                        <label for="username" class="control-label col-lg-3 col-sm-3">教练名称</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="username" name="username" type="text" />
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-group ">
+                                        <label for="phone" class="control-label col-lg-3 col-sm-3">教练电话</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="phone" name="phone" type="text" value="13688888888" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="address" class="control-label col-lg-3 col-sm-3">练车场地</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="address" name="address" type="text" value="13688888888" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="project" class="control-label col-lg-3 col-sm-3">科目</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="project" name="project" type="text" value="科目二" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="idcardtype" class="control-label col-lg-3 col-sm-3">是否评价</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <div class="square-green mr90 single-row pull-left">
+                                                <div class="checkbox " style="padding-left: 0;position:relative;">
+                                                    <input id="paystatus" type="checkbox">
+                                                    <label for="paystatus" style="position: absolute; left: 35px; top: 9px; width:120px;">是</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="allmoney" class="control-label col-lg-3 col-sm-3">总费用</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="allmoney" name="allmoney" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="startTime" class="control-label col-lg-3 col-sm-3">开始时间</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="startTime" name="startTime" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="endTime" class="control-label col-lg-3 col-sm-3">结束时间</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="endTime" name="endTime" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="appoTime" class="control-label col-lg-3 col-sm-3">预约时间</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="appoTime" name="appoTime" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="courseTime" class="control-label col-lg-3 col-sm-3">课程时间</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="courseTime" name="courseTime" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="payTime" class="control-label col-lg-3 col-sm-3">支付时间</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="payTime" name="payTime" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="payway" class="control-label col-lg-3 col-sm-3">支付渠道</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="payway" name="payway" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="paymentDeduction" class="control-label col-lg-3 col-sm-3">支付抵扣金额</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="paymentDeduction" name="paymentDeduction" type="text" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="actpay" class="control-label col-lg-3 col-sm-3">实际支付金额</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="actpay" name="actpay" type="text" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="paystatus" class="control-label col-lg-3 col-sm-3">支付状态</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <div class="square-green mr90 single-row pull-left">
+                                                <div class="checkbox " style="padding-left: 0;position:relative;">
+                                                    <input id="paystatus" type="checkbox">
+                                                    <label for="paystatus" style="position: absolute; left: 35px; top: 9px; width:120px;">是</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-lg-6 col-sm-6">
+                                            <button class="btn btn-primary col-sm-3" type="submit">保存</button>
+                                            <button class="btn btn-warning col-sm-3 pull-right" type="button">取消课程预约</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+
+<!-- iCheck表单美化插件 -->
+<script src="js/iCheck/jquery.icheck.js"></script>
+
+<!--icheck init -->
+<script src="js/icheck-init.js"></script>
+
+<!--this page script-->
+<script src="js/validation-init.js"></script>
+<script type="text/javascript" src="js/ifreamHeight.js"></script>
+</body>
+</html>

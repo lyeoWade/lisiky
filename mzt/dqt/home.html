@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png" />
+	
+	<!-- 自己添加的样式文件 -->
+	<link rel="stylesheet" type="text/css" href="css/new-add-style.css">
+    <title>后台管理系统</title>
+    <!--Core CSS -->
+    <link rel="stylesheet" href="bs3/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="css/bootstrap-reset.css" />
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.css" />
+
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/style-responsive.css" />
+</head>
+
+<body>
+
+<section id="container">
+	<!--header start-->
+	<header class="header fixed-top clearfix">
+		<!--logo start-->
+		<div class="brand">
+	
+			<a href="home.html" class="logo">
+				<img src="images/logo.png" />
+			</a>
+			<div class="sidebar-toggle-box">
+				<div class="fa fa-bars"></div>
+			</div>
+		</div>
+		<!--logo end-->
+	
+		<div class="nav notify-row" id="top_menu">
+			驾校平台管理系统
+		</div>
+		<div class="top-nav clearfix">
+			<!--search & user info start-->
+			<ul class="nav pull-right top-menu">
+				<li class="dropdown">
+					<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+						<img alt="" src="images/avatar1_small.jpg">
+						<span class="username"></span>
+						<b class="caret"></b>
+					</a>
+					<ul class="dropdown-menu extended logout">
+						<li><a data-url="changepaddword.html"><i class=" fa fa-suitcase"></i>修改密码</a></li>
+						<li><a  data-url="showManagerEdit.html"><i class="fa fa-cog"></i> 个人资料</a></li>
+						<li><a href="login.html"><i class="fa fa-key"></i> 退出</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</header>
+	<!--header end-->
+	<aside>
+		<div id="sidebar" class="nav-collapse">
+			<!-- sidebar menu start-->            
+			<div class="leftside-navigation">
+				<ul class="sidebar-menu" id="nav-accordion">
+					<li class="active">
+						<a onClick="changeUrl('right.html');">
+							<i class="fa fa-home"></i>
+							<span>主页</span>
+						</a>
+					</li>
+					
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-male"></i>
+							<span>用户管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="usermanagement.html" ><i class="fa fa-angle-right"></i>查看普通用户</a></li>
+							<li><a data-url="experience.html" ><i class="fa fa-angle-right"></i>申请体验记录</a></li>
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-user"></i>
+							<span>图片集管理</span>
+						</a>
+						<ul class="sub">
+							
+							<li><a data-url="AddPic.html" ><i class="fa fa-angle-right"></i>新增图片集</a></li>
+							<li><a data-url="bookingTrain.html" ><i class="fa fa-angle-right"></i>预约练车列表</a></li>
+							<li><a data-url="examAppo.html" ><i class="fa fa-angle-right"></i> 查看考试预约信息</a></li>
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-user-md"></i>
+							<span>标签管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="tagAdd.html" ><i class="fa fa-angle-right"></i>新增标签</a></li>
+							<li><a data-url="tagList.html" ><i class="fa fa-angle-right"></i>标签列表</a></li>
+						</ul>
+					</li>
+					
+					<!--<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-building-o"></i>
+							<span>排课管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="courseArrayingAdd.html" ><i class="fa fa-angle-right"></i> 排课</a></li>
+							<li><a data-url="courseArraying.html" ><i class="fa fa-angle-right"></i> 排课列表</a></li>
+						</ul>
+					</li>
+					
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-edit"></i>
+							<span>保证金/佣金比例管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="bondset.html" ><i class="fa fa-angle-right"></i> 保证金比例设置</a></li>
+							<li><a data-url="commission.html" ><i class="fa fa-angle-right"></i> 佣金比例设置</a></li>
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-map-marker"></i>
+							<span>场地管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="addSpaceManspace.html" ><i class="fa fa-angle-right"></i>新增场地</a></li>
+							<li><a data-url="spaceManspace.html" ><i class="fa fa-angle-right"></i>查看场地列表</a></li>
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-home"></i>
+							<span>公司管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="addCompany.html" ><i class="fa fa-angle-right"></i>新增公司信息</a></li>
+							<li><a data-url="company.html" ><i class="fa fa-angle-right"></i>公司信息列表</a></li>
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-heart"></i>
+							<span>爱车服务管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="carService.html" ><i class="fa fa-angle-right"></i>信息提交列表</a></li>
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-bullhorn"></i>
+							<span>课程发布管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="pushtime.html"><i class="fa fa-angle-right"></i>设置发布时间</a></li>  
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-laptop"></i>
+							<span>封面图管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="bannerList.html"><i class="fa fa-angle-right"></i>查看轮播图</a></li>  
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-group"></i>
+							<span>管理员管理</span>
+						</a>
+						<ul class="sub">
+							<li id="addmanager"><a data-url="addManager.html" ><i class="fa fa-angle-right"></i>新增管理员</a></li>
+							<li><a data-url="showManager.html" ><i class="fa fa-angle-right"></i>查看管理员</a></li>
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-map-marker"></i>
+							<span>版本管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="versionEdit.html" ><i class="fa fa-undo"></i>版本管理</a></li>
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-exclamation"></i>
+							<span>反馈/举报管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="addManager.html" ><i class="fa fa-angle-right"></i>查看反馈/举报</a></li>
+						</ul>
+					</li>
+					<li class="sub-menu">
+						<a href="javascript:;">
+							<i class="fa fa-sun-o"></i>
+							<span>操作日志管理</span>
+						</a>
+						<ul class="sub">
+							<li><a data-url="operaLog.html" ><i class="fa fa-angle-right"></i>操作日志</a></li>
+						</ul>
+					</li> -->
+					
+				</ul>
+			</div>        
+			<!-- sidebar menu end-->
+		</div>
+	</aside>
+	<!--sidebar end-->
+    <!--main content start-->
+    <section id="main-content">
+		<section class="wrapper">
+			<!-- page start-->
+			<div class="row">
+				<section class="gray panel">
+					<iframe width="100%" border="0" frameborder="0" src="right.html" name="frame" id="frame" title="frame" scrolling="no"  onLoad="iFrameHeight()" ></iframe>
+				</section>
+			<div>
+			<!-- page end-->
+		</section>
+    </section>
+    <!--main content end-->
+    <!--right sidebar start-->
+	<div class="right-sidebar">
+		<div class="search-row">
+    		<input type="text" placeholder="Search" class="form-control">
+		</div>
+		<div class="right-stat-bar">
+			<ul class="right-side-accordion">
+				<li class="widget-collapsible">
+					<a href="#" class="head widget-head red-bg active clearfix">
+						<span class="pull-left">work progress (5)</span>
+						<span class="pull-right widget-collapse"><i class="ico-minus"></i></span>
+					</a>
+					<ul class="widget-container">
+						<li>
+							<div class="prog-row side-mini-stat clearfix">
+								<div class="side-graph-info">
+									
+								</div>
+								<div class="side-mini-graph">
+									<div class="target-sell">
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!--right sidebar end-->
+
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/jQuery-slimScroll-1.3.0/jquery.slimscroll.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+
+<!--jQuery Flot Chart-->
+<script src="js/flot-chart/jquery.flot.js"></script>
+<script src="js/flot-chart/jquery.flot.tooltip.min.js"></script>
+<script src="js/flot-chart/jquery.flot.resize.js"></script>
+<script src="js/flot-chart/jquery.flot.pie.resize.js"></script>
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("[data-url]").on('click',function(){
+		$("[data-url]").parent('li').removeClass('active');
+		$(this).parent('li').addClass('active')
+		$("#frame").attr('src',$(this).attr("data-url"));
+	});
+});
+</script>
+<script type="text/javascript">
+function iFrameHeight() {   
+	setInterval(function(){
+		var ifm= document.getElementById("frame");   
+		var subWeb = document.frames ? document.frames["frame"].document : ifm.contentDocument;   
+		if(ifm != null && subWeb != null) {
+		   ifm.height = subWeb.body.scrollHeight;
+		} 
+	},3000);
+};  
+</script>
+<script type="text/javascript" src="js/public.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>

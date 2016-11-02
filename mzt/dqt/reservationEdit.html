@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>课程预约信息</title>
+    <!--Core CSS -->
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- 自己添加的样式文件 -->
+    <link rel="stylesheet" type="text/css" href="css/new-add-style.css">
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="js/iCheck/skins/square/green.css" rel="stylesheet">
+</head>
+
+<body>
+
+<section id="container" class="format">
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+            <div class="row second-head">
+                <div class="col-lg-12">
+                    <div class="head-panel clearfix">
+                        <h2 class=" pull-left">课程预约信息</h2>
+                        <div class=" pull-right">
+                            <ul class="breadcrumb">
+                                <li><a href="#"><i class="fa fa-home"></i> 主页</a></li>
+                                <li><a href="#">课程预约</a></li>
+                                <li class="active">课程预约信息</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- page start-->
+            <div class="row">
+                <div class="col-lg-12">
+                    <section class="panel">
+                        <header class="panel-heading">
+                            课程预约信息
+                        </header>
+                        <div class="panel-body">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="signupForm" method="get" action="">
+                                    
+                                    <div class="form-group ">
+                                        <label for="username" class="control-label col-lg-3 col-sm-3">教练姓名</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="username" name="username" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="phone" class="control-label col-lg-3 col-sm-3">手机号码</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="phone" name="phone" type="text" value="13688888888" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="driverschool" class="control-label col-lg-3 col-sm-3">所属驾校</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="driverschool" name="driverschool" type="text" value="长征驾校" />
+                                        </div>
+                                    </div>
+                                     <div class="form-group ">
+                                        <label for="age" class="control-label col-lg-3 col-sm-3">年龄</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                             <input class="form-control " id="age" name="age" type="text" value="23" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="successnum" class="control-label col-lg-3 col-sm-3 mainc">预约学员信息</label>
+                                        <div class="col-lg-6 col-sm-6 "><div class="bd1">&nbsp;</div></div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="successnum" class="control-label col-lg-3 col-sm-3">学员姓名</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="successnum" name="successnum" type="text" value="李白清"/>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="incomerank" class="control-label col-lg-3 col-sm-3">预约时间</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="incomerank" name="incomerank" type="text" value="课程的时间还是学员约课的时间" disabled />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="idcardtype" class="control-label col-lg-3 col-sm-3">驾照类型</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <select class="form-control" id="idcardtype" disabled="">
+                                                <option>C1</option>
+                                                <option>C2</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="field" class="control-label col-lg-3 col-sm-3">场地</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <input class="form-control " id="field" name="field" type="text" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="subject" class="control-label col-lg-3 col-sm-3">科目</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <select class="form-control" id="subject" disabled="">
+                                                <option>科目一</option>
+                                                <option>科目二</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="subject" class="control-label col-lg-3 col-sm-3">课程状态</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <select class="form-control" id="subject" disabled="">
+                                                <option>未开始</option>
+                                                <option>已开始</option>
+                                                <option>已结束</option>
+                                                <option>已支付</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="subject" class="control-label col-lg-3 col-sm-3">预约状态</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <select class="form-control" id="subject" disabled="">
+                                                <option>新预约</option>
+                                                <option>已完成</option>
+                                                <option>已取消</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group ">
+                                        <label for="" class="control-label col-lg-3 col-sm-3">头像</label>
+                                        <div class="col-lg-6 col-sm-6">
+                                            <img src="images/lock_thumb.jpg">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-lg-6 col-sm-6">
+                                            <button class="btn btn-primary col-sm-3" type="submit">保存</button>
+                                            <button class="btn btn-warning col-sm-3 pull-right" type="button" id="cancelappo">取消预约</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+</section>
+
+<!-- Placed js at the end of the document so the pages load faster -->
+
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/jquery.validate.min.js"></script>
+
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+
+<!-- iCheck表单美化插件 -->
+<script src="js/iCheck/jquery.icheck.js"></script>
+
+<!--icheck init -->
+<script src="js/icheck-init.js"></script>
+
+<!--this page script-->
+<script src="js/validation-init.js"></script>
+<script type="text/javascript" src="js/ifreamHeight.js"></script>
+</body>
+</html>

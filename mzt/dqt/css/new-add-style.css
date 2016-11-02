@@ -1,0 +1,254 @@
+
+
+
+body,ul,ol,li,p,h1,h2,h3,h4,h5,h6,form,fieldset,table,td,img,div,dl,dt,dd,input
+
+{margin:0;padding:0;}
+body{font-size:12px; font-family:"微软雅黑";}
+img{border:none;}
+ul,ol{list-style:none;}
+input,select,textarea{outline:none; border:none; background:#FFF;}
+textarea{resize:none;}
+a{text-decoration:none; font-family:"微软雅黑";}
+
+
+fieldset{
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+}
+
+/*清浮动*/
+.clearfix:after{
+content:"";
+display:block;
+clear:both;
+}
+.clearfix{zoom:1;}
+
+.fl{ float: left;}
+.fr{ float: right;}
+#intor{ display: none; }
+/*   add-css 新增css 格式化css */
+
+.second-head{
+
+}
+.second-head .breadcrumb{
+    background: transparent;
+}
+
+.second-head h2{ margin: 0; }
+.second-head {}
+.second-head {}
+
+
+.thead .fa{ font-size: 16px; margin-right:8px;  }
+
+.table-set .pagination{
+   margin:0 0; 
+}
+.table-set .panel-heading{
+    line-height: 24px;
+}
+
+.table-set .searchpanel label{ line-height: 34px; }
+.table-set .searchpanel .form-group{ margin-bottom: 0; }
+
+.table-set .searchpanel .col-lg-1,
+.table-set .searchpanel .col-lg-8,
+.table-set .searchpanel .col-lg-4,
+.table-set .searchpanel .col-sm-4,
+.table-set .searchpanel .col-sm-12,
+.table-set .searchpanel .col-sm-3,
+.table-set .searchpanel .col-sm-6,
+.table-set .searchpanel .col-sm-8,
+.table-set .searchpanel .col-sm-2{
+	padding: 0;
+}
+
+.gray{ background: #f1f2f7 !important; }
+.sub li{ cursor: pointer; }
+
+
+.format #main-content{ margin-left: 0; }
+.format .wrapper{ margin-top: 0; }
+#signupForm{ padding:0 0 50px 0; }
+
+.h100{
+	height: 300px;
+	overflow: hidden;
+}
+.h130{
+	height: 300px;
+	overflow: hidden;
+}
+.h160{
+	height: 300px;
+	overflow: hidden;
+}
+.h190{
+	height: 300px;
+	overflow: hidden;
+}
+.h220{
+	height: 300px;
+	overflow: hidden;
+}
+.h250{
+	height: 300px;
+	overflow: hidden;
+}
+.h280{
+	height: 300px;
+	overflow: hidden;
+}
+.h300{
+	height: 300px;
+	overflow: hidden;
+}
+.h320{
+	height: 300px;
+	overflow: hidden;
+}
+.h350{
+	height: 300px;
+	overflow: hidden;
+}
+.h370{
+	height: 300px;
+	overflow: hidden;
+}
+.h400{
+	height: 300px;
+	overflow: hidden;
+}
+
+
+.pdl0{
+	padding-left: 0 !important;
+}
+
+.mr0{
+	margin: 0 !important;
+}
+
+.addtip{ line-height: 34px; display: inline-block; padding-left: 20px; }
+.error{ color: red; }
+.success{ color: green;}
+/* 封面图管理自定义css */
+
+
+
+.mr10{ margin-right: 10px !important; }
+.mr15{ margin-right: 15px !important; }
+.mr20{ margin-right: 20px !important; }
+.mr25{ margin-right: 25px !important; }
+.mr30{ margin-right: 30px !important; }
+.mr35{ margin-right: 35px !important; }
+.mr40{ margin-right: 40px !important; }
+.mr45{ margin-right: 45px !important; }
+
+.mr60{ margin-right: 60px !important; }
+
+.mr80{ margin-right: 80px !important; }
+
+.mr90{ margin-right: 90px !important; }
+
+.mr95{ margin-right: 95px !important; }
+
+.mr100{ margin-right: 100px !important; }
+
+
+
+/* 颜色  */
+.red{ color: #f00; }
+.black{ color: #000000;}
+.mainc{ color: #1fb5ad; }
+/* 边框 */
+.bd1{ border-bottom: 1px solid #1fb5ad; }
+
+/* chcked */
+
+.chckedstyle{
+	position: absolute; 
+	top: -20%; 
+	left: -20%; 
+	display: block; 
+	width: 140%; 
+	height: 140%;
+	margin: 0px; 
+	padding: 0px; 
+	border: 0px; 
+	opacity: 0; 
+	background: rgb(255, 255, 255);
+}
+
+
+
+
+
+#picList,#coverpic{
+	width: 118px;
+	height: 177px;
+	opacity: 0;
+	position: relative;
+	z-index: 20;
+	cursor: pointer;
+}
+
+.ListpicMarkTag,.coverpicMarkTag{
+	width: 118px;
+	height: 177px;
+	border:1px dashed #ccc;
+	position: absolute;
+	left: 15px;
+	top: 0;
+
+}
+.ListpicMarkTag::after,.coverpicMarkTag::after{
+	content: '';
+	display: block;
+	width: 50px;
+	height: 1px;
+	background-color: #ccc;
+	position: absolute;
+	left: 34px;
+	top: 88px;
+}
+.ListpicMarkTag::before,.coverpicMarkTag::before{
+	content: '';
+	display: block;
+	width: 1px;
+	height: 50px;
+	background-color: #ccc;
+	position: absolute;
+	left: 58px;
+	top: 63px;
+}
+
+.containerCut{
+	width: 100%;
+	background-color: rgba(0,0,0,0.5);
+	height: 100%;
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 0;
+	padding: 30px 300px;
+}
+
+
+
+.arcl{
+	width: 118px;
+	height: 177px;
+	margin: 0 10px 10px 0;
+}
+.arcl img{
+	width: 118px;
+	height: 177px;
+}
+
