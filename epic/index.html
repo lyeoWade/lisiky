@@ -32,6 +32,16 @@
 				{"name":"黑丝美女","link":"index.html"},
 				{"name":"性感动图","link":"index.html"}
 			];
+			$scope.imageList=[];
+			$http.post('test.php',{
+				params:{}//
+			}).success(function(res){
+				$scope.imageList=res;
+			}).error(function(){
+				alert('失败;');
+			});
+
+
 		});
 	</script>
 </head>
@@ -106,25 +116,19 @@
 							</div>
 						</div>
 						<div class="mui-slider-indicator mui-text-right">
-							<div class="mui-indicator mui-active"></div>
-							<div class="mui-indicator"></div>
-							<div class="mui-indicator"></div>
-							<div class="mui-indicator"></div>
+							
 						</div>
 					</div>
 				</section>
 				<div class="mui-content-padded">
-					<ul class="mainWrap">
-						<li>
-							<a href=""><img src="images/1.jpg"></a>
-						</li>
-						<li>
-							<a href=""><img src="images/3.jpg"></a>
+					<ul class="mainWrap" id="list">
+						<li ng-repeat="arr in imageList">
+							<a href="content.html?id={{arr.id}}"><img src={{arr.coverpic}}></a>
+							<h2><a href="content.html?id={{arr.id}}">{{arr.title}}</a></h2>
+							<p><a href="">清纯妹子</a><span>浏览:{{arr.frequency}}</span><time>{{arr.pushtime}}</time></p>
 						</li>
 					</ul>
 				</div>
-
-
 			</div>
 		</div>
 		<!-- off-canvas backdrop -->
@@ -135,7 +139,8 @@
 
 <!-- 例子 -->
 <script src="js/mui.min.js"></script>
-
+<script src="js/mui.lazyload.js"></script>
+<script src="js/mui.lazyload.img.js"></script>
 <script>
 	mui.init();
 	
@@ -150,6 +155,27 @@
 			});
 		});
 	}
+
+	// var createFragment = function(count) {
+	// 	var fragment = document.createDocumentFragment();
+	// 	var li;
+	// 	for (var i = 0; i < count; i++) {
+	// 		li = document.createElement('li');
+	// 		li.className = 'mui-table-view-cell mui-media';
+	// 		li.innerHTML = '<a class="mui-navigate-right"><img class="mui-media-object mui-pull-left" data-lazyload="http://www.dcloud.io/hellomui/images/' + (i % 5 + 1) + '.jpg?version=' + Math.random() * 1000 + '"></a>';
+	// 		fragment.appendChild(li);
+	// 	}
+	// 	return fragment;
+	// };
+
+
+	// (function($) {
+	// 	var list = document.getElementById("list");
+	// 	list.appendChild('<li></li>');
+	// 	$(document).imageLazyload({
+	// 		placeholder: '../images/60x60.gif'
+	// 	});
+	// })(mui);
 </script>
 
 

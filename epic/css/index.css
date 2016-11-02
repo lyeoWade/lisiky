@@ -85,7 +85,15 @@ input[type=time] {-webkit-appearance:none; /*去除input默认样式*/}
   margin-bottom: 0.2rem;
   border-radius: 5px;
 }
-.mainWrap img{ width: 100%;  border-radius: 5px 5px 0 0;}
+.mainWrap img{ width: 100%;  }
 
 .mui-content  { background: #fff !important;  }
 
+.mainWrap li{
+  background-color:rgba(243,237,239,0.6);
+  padding:0.05rem;
+}
+.mainWrap li h2{
+  font-size: 0.12rem;
+  line-height: 0.20rem;
+}
