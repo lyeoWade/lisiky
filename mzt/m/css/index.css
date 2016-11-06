@@ -79,7 +79,11 @@ input[type=time] {-webkit-appearance:none; /*去除input默认样式*/}
   height: 1.5rem;
 }
 
-
+/* sider */
+  
+.sideNav li a{
+  font-size: 0.14rem;
+}
 .mainWrap{}
 .mainWrap li{
   margin-bottom: 0.2rem;
@@ -93,7 +97,62 @@ input[type=time] {-webkit-appearance:none; /*去除input默认样式*/}
   background-color:rgba(243,237,239,0.6);
   padding:0.05rem;
 }
+.mainWrap li a{
+  color: #FF88AF;
+}
+
 .mainWrap li h2{
   font-size: 0.12rem;
   line-height: 0.20rem;
 }
+.sundry{
+  font-size: 0.12rem;
+
+}
+.mainWrap li .sundry a{
+  color: #666 ;
+  float: right;
+  font-weight: bold;
+}
+.sundry span{
+  margin: 0 0.1rem 0 0;
+}
+.sundry{
+  
+}
+.sundry{
+  
+}
+.loadMore{
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+.loadMore span{
+  color: #FF88AF;
+  font-size: 0.16rem;
+} 
+
+.logo{
+  text-align: center;
+  padding: 0.2rem 0;
+}
+
+.logo img{
+  border-radius: 50%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

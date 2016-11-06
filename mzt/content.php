@@ -68,7 +68,7 @@
             <div class="main-image">
               <ul>
                   <?php 
-                    echo '<li id="imgdata"><img src="'.substr($arr[0],6).'" img-data=""/></li>';
+                    echo '<li id="imgdata"><img src="'.$seaverSrc.substr($arr[0],6).'" img-data=""/></li>';
                   ?>
               </ul>
 
@@ -111,10 +111,11 @@
       <?php 
         }
       }else{
+        
       }
       ?>
       <dl class="hotlist">
-        <script src="http://e.e708.net/cpc/diy/index.php?78285_4_20_2_d70000_730|160_" charset="gb2312"></script>
+        <!--  -->
         <div style="width: 100%; height: 20px;"></div>
 
         <dt>推荐妹子</dt>
@@ -126,7 +127,7 @@
         ?>
         <dd>
             <a href="content.html?id=<?php echo $rand['id']?>" target="_blank">
-                <img width="236"  alt="<?php echo $rand['title']?>" src="<?php echo substr($rand['coverpic'],3)?>" data-original="images/8.jpg" style="display: inline;">
+                <img width="236"  alt="<?php echo $rand['title']?>" src="<?php echo $seaverSrc.substr($rand['coverpic'],3)?>" data-original="images/8.jpg" style="display: inline;">
             </a>
             <span>
                 <a href="content.html?id=<?php echo $rand['id']?>" target="_blank"><?php echo $rand['title']?></a>

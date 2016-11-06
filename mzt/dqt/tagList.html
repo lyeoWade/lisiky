@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="TagList">
 <head>
     <meta charset="utf-8">
 
@@ -7,26 +7,51 @@
     <meta name="description" content="">
     <meta name="author" content="ThemeBucket">
     <link rel="shortcut icon" href="images/favicon.png">
+    <script type="text/javascript" src="../js/angular.js"></script>
 
-    <title>查看保证金列表</title>
+    <title>标签列表</title>
 
     <!--Core CSS -->
     <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap-reset.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
-<!-- 自己添加的样式文件 -->
+    <!-- 自己添加的样式文件 -->
     <link rel="stylesheet" type="text/css" href="css/new-add-style.css">
     <!--responsive table-->
     <link href="css/table-responsive.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/bootstrap-switch.css" />
-    <link href="js/iCheck/skins/square/green.css" rel="stylesheet">
     <!-- Custom styles for this template -->
     <link href="css/style.css" rel="stylesheet">
     <link href="css/style-responsive.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var app=angular.module('TagList',[]);
 
+        app.filter('odditems',function(){
+            return JSON.parse(str);
+        });
+
+        var MyList=app.controller('mianList',function($scope,$http){
+            $scope.imagesArr=[];
+            var transform = function(data){
+                return $.param(data);
+            }
+
+            $http.post("php/imageList.php", {
+                "type":"tagList"
+            },{
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                transformRequest: transform
+            }).success(function(res) {
+
+                res.result.forEach(function(str){
+                    $scope.imagesArr.push(eval('('+str+')'));
+                });
+            });
+        });
+    </script>
 </head>
 
-<body>
+<body ng-controller="mianList">
 
 <section id="container" class="format" >
     <!--main content start-->
@@ -38,23 +63,8 @@
             <div class="col-sm-12 table-set">
                 <section class="panel">
                     <header class="panel-heading">
-                        查看保证金列表
-                        <div class="pull-right">
-                            
-                         </div>
-                    </header>
-                    <header class="panel-heading clearfix searchpanel">
-                        <div class="pull-left col-sm-11  col-lg-11">
-                            <div class="form-group pull-left col-lg-4">
-                                <label for="selectdate" class="control-label col-lg-1 col-sm-2">日期</label>
-                                <div class="col-lg-8 col-sm-8">
-                                    <input id="selectdate" name="selectdate" placeholder="选择日期" class="form-control " onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="pull-right">
-                            <input type="button" class="btn btn-success" value="查询">
-                        </div>
+                        <span>标签列表</span>
+                        <a href="javascript:history.go(-1);" class="btn btn-primary btn-sm pull-right backpage"><i class="fa  fa-chevron-circle-left"></i>&nbsp;&nbsp;返回上一页</a>
                     </header>
                     <div class="panel-body">
                         <section id="unseen">
@@ -70,34 +80,22 @@
                                 </thead>
 
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>充值了666元</td>
-                                        <td>666</td>
-                                        <td>2016-12-12 12:30:10</td>
+                                    <tr ng-repeat="data in imagesArr ">
+                                        <td>{{$index+1}}</td>
+                                        <td>{{data.name}}</td>
+                                        <td>{{data.ename}}</td>
+                                        <td>{{data.createTime | date:"yy-mm-dd HH:ii:ss"}}</td>
                                         <td class="numeric">
-                                           <div class="btn-group">
-                                            <a href="bondEdit.html" class="btn btn-primary btn-sm"><i class="fa fa-search-minus"></i></a>
-                                           </div>
+                                            <div class="btn-group">
+                                                <a href="bondEdit.html" class="btn btn-primary btn-sm"><i class="fa fa-search-minus"></i>编辑</a>
+                                                <a href="bondEdit.html" class="btn btn-warning btn-sm"><i class="fa fa-search-minus"></i>删除</a>
+                                            </div>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>充值了666元</td>
-                                        <td>666</td>
-                                        <td>2016-12-12 12:30:10</td>
-                                        <td class="numeric">
-                                           <div class="btn-group">
-                                            <a href="bondEdit.html" class="btn btn-primary btn-sm"><i class="fa fa-search-minus"></i></a>
-                                           </div>
-                                        </td>
-                                    </tr>
-
-                               
                                 </tbody>
                             </table>
                         </section>
-                        <div class="box-footer clearfix" id="pagination">
+                       <!--  <div class="box-footer clearfix" id="pagination">
 
                             <div class="pull-left">
                                 <span>共 4 条数据</span>&nbsp;&nbsp;&nbsp;<span>共  1 页</span>
@@ -110,7 +108,7 @@
                                 <li><a>下一页</a></li>
                                 <li><a>末页</a></li>
                             </ul>
-                        </div>
+                        </div> -->
                     </div>
 
                 </section>
@@ -122,14 +120,12 @@
     <!--main content end-->
 </section>
 
-<!-- Placed js at the end of the document so the pages load faster -->
-
 <!--Core js-->
 <script src="js/jquery.js"></script>
 <script src="bs3/js/bootstrap.min.js"></script>
-
-<!--common script init for all pages-->
-<script src="js/scripts.js"></script>
+<script src="js/scripts.js">
+    
+</script>
 
 </body>
 </html>

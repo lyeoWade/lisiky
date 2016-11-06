@@ -36,4 +36,6 @@ mysql_query('SET NAMES UTF8')or die ("字符集设置错误");
 		};
 	};	
 
+
+	$seaverSrc='http://www.images007.com/';
 ?>

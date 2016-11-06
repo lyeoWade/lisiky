@@ -361,3 +361,5 @@ function operalog(intor){
 }
 
 
+//返回页面顶部
+parent.scrollTo(0,0);

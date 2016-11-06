@@ -27,7 +27,7 @@
             //var_dump($rand);
       ?>
       <a href="content.html?id=<?php echo $rand['id']?>" target="_blank">
-          <img width="115" height="115" alt="<?php echo $rand['title']?>" src="<?php echo substr($rand['coverpic'],3)?>">
+          <img width="115" height="115" alt="<?php echo $rand['title']?>" src="<?php echo $seaverSrc.substr($rand['coverpic'],3)?>">
       </a>
       <?php 
         };

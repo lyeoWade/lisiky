@@ -22,5 +22,6 @@
     }
   }
 </script>
-<script src="http://e.e708.net/cpc/tj.php?78285_5_21_2_d70000___0" charset="gb2312"></script>
+<!-- <script src="http://e.e708.net/cpc/tj.php?78285_5_21_2_d70000___0" charset="gb2312"></script>
 <script src="http://e.e708.net/cpc/pf.php?78285_3_18_0|1|2_d70000___0" charset="gb2312"></script>
+ -->
