@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body style="background: #f1f1f1;">
+<canvas id="c1" width="850" height="500" style="background: #fff;"> 请升级浏览器 </canvas>
+
+<script type="text/javascript">
+window.onload=function(){
+	var oC=document.getElementById('c1');
+	var ctx=oC.getContext('2d');
+	var img=new Image();
+	img.onload=function(){
+		ctx.drawImage(img,0,0);
+	}
+	img.src='1.jpg';
+};
+</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<canvas id="c1" width="600" height="600" style="background: #ccc;"> 请升级浏览器 </canvas>
+
+<script type="text/javascript">
+	window.onload=function(){
+		var oC1=document.getElementById('c1');
+		var ctx=oC1.getContext('2d');
+		ctx.fillStyle='#ff0000';
+		ctx.fillRect(50,50,200,200);
+		ctx.clearRect(75,75,150,150);
+		ctx.strokeStyle='green'
+		ctx.strokeRect(100,100,50,50);
+	};
+</script>
+</body>
+</html>

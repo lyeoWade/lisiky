@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myapp'>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('myapp',[]);
+		app.controller('main',function($scope){
+			$scope.submitFn=function(){
+				console.log('触发了');
+			}
+		});
+	</script>
+	<style type="text/css">
+		.error{ border:1px solid #f00; }
+		.success{ border:1px solid  green;  }
+	</style>
+	<title>Document</title>
+</head>
+<body ng-controller="main">
+	<form name="formsub">
+		<input type="text" ng-model="names" ng-class="{ 'error':formsub.names.$invalid }" ng-minlength="3" ng-maxlength="13"  name="names"><br />
+		<div ng-if="formsub.names.$invalid">出错了</div>
+	</form>
+</body>
+</html>
