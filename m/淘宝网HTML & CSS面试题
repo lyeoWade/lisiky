@@ -1,0 +1,87 @@
+淘宝网HTML & CSS面试题
+
+1. Doctype? 严格模式与混杂模式-如何触发这两种模式，区分它们有何意义?
+	Doctype ： 文档头，声明这个文件的呈现方式；各个浏览器对页面的标准吧，他们对页面的解析会不一样，这样会导致页面在各个模式下面的呈现方式不一样。触发他们只是需要设置他的doctype  而我现在一般使用html5的文档头 <!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">        
+
+
+2. 行内元素有哪些？块级元素有哪些？CSS的盒模型？
+	行内元素 ： a span i strong b time img abbr acronym bdo big br button cite code del dfn em iframe input ins kbd label map q samp select textarea sub sup 
+	块级元素 ： div p section dd dt dl h1-h6 table td tr th tbody thead  ul li ol 等等 
+	盒子模型 ： 其实就是网页中的一个一个的块儿，他由width height padding  border margin 组成一个盒子，一般情况下他会在网页文档流中排列；
+
+
+3. CSS引入的方式有哪些? link和@import的区别是?
+	引入方式 link @import
+
+	link是html的一个标签在页面中引入外部样式
+	@import是css提供的方法 类似php中的include
+	两者差距还是比较大的 @import只能加载css 而link还能定义rss ，ref属性等等
+
+
+
+4. CSS选择符有哪些？哪些属性可以继承？优先级算法如何计算？内联和important哪个优先级高？
+	
+	选择符:
+		*
+		类 . 
+		id 
+		标签 tag 
+	font-size font-family color 
+
+
+5. 前端页面有哪三层构成，分别是什么？作用是什么？
+	js
+	html
+	css
+
+
+
+6. css的基本语句构成是？
+	名字{属性:值}
+
+7. 你做的页面在哪些流览器测试过？这些浏览器的内核分别是什么?经常遇到的浏览器的兼容性有哪些？怎么会出现？解决方法是什么？
+
+
+8. 如何居中一个浮动元素?
+
+9. 有没有关注HTML5和CSS3?如有请简单说一些您对它们的了解情况！
+10. 你怎么来实现下面这个设计图,主要讲述思路 （效果图省略）
+11. 如果让你来制作一个访问量很高的大型网站，你会如何来管理所有CSS文件、JS与图片？
+12. 你对前端界面工程师这个职位是怎么样理解的？它的前景会怎么样？
+
+
+
+淘宝网Javascript面试题
+
+1. js是什么，js和html 的开发如何结合？
+2. 怎样添加、移除、移动、复制、创建和查找节点
+3. 怎样使用事件以及IE和DOM事件模型之间存在哪些主要差别
+4. 面向对象编程:b怎么继承a
+
+5. 看看下面alert的结果是什么
+view sourceprint?1.function b(x, y, a) {
+.arguments[2] = 10;
+.alert(a);
+}
+b(1, 2, 3);
+复制代码
+如果函数体改成下面，结果又会是什么？
+a = 10;
+alert(arguments[2] );
+复制代码
+6. 请编写一个JavaScript函数 parseQueryString，它的用途是把URL参数解析为一个对象
+var obj = parseQueryString(url);
+alert(obj.key0)   // 输出0
+复制代码
+7. ajax是什么?   ajax的交互模型? 同步和异步的区别? 如何解决跨域问题?
+8. 什么是闭包？下面这个ul，如何点击每一列的时候alert其index?
+<ul id=”test”>
+    <li>这是第一条</li><li>这是第二条</li><li>这是第三条</li>
+</ul>
+复制代码
+9. 最近看的一篇Javascript的文章是？
+
+10. 常使用的库有哪些？常用的前端开发工具？开发过什么应用或组件？
+	
+11.说说YSlow(可以详细一点)

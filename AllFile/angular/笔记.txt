@@ -1,0 +1,36 @@
+class两种写法
+1.直接写		class="{{xxx}}"
+2.数组			ng-class="arr" 
+
+style两种写法
+1.直接写		style="{{xxx}}"
+2.json			ng-style="json"
+
+
+ng-if="条件"		删除元素
+
+ng-show=""		显示
+ng-hide=""		隐藏
+
+
+控制器——Controller
+1.数据
+
+ng-repeat、ng-事件、赋值	不能见面——用函数倒一下
+
+$http.get(url, {params: {}}).success().error();
+$http.post(url, {params: {}}).success().error();
+$http.jsonp(url, {params: {}}).success().error();
+
+
+
+
+
+
+
+
+
+
+
+
+

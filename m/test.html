@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="../js/angular.js"></script>
+	<title>Document</title>
+	<script type="text/javascript">
+		var app=angular.module('test',[]);
+		app.controller('m',function($scope){
+			$scope.fns=function(){
+				alert(123)
+			}
+		});
+	</script>
+</head>
+<body ng-controller="m">
+	<span ng-click="fns()">点击我</span>
+</body>
+</html>

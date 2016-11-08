@@ -26,11 +26,11 @@
 		var app=angular.module('dqtIndex',[]);
 		app.controller('main',function($scope,$http){
 			$scope.nav=[
-				{"name":"首页","link":"home.html"},
-				// {"name":"性感美女","link":"home.html"},
-				// {"name":"清纯美女","link":"index.html"},
-				// {"name":"黑丝美女","link":"index.html"},
-				// {"name":"性感动图","link":"index.html"}
+				{"name":"首页","link":"index.html"},
+				{"name":"性感美女","link":"index.html"},
+				{"name":"清纯美女","link":"index.html"},
+				{"name":"黑丝美女","link":"index.html"},
+				{"name":"性感动图","link":"index.html"}
 			];
 			$scope.imageList=[];
 			var transform = function(data){
@@ -52,7 +52,7 @@
 	                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
 	                transformRequest: transform
 	            }).success(function(res){
-	            	console.log(res)
+	            	//console.log(res)
 	            	if(res.result.length<5){ 
 	            		$scope.initloadingHtml="没有更多数据了";
 	            	};
@@ -124,7 +124,7 @@
 				</ul>
 				<div class="tagWrap">
 					<p>相关标签</p>
-					<a href="label.html?keywords={{v.name}}" ng-repeat=" v in tagArr">{{v.name}}</a>
+					<a href="" ng-repeat=" v in tagArr">{{v.name}}</a>
 				</div>
 			</div>
 		</div>
@@ -132,8 +132,7 @@
 	<!--主界面部分-->
 	<div class="mui-inner-wrap">
 		<header class="mui-bar mui-bar-nav">
-			<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left" style="color: #ff88af;"></a>
-			<h1 class="mainTitle"><a href="home.html">第七图</a></h1>
+			<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
 		</header>
 		
 		<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
@@ -184,26 +183,16 @@
 						</div>
 					</div>
 				</section> -->
-				<script type="text/javascript">
-				    /*20:3 手机顶部*/
-				    var cpro_id = "u2811263";
-				</script>
-				<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/cm.js"></script>
+
 				<div class="mui-content-padded">
 					<ul class="mainWrap" id="list">
 						<li ng-repeat="arr in imageList">
 							<a href="detail.html?id={{arr.id}}"><img src={{"http://www.images007.com/"+arr.coverpic+""}}></a>
 							<h2><a href="detail.html?id={{arr.id}}"> {{arr.title}}</a></h2>
-							<p class="sundry"><!-- <a href="">清纯妹子</a> --><span>浏览:{{arr.frequency}}</span><time>Time:{{arr.pushtime}}</time></p>
+							<p class="sundry"><a href="">清纯妹子</a><span>浏览:{{arr.frequency}}</span><time>Time:{{arr.pushtime}}</time></p>
 						</li>
 					</ul>
 					<div class="loadMore"><span ng-click="showMore()">{{initloadingHtml}}</span></div>
-					<div style="height: 0.16rem;"></div>
-					<script type="text/javascript">
-					    /*20:3 创建于 2016/11/8*/
-					    var cpro_id = "u2811266";
-					</script>
-					<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/cm.js"></script>
 				</div>
 			</div>
 		</div>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html ng-app="" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		
+	</script>
+	<style type="text/css">
+		.box{ width: 300px; height: 300px; background: #f00;  }
+		.box2{ width: 100px; height: 100px; background: green;  }
+	</style>
+</head>
+<body>
+	<div ng-init="arr=['box','box2','box3']">
+		<input type="text" ng-model="class" name="">
+		<div ng-class="arr"></div>
+	</div>
+</body>
+</html>

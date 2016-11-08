@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="angular.js"></script>
+	<title>Document</title>
+</head>
+<body ng-init="arr=[2,32,435,8,56,786,4,6,76]">
+	
+		<div ng-repeat="(k,v) in arr" style="{{v<10?'background:#f00':''}}">{{k}}--->{{v}}</div>
+	
+</body>
+</html>

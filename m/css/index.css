@@ -79,18 +79,6 @@ input[type=time] {-webkit-appearance:none; /*去除input默认样式*/}
   height: 1.5rem;
 }
 
-
-.mainTitle{
-  font-size: 0.20rem;
-  text-align: center;
-  line-height: 0.34rem;
-}
-.mainTitle a{
-  display: block;
-  color: #ff88af;
-  text-indent: -20px;
-}
-
 /* sider */
   
 .sideNav li a{
@@ -196,37 +184,3 @@ input[type=time] {-webkit-appearance:none; /*去除input默认样式*/}
 .content-main-wrap img{ text-align: center; display: inline-block; }
 .wxts{ font-size: 0.12rem;  }
 .ssbq a{  color: #ff88af; margin-left: 0.05rem; }
-
-.guess h2{ font-size: 0.14rem; height: 0.3rem; line-height: 0.3rem;  }
-.guess li{
-  line-height: 0.24rem;
-  font-size: 0.12rem;
-}
-.guess li i{
-  font-style: normal;
-  padding: 0.01rem;
-  font-size: 0.16rem !important;
-  color: #ff88af;
-}
-.guess li a{
-  color: #ff88af;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

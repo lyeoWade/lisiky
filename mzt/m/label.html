@@ -24,7 +24,7 @@
 	<script type="text/javascript" src="../js/angular.js"></script>
 	<script type="text/javascript">
 		var app=angular.module('dqtIndex',[]);
-		app.controller('main',function($scope,$http){
+		app.controller('main',function($scope,$http,$location){
 			$scope.nav=[
 				{"name":"首页","link":"home.html"},
 				// {"name":"性感美女","link":"home.html"},
@@ -33,21 +33,24 @@
 				// {"name":"性感动图","link":"index.html"}
 			];
 			$scope.imageList=[];
+			$scope.keywords=decodeURIComponent($location.absUrl().split('?')[1].split('=')[1]);
+
 			var transform = function(data){
                 return $.param(data);
             }
             $scope.page=1;
             try{
-				ajax($scope.page);
+				ajax($scope.page,$scope.keywords);
 				getTag();
             }catch(e){
             	//console.log(e)
             }
             
-            function ajax(n){
+            function ajax(n,keywords){
             	$http.post('../dqt/php/imageList.php',{
 					"type":"GetImageList",
-					"page":n
+					"page":n,
+					"keywords":keywords
 				},{
 	                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
 	                transformRequest: transform
@@ -65,7 +68,6 @@
 				});
             };
             $scope.$watch('imageList',function(re,old){
-            	//console.log(re.length+'-'+old.length);
             	if(re.length!=old.length){
             		$scope.loadingTag=true;
 
@@ -78,7 +80,7 @@
 				$scope.loadingTag?$scope.initloadingHtml="加载更多":$scope.initloadingHtml="拼命加载中...";
 
 				$scope.page++;
-				ajax($scope.page);
+				ajax($scope.page,$scope.keywords);
 			};
 
 

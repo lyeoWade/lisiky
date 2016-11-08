@@ -6,6 +6,7 @@
 
 	$type         = $_POST['type'];
 	$id           = $_POST['id'];
+	$keywords     = $_POST['keywords'];
 
 	$title        =htmlspecialchars($_POST['title']);
 
@@ -20,6 +21,7 @@
 	$etag    =htmlspecialchars($_POST['ename']);
 	date_default_timezone_set('Asia/Shanghai');
 	$tt=date('Y-m-d H:i:s');
+
 
 	switch($type){
 		case 'AddOneImageList': //添加一篇文章
@@ -42,31 +44,19 @@
 			}
 		break;
 		case 'GetImageList':
-			//echo "324435";
-			// $tagListSql=mysql_query("SELECT * FROM imagearr order by pushtime DESC") or die(mysql_error());
-			// $i=0;
-			// $result=array();
-			// while ($row=mysql_fetch_array($tagListSql)) {
-			// 	$result[$i]="{'id':'".$row["id"]."','title':'".$row["title"]."','columns':'".$row["columns"]."','pushtime':'".$row["pushtime"]."','frequency':'".$row["frequency"]."','coverpic':'".$row["coverpic"]."','pic':'".$row["pic"]."','tag':'".$row["tag"]."','note':'".$row["note"]."','user':'".$row["user"]."'}";
-			// 	$i++;
-			// }
-			// $a=json_encode($result);
-			// echo '{"result":'.$a.'}';
-
-
-			$id=$_GET['id'];
-          	echo $id;
-	        if (!isset($id)) {
-	          $id='';
+	        if($keywords){
+	        	$setsql="WHERE tag like '%$keywords%' ";
 	        };
+	        
+
 	        $perNumber=5; //每页显示的记录数
 	        $page=$_POST['page']; //获得当前的页面值
-	        //echo $page;
+	        
 	        $count=mysql_query("select count(*) from imagearr ".$setsql." "); //获得记录总数
 	        $rs=mysql_fetch_array($count); 
 	        $totalNumber=$rs[0]; //总数 
 	        $totalPage=ceil($totalNumber/$perNumber); //计算出总页数
-	        if (!isset($page)) {
+	        if (!isset($page) || $page==0) {
 	         $page=1;
 	        } //如果没有值,则赋值1
 	        
@@ -76,12 +66,23 @@
 	        $i=0;
 			$result=array();
 	        while ($row=mysql_fetch_array($tagListSql)) {
-	        	$result[$i]="{'id':'".$row["id"]."','title':'".$row["title"]."','columns':'".$row["columns"]."','pushtime':'".$row["pushtime"]."','frequency':'".$row["frequency"]."','coverpic':'".$row["coverpic"]."','pic':'".$row["pic"]."','tag':'".$row["tag"]."','note':'".$row["note"]."','user':'".$row["user"]."'}";
+	        	$result[$i]="{'id':'".$row["id"]."','title':'".$row["title"]."','columns':'".$row["columns"]."','pushtime':'".$row["pushtime"]."','frequency':'".$row["frequency"]."','coverpic':'".$row["coverpic"]."','tag':'".$row["tag"]."','note':'".$row["note"]."','user':'".$row["user"]."'}";
 				$i++;
 	        };
 	        $a=json_encode($result);
 			echo '{"result":'.$a.'}';
 
+		break;
+		case 'GetOneImage':
+			$ImagesSql=mysql_query("SELECT * FROM imagearr WHERE id='".$id."' ") or die(mysql_error());
+			$i=0;
+			$result=array();
+			while ($row=mysql_fetch_array($ImagesSql)) {
+				$result[$i]="{'id':'".$row["id"]."','title':'".$row["title"]."','columns':'".$row["columns"]."','pushtime':'".$row["pushtime"]."','frequency':'".$row["frequency"]."','coverpic':'".$row["coverpic"]."','pic':'".$row["pic"]."','tag':'".$row["tag"]."','note':'".$row["note"]."','user':'".$row["user"]."'}";
+				$i++;
+			}
+			$a=json_encode($result);
+			echo '{"result":'.$a.'}';
 		break;
 		case 'tagList':
 			//echo "324435";
@@ -96,6 +97,18 @@
 			$a=json_encode($result);
 			echo '{"result":'.$a.'}';
 		break;
+
+		case 'GuessYouLike':
+			$numdata=mysql_query("SELECT * FROM imagearr order by rand() limit  10");
+			$i=0;
+			$result=array();
+            while($row=mysql_fetch_array($numdata)){
+            	$result[$i]="{'id':'".$row["id"]."','title':'".$row["title"]."','columns':'".$row["columns"]."'}";
+				$i++;
+            }
+            $a=json_encode($result);
+			echo '{"result":'.$a.'}';
+			break;
 		
 	};
 ?>
