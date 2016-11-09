@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html ng-app="test" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('test',[]);
+		app.controller('main',function($scope){
+			$scope.t=1478658989044;
+		});
+	</script>
+	<title>Document</title>
+</head>
+<body ng-controller="main">
+	{{t|date:"yyyy-MM-dd"}}
+</body>
+</html>

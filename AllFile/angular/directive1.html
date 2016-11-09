@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="test" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('test',[]);
+		app.controller('main',function($scope){
+
+		});
+		app.directive('abc',function(){
+			var json={
+				/*
+				restrict: 'E'	使用限制
+					E(Element)	元素型		<xxx></xxx>
+					A(Attribute)	属性型		<div xxx=""></div>
+					C(Class)	Class型		<div class="xxx"></div>
+					M(coMment)	注释型		<!-- directive:xxx -->
+						*加上replace: true
+						**两边的空格是必须的
+				*/
+				//restrict:'E',
+				//restrict:"A",
+				//restrict:"C",
+				restrict:"M",
+				template:'<span>234234</span>',
+				replace:true
+			}
+
+			return json;
+		});
+	</script>
+	<title>Document</title>
+</head>
+<body ng-controller="main">
+	<!-- <div class="abc"></div> -->
+	<!-- directive:abc -->
+</body>
+</html>
