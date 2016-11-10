@@ -35,7 +35,6 @@
             var transform = function(data){
                 return $.param(data);
             }
-
             $http.post("php/imageList.php", {
                 "type":"tagList"
             },{
@@ -52,7 +51,6 @@
 </head>
 
 <body ng-controller="mianList">
-
 <section id="container" class="format" >
     <!--main content start-->
     <section id="main-content">
@@ -78,7 +76,6 @@
                                         <th class="numeric"><i class="fa fa-wrench"></i>操作</th>
                                     </tr>
                                 </thead>
-
                                 <tbody>
                                     <tr ng-repeat="data in imagesArr ">
                                         <td>{{$index+1}}</td>
@@ -95,20 +92,6 @@
                                 </tbody>
                             </table>
                         </section>
-                       <!--  <div class="box-footer clearfix" id="pagination">
-
-                            <div class="pull-left">
-                                <span>共 4 条数据</span>&nbsp;&nbsp;&nbsp;<span>共  1 页</span>
-                            </div>
-
-                            <ul class="pagination pagination-sm no-margin pull-right">
-                                <li><a>首页</a></li>
-                                <li><a>上一页</a></li>
-                                <li class="active"><a onclick="onSub(1)">1</a></li>
-                                <li><a>下一页</a></li>
-                                <li><a>末页</a></li>
-                            </ul>
-                        </div> -->
                     </div>
 
                 </section>

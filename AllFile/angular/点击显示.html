@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.more{ width: 300px; height: 80px; line-height: 20px; overflow: hidden;   border: 1px solid #ccc;}
+		.more2{ width: 300px; line-height: 20px; overflow: hidden;  border: 1px solid #ccc;} 
+	</style>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('test',[]);
+		app.controller('main',function($scope){
+			$scope.show=true;
+
+		});
+		app.directive('directivedemo',function(){
+			return {
+				restrict:"E",
+				template:'<div class="{{show?\'more\':\'more2\'}}"><a href="javascript:;" ng-click="show=!show">显示更多</a><span ng-transclude><span></div>',
+				transclude:true
+
+			}
+		});
+	</script>
+</head>
+<body ng-controller="main">
+	<directivedemo>
+		7:36	快船	格里芬助攻保罗，13英尺外急停跳投命中	6-14
+7:51	开拓者	利拉德传球失误，被格里芬断下	6-12
+8:13	快船	快船换人，里弗斯换下了雷迪克	6-12
+8:13	快船	保罗出现失误	6-12
+8:21	开拓者	哈克利斯接到梅森-普拉姆利的助攻，勾手命中	6-12
+8:41	快船	格里芬助攻德安德鲁-乔丹命中得分	4-12
+8:48	快船	格里芬拿到后场篮板	4-10
+8:50	开拓者	梅森-普拉姆利15英尺外后仰跳投不中	4-10
+8:59	快船	雷迪克个人犯规 (麦科勒姆造成了犯规)	4-10
+9:18	快船	保罗助攻格里芬命中得分	4-10
+9:20	快船	德安德鲁-乔丹拿到后场篮板	4-8
+9:23	开拓者	利拉德27英尺外三分急停跳投不中	4-8
+9:45	快船	雷迪克失误 (带球撞人)	4-8
+9:45	快船	雷迪克进攻犯规 (利拉德造成了犯规)	4-8
+10:02	开拓者	梅森-普拉姆利10英尺外跳投命中	4-8
+10:27	快船	保罗26英尺外跳投三分入网	2-8
+10:45	快船	德安德鲁-乔丹拿到后场篮板	2-5
+10:46	开拓者	哈克利斯25英尺外三分跳投不中	2-5
+11:04	快船	雷迪克接到保罗的助攻，27英尺外跳投三分入网	2-5
+11:22	开拓者	麦科勒姆12英尺外急停跳投命中	2-2
+11:46	快船	保罗助攻德安德鲁-乔丹灌篮得分	0-2
+12:00	快船	德安德鲁-乔丹和梅森-普拉姆利跳球，保罗得到篮球
+	</mydirective>
+</body>
+</html>

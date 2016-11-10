@@ -7,9 +7,12 @@
 	$type         = $_POST['type'];
 	$id           = $_POST['id'];
 	$keywords     = $_POST['keywords'];
-
+	$perNumber     = $_POST['num'];
+	if(!$perNumber){
+		$perNumber=5;
+	}
 	$title        =htmlspecialchars($_POST['title']);
-
+ 
 	$desc = str_replace("\r\n", "", $_POST['description']); 
 	//echo $desc;
 	$column  =htmlspecialchars($_POST['column']);
@@ -49,7 +52,7 @@
 	        };
 	        
 
-	        $perNumber=5; //每页显示的记录数
+	       	//$perNumber=5; //每页显示的记录数
 	        $page=$_POST['page']; //获得当前的页面值
 	        
 	        $count=mysql_query("select count(*) from imagearr ".$setsql." "); //获得记录总数
@@ -70,7 +73,7 @@
 				$i++;
 	        };
 	        $a=json_encode($result);
-			echo '{"result":'.$a.'}';
+			echo '{"result":'.$a.',"count":"'.$totalNumber.'"}';
 
 		break;
 		case 'GetOneImage':
