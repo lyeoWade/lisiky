@@ -22,31 +22,59 @@
     <script type="text/javascript">
         var app=angular.module('picList',[]);
         app.controller('mainList',function($scope,$http){
-            $scope.imagesArr=[];
+            
             $scope.AllNum=0;
             $scope.pageNum=15;
-            $scope.page=[];
+            $scope.curPage=1;
+            
+            $scope.AllPageNum=0;
             $scope.ceil=function(str){
                 return Math.ceil(str);
             }
+
+            function setPage(count){
+                $scope.page=[];
+                for(var i=1; i<=count; i++){
+                    if(i==$scope.curPage){
+                        $scope.page.push({num:i,className:'active'});
+                    }else{
+                        $scope.page.push({num:i,className:''});
+                    }
+                }
+            }
+
             var transform = function(data){
                 return $.param(data);
             }
-            $http.post("php/imageList.php",{
-                "type":"GetImageList",
-                "num":$scope.pageNum
-            },{
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
-                transformRequest: transform
-            }).success(function(res){
-                console.log(res);
-                $scope.AllNum=res.count;
-                res.result.forEach(function(str){
-                    $scope.imagesArr.push(eval('('+str+')'));
-                });
-            }).error(function(){
 
-            });
+            getPageList($scope.pageNum,$scope.curPage);
+
+            function getPageList(pageNum,curPage){
+                $scope.curPage=curPage;
+                $scope.imagesArr=[];
+                $http.post("php/imageList.php",{
+                    "type":"GetImageList",
+                    "num":pageNum,
+                    "page":curPage
+                },{
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                    transformRequest: transform
+                }).success(function(res){
+                    $scope.AllNum=res.count;
+                    $scope.AllPageNum=$scope.ceil(res.count/$scope.pageNum);
+                    res.result.forEach(function(str){
+                        $scope.imagesArr.push(eval('('+str+')'));
+                    });
+                    setPage($scope.AllPageNum);
+                }).error(function(){
+
+                });
+            };
+
+            
+            $scope.getPageList=getPageList;//($scope.pageNum,n);
+            
+
         });
 
         app.filter('columnsfilter',function(){
@@ -85,19 +113,18 @@
                 restrict:"E",
                 template:'<div class="box-footer clearfix" id="pagination">\
                             <div class="pull-left">\
-                                <span>共 {{AllNum}} 条数据</span>&nbsp;&nbsp;&nbsp;<span>共  {{ceil(AllNum/pageNum)}} 页</span>\
+                                <span>共 {{AllNum}} 条数据</span>&nbsp;&nbsp;&nbsp;<span>共  {{AllPageNum}} 页</span>\
                             </div>\
                             <ul class="pagination pagination-sm no-margin pull-right">\
-                                <li><a>首页</a></li>\
-                                <li><a>上一页</a></li>\
-                                <li class="active" ng-repeat="v in 4"><a onclick="onSub(1)">1</a></li>\
+                                <li><a href="javascript:;" ng-click="getPageList(pageNum,1)">首页</a></li>\
+                                <li><a href="javascript:;" ng-click="getPageList(pageNum,v.num-1)">上一页</a></li>\
+                                <li ng-repeat="v in page"  class="{{v.className}}" ><a href="javascript:;" ng-click="getPageList(pageNum,v.num)">{{v.num}}</a></li>\
                                 <li><a>下一页</a></li>\
                                 <li><a>末页</a></li>\
                             </ul>\
                         </div>',
                 tansclude:true
             }
-
             return json;
         });
 
