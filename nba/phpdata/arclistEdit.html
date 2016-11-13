@@ -1,0 +1,355 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>修改文章</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- basic styles -->
+<link rel="stylesheet" href="assets/css/my_css.css" type="text/css" />
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+
+<link href="css/web_cack.css" type="text/css" rel="stylesheet">
+<script src="assets/js/ace-extra.min.js"></script>
+
+
+</head>
+
+<body>
+<div class="navbar navbar-default" id="navbar">
+	<div class="navbar-container" id="navbar-container">
+		<div class="navbar-header pull-left">
+			<a href="#" class="navbar-brand">
+				<small>
+					<i class="icon-leaf"></i>
+					后台管理系统
+				</small>
+			</a><!-- /.brand -->
+		</div><!-- /.navbar-header -->
+
+		<div class="navbar-header pull-right" role="navigation">
+			<ul class="nav ace-nav">
+				<li class="light-blue">
+					<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+						<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
+						<span class="user-info">
+							<small>欢迎光临,</small>
+							admin
+						</span>
+
+						<i class="icon-caret-down"></i>
+					</a>
+
+					<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+						<li>
+							<a href="#">
+								<i class="icon-cog"></i>
+								设置
+							</a>
+						</li>
+
+						<li>
+							<a href="#">
+								<i class="icon-user"></i>
+								个人资料
+							</a>
+						</li>
+
+						<li class="divider"></li>
+
+						<li>
+							<a href="#">
+								<i class="icon-off"></i>
+								退出
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul><!-- /.ace-nav -->
+		</div><!-- /.navbar-header -->
+	</div><!-- /.container -->
+</div>
+<div class="main-container" id="main-container">
+	<div class="main-container-inner">
+		<a class="menu-toggler" id="menu-toggler" href="#">
+			<span class="menu-text"></span>
+		</a>
+		<div class="sidebar" id="sidebar">
+			<div id="nav"></div>
+		</div>
+		<div class="main-content">
+			<div class="breadcrumbs" id="breadcrumbs">
+			
+				<ul class="breadcrumb">
+					<li>
+						<i class="icon-home home-icon"></i>
+						<a href="#">首页</a>
+					</li>
+					<li class="active">控制台</li>
+				</ul><!-- .breadcrumb -->
+			</div>
+			<!-- 配置文件 -->
+		    <script type="text/javascript" src="ue/ueditor.config.js"></script>
+		    <!-- 编辑器源码文件 -->
+		    <script type="text/javascript" src="ue/ueditor.all.js"></script>
+		    <!-- 实例化编辑器 -->
+		    <script type="text/javascript">
+		      var ue = UE.getEditor('container',{
+					toolbars: [
+							    [
+							    	'source',
+							        'bold', //加粗
+							        'indent', //首行缩进
+							        'italic', //斜体
+							        'underline', //下划线
+							        'strikethrough', //删除线
+							        'subscript', //下标
+							        'fontborder', //字符边框
+							        'superscript', //上标
+							        'pasteplain', //纯文本粘贴模式
+							        'selectall', //全选
+							        'preview', //预览
+							        'horizontal', //分隔线
+							        'removeformat', //清除格式
+							        'time', //时间
+							        'date', //日期
+							        'cleardoc', //清空文档
+							        'fontfamily', //字体
+							        'fontsize', //字号
+							        'paragraph', //段落格式
+							        'simpleupload', //单图上传
+							        'insertimage', //多图上传
+							        'link', //超链接
+							        'emotion', //表情
+							        'spechars', //特殊字符
+							        'justifyleft', //居左对齐
+							        'justifyright', //居右对齐
+							        'justifycenter', //居中对齐
+							        'justifyjustify', //两端对齐
+							        'forecolor', //字体颜色
+							        'insertorderedlist', //有序列表
+							        'insertunorderedlist', //无序列表
+							        'fullscreen', //全屏
+							        'rowspacingtop', //段前距
+							        'rowspacingbottom', //段后距
+							        'imageleft', //左浮动
+							        'imageright', //右浮动
+							        'imagecenter', //居中
+							        'lineheight', //行间距
+							        'edittip ', //编辑提示
+							        'customstyle', //自定义标题
+							        'inserttable', //插入表格
+							        'drafts', // 从草稿箱加载
+							    ]
+							]
+				});
+		    </script>
+			<div class="page-content">
+				<div class="row">
+			        <div class="col-lg-12">		          
+			            <div class="content_pushs">
+			                <form class="form-horizontal"  role="form" method="">
+			                     <div class="form-group ">
+			                     	<div class="col-sm-1 red control-label">标题:</div>
+			                        <div class="col-sm-10 push_title">
+			                           <input type="text" name="title" id="titles" placeholder="标题" />
+			                        </div>
+			                    </div>
+			                     <div class="form-group ">
+			                     	<div for="description" class="col-sm-1 red control-label">描述\摘要:</div>
+			                        <div class="col-sm-10">
+			                          <textarea id="description" name="description" class="my_desc" cols="60" rows="4" placeholder="内容摘要,180个字以内(千万不要出现换行)"></textarea>
+			                        </div>
+			                    </div>
+							   <div class="form-group clearfix">
+			                      <label for="isrecommend" class="col-sm-2 control-label">是否推荐到首页BANNER:</label>
+			                      <div class="col-sm-8">
+			                        <input type="checkbox" class="" value="" style="vertical-align: middle; margin-top: 16px; width: 16px;" id="isrecommend">
+			                      </div>
+			                  </div>
+			                  <div class="isrecommendbox">
+				                  	<div class="form-group clearfix">
+				                      <label for="bannerImg" class="col-sm-1 control-label">Banner图</label>
+				                      <div class="col-sm-10" style="position: relative;">
+				                         <input type="file" class="form-control files" id="bannerImg" placeholder="BANNER图片">
+				                         <div class="markfile markfile2">点击我上BANNER图(选择了就必须传,大小1000x360)</div>
+				                         <button type="button" class="btn col-sm-2 btn-success uploadbtn" id="Bannerbtn">上传</button>
+				                      </div>
+				                   </div>
+								   <div class="form-group clearfix">
+				                      <label for="" class="col-sm-1 control-label"></label>
+				                      <div class="col-sm-10" id="thumbbox">
+				                        <img src="" id="newbanner">
+				                      </div>
+				                   </div>
+			                  </div>
+							    <div class="form-group ">
+			                     	<div class="col-sm-1 red control-label">文章内容:</div>
+			                        <div class="col-sm-10">
+			                          <script id="container" name="content" type="text/plain"></script>
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+							        <label for="file" class="col-sm-1 red control-label">分类:</label>
+							        <div class="col-sm-10">
+								       <select class="form-control" id="newtype">
+								       		<option value="1">篮球新闻</option>
+								       		<option value="2">足球新闻</option>
+								       		<option value="3">实时新闻</option>
+								       		<option value="4">神棍区</option>
+								       		<option value="5">推荐文章</option>
+								       		<option value="6">篮球心水</option>
+								       		<option value="7">足球心水</option>
+								       </select>
+							        </div>
+							    </div>
+			                   <div class="form-group ">
+			                     	<div class="col-sm-1 control-label" style="line-height: 20px;">关键字:</div>
+			                        <div class="col-sm-10"><input type="text" name="keywords" id="keywords" class="form-control" value="" /></div>
+			                    </div>
+			                    <div class="form-group">
+								    <div class="col-sm-offset-1 col-sm-12">
+								        <button type="button" id="btn" class="btn btn-success col-sm-10">发布</button>
+								    </div>
+								</div>
+			                </form>
+			            </div>
+			        </div>
+			    </div>
+			</div><!-- /.page-content -->
+		</div><!-- /.main-content -->
+	</div><!-- /.main-container-inner -->
+	<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+		<i class="icon-double-angle-up icon-only bigger-110"></i>
+	</a>
+</div><!-- /.main-container -->
+<script src="assets/js/jquery-2.0.3.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- ace scripts -->
+<script src="assets/js/ace-elements.min.js"></script>
+<script src="assets/js/ace.min.js"></script>
+<script src="js/module.js"></script>
+<script type="text/javascript" src="js/comjs.js"></script>
+<script>
+module.nav.data();
+</script>
+
+<script type="text/javascript">
+$(function(){
+
+
+	//初始化内容
+	var Sid=geturldata(window.location.href).id;
+	//alert(Sid)
+	$.ajax({
+		url:'datapage/arclist.php',
+		type:'POST',
+		data:"type=GetOneArticleInfo&id="+Sid,
+		success:function(str){
+			console.log(str);
+			var oData=eval('('+str+')');
+			if(oData.respondCode==0){
+				$('#titles').val(oData.title);
+				$('#description').val(oData.descption);
+				//$('#isrecommend');
+				$('#newtype').val(oData.type_id);
+				$('#keywords').val(oData.keywords);
+
+				if(oData.isrecommend==0){
+					$('#isrecommend').attr('checked',true);
+					$('.isrecommendbox').css('display','block');
+					$('#newbanner').attr('src',oData.bannerimg);
+				}else{
+					$('#isrecommend').attr('checked',false);
+					$('.isrecommendbox').css('display','none');
+				}
+				//UE.getEditor('container').setContent(oData.article);
+				setTimeout(function(){
+	              setContent(oData.article,true);
+	            },1200)
+			}
+			
+		}
+	});
+	function setContent(str,isAppendTo) {
+	    var arr = [];
+	    arr.push();
+	    UE.getEditor('container').setContent(str, isAppendTo);
+	    return arr;
+	};
+	$('#isrecommend').on('click',function(){
+		if($('#isrecommend').is(':checked')){
+			$('.isrecommendbox').css('display','block')
+		}else{
+			$('.isrecommendbox').css('display','none')
+		}
+	});
+	$('#bannerImg').on('change',function(){
+	    $('.markfile2').html($(this).val());
+	});
+	$('#Bannerbtn').on('click',function(){
+	    var oFile=$('#bannerImg').get(0).files[0];
+	    //console.log(oFile)
+	    uploades(oFile,function(d){
+		    if(d.code==1){
+		        alert(d.msg+",请刷新！");
+		        return false;
+		    }else{
+		       $('#newbanner').attr('src',d.url.substring(3));
+		    };
+	    });
+	});
+	$('#btn').on('click',function(){
+
+		var username=getCookie('username');
+
+		var title=$('#titles').val();
+		var description=$('#description').val();
+		var isrecommend=$('#isrecommend');
+		var newbanner='';
+		var newtype=$('#newtype').val();
+		var keywords=$('#keywords').val();
+		var content=UE.getEditor('container').getContent();
+		var isrecommendNum=1;
+		if($('#isrecommend').is(':checked')){
+			newbanner=$('#newbanner').attr('src');
+			isrecommendNum=0;
+		}else{
+			isrecommendNum=1;
+			newbanner='';
+		}
+		if(title==''||description==''||content==''){
+			alert('请填写完整');
+			return false;
+		}
+
+		description=description.replace(/[\n]/ig,'');
+
+
+		 var datas='type=UpdataOneArticle&title='+title+'&description='+description+'&isrecommend='+isrecommendNum+'&newbanner='+newbanner+'&keywords='+keywords+'&newtype='+newtype+'&content='+encodeURIComponent(content)+'&id='+Sid;
+		 //alert(datas);
+		$.ajax({
+			url:'datapage/arclist.php',
+			type:'POST',
+			data:datas,
+			success:function(str){
+				console.log(str);
+				var oData=eval('('+str+')');
+				if(oData.respondCode==0){
+					alert(oData.respondMsg);
+				}else{
+					alert(oData.respondMsg);
+				}
+			}
+		})
+
+	})
+
+});
+</script>
+</body>
+</html>
+

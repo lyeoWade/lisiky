@@ -1,0 +1,313 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>文章管理</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link rel="stylesheet" href="assets/css/my_css.css" type="text/css" />
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		
+
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+
+		<script src="assets/js/ace-extra.min.js"></script>
+
+	<link href="css/web_cack.css" type="text/css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							后台管理系统
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
+								<span class="user-info">
+									<small>欢迎光临,</small>
+									admin
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="icon-cog"></i>
+										设置
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-user"></i>
+										个人资料
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="#">
+										<i class="icon-off"></i>
+										退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+		
+		<div class="main-container" id="main-container">
+			
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<div class="sidebar" id="sidebar">
+					
+
+					<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+						<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+							<button class="btn btn-success">
+								<i class="icon-signal"></i>
+							</button>
+
+							<button class="btn btn-info">
+								<i class="icon-pencil"></i>
+							</button>
+
+							<button class="btn btn-warning">
+								<i class="icon-group"></i>
+							</button>
+
+							<button class="btn btn-danger">
+								<i class="icon-cogs"></i>
+							</button>
+						</div>
+
+						<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+							<span class="btn btn-success"></span>
+
+							<span class="btn btn-info"></span>
+
+							<span class="btn btn-warning"></span>
+
+							<span class="btn btn-danger"></span>
+						</div>
+					</div><!-- #sidebar-shortcuts -->
+					<div id="nav">
+
+					</div>
+					
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>
+
+
+				<div class="main-content">
+					<div class="container">
+						<div class="row">
+					    	
+					        
+					        <div class="col-lg-12">
+					        	<form class="form-horizontal" role="form">
+					            	
+					              <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label">选择联赛</label>
+					                <div class="col-sm-10">
+					                  <select class="form-control" id="league">
+					                     <option value="英超">英超积分</option>
+					                     <option value="西甲">西甲积分</option>
+					                     <option value="意甲">意甲积分</option>
+					                     <option value="德甲">德甲积分</option>
+					                     <option value="法甲">法甲积分</option>
+					                     <option value="欧冠">欧冠积分</option>
+					                  </select>
+					                </div>
+					              </div>
+					              <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label">球队</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control team" id="inputPassword" 
+					                     placeholder="球队">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label ">场次</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control number" id="inputPassword" 
+					                     placeholder="场次">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label ">积分</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control score" id="inputPassword" 
+					                     placeholder="积分">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label ">胜场数</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control win" id="inputPassword" 
+					                     placeholder="胜场数">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label ">平局数</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control pingju" id="inputPassword" 
+					                     placeholder="平局数">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label ">失败数</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control lose" id="inputPassword" 
+					                     placeholder="失败数">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label ">进球数</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control ballin" id="inputPassword" 
+					                     placeholder="进球数">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label ">失球数</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control loseball" id="inputPassword" 
+					                     placeholder="失球数">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label ">净胜球数</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control winball" id="inputPassword" 
+					                     placeholder="净胜球数">
+					                </div>
+					              </div>
+					              <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label">赛季</label>
+					                <div class="col-sm-10">
+					                  <select class="form-control" id="season">
+					                     <option value="20122013">2012/2013</option>
+					                     <option value="20132014">2013/2014</option>
+					                     <option value="20142015">2014/2015</option>
+					                     <option value="20152016">2015/2016</option>
+					                  </select>
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label">&nbsp;</label>
+					                <div class="col-sm-10">
+					                 <button type="button" id="sub" class="btn btn-primary btn-lg btn-block">发布</button>
+					                </div>
+					              </div>
+					              
+					            </form>
+					        </div>
+					    </div>
+					</div>
+				</div><!-- /.main-content -->
+
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<script src="assets/js/jquery-2.0.3.min.js"></script>
+		<!-- <![endif]-->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+		
+<script src="js/module.js"></script>
+<script>
+module.nav.data();
+</script>
+
+<script>
+$(function(){
+	addScore()
+	
+});
+
+
+//select * from student where sex='男' and age=20;
+
+
+function addScore(){
+	
+		//var oleague=$('#league');
+		var oSub=$('#sub');
+		
+		var oTeam=$('.team');
+		var oNumber=$('.number');
+		var oScore=$('.score');
+		var oWin=$('.win');
+		var oPingju=$('.pingju');
+		var oLose=$('.lose');
+		var oBallin=$('.ballin');
+		var oLoseball=$('.loseball');
+		var oWinball=$('.winball');
+		oSub.on('click',function(){
+			var oLeague=$('#league option:selected').val();
+			var oSeason=$('#season option:selected').val();
+			$.ajax({
+				url:"datapage/jifen.php",
+				type:"POST",
+				data:"act=addScore&team="+oTeam.val()+"&number="+oNumber.val()+"&score="+oScore.val()+"&win="+oWin.val()+"&ping="+oPingju.val()+"&lose="+oLose.val()+"&ballin="+oBallin.val()+"&loseball="+oLoseball.val()+"&winball="+oWinball.val()+"&league="+oLeague+"&season="+oSeason+"",
+				success: function(data){
+					var json=$.parseJSON(data);
+					alert(json)
+				},
+				error: function(){
+					
+				}	
+			});
+		});
+};
+
+</script>
+</body>
+</html>
+

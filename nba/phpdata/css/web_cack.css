@@ -1,0 +1,304 @@
+@charset "utf-8";
+/* CSS Document */
+*{ margin:0; padding:0; font-family: "微软雅黑"; }
+h2{font-family: "微软雅黑"; }
+input{ border:0; }
+ul,ol{ list-style:none; }
+#btn{  background:#069; color:#fff; }
+
+.taginput{ border:1px solid #ccc; height:24px; padding-left:8px; }
+
+.scrollbar_back{ height:52px; margin-bottom:15px; width:100%; }
+
+.content_push{ background:#f8f8f8;  border:#e7e7e7 1px solid;  }
+.content_pushs{ background:#f8f8f8;  border:#e7e7e7 1px solid; padding: 0 20px 50px; }
+.content_push label{ font-weight:normal; }
+.push_title{ margin-bottom:20px; }
+
+.push_title input{ width:100%; height:40px;  border-radius:5px;  }
+
+.my_desc{ width:100%; padding:4px;  border-radius:5px;  outline:none; }
+.file_class{  position:relative; }
+.file_class span{ position:absolute; left:0; top:0; width:300px; height:32px; line-height:32px; border-radius:5px; padding-left:8px; color:#444;  background:#fff; z-index:0 ; }
+.file_class .files{ opacity:1; border:1px solid #ddd; position:absolute; left:0; top:0;  z-index:1 }
+.radio{ padding-left: 0; }
+.radio label{ display: block; float: left; margin-left: 30px; margin-right: 20px; }
+.radio input{  }
+/*清浮动*/
+.clearfix:after{
+	content:"";
+	display:block;
+	clear:both;
+}
+.clearfix{zoom:1;}
+
+.fl{ float: left;}
+.fr{ float: right;}
+
+.headseach{
+	padding-top: 15px;
+	line-height: 30px;
+}
+.headseach label{
+	line-height: 24px;
+	text-align: right;
+}
+/* 文章管理页面 */
+
+.container .content_push .arc_title_h2{ margin:0 ; background:#E1ECE4; padding:20px 20px 5px 20px; color:#4F4F4F; font-size:20px; }
+
+.list-category{ list-style:none; margin:20px  10px ; font-size:0; }
+.list-category li{ display:inline-block; font-size:14px;  text-align:center; }
+
+.list_box{ list-style:none;   margin:20px  10px ; }
+.list_box li{ line-height:40px; height:40px; font-size:12px; }
+.list_box div{ text-align:center; }
+.list_box li:nth-child(odd){
+	background:#E1ECE4;
+}
+.list_box li:nth-child(even){
+	background:#FBFBFB;
+}
+.handle {}
+.handle a{ margin:0 5px; }
+
+.atc_title{ overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+
+/*  足球球队  */
+
+.warp-add{
+	padding:30px 0;
+	background:#f8f8f8;
+}
+
+.warp-add .form-group{
+	/*height:40px;*/
+	margin-bottom:20px;
+}
+.warp-add .form-groups{
+	min-height:340px;
+	margin-bottom:20px;
+}
+.warp-add .form-group label{
+	text-align:right;
+}
+.w3{width:3%; font-size: 12px !important; }
+.w4{width:4%; font-size: 12px !important; }
+.w5{width:5%;  }
+.w8{width:8%;  }
+.w10{width:10%;  }
+.w13{ width: 13%; }
+.w15{width:15%;  }
+.w20{width:20%;  }
+.w22{width:22%;  }
+.w25{width:25%;  }
+.w30{width:30%;  }
+.w35{width:35%;  }
+.w40{width:40%;  }
+.w45{width:45%;  }
+.w50{ width:50%; }
+.w60{ width:60%; }
+.w40{ width:40%; }
+.w45{ width:45%; }
+.red{ color:red; }
+.green{ color:green; }
+.blue{ color:blue; }
+.orange{ color: #f08300; }
+.paddingleft0{ padding-left:0; }
+.wsn{white-space:nowrap; }
+.tc{ text-align: center; }
+.control-label{ height:32px; line-height:32px; padding-right:0; }
+
+.disabled{ cursor: text !important; }
+
+
+
+
+
+/* 文件上传 */
+
+.posrel{ position: relative; }
+#filemark{ background: #fff;  height: 34px; width: 100%; position: relative;  z-index: 0; padding: 0 12px;  margin-top: -34px; border: 1px solid #d5d5d5; line-height: 34px; overflow:hidden;white-space:nowrap;text-overflow:ellipsis;}
+.files{ position: relative;  z-index: 10; opacity: 0 };
+.gray{ background: #ccc; }
+
+
+
+
+/* 比分更新 */
+#gamebox{ padding-left: 100px; }
+.game-line{ height: 50px; }
+.gamehome,
+.gameguest,
+.btnwarp,
+.gameinfo{ float: left; }
+.gameinfo{ line-height: 34px; text-indent: 12px; text-transform: uppercase; }
+.updatescore li{
+	margin: 8px 0;
+}
+.updatescore li input{
+	width: 50px;
+}
+.updatescore li input.h{
+	width: 120px;
+}
+.surebtn input{
+	width: 80px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    background: #87b87f;
+    color: #fff;
+    margin: 26px 0 0 20px;
+}
+.surebtn select{
+	width: 80px;
+    height: 28px;
+    text-align: center;
+    line-height: 28px;
+    margin: 26px 0 0 0px;
+}   
+/* 首发名单 */
+.firstName{
+	
+}
+.firstNamewarp{
+	margin-left: 80px;
+	height: 80px;
+}
+.first-col{}
+.first-col .time{
+	min-width: 150px;
+	max-width: 200px;
+	line-height: 80px;
+	font-size: 18px;
+	margin-right: 20px;
+
+}
+.firstNameUl{
+	padding: 5px 0;
+}
+.firstNameUl li{
+	margin: 5px 0;
+}
+.firstNameUl li input{
+	width: 110px;
+}
+
+.updatefirst input{
+	width: 80px;
+	height: 28px;
+	text-align: center;
+	line-height: 28px;
+	background: #87b87f;
+	color: #fff;
+	margin: 26px 0 0 20px;
+}
+
+
+
+
+/*上传*/
+
+.thumbstd img{
+	width: 100px;
+	height: 80px;
+}
+
+#updatethumb img{
+	width: 200px;
+}
+
+#fmt,#bannerImg{
+	opacity: 0;
+	filter:alpha(opacity=0);
+	z-index: 5;
+	position: relative;
+}
+
+.markfile{
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 2;
+	width:90%;
+	height: 34px;
+	border: 1px solid #d5d5d5;
+	margin-left: 12px;
+	line-height: 34px;
+	text-indent: 12px;
+	color: #999;
+	background: #fff;
+}
+button.btn:active{
+	top: none !important;
+	left: none !important;
+}
+#thumbbox img{
+	width: 200px;
+	max-height: 200px;
+}
+.uploadbtn{
+	position: absolute !important;
+	right: 12px;
+	top: 0;
+	z-index: 8;
+	height: 34px;
+	line-height: 10px !important;
+}
+
+.isrecommendbox{
+	display: none;
+}
+
+
+
+/*page*/
+
+
+ .page {
+  margin-top: 20px;
+  width: 100%;
+}
+.page .page-list {
+	margin: 0 !important;
+  text-align: center;
+  font-size: 0;
+  background: #eff2f7;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+.page .page-list li {
+  font-size: 14px;
+  color: #3c0203;
+  display: inline-block;
+  font-family: Georgia;
+  cursor: pointer;
+}
+.page .page-list a {
+  font-size: 14px;
+  color: #3c0203;
+  display: inline-block;
+  padding: 18px 22px;
+  font-family: Georgia;
+  -webkit-transition: ease-in 0.5s all;
+  -moz-transition: ease-in 0.5s all;
+  -ms-transition: ease-in 0.5s all;
+  -o-transition: ease-in 0.5s all;
+  transition: ease-in 0.5s all;
+}
+.page .page-list a:hover {
+  color: #ffffff;
+  background: #1fb5ad;
+}
+.page .page-list a.active {
+  color: #ffffff;
+  background: #1fb5ad;
+}
+.page .page-list li.active a{
+  color: #ffffff;
+  background: #1fb5ad;
+}
+

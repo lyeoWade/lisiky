@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>文章管理</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link rel="stylesheet" href="assets/css/my_css.css" type="text/css" />
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		
+
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+
+
+		<script src="assets/js/ace-extra.min.js"></script>
+
+	<link href="css/web_cack.css" type="text/css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							后台管理系统
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
+								<span class="user-info">
+									<small>欢迎光临,</small>
+									admin
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="icon-cog"></i>
+										设置
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-user"></i>
+										个人资料
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="#">
+										<i class="icon-off"></i>
+										退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+		
+		<div class="main-container" id="main-container">
+			
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<div class="sidebar" id="sidebar">
+					
+
+					<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+						<div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+							<button class="btn btn-success">
+								<i class="icon-signal"></i>
+							</button>
+
+							<button class="btn btn-info">
+								<i class="icon-pencil"></i>
+							</button>
+
+							<button class="btn btn-warning">
+								<i class="icon-group"></i>
+							</button>
+
+							<button class="btn btn-danger">
+								<i class="icon-cogs"></i>
+							</button>
+						</div>
+
+						<div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+							<span class="btn btn-success"></span>
+
+							<span class="btn btn-info"></span>
+
+							<span class="btn btn-warning"></span>
+
+							<span class="btn btn-danger"></span>
+						</div>
+					</div><!-- #sidebar-shortcuts -->
+					<div id="nav">
+
+					</div>
+					
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>
+
+
+				<div class="main-content">
+					<div class="container">
+						<div class="row">
+					    	
+					        
+					        <div class="col-lg-12">
+					        	<form class="form-horizontal" role="form">
+					            	
+					              <div class="form-group">
+					                <label for="team" class="col-sm-1 control-label">选择球队</label>
+					                <div class="col-sm-10">
+					                  <select class="form-control" id="team">
+					                     <option value="迈阿密热队">迈阿密热队</option>
+					                     <option value="奥兰多魔术队">奥兰多魔术队</option>
+					                     <option value="亚特兰大老鹰队">亚特兰大老鹰队</option>
+					                     <option value="华盛顿奇才队">华盛顿奇才队</option>
+					                     <option value="夏洛特黄蜂队">夏洛特黄蜂队</option>
+					                     <option value="底特律活塞队">底特律活塞队</option>
+										 <option value="印第安纳步行者队">印第安纳步行者队</option>
+					                     <option value="克里夫兰骑士队">克里夫兰骑士队</option>
+					                     <option value="芝加哥公牛队">芝加哥公牛队</option>
+					                     <option value="密尔沃基雄鹿队">密尔沃基雄鹿队</option>
+					                     <option value="波士顿凯尔特人队">波士顿凯尔特人队</option>
+					                     <option value="费城76人队">费城76人队</option>
+										 <option value="纽约尼克斯队">纽约尼克斯队</option>
+					                     <option value="布鲁克林篮网队">布鲁克林篮网队</option>
+					                     <option value="多伦多猛龙队">多伦多猛龙队</option>
+					                     <option value="萨克拉门托国王队">萨克拉门托国王队</option>
+					                     <option value="菲尼克斯太阳队">菲尼克斯太阳队</option>
+					                     <option value="洛杉矶湖人队">洛杉矶湖人队</option>
+										 <option value="洛杉矶快船队">洛杉矶快船队</option>
+					                     <option value="金州勇士队">金州勇士队</option>
+					                     <option value="明尼苏达森林狼队">明尼苏达森林狼队</option>
+					                     <option value="丹佛掘金队">丹佛掘金队</option>
+					                     <option value="尤他爵士队">尤他爵士队</option>
+					                     <option value="波特兰开拓者队">波特兰开拓者队</option>
+										 <option value="俄克拉荷马雷霆队">俄克拉荷马雷霆队</option>
+					                     <option value="圣安东尼奥马刺队">圣安东尼奥马刺队</option>
+					                     <option value="孟菲斯灰熊队">孟菲斯灰熊队</option>
+					                     <option value="达拉斯小牛队">达拉斯小牛队</option>
+					                     <option value="休斯顿火箭队">休斯顿火箭队</option>
+					                     <option value="新奥尔良鹈鹕队">新奥尔良鹈鹕队</option>
+					                  </select>
+					                </div>
+					              </div>
+					              <div class="form-group">
+					                <label for="players" class="col-sm-1 control-label">球员</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control player" id="players" 
+					                     placeholder="球员">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="status" class="col-sm-1 control-label ">状态</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control State" id="status" 
+					                     placeholder="状态">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="reason" class="col-sm-1 control-label ">原因</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control Reason" id="reason" 
+					                     placeholder="原因">
+					                </div>
+					              </div>
+					               <div class="form-group">
+					                <label for="times" class="col-sm-1 control-label ">时间表</label>
+					                <div class="col-sm-10">
+					                  <input type="text" class="form-control time" id="times" 
+					                     placeholder="时间表">
+					                </div>
+					              </div>
+					              <div class="form-group">
+					                <label for="inputPassword" class="col-sm-1 control-label ">&nbsp;</label>
+					                <div class="col-sm-10">
+					                  <button type="button" id="push" class="btn btn-primary btn-lg btn-block">发布</button>
+					                </div>
+					              </div>
+					             
+					            </form>
+					        </div>
+					    </div>
+					</div>
+
+					<!-- 球队列表 -->
+					<div class="container">
+						<div class="row">
+					    	
+					        <div class="col-lg-12">
+					        	
+					            <div class="content_push">
+					              <h2 class="bg-info arc_title_h2">
+					              	伤病列表
+					              </h2>
+					              <ol class="list-category">
+					              	<li class="w5">ID</li>
+					                <li class="w15">球队</li>
+					                <li class="w10">球员</li>
+					                <li class="w10">状态</li>
+					                <li class="w15">原因</li>
+					                <li class="w35">时间表</li>
+					                <li class="w10">操作</li>
+					              </ol>
+								  <ul class="list_box" id="list_boxs">
+					                <li>
+					                	<div class="w5 pull-left">1</div>
+					                	<div class="w15  pull-left slh"><a href="">北京国安</a></div>
+					                    <div class="w10 pull-left slh">夏海兵</div>
+					                    <div class="w10 pull-left slh">2015-2016</div>
+					                    <div class="w15 pull-left slh">8</div>
+					                    <div class="w35 pull-left slh">2015.12.26腿部受伤，在球队的多伦多之旅中，格里芬因为动手打了快船队的设备管理人员，手部受伤，预计三月复出。</div>
+					                    <div class="w10 pull-left handle"><a href="">修改</a><a href="">删除</a></div>
+					                </li>
+					               
+					              </ul>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div><!-- /.main-content -->
+					<div style="height: 100px;"></div>
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<script src="assets/js/jquery-2.0.3.min.js"></script>
+		<!-- <![endif]-->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+		
+<script src="js/module.js"></script>
+<script>
+module.nav.data();
+</script>
+
+<script>
+$(function(){
+	addScore()
+	ajaxreq('times');
+});
+
+
+//select * from student where sex='男' and age=20;
+
+
+function addScore(){
+		//var oleague=$('#league');
+		var oSub=$('#push');
+		var oPlayer=$('.player');
+		var oTime=$('.time');
+		var oReason=$('.Reason');
+		var oState=$('.State');
+		
+		oSub.on('click',function(){
+			var oTeam=$('#team option:selected').val();
+			
+			//var str="act=NbaInj&team="+oTeam+"&timetable="+oTime.val()+"&reason="+oReason.val()+"&state="+oState.val()+"&player="+oPlayer.val();
+			//alert(str)
+			$.ajax({
+				url:"datapage/nbainj.php",
+				type:"POST",
+				data:"type=NbaInj&team="+oTeam+"&timetable="+oTime.val()+"&reason="+oReason.val()+"&state="+oState.val()+"&player="+oPlayer.val(),
+				success: function(data){
+					var json=$.parseJSON(data);
+					alert(json)
+				},
+				error: function(){
+					
+				},
+				complete:function(){
+					ajaxreq('times');
+				}	
+			});
+		});
+};
+
+
+
+
+function ajaxreq(parameter){
+	$.ajax({
+		url:'../web/nbainjuries.php',
+		type:"POST",
+		data:"type=injuries&searchtype="+parameter+"",
+		success: function(data){
+			//console.log(data)
+			var reqdata=eval('('+data+')');
+			if(reqdata.counts==0){
+				$('#list_boxs').html("<p style='line-height:100px; text-align:center; width:1100px;'>暂无伤病信息</p>");
+			}else{
+				var str='';
+				for(var i=0; i<reqdata.result.length; i++){
+					var detaildata=eval('('+reqdata.result[i]+')');
+	                str+='<li><div class="w5 pull-left">'+(i+1)+'</div>\
+	            	<div class="w15  pull-left slh"><a href="">'+detaildata.team+'</a></div>\
+	                <div class="w10 pull-left slh">'+detaildata.player+'</div>\
+	                <div class="w10 pull-left slh">'+detaildata.state+'</div>\
+	                <div class="w15 pull-left slh">'+detaildata.reason+'</div>\
+	                <div class="w35 pull-left slh">'+detaildata.timetable+'</div>\
+	                <div class="w10 pull-left handle"><a href="javascript:;" tagid="'+detaildata.id+'">删除</a></div></li>';
+				}
+				$('#list_boxs').html(str);
+			};
+		},
+		complete:function(){
+			//列表加载完成之后才执行
+			Delete('deletes','datapage/nbainj.php',function(){
+				ajaxreq('times');
+			});
+		}
+	});	
+}
+
+
+
+
+</script>
+</body>
+</html>
+

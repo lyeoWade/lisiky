@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<input type="text" id="txt"><button id="btn">检测</button>
+
+	<script type="text/javascript">
+		window.onload=function(){
+			var oBtn=document.getElementById('btn');
+			
+			var re=/[1-9]+/;  //re.test(str)
+			oBtn.onclick=function(){
+				var oTxt=document.getElementById('txt').value;
+				if(re.test(parseInt(oTxt))){
+					alert('正确')
+				}else{
+					alert('cuowu ')
+				}
+			}
+		}
+	</script>
+</body>
+</html>

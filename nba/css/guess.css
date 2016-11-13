@@ -1,0 +1,206 @@
+
+.newguestwarp{
+	padding: 20px 0;
+}
+
+.newguestwarp table{
+	border: 1px solid #ccc;
+	width: 990px;
+	margin: 0 16px;
+	margin-bottom: 20px;
+}
+
+.newguestwarp table tbody{
+	background: #f2f3f3;
+}
+
+.newguestwarp table td{
+	border: 1px solid #ccc;
+	line-height: 28px;
+	color: #222;
+}
+.newguestwarp table td a{
+	color: #222;
+}
+.newguestwarp table td a:hover{
+	color: #1fb5ad
+}
+.newguestwarp table thead{
+	
+}
+
+.newguestwarp table thead tr{
+	
+}
+.newguestwarp table thead th{
+	line-height: 26px;
+	border: 1px solid #ccc;
+	font-weight: normal;
+}
+ 
+.g_tb{
+
+}
+.g_tb th{
+	text-align: center;
+}
+.g_tb td{
+	text-align: center;
+}
+.p_td{
+	position: relative;
+	text-align: right;
+	padding-right: 5px;
+}
+.newguestwarp table td .p_td a{
+	background: #1fb5ad;
+	padding: 1px 16px;
+	border: 1px solid #48a8a3;
+	color: #fff;
+	font-weight: bold;
+}
+.newguestwarp table td .p_td a:hover{
+	background: #48a8a3;
+	color: #fff;
+}
+.newguestwarp table td .p_td a.active{
+	background: #ccc;
+	color: #000;
+	border: 1px solid #ddd;
+}
+.p_l{
+	position: absolute;
+	left: 5px;
+}
+
+
+.leagueColorxina{
+	background: #00A0F3;
+	color: #fff;
+}
+
+.datarow{
+
+}
+
+.datarow a{
+	display: block;
+}
+
+.nulldata{
+	text-align: center;
+	line-height: 80px;
+	font-size: 20px;
+}
+
+
+
+#leayerGuess{
+	position: fixed;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.2);
+	z-index: 9999999;
+}
+#leayerGuess b{
+	font-size: 12px;
+	color: #f00;
+}
+.lwrap{
+	width: 360px;
+	padding: 8px 8px 20px 8px;
+	min-height: 140px;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -138px 0 0 -188px;
+	background: #fff;
+	box-shadow: 0 0 3px #fff;
+
+}
+.lwrap h2{
+	line-height: 36px;
+	margin: 5px;
+	border-left: 5px solid #1fb5ad;
+	border-right: 5px solid #1fb5ad;
+	background: #fcfcfc;
+	content: #fff;
+	text-align: center;
+	font-size: 16px;
+}
+.lwrap .guessdetail{
+	margin: 10px 0;
+	text-align: center;
+	line-height: 32px;
+	font-size: 14px;
+}
+.lwrap .important{
+	line-height: 30px;
+	text-align: center;
+	font-size: 12px;
+}
+.lwrap .guessNum{
+	line-height: 30px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.lwrap .subBtn{
+	text-align: center;
+	margin: 20px 0 0;
+}
+.lwrap .subBtn a{
+	display: inline-block;
+	padding: 10px 22px;
+	margin: 0 5px;
+	transition:0.5;
+}
+.lwrap .subBtn a:hover{
+	border-radius: 3px;
+	box-shadow: 0 0 4px #ccc;
+}
+.sureBtn{
+	background: #1fb5ad;
+	color: #fff;
+}
+.cancleBtn{
+	background:#ccc;
+	color: #000;
+}
+.goldtip{
+	padding-top: 10px;
+	line-height: 24px;
+	text-align: center;
+	display: none;
+}
+.goldtip a{
+	color: #f00;
+}
+
+.textleft{
+	text-align: left !important;
+	padding-left: 5px;
+}
+.textleft span{
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+.fontw{
+	font-weight: bold;
+}
+
+.guesserror{
+	background: green;
+	color: #fff;
+}
+.guesssuccess{
+	background: red;
+	color: #fff;
+}
+.guessping{
+	background: blue;
+	color: #fff;
+}

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>新增比赛直播</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link rel="stylesheet" href="assets/css/my_css.css" type="text/css" />
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+	    <link href="css/web_cack.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							后台管理系统
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="light-blue">
+							
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+		
+		<div class="main-container" id="main-container">
+			
+
+			<div class="main-container-inner">
+
+				<div class="sidebar" id="sidebar">
+					<div id="nav">
+
+					</div>
+				</div>
+				<div class="main-content">
+					<!-- 修改,发布球队 -->
+					<div id="edit-warp">
+						<div class="container">
+					        <div class="row">
+					            
+					            <div class="col-lg-12">
+					                
+					                <div class="content_push">
+					                  <h2 class="bg-info arc_title_h2">
+					                    新增比赛直播
+					                  </h2>
+					                  <p style="line-height: 30px; color: #f00; text-indent: 20px;">操作之前请看，联赛-->如：NBA,欧冠第几回合等等,注意站内地址和站外地址的写法,如:http://wwww.baidu.com|||百度直播(地址|||标题),一行一个,回车换行</p>
+					                </div>
+					            </div>
+					            
+					            <div class="col-lg-12">
+					            	 <div class="col-lg-12 warp-add">
+					            	 <div class="form-group clearfix">
+					                      <label for="leagueList" class="col-sm-2 control-label">所属联赛</label>
+					                      <div class="col-sm-8 ">
+					                            <input type="text" class="form-control" name="leagueList" id="leagueList" placeholder="所属联赛">
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="hteam" class="col-sm-2 control-label">主队</label>
+					                      <div class="col-sm-8 ">
+					                            <input type="text" class="form-control" name="hteam" id="hteam" placeholder="主队">
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="gteam" class="col-sm-2 control-label">客队</label>
+					                      <div class="col-sm-8 ">
+					                            <input type="text" class="form-control" name="gteam" id="gteam" placeholder="客队">
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="pTime" class="col-sm-2 control-label">比赛时间</label>
+					                      <div class="col-sm-8 ">
+					                            <input type="text" class="form-control" name="pTime" id="pTime" placeholder="比赛时间">
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="onlineName" class="col-sm-2 control-label">信号名字</label>
+					                      <div class="col-sm-8 ">
+					                            <input type="text" class="form-control" name="onlineName" id="onlineName" placeholder="信号名字,象征性的填3-5个">
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="LiveSignalIn" class="col-sm-2 control-label">站内直播地址:</label>
+					                      <div class="col-sm-8">
+					                        <textarea class="form-control" rows="6" id="LiveSignalIn" placeholder="站内直播地址"></textarea>
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="LiveSignalOut" class="col-sm-2 control-label">站外地址:</label>
+					                      <div class="col-sm-8">
+					                         <textarea class="form-control" id="LiveSignalOut" rows="6" placeholder="站外地址"></textarea>
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="LiveText" class="col-sm-2 control-label">文字直播地址</label>
+					                      <div class="col-sm-8 ">
+					                            <input type="text" class="form-control" name="LiveText" id="LiveText" value="http://g.hupu.com/nba/daily/boxscore_150655.html" placeholder="文字直播地址(虎扑,新浪,腾讯)">
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="ScoreLive" class="col-sm-2 control-label">比分直播地址</label>
+					                      <div class="col-sm-8 ">
+					                            <input type="text" class="form-control" name="ScoreLive" id="ScoreLive" value="http://www.ilovenba.cn/nba.html" placeholder="比分直播地址">
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="descention" class="col-sm-2 control-label">火线速递:</label>
+					                      <div class="col-sm-8">
+					                      	<textarea class="form-control" id="descention" rows="3" placeholder="火线速递"></textarea>
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="isend" class="col-sm-2 control-label">是否结束:</label>
+					                      <div class="col-sm-8">
+					                      	<select class="form-control" id="isend">
+					                      		<option value="1">否</option>
+					                      		<option value="0">是</option>
+					                      	</select>
+					                      </div>
+					                  </div>
+					                   <div class="form-group" >
+					                      <label for="" class="col-sm-2 control-label"></label>
+					                      <div class="col-sm-8">
+					                         <input type="button" id="surebtn" class="form-control btn btn-info" value="确定">
+					                      </div>
+					                  </div>
+					                  </div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div><!-- /.main-content -->
+
+			</div><!-- /.main-container-inner -->
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+		<script src="assets/js/jquery-2.0.3.min.js"></script>
+		<!-- <![endif]-->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace.min.js"></script>
+<script src="js/module.js"></script>
+<script type="text/javascript" src="jeDate/jedate.js"></script>
+<script>
+module.nav.data();
+jeDate({
+dateCell:"#pTime",
+format:"YYYY-MM-DD hh:mm",
+isinitVal:true,
+isTime:true, //isClear:false,
+minDate:"2004-09-19 00:00",
+okfun:function(val){}
+});
+</script>
+
+<script type="text/javascript">
+$(function(){
+
+	//获取默认信息
+	var sourceDefault='';
+	$.ajax({
+		url:"datapage/online.php",
+		type:"POST",
+		data:"type=GetOneListInfo&id="+geturldata(window.location.href).id,
+		success:function(str){
+			console.log(str);
+			var oData=$.parseJSON(str);
+			if(oData.respondCode==0){
+				$('#leagueList').val(oData.league);
+				$('#hteam').val(oData.hteam);
+				$('#gteam').val(oData.gteam);
+				$('#pTime').val(oData.PlayTime);
+				$('#onlineName').val(oData.onlineName);
+				$('#LiveText').val(oData.LiveText);
+				$('#ScoreLive').val(oData.LiveScores);
+				$('#LiveSignalIn').val(oData.LiveSignalIn);
+				$('#LiveSignalOut').val(oData.LiveSignalOut);
+				$('#descention').val(oData.descention);
+				sourceDefault=oData.source;
+				//alert(oData.respondMsg);
+			}else{
+				//alert(oData.respondMsg);
+			}
+		}
+	})
+
+
+	$("#surebtn").on('click',function(){
+		var $leagueList=$('#leagueList').val();
+		var $hteam=$('#hteam').val();
+		var $gteam=$('#gteam').val();
+		var $pTime=$('#pTime').val();
+		var $onlineName=$('#onlineName').val();
+		var $LiveText=$('#LiveText').val();
+		var $ScoreLive=$('#ScoreLive').val();
+		var $LiveSignalIn=$('#LiveSignalIn').val();
+		var $LiveSignalOut=$('#LiveSignalOut').val();
+		var $descention=$('#descention').val().replace(/[\n]/ig,'');
+		//alert($LiveSignalOut)
+		var $isend=$('#isend').val();
+		if($leagueList=='' || $hteam=='' || $gteam==''){
+			alert('前三个必填');
+			return false;
+		}
+
+		var LiveIn=$LiveSignalIn.replace(/&/g,'fuck0');
+		var LiveOut=$LiveSignalOut.replace(/&/g,'fuck0');
+		var ScoreLive=$ScoreLive.replace(/&/g,'fuck0');
+		var LiveText=$LiveText.replace(/&/g,'fuck0');
+
+
+		var datas="type=UpdateOneOnlineInfo&leagueList="+$leagueList+"&hteam="+$hteam+"&gteam="+$gteam+"&pTime="+$pTime+"&LiveSignalIn="+LiveIn+"&onlineName="+$onlineName+"&LiveText="+LiveText+"&ScoreLive="+ScoreLive+"&LiveSignalOut="+LiveOut+"&descention="+$descention+"&source="+sourceDefault+"&isend="+$isend+"&id="+geturldata(window.location.href).id+"";
+		//alert(datas)
+		$.ajax({
+			url:"datapage/online.php",
+			type:"POST",
+			data:datas,
+			success:function(str){
+				console.log(str);
+				var oData=eval('('+str+')');
+				if(oData.respondCode==0){
+					alert(oData.respondMsg);
+				}else{
+					alert(oData.respondMsg);
+				}
+			}
+		})
+	})
+})
+</script>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>评论管理</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+<script src="../js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js" ></script>
+<script src="js/module.js"></script>
+<style>
+
+</style>
+<link href="css/web_cack.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<!-- 加载编辑器的容器 -->
+
+<div class="container">
+	<div class="row">
+    	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+           
+        </nav>
+    </div>
+</div>
+<script>
+module.nav.data();
+</script>
+<div class="scrollbar_back"></div>
+<div class="container">
+	<div class="row">
+        <div class="col-lg-12">
+        	
+            <div class="content_push">
+              <h2 class="bg-info arc_title_h2">文章评论管理</h2>
+              <ol class="list-category">
+              	<li class="w5">序号</li>
+                <li class="w50">评论内容</li>
+                <li class="w15">评论目标ID</li>
+                <li class="w15">所属栏目</li>
+                <li class="w5">赞</li>
+                <li class="w10">操作</li>
+              </ol>
+			  <ul class="list_box">
+                <li>
+                	<div class="w5 pull-left">1</div>
+                	<div class="w50 atc_title pull-left"><a href="">曝卡戴珊遭奥多姆突袭 哈登正随美国队集训</a></div>
+                    <div class="w15 pull-left">100</div>
+                    <div class="w15 pull-left">新闻</div>
+                    <div class="w5 pull-left">100</div>
+              
+                    <div class="handle pull-left w10"><a href="javascript:;">删除</a><a href="javascript:;">修改</a></div>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+$(function(){
+	getList()
+	
+});
+
+function getList(){
+		$.ajax({
+		url:"datapage/conment.php",
+		type:"POST",
+		data:"act=list",
+		success: function(data){
+			console.log(data)
+			var json=$.parseJSON(data);
+			var Liststr='';
+			for(var i=0; i<json.result.length; i++){
+				console.log(json.result[i])
+				var newjson=eval('('+json.result[i]+')');
+				
+				Liststr+='<li><div class="w5 pull-left">'+(i+1)+'</div>';
+                Liststr+='<div class="w50 atc_title pull-left"><a href="../content.html?page='+newjson.targetId+'" target="_blank">'+newjson.content+'</a></div>';
+                Liststr+='  <div class="w15 pull-left">'+newjson.targetId+'</div>';
+                Liststr+='  <div class="w15 pull-left">未知</div>';
+                Liststr+='  <div class="w5 pull-left" typeid="">123</div>';
+                Liststr+='  <div class="handle pull-left w10"><a href="javascript:;" tagid="'+newjson.id+'">删除</a><a href="javascript:;">修改</a></div></li>';	
+			} 
+			$('.list_box').html(Liststr);
+			
+			Delete();
+		},
+		error: function(){
+			
+		}	
+	});	
+}
+// 删除
+function Delete(){
+	var oBtn=$('.handle a:contains("删除")');
+	
+	oBtn.each(function(index, element) {
+       oBtn.eq(index).on("click",function(){
+			if(confirm("你确定要删除本条数据？"))
+			{
+				var oId=$(this).attr("tagid")
+				$.ajax({
+					url:"datapage/conment.php",
+					data:"act=deletes&id="+oId,
+					type:"POST",
+					success: function(data){
+						//alert(data)
+						var json=eval('('+data+')');
+						if(json.des==1){
+							getList();
+						}else{
+							alert("删除失败！")	
+						};
+						
+					},
+					error:function(){
+						
+					}
+				});
+			};
+		});
+    });
+}
+
+
+</script>
+</body>
+</html>

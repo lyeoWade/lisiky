@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>新增比赛集锦</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link rel="stylesheet" href="assets/css/my_css.css" type="text/css" />
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+		<script src="assets/js/ace-extra.min.js"></script>
+	    <link href="css/web_cack.css" type="text/css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							后台管理系统
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="light-blue">
+							
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+		
+		<div class="main-container" id="main-container">
+			
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<div class="sidebar" id="sidebar">
+					
+
+					
+					<div id="nav">
+
+					</div>
+					
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+				</div>
+
+
+				<div class="main-content">
+					<!-- 修改,发布球队 -->
+					<div id="edit-warp">
+						<div class="container">
+					        <div class="row">
+					            
+					            <div class="col-lg-12">
+					                
+					                <div class="content_push">
+					                  <h2 class="bg-info arc_title_h2">
+					                    新增比赛集锦
+					                  </h2>
+					                  <p style="line-height: 30px; color: #f00; text-indent: 20px;">操作之前请看，注意视频地址写法,如:http://wwww.baidu.com|||百度直播(地址|||标题),一行一个,回车换行---->最上面的标题代表这个视频组的标题</p>
+					                </div>
+					            </div>
+					            
+					            <div class="col-lg-12">
+					            	 <div class="col-lg-12 warp-add">
+					            	 <div class="form-group clearfix">
+					                      <label for="column" class="col-sm-2 control-label">所属栏目:</label>
+					                      <div class="col-sm-8">
+					                        <select class="form-control" id="column">
+					                        	<option value="1">篮球</option>
+					                        	<option value="2">足球</option>
+					                        	<option value="3">其他</option>
+					                        </select>
+					                      </div>
+					                  </div>
+					            	 <div class="form-group clearfix">
+					                      <label for="title" class="col-sm-2 control-label">视频组标题</label>
+					                      <div class="col-sm-8 ">
+					                            <input type="text" class="form-control" name="title" id="title" placeholder="视频组标题">
+					                      </div>
+					                  </div>
+					                 
+					                  <div class="form-group clearfix">
+					                      <label for="desc" class="col-sm-2 control-label">描述:</label>
+					                      <div class="col-sm-8">
+					                        <textarea class="form-control" rows="3" id="desc" placeholder="视频描述"></textarea>
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="videoUrl" class="col-sm-2 control-label">视频地址:</label>
+					                      <div class="col-sm-8">
+					                        <textarea class="form-control" rows="6" id="videoUrl" placeholder="视频地址"></textarea>
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="fmt" class="col-sm-2 control-label">封面图</label>
+					                      <div class="col-sm-8" style="position: relative;">
+					                         <input type="file" class="form-control files" id="fmt" placeholder="封面图">
+					                         <div class="markfile markfile1">点击我上传产品图(要传哦),大小4:3的</div>
+					                         <button type="button" class="btn col-sm-2 btn-success uploadbtn" id="uploadbtn">上传</button>
+					                      </div>
+					                   </div>
+									   <div class="form-group clearfix">
+					                      <label for="" class="col-sm-2 control-label"></label>
+					                      <div class="col-sm-8" id="thumbbox">
+					                        <img src="" id="thumPic">
+					                      </div>
+					                   </div>
+					                  
+					                  <div class="form-group clearfix">
+					                      <label for="isrecommend" class="col-sm-2 control-label">是否推荐到Banner:</label>
+					                      <div class="col-sm-8">
+					                        <input type="checkbox" class="" value="" style="vertical-align: middle; margin-top: 16px; width: 16px;" id="isrecommend">
+					                      </div>
+					                  </div>
+					                  <div class="isrecommendbox">
+					                  	<div class="form-group clearfix">
+					                      <label for="bannerImg" class="col-sm-2 control-label">BANNER图片</label>
+					                      <div class="col-sm-8" style="position: relative;">
+					                         <input type="file" class="form-control files" id="bannerImg" placeholder="BANNER图片">
+					                         <div class="markfile markfile2">点击我上BANNER图(选择了就必须传,大小750x320)</div>
+					                         <button type="button" class="btn col-sm-2 btn-success uploadbtn" id="Bannerbtn">上传</button>
+					                      </div>
+					                   </div>
+									   <div class="form-group clearfix">
+					                      <label for="" class="col-sm-2 control-label"></label>
+					                      <div class="col-sm-8" id="thumbbox">
+					                        <img src="" id="thumPic2">
+					                      </div>
+					                   </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="tag" class="col-sm-2 control-label">视频来源:</label>
+					                      <div class="col-sm-8">
+					                      	 <select class="form-control" id="suorceSite">
+					                      	 	<option value="no">无</option>
+					                      	 	<option value="qq">腾讯</option>
+					                      	 	<option value="ls">乐视</option>
+					                      	 	<option value="yk">优酷</option>
+					                      	 </select>
+					                       
+					                      </div>
+					                  </div>
+					                  <div class="form-group clearfix">
+					                      <label for="tag" class="col-sm-2 control-label">视频标签:</label>
+					                      <div class="col-sm-8">
+					                      	 <input type="text" class="form-control" name="tag" id="tag" placeholder="视频标签多个用单竖线(|)隔开">
+					                      </div>
+					                  </div>
+					                  <div class="form-group" >
+					                      <label for="" class="col-sm-2 control-label"></label>
+					                      <div class="col-sm-8">
+					                         <input type="button" id="surebtn" class="form-control btn btn-info" value="确定">
+					                      </div>
+					                  </div>
+					                  </div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div><!-- /.main-content -->
+
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+		<script src="assets/js/jquery-2.0.3.min.js"></script>
+		<!-- <![endif]-->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+		<script src="js/comjs.js"></script>
+<script src="js/module.js"></script>
+<script>
+module.nav.data();
+</script>
+<script>
+//新增视频
+$(function(){
+	  $('#fmt').on('change',function(){
+         $('.markfile1').html($(this).val());
+      });
+      $('.uploadbtn').on('click',function(){
+         var oFile=$('#fmt').get(0).files[0];
+         console.log(oFile)
+         //oFile.files[0]
+         uploades(oFile,function(d){
+          if(d.code==1){
+            alert(d.msg+",请刷新！");
+            return false;
+          }else{
+            $('#thumPic').attr('src',d.url.substring(3));
+          };
+         });
+      });
+
+      $('#bannerImg').on('change',function(){
+         $('.markfile2').html($(this).val());
+      });
+      $('#Bannerbtn').on('click',function(){
+         var oFile=$('#bannerImg').get(0).files[0];
+         console.log(oFile)
+         //oFile.files[0]
+         uploades(oFile,function(d){
+          if(d.code==1){
+            alert(d.msg+",请刷新！");
+            return false;
+          }else{
+            $('#thumPic2').attr('src',d.url.substring(3));
+          };
+         });
+      });
+
+
+      $('#isrecommend').on('click',function(){
+      	if($(this).is(':checked')){
+      		$('.isrecommendbox').css('display','block')
+      	}else{
+      		$('.isrecommendbox').css('display','none')
+      	}
+      })
+
+	$('#surebtn').on('click',function(){
+		//var username=getCookie('username');
+		
+		var $title=$('#title').val();
+		var $column=$('#column').val();
+		var $description=$('#desc').val();
+		//desc
+		$desc=$description.replace(/[\n]/ig,'');
+		var $thumPic=$('#thumPic').attr('src');
+		var $Banner=$('#thumPic2').attr('src');
+		var $sourceSite=$('#suorceSite').val();
+		var bannerUrl='';
+		var isChecked=0;
+		if($('#isrecommend').is(':checked')){
+			bannerUrl=$Banner;
+			isChecked=1;
+		}else{
+			bannerUrl='';
+			isChecked=0;
+		}
+		var $videoUrl=$('#videoUrl').val();
+		var $tag=$('#tag').val();
+
+		if ($title=='' || $desc=='' || $videoUrl=='' || $tag=='') {
+			alert('请填写完整 ^_^!');
+			return false;
+		};
+		var videoUrl=$videoUrl.replace(/&/g,'fuck0');
+
+		var datas="type=AddOneVideo&column="+$column+"&title="+$title+"&desc="+$desc+"&videoUrl="+videoUrl+"&bannerUrl="+bannerUrl+"&thumPic="+$thumPic+"&isChecked="+isChecked+"&sourceSite="+$sourceSite+"&tag="+$tag+"&source="+getCookie('username')+"";
+
+		$.ajax({
+			url:"datapage/online.php",
+			type:"POST",
+			data:datas,
+			success:function(str){
+				console.log(str);
+				var oData=eval('('+str+')');
+				if(oData.respondCode==0){
+					alert(oData.respondMsg);
+				}else{
+					alert(oData.respondMsg);
+				}
+			}
+		});
+	})
+});
+</script>
+</body>
+</html>

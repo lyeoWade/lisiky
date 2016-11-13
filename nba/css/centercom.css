@@ -1,0 +1,74 @@
+body {
+  background: #fff !important;
+}
+/* 优惠区 */
+
+.xg_preferential {
+	width: 1100px;
+	margin: 10px auto;
+}
+.xg_preferential ul {
+	margin-right: -20px;
+}
+.xg_preferential li {
+	float: left;
+}
+
+
+
+/* 分类的啥子哦 */
+
+
+.xg_classes_box {
+	width: 1100px;
+	margin: 50px auto 0;
+}
+
+
+
+
+.xg_classes_box ul {
+	width: 100%;
+	border-top: 4px solid #ccc;
+}
+.xg_classes_box ul li {
+	width: 20%;
+	float: left;
+	position: relative;
+	text-align: center;
+}
+.xg_classes_name {
+	position: absolute;
+	left: 50%;
+	top: -15px;
+	margin-left: -50px;
+	width: 100px;
+	height: 40px;
+	background: #fff;
+}
+.xg_classes_name p {
+	text-align: center;
+	font-size: 14px;
+	font-weight: bold;
+	color: #666;
+	margin-bottom: 5px;
+}
+.xg_classes_bg {
+	width: 108px;
+	height: 108px;
+	margin-top: 40px;
+	display: inline-block;
+	text-align:center;
+	background: url(../img/row.png) no-repeat;
+}
+.xg_classes_bg img{
+	vertical-align:middle;
+	}
+.xg_classes_bg span{
+	height:100%;
+	display:inline-block;
+	vertical-align:middle;
+	}
+.xg_classes_bg:hover {
+	background: url(../img/row.png) no-repeat 0 -108px;
+}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="../css/reg.css" type="text/css" rel="stylesheet" />
+<link href="../css/reset.css" type="text/css" rel="stylesheet" />
+<meta name="keywords" content="NBA,NBA推荐,足球,西甲,中超,意甲,德甲,詹姆斯,科比,韦德" />
+<title>欢迎登录-NBA,足球赛事新闻，赛程，NBA竞彩推荐，足球竞猜推荐</title>
+<script src="../js/jquery.min.js"></script>
+<link rel="bookmark"  type="image/x-icon"  href="favicon.ico"/>
+<link rel="shortcut icon" href="favicon.ico">
+<style>
+
+@keyframes bgmove{
+	0%{ background-color:rgba(225,225,225,0); }
+	50%{ background-color:rgba(225,225,225,0.8); }
+	100%{ background-color:rgba(225,225,225,0); }
+} 
+
+.reg-box{ width:680px; background-color:rgba(225,225,225,0); }
+.reg-box .reg-warp{ width:100%; background-color:rgba(225,225,225,0.8); 
+	animation:15s bgmove infinite;
+}
+.logtip{ font-style:normal; font-size:12px; color:#f00; margin-left:18px; }
+</style>
+</head>
+
+<body style="background:url(images/loginbg.jpg) no-repeat center center !important; background-size:cover !important;">
+
+
+<div class="h30"></div>
+<div class="h30"></div>
+<div class="h30"></div>
+<div class="h30"></div>
+
+<div class="reg-box">
+	<div class="reg-warp">
+    	<div class="reg-tit">
+        	<h2>后台登录</h2>
+        </div>
+        <div class="reg-par">
+        	<ul>
+            	<li>
+                	<input type="text" value="" class="com_style inputC" placeholder="用户名" id="user_login" /><span>2-16位字母数字下划线</span>
+                </li>
+                <li>
+                	<input type="password" value=""  class="com_style inputC" placeholder="您的密码" id="user_password" /><span>输入您的密码。</span>
+                </li>
+                <li class=""><input type="button" value="登录"  id="user_btn" /><em class="logtip"></em></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script src="js/comjs.js"></script>
+<div class="h30"></div>
+<div class="h30"></div>
+<div class="h30"></div>
+<div class="h30"></div>
+<script>
+/* 登录 */
+$(function(){
+	
+	var oName=$("#user_login");
+	
+	var oPass=$("#user_password");
+	var oBtn=$("#user_btn");	
+	oBtn.on("click",function(){
+		$.ajax({
+			type:"POST",
+			url:"datapage/login_h.php",
+			data:"username="+oName.val()+"&password="+oPass.val(),
+			success: function(data){
+				var oData=eval('('+data+')');
+				if(oData.error==0){
+					$('.logtip').html(oData.des);
+					//alert(oData)
+					setTimeout(function(){
+						window.location.href="usercenters.html";
+					},2000);
+					var username=oData.username;
+					var userid=oData.id;
+
+					setCookie('username', username, 1);
+					setCookie('userid', userid, 1);
+					//alert(getCookie('username'));
+				}else{
+					$('.logtip').html(oData.des);
+					//window.location.href="../404.html";
+				};
+			}	
+		});	
+	});
+});
+
+</script>
+
+<div style="height:40px; width:100%;"></div>
+
+</body>
+</html>

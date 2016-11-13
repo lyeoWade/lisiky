@@ -1,0 +1,393 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>添加赛程</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link rel="stylesheet" href="assets/css/my_css.css" type="text/css" />
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+    <script type="text/javascript" src="jeDate/jedate.js"></script>
+		<script src="assets/js/ace-extra.min.js"></script>
+
+	<link href="css/web_cack.css" type="text/css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							后台管理系统
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
+								<span class="user-info">
+									<small>欢迎光临,</small>
+									admin
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="icon-cog"></i>
+										设置
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-user"></i>
+										个人资料
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="#">
+										<i class="icon-off"></i>
+										退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+		
+		<div class="main-container" id="main-container">
+			
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<div class="sidebar" id="sidebar">
+					
+
+				
+					<div id="nav">
+
+					</div>
+					
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+
+					<script type="text/javascript">
+						try{ace.settings.check('sidebar' , 'collapsed')}catch(e){}
+					</script>
+				</div>
+ <!-- 配置文件 -->
+            <script type="text/javascript" src="ue/ueditor.config.js"></script>
+            <!-- 编辑器源码文件 -->
+            <script type="text/javascript" src="ue/ueditor.all.js"></script>
+            <!-- 实例化编辑器 -->
+            <script type="text/javascript">
+              var ue = UE.getEditor('analysis',{
+              toolbars: [
+                      [
+                          'bold', //加粗
+                          'indent', //首行缩进
+                          'italic', //斜体
+                          'underline', //下划线
+                          'strikethrough', //删除线
+                          'subscript', //下标
+                          'fontborder', //字符边框
+                          'superscript', //上标
+                          'pasteplain', //纯文本粘贴模式
+                          'selectall', //全选
+                          'preview', //预览
+                          'horizontal', //分隔线
+                          'removeformat', //清除格式
+                          'time', //时间
+                          'date', //日期
+                          'cleardoc', //清空文档
+                          'fontfamily', //字体
+                          'fontsize', //字号
+                          'paragraph', //段落格式
+                          'simpleupload', //单图上传
+                          'insertimage', //多图上传
+                          'link', //超链接
+                          'emotion', //表情
+                          'spechars', //特殊字符
+                          'justifyleft', //居左对齐
+                          'justifyright', //居右对齐
+                          'justifycenter', //居中对齐
+                          'justifyjustify', //两端对齐
+                          'forecolor', //字体颜色
+                          'insertorderedlist', //有序列表
+                          'insertunorderedlist', //无序列表
+                          'fullscreen', //全屏
+                          'rowspacingtop', //段前距
+                          'rowspacingbottom', //段后距
+                          'pagebreak', //分页
+                          'imageleft', //左浮动
+                          'imageright', //右浮动
+                          'imagecenter', //居中
+                          'lineheight', //行间距
+                          'edittip ', //编辑提示
+                          'customstyle', //自定义标题
+                          'touppercase', //字母大写
+                          'tolowercase', //字母小写
+                          'background', //背景
+                          'inserttable', //插入表格
+                          'drafts', // 从草稿箱加载
+                      ]
+                  ]
+            });
+
+              
+            </script>
+
+				<div class="main-content">
+					<!-- 修改,发布球队 -->
+            <div id="edit-warp">
+              <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-lg-12">
+                            
+                            <div class="content_push">
+                              <h2 class="bg-info arc_title_h2">
+                                新增球队赛程
+                              </h2>
+                            </div>
+                        </div>
+                        
+                        <div class="col-lg-12">
+                           <div class="col-lg-12 warp-add">
+                           <div class="form-group clearfix">
+                                  <label for="firstname" class="col-sm-2 control-label">联赛</label>
+                                  <div class="col-sm-8 ">
+                                        <select class="form-control" id="leagueList">
+                                          <option value="NBA">NBA</option>
+                                          <option value="CBA">CBA</option>
+                                          <option value="韩男篮">韩男篮</option>
+                                        </select>
+                                  </div>
+                              </div>
+                              <div class="form-group clearfix">
+                                  <label for="firstname4" class="col-sm-2 control-label">主队id</label>
+                                  <div class="col-sm-8">
+                                     <select class="form-control leagueList" id="homeId">
+                                      </select>
+                                  </div>
+                              </div>
+                              
+                               <div class="form-group clearfix">
+                                  <label for="firstname4" class="col-sm-2 control-label">客队id</label>
+                                  <div class="col-sm-8">
+                                     <select class="form-control leagueList" id="guestId">
+
+                                     </select>
+                                  </div>
+                              </div>
+                              <div class="form-group clearfix">
+                                  <label for="" class="col-sm-2 control-label">赛季</label>
+                                  <div class="col-sm-8">
+                                     <select class="form-control" id="seasons" >
+                                         <option value="2002-2003">2002-2003</option>
+                                         <option value="2003-2004">2003-2004</option>
+                                         <option value="2004-2005">2004-2005</option>
+                                         <option value="2005-2006">2005-2006</option>
+                                         <option value="2006-2007">2006-2007</option>
+                                         <option value="2007-2008">2007-2008</option>
+                                         <option value="2008-2009">2008-2009</option>
+                                         <option value="2009-2010">2009-2010</option>
+                                         <option value="2010-2011">2010-2011</option>
+                                         <option value="2011-2012">2011-2012</option>
+                                         <option value="2012-2013">2012-2013</option>
+                                         <option value="2013-2014">2013-2014</option>
+                                         <option value="2014-2015">2014-2015</option>
+                                         <option value="2015-2016">2015-2016</option>
+                                         <option value="2016-2017">2016-2017</option>
+                                      </select>
+                                  </div>
+                              </div>
+                              
+                              
+                              <div class="form-group clearfix">
+                                  <label for="firstname5" class="col-sm-2 control-label">比赛时间</label>
+                                  <div class="col-sm-8">
+                                     <input type="text" class="form-control" name="ptime" id="ptime" placeholder="比赛时间">
+                                  </div>
+                              </div>
+
+                              <!-- 全让 -->
+                               <div class="form-group clearfix">
+                                  <label for="firstname5" class="col-sm-2 control-label red">全场让分(初)</label>
+                                  <div class="col-sm-8">
+                                     <input type="text" class="form-control" name="l1" id="l1" placeholder="全场让分(初)">
+                                  </div>
+                              </div>
+
+                              <!-- 全大小 -->
+                               <div class="form-group clearfix">
+                                  <label for="firstname5" class="col-sm-2 control-label red">全场大小(初)</label>
+                                  <div class="col-sm-8">
+                                     <input type="text" class="form-control" name="b1" id="b1" placeholder="全场大小(初)">
+                                  </div>
+                              </div>
+                              <!-- 半让 -->
+                               <div class="form-group clearfix">
+                                  <label for="firstname5" class="col-sm-2 control-label red">半场让分(初)</label>
+                                  <div class="col-sm-8">
+                                     <input type="text" class="form-control" name="lb1" id="lb1" placeholder="半场让分(初)">
+                                  </div>
+                              </div>
+                              <!-- 半大小 -->
+                               <div class="form-group clearfix">
+                                  <label for="firstname5" class="col-sm-2 control-label red">半场大小(初)</label>
+                                  <div class="col-sm-8">
+                                     <input type="text" class="form-control" name="bb1" id="bb1" placeholder="半场大小(初)">
+                                  </div>
+                              </div>
+
+                              <div class="form-group clearfix">
+                                  <label for="firstname4"class="col-sm-2 control-label ">是否结束</label>
+                                   <div  class="col-sm-8">
+                                      <select class="form-control leagueList" id="isend">
+                                          <option value="false">否</option>
+                                          <option value="true">是</option>
+                                      </select>
+                                  </div> 
+                              </div>
+                              
+
+                              <div class="form-group clearfix">
+                                  <label for="isGuess"class="col-sm-2 control-label ">是否竞猜</label>
+                                   <div  class="col-sm-8">
+                                      <select class="form-control leagueList" id="isGuess">
+                                          <option value="1">否</option>
+                                          <option value="0">是</option>
+                                      </select>
+                                  </div> 
+                              </div>
+
+                              <div class="form-group clearfix">
+                                  <label for="guessTime" class="col-sm-2 control-label">竞猜日期</label>
+                                  <div class="col-sm-8">
+                                     <input type="text" class="form-control" name="guessTime" id="guessTime" placeholder="竞猜日期">
+                                  </div>
+                              </div>
+
+                              <div class="form-group clearfix">
+                                  <label for="firstname5" class="col-sm-2 control-label">赛事分析</label>
+                                  <div class="col-sm-8">
+                                     <script id="analysis" name="analysis" type="text/plain"></script>
+                                  </div>
+                              </div>
+                              <div class="form-group clearfix">
+                                  <label for="isMoney"class="col-sm-2 control-label ">是否收费</label>
+                                   <div  class="col-sm-4">
+                                      <select class="form-control leagueList" id="isMoney">
+                                          <option value="0">不收费</option>
+                                          <option value="0.5">0.5元</option>
+                                          <option value="1">1元</option>
+                                          <option value="1.5">1.5元</option>
+                                          <option value="2">2元</option>
+                                          <option value="2.5">2.5元</option>
+                                          <option value="3">3元</option>
+                                          <option value="4">4元</option>
+                                          <option value="5">5元</option>
+                                      </select>
+                                  </div> 
+                                  <div class="col-sm-4" style="line-height: 30px; color: red;">是否收费查看该分析</div>
+                              </div>
+                              <div class="form-group clearfix" style="margin-bottom: ;">
+                                  <label for="summary" class="col-sm-2 control-label">比赛总结</label>
+                                  <div class="col-sm-8">
+                                     <textarea class="form-control" id="summary" rows="5"></textarea>
+                                  </div>
+                              </div>
+
+                              <input type="hidden" id="method" value="">
+
+                              <div class="form-group clearfix" >
+                                  <label for="" class="col-sm-2 control-label"></label>
+                                  <div class="col-sm-8">
+                                     <input type="button" id="surebtn" class="form-control" value="确定">
+                                  </div>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+          
+				</div><!-- /.main-content -->
+
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<script src="assets/js/jquery-2.0.3.min.js"></script>
+		<!-- <![endif]-->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+		<!-- ace scripts -->
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+    <!-- inline scripts related to this page -->
+
+		
+<script src="js/module.js"></script>
+<script>
+  module.nav.data();
+
+  jeDate({
+    dateCell:"#ptime",
+    format:"YYYY-MM-DD hh:mm",
+    isinitVal:true,
+    isTime:true, //isClear:false,
+    minDate:"2004-09-19 00:00",
+    okfun:function(val){}
+  });
+  jeDate({
+    dateCell:"#guessTime",
+    format:"YYYY-MM-DD",
+    isinitVal:true,
+    isTime:true, 
+    isClear:false,
+    minDate:"2004-09-19",
+    okfun:function(val){}
+  });
+  function getContent() {
+      var arr = [];
+      arr.push(UE.getEditor('analysis').getContent());
+      return arr;
+  }
+  
+</script>
+
+<script src="js/basketball_agena.js"></script>
+
+</body>
+</html>
+

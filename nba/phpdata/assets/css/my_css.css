@@ -1,0 +1,356 @@
+
+
+.search_box{
+	background: #f5f5f5 !important;
+	padding: 10px 0;
+	margin-bottom: 18px;
+}
+
+.search_box .form-group{
+	margin-bottom: 0;
+}
+
+.search_box .calenda{
+	background-color: #fff  !important;
+	width: 50px;
+	height: 30px;
+	float: right;
+	display: block;
+	position: absolute;
+	right: -30px;
+	top: 0px;
+	text-align: center;
+	line-height: 28px;
+	border-radius: 0 4px 4px 0;
+	border:1px solid #6fb3e0;
+	border-left: none;;
+}
+.search_box .calenda i{
+
+}
+.search_box .form-control{
+	padding-top: 6px !important;
+	padding-bottom: 6px !important;
+	height: 30px;
+	border: 1px solid #6fb3e0;
+	border-radius: 4px!important;
+}
+.search_box .control-label{
+	padding: 0 20px;
+	float: left;
+	margin-bottom: 0;
+}
+
+.search_btn{
+	
+}
+.search_box .search_btn{
+	background: #fff;
+	color: #307ecc;
+	position: absolute;
+	right: 14px;
+	top: 1px;
+	width: 30px;
+	height: 27px;
+	line-height: 26px;
+	text-align: center;
+}
+.search_btn .btn{
+	padding-top: 1px ; 
+	padding-bottom: 1px;
+	margin-top: -1px;
+	margin-left: 20%;
+}
+.dropdown .btn{
+	border:none;
+	background: #eee !important;
+	color: #1c1c1c !important;
+}
+
+.dropdown .btn:hover, .dropdown .btn-default:hover,  .dropdown .open .btn-default.dropdown-toggle{
+	background: #fff !important;
+	text-decoration: none;
+}
+
+.add_btn{
+
+}
+.add_btn a{
+	border:none;
+	padding:4px 12px;
+}
+
+
+
+
+
+
+
+
+.form-horizontal{
+	margin-top: 40px;
+}
+
+.column_set{
+	 line-height: 1.5;
+	 padding: 6px 0;
+}
+.column_set a{
+	margin: 0 8px;
+}
+
+
+/* 控制导航 ( * ) */
+
+.ace-nav{
+	height:auto !important;
+}
+
+
+
+/* page 分页样式 */
+
+.page{
+	text-align: center;
+	color: #999 !important;
+}
+.pagination>li:first-child>a{
+	border-radius: 5px 0 0 5px !important;
+}
+.pagination>li:nth-last-of-type(2)>a{
+	border-radius: 0px 5px 5px 0px !important;
+}
+.page .pagination>li>a{
+	color: #999 ;
+	font-size: 14px;
+}
+.page .pagination{
+	margin-top: 0;
+}
+
+.page .cont_num{
+	margin-left: 15px;
+	line-height: 32px;
+}
+.page .cont_num a{
+	color: #999;
+    border:none !important;
+	font-size: 12px !important;
+	background: none !important;
+    border-color: #e0e8eb;
+}
+.cont_num_a{
+	
+}
+.page .cont_num a:hover{
+	border:none !important;
+	font-size: 12px !important;
+	background: none !important;
+}
+.page .cont_num a:hover{
+	color: #999;
+    background-color: none;
+    border-color: #e0e8eb;
+}
+#page input{
+	border-radius: 5px !important;
+	width: 50px;
+	height: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 普通用户管理 */ 
+
+.money_show{
+	  line-height: 28px;
+	  margin-bottom: 16px;
+	  margin-top: 18px;
+	  padding-bottom: 4px;
+	  border-bottom:1px solid #ccc;
+}
+
+.money_show span{
+	padding: 0 18px;
+	color: #87b87f;
+	font-family:Georgia;
+	font-size:16px;
+}
+
+.money_show i{
+	padding: 0 18px;
+}
+.money_show a{
+	
+}
+
+
+.page-title{
+		width:100%;
+		height:40px;
+		text-indent:2em;
+		font-size:16px;
+		color:#fff;
+		line-height:40px;
+		background:#6fb3e0;
+}
+
+.jfEntry{
+	position:relative;
+}
+.jfEntry span{
+	display:block;
+	position:absolute;
+	right:12px;
+	top:0;
+	height:34px;
+	line-height:34px;
+	padding:0 10px;
+	font-size:14px;
+}
+
+
+/* 验证码样式 */
+.cCode{
+	padding-left:0 !important;
+	padding-right:0 !important;
+}
+.checkCode{
+	
+	height:34px;
+	text-align:center;
+	line-height:34px;
+	margin-left:10px;
+	position:relative;
+}
+.checkCode a{
+	padding-top:0 ;
+	padding-bottom:0 ;
+	height:34px;
+}
+.mark{
+	width:100%;
+	height:100%;
+	position:absolute;
+	left:0;
+	top:0;	
+	display:none;
+}
+.f5{
+	line-height:34px;
+}
+.publish_tip {
+	line-height:42px;
+}
+.form-group .success{
+	color:#060;
+}
+.form-group .error{
+	color:#f00;
+}
+
+.EditTip{
+	line-height:34px;
+}
+
+
+
+/* 续费选项 */
+.Options{
+	
+}
+.Options div{
+	padding:8px 26px;
+	background:#87b87f;
+	max-width:140px;
+	margin:5px 10px 5px 0;
+	float:left;
+	cursor:pointer;
+	color:#FFF;
+	font-size:14px;
+	transition:0.5s;
+}
+.Options div:hover{
+	background:#629b58;
+}
+.Options div.active{
+	background:#629b58;
+}
+
+
+
+
+/* 充值 */
+.zfb—info{
+	background:url(../images/zfb.jpg) no-repeat 10px center;
+	padding-left:160px;	
+}
+.blod{
+	color:#f90; font-size:24px;
+}
+.yeCode{
+	padding:0 !important;
+	margin-left:-12px !important;	
+}
+.cz_tip{
+	line-height:34px;
+}
+
+.offset_width12{
+	width:12px;
+	height:1px;
+	overflow:hidden;
+	float:left;	
+}
+
+
+.slh{
+		overflow:hidden;
+		white-space:nowrap;
+		text-overflow:ellipsis;
+}
+
+.feedback{
+	margin-top:16px;
+	padding:10px 0;
+	border-top:1px solid #DFDFDF;	
+}
+.feedback label{
+	display:inline-block;
+	line-height:30px;
+}
+
+
+
+.device{
+	margin-left: 20px;
+}
+.device dl{
+
+	margin-bottom: 20px;
+}
+
+.device dt{
+	line-height: 40px;
+	font-size: 14px;
+}
+.device dd{
+	line-height: 24px;
+}
