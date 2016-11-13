@@ -1,0 +1,715 @@
+body{ font-family: "微软雅黑" }
+.center{
+	width: 1000px;
+	margin:0px auto;
+	background: #fff;
+	padding: 20px;
+}
+
+.onlineWarp{
+	width: 760px;
+}
+.rightside1{
+	margin-left: 20px;
+	width: 220px;
+}
+.rightside{
+	margin-left: 20px;
+	width: 260px;
+}
+
+.rightside .ad{
+	height: 90px;
+	margin-bottom: 11px;
+}
+.rightside .ad img{
+	width: 100%;
+	height: 90px;
+}
+
+.hotvideo{
+	border: 1px solid #1fb5ad;
+	margin-bottom: 16px;
+}
+.hotvideo h3{
+	height: 30px;
+	line-height: 30px;
+	text-indent: 16px;
+	background: #1fb5ad;
+	color: #fff;
+}
+.hotvideo ul{}
+.hotvideo li{
+	padding:0 10px;
+	line-height: 30px;
+}
+.hotvideo li a{
+	color: #333;
+	display: block;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow:ellipsis;
+	transition:0.5s;
+}
+.hotvideo li a:hover{
+	font-size: 12px;
+	color: #1fb5ad;
+}
+.videoList{
+	padding: 8px 10px;
+	font-size: 0;
+	line-height: 20px;
+}
+.videoList span{
+	font-size: 12px;
+	color: #333;
+}
+.videoList a{
+	font-size: 12px;
+	color: #333;
+	margin:3px 0 3px 5px;
+	padding-right: 6px;
+	transition:0.5s;
+}
+.videoList a:hover{
+	font-size: 12px;
+	color: #1fb5ad;
+}
+.onlineWarpList{
+}
+.onlineList{
+	border: 1px solid #1fb5ad;
+	margin-bottom: 16px;
+}
+.onlineList h3{
+	height: 30px;
+	line-height: 30px;
+	text-indent: 16px;
+	background: #1fb5ad;
+	color: #fff;
+}
+
+.onlineList .videoList ul{
+
+}
+.onlineList .videoList ul li{
+	line-height: 30px;
+	margin: 10px 0 0;
+	padding-bottom: 10px;
+	border-bottom: 1px dashed #ccc;
+
+}
+.onlineList .videoList ul li:nth-last-of-type(1){
+	border-bottom:none;
+}
+.onlineList .videoList ul li img{
+	width: 30px;
+	height: 30px;
+	vertical-align: middle;
+	margin-top: -10px;
+}
+.onlineList .videoList ul li span{
+	margin:0 10px;
+}
+.onlineList .videoList ul li b{
+	font-size: 12px;
+}
+.onlineList .videoList ul li span{
+
+}
+.onlineList .videoList ul li span{
+
+}
+
+
+
+
+
+
+
+
+
+
+.firelineWarp{
+
+}
+.firelineWarp p{
+	font-size: 12px;
+	color: #999;
+	line-height: 20px;
+	padding: 0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 播放页 */
+
+.onlineDetailWarp{
+	width: 720px;
+}
+
+.onlineTitle{
+	color: #666;
+	text-align: center;
+	padding-bottom: 20px;
+}
+.onlineTitle h3{
+	font-size: 20px;
+	line-height: 60px;
+}
+.onlineTitle p{
+	font-size: 16px;
+	line-height: 20px;
+}
+.onlinePlay{
+	
+}
+
+.moreInfo{
+	width: 688px;
+	padding: 6px 10px;
+	border:1px solid #1fb5ad;
+	background: #ceebe9;
+}
+.moreInfo span{
+	font-size: 14px;
+}
+.moreInfo h3{
+	line-height: 30px;
+}
+.moreInfo p{
+	line-height: 22px;
+	padding-bottom: 10px;
+}
+.moreInfo p a{
+	color: #333;
+	margin-right: 14px;
+	transition:0.5s;
+	font-size: 12px;
+}
+
+.moreInfo p a:hover{
+	color: #f00;
+	font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* video */
+
+.videoLeft{
+	width: 750px;
+}
+.videoBanner{
+	width: 750px;
+	margin-bottom: 20px;
+	height: 320px;
+}
+.bannerbox{
+	position: relative;
+	height: 320px;
+	width: 750px;
+}
+.bannerbox ul{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 750px;
+	height: 320px;
+}
+.bannerbox ul li{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.bannerbox ul li img{
+	width: 750px;
+	height: 320px;
+	display: block;
+}
+.bannerbox .textWarp{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 40px;
+	width: 100%;
+	z-index: 99990;
+	color: #fff;
+	line-height: 40px;
+	font-size: 16px;
+	text-align: center;
+	cursor: pointer;
+}
+.bannerbox .bannerMark{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: #000;
+	
+	background-color: rgba(0,0,0,0.5);
+	height: 40px;
+	width: 100%;
+	z-index: 9999;
+}
+.bannerbox .bannerMark s{
+	/*position: absolute;
+	right: 0;
+	top: 0;*/
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: #1fb5ad;
+}
+.bannerbox .bannerMark s:after{
+	display: block;
+	content: '';
+	position: absolute;
+	top: 10px;
+	left: 15px;
+	width: 0;
+	height: 0;
+	border:10px solid #fff;
+	border-right: none;
+	border-top:10px solid #1fb5ad;
+	border-bottom:10px solid #1fb5ad;
+}
+
+ .nextprev span {
+  display: none;
+  width: 36px;
+  height: 64px;
+  position: absolute;
+  top: 50%;
+  margin-top: -32px;
+  cursor: pointer;
+  z-index: 11112;
+}
+ .nextprev .prev {
+  left: 20px;
+  background: url(../img/prev.png) no-repeat;
+}
+ .nextprev .next {
+  right: 20px;
+  background: url(../img/next.png) no-repeat;
+}
+
+
+.textWarp {
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-indent: 12px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 10000;
+}
+.textWarp a {
+  display: none;
+  color: #fff;
+  -webkit-transition: ease-in 0.5s all;
+  -moz-transition: ease-in 0.5s all;
+  -ms-transition: ease-in 0.5s all;
+  -o-transition: ease-in 0.5s all;
+  transition: ease-in 0.5s all;
+}
+.textWarp a:hover {
+  text-decoration: underline;
+  color: #f8981c;
+}
+.textWarp a.active {
+  display: block;
+}
+
+
+
+
+
+.VideoListWarp{
+
+}
+
+.videoListHead{
+	height: 40px;
+	line-height: 40px;
+	background: #1fb5ad;
+	color: #fff;
+}
+.videoListHead h2{
+	width: 100px;
+	height: 40px;
+	line-height: 40px;
+	background: #9aca3b;
+	color: #fff;
+	text-align: center;
+}
+
+.hotTag{
+	height: 40px;
+	line-height: 40px;
+	padding-left: 15px;
+}
+.hotTag span{
+	padding: 0 2px;
+	text-decoration: underline;
+	cursor: pointer;
+	font-size: 12px;
+	transition:0.5s;
+}
+.hotTag span:hover{
+	color: #d7d7d6;
+}
+
+.VideoListWarp .search{
+	margin-top: -1px;
+	position: relative;
+	margin-right: 10px;
+}
+.VideoListWarp  .text{
+	padding-left: 8px;
+	height: 26px;
+	line-height: 26px\9;
+	background: #fff;
+	border-radius: 4px;
+}
+
+#searchVideoBtn{
+	position: absolute;
+	right: 0;
+	top: 7px;
+	display: block;
+	width: 50px;
+	height: 28px;
+	text-align: center;
+	line-height: 28px;
+	background: #20817c;
+	color: #fff;
+	font-size: 12px;
+	cursor: pointer;
+	border-radius:0 4px 4px 0;
+	transition:0.5s;
+}
+#searchVideoBtn:hover{
+	background: #9aca3b;
+	color: #fff;
+}
+
+
+.VideoList{
+
+}
+.VideoListUl{
+	padding: 20px 0;
+}
+
+.VideoListUl li{
+	height: 80px;
+	background: #f6f7f7;
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+.VideoListUl li img{
+	height: 80px;
+	width: 107px;
+}
+
+.VideoListUl li .title{
+	float: left;
+	width: 540px;
+	margin-left: 15px;
+	font-size: 20px;
+	color: #444;
+	line-height: 50px;
+	font-weight: bold;
+}
+.VideoListUl li .title span{
+	display: block;
+}
+.VideoListUl li .title span.descri{
+	font-size: 12px;
+	color: #666;
+	line-height: 30px;
+	font-weight: normal;
+}
+.VideoListUl li a span.playBtn{
+	width: 80px;
+	height: 80px;
+	background: #1fb5ad;
+	display: block;
+	position: relative;
+}
+.VideoListUl li a span.playBtn:after{
+	display: block;
+	content: '';
+	border:20px solid #fff;
+	border-right: none;
+	border-top: #1fb5ad solid 20px;
+	border-bottom: #1fb5ad solid 20px;
+	position: absolute;
+	top: 20px;
+	left: 30px;
+}
+/*
+.VideoListUl li a span.playBtn{
+	width: 40px;
+	height: 40px;
+	background: #1fb5ad;
+	display: block;
+	position: relative;
+	margin: 20px 20px 0 0;
+}
+.VideoListUl li a span.playBtn:after{
+	display: block;
+	content: '';
+	border:10px solid #fff;
+	border-right: none;
+	border-top: #1fb5ad solid 10px;
+	border-bottom: #1fb5ad solid 10px;
+	position: absolute;
+	top: 10px;
+	left: 157px;
+}
+*/
+
+
+
+
+.page {
+  width: 100%;
+}
+ .page .page-list {
+  text-align: center;
+  font-size: 0;
+  background: #eff2f7;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+.page .page-list li{
+	 font-size: 14px;
+    color: #3c0203;
+    display: inline-block;
+    font-family: Georgia;
+    cursor: pointer;
+}
+.page .page-list a {
+  font-size: 14px;
+  color: #3c0203;
+  display: inline-block;
+  padding: 18px 22px;
+  font-family: Georgia;
+  -webkit-transition: ease-in 0.5s all;
+  -moz-transition: ease-in 0.5s all;
+  -ms-transition: ease-in 0.5s all;
+  -o-transition: ease-in 0.5s all;
+  transition: ease-in 0.5s all;
+
+}
+.page .page-list li:hover a {
+  color: #ffffff;
+  background: #1fb5ad;
+}
+.page .page-list li.active a{
+  color: #ffffff;
+  background: #1fb5ad;
+}
+
+.VideoDetail{
+	width: 100%;
+}
+
+.Videohead{
+	width: 100%;
+}
+
+.Videohead h1{
+	line-height: 50px;
+	text-align: center;
+	font-size: 24px;
+}
+
+.Videohead p{ line-height: 24px; margin-top: 12px; text-align: center; font-size: 12px; color: #999;}
+
+.clickEle{
+	width: 750px;
+	height: 510px;
+	margin: 20px auto;
+	position: relative;
+}
+
+.clickEles{
+	width: 400px;
+	height: 300px;
+	margin: 20px auto;
+	position: relative;
+}
+.clickEles #thumbVideo{
+	width: 400px;
+	height: 300px;
+	display: block;
+}
+.clickEles a{
+	display: block;;
+}
+.clickEle #thumbVideo{
+	width: 400px;
+	height: 300px;
+	display: block;
+}
+.clickEle a{
+	display: block;;
+}
+.VideoContent #playicon{
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -75px 0 0 -75px;
+}
+.VideoContent #showClick{
+	display: block;
+	margin-top: 18px;
+	text-align: center;
+	color: #1fb5ad;
+	font-size: 16px;
+}
+.VideoContent #share{
+	margin-top: 30px;
+	height: 20px;
+}
+
+
+.MoreList{
+
+}
+
+.MoreList ul{
+	padding:40px 0;
+}
+
+.MoreList li{
+	height: 60px;
+	border-bottom: 1px solid #ccc;
+	padding: 10px 0;
+}
+.MoreList li:nth-last-of-type(1){
+	border-bottom: none;
+}
+.MoreList li a{
+	display: block;
+	float: left;
+}
+.MoreList li img{
+	width: 80px;
+	height: 60px;
+}
+.MoreList li .t{
+	color: #444;
+	font-size: 20px;
+	line-height: 60px;
+	text-indent: 20px;
+}
+.MoreList .play{
+	width: 60px;
+    height: 60px;
+    background: #1fb5ad;
+    display: block;
+    position: relative;
+}
+.MoreList .play:after{
+	display: block;
+    content: '';
+    border: 16px solid #fff;
+    border-right: none;
+    border-top: #1fb5ad solid 16px;
+    border-bottom: #1fb5ad solid 16px;
+    position: absolute;
+    top: 14px;
+    left: 24px;
+}
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* 更多视频 */
+
+.moreVideo{
+	margin: 30px 0 0;
+}
+.moreVideo h2{
+	height: 46px;
+	background: #fafafa;
+    border-left: 8px solid #1fb5ad; 
+    line-height: 46px;
+	font-size: 18px;
+    text-indent: 20px;
+}
+
+.moreVideowrap{
+	padding: 10px 0;
+}
+.moreVideowrap ul{
+	margin-right: -30px;
+	margin-left: 4px;
+}
+.moreVideowrap ul li{
+	width: 170px;
+	height: 110px;
+	float: left;
+	margin-right: 20px;
+	margin-bottom: 20px;
+	position: relative;
+}
+.moreVideowrap ul li a{}
+.moreVideowrap ul li img{
+	display: block;
+	width: 170px;
+	height: 110px;
+}
+.moreVideowrap ul li span{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	height: 26px;
+	line-height: 26px;
+	color: #fff;
+	width: 94%;
+	padding: 0 3%;
+	background: url(../img/mark_bg.png) repeat-x;
+	font-size: 12px;
+}
+.moreVideowrap ul li span:hover{
+	text-decoration: underline;
+}

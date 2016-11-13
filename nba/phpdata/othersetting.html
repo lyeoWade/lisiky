@@ -1,0 +1,259 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>其他设置</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<!-- basic styles -->
+<link rel="stylesheet" href="assets/css/my_css.css" type="text/css" />
+<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+<link rel="stylesheet" href="assets/css/ace.min.css" />
+<link href="css/web_cack.css" type="text/css" rel="stylesheet">
+<script src="assets/js/ace-extra.min.js"></script>
+</head>
+
+<body>
+<div class="navbar navbar-default" id="navbar">
+	<div class="navbar-container" id="navbar-container">
+		<div class="navbar-header pull-left">
+			<a href="#" class="navbar-brand">
+				<small>
+					<i class="icon-leaf"></i>
+					后台管理系统
+				</small>
+			</a><!-- /.brand -->
+		</div><!-- /.navbar-header -->
+
+		<div class="navbar-header pull-right" role="navigation">
+			<ul class="nav ace-nav">
+				<li class="light-blue">
+					<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+						<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
+						<span class="user-info">
+							<small>欢迎光临,</small>
+							admin
+						</span>
+
+						<i class="icon-caret-down"></i>
+					</a>
+
+					<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+						<li>
+							<a href="#">
+								<i class="icon-cog"></i>
+								设置
+							</a>
+						</li>
+
+						<li>
+							<a href="#">
+								<i class="icon-user"></i>
+								个人资料
+							</a>
+						</li>
+
+						<li class="divider"></li>
+
+						<li>
+							<a href="#">
+								<i class="icon-off"></i>
+								退出
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul><!-- /.ace-nav -->
+		</div><!-- /.navbar-header -->
+	</div><!-- /.container -->
+</div>
+<div class="main-container" id="main-container">
+	<div class="main-container-inner">
+		<a class="menu-toggler" id="menu-toggler" href="#">
+			<span class="menu-text"></span>
+		</a>
+		<div class="sidebar" id="sidebar">
+			<div id="nav"></div>
+		</div>
+		<div class="main-content">
+			<div class="breadcrumbs" id="breadcrumbs">
+			
+				<ul class="breadcrumb">
+					<li>
+						<i class="icon-home home-icon"></i>
+						<a href="#">首页</a>
+					</li>
+					<li class="active">控制台</li>
+				</ul><!-- .breadcrumb -->
+			</div>
+	
+			<div class="page-content container">
+				<div class="row">
+			        <div class="col-lg-12">		          
+			            <div class="content_push">
+			                <form class="form-horizontal"  role="form" method="" style="margin-top: 0px;">
+			                	<h2 class="bg-info arc_title_h2" style="margin-bottom: 30px; text-indent: 80px;">SEO---关键词,描述</h2>
+			                     <div class="form-group ">
+			                     	<div class="col-sm-1 red control-label">关键词:</div>
+			                        <div class="col-sm-10 push_title">
+			                           <input type="text" name="keyword" id="keyword" placeholder="关键词，keywords" />
+			                        </div>
+			                    </div>
+			                    <div class="form-group ">
+			                     	<div class="col-sm-1 red control-label">其他关键词1:</div>
+			                        <div class="col-sm-10 push_title">
+			                           <input type="text" name="keyword1" id="keyword1" placeholder="其他关键词1" />
+			                        </div>
+			                    </div>
+			                    <div class="form-group ">
+			                     	<div class="col-sm-1 red control-label">其他关键词2:</div>
+			                        <div class="col-sm-10 push_title">
+			                           <input type="text" name="keyword2" id="keyword2" placeholder="其他关键词2" />
+			                        </div>
+			                    </div>
+			                    <div class="form-group ">
+			                     	<div class="col-sm-1 red control-label">其他关键词3:</div>
+			                        <div class="col-sm-10 push_title">
+			                           <input type="text" name="keyword3" id="keyword3" placeholder="其他关键词3" />
+			                        </div>
+			                    </div>
+			                     <div class="form-group ">
+			                     	<div for="description" class="col-sm-1 red control-label">描述:</div>
+			                        <div class="col-sm-10">
+			                          <textarea id="description" name="description" class="my_desc" cols="60" rows="4" placeholder="描述，description"></textarea>
+			                        </div>
+			                    </div>
+			                    <h2 class="bg-info arc_title_h2" style="margin-bottom: 30px; text-indent: 80px;">其他设置---标签,联系QQ群,友情链接</h2>
+			                    <div class="form-group ">
+			                     	<div class="col-sm-1 red control-label">视频标签:</div>
+			                        <div class="col-sm-10 push_title">
+			                           <input type="text" name="videoTag" id="videoTag" placeholder="视频标签" />
+			                        </div>
+			                    </div>
+			                    <div class="form-group ">
+			                     	<div class="col-sm-1 red control-label">新闻标签:</div>
+			                        <div class="col-sm-10 push_title">
+			                           <input type="text" name="newsTag" id="newsTag" placeholder="新闻标签" />
+			                        </div>
+			                    </div>
+			                     <div class="form-group ">
+			                     	<div for="contactQQ" class="col-sm-1 red control-label">联系QQ群:</div>
+			                        <div class="col-sm-10">
+			                          <textarea id="contactQQ" name="contactQQ" class="my_desc" cols="60" rows="4" placeholder="联系QQ群"></textarea>
+			                        </div>
+			                    </div>
+			                    <div class="form-group ">
+			                     	<div for="fLink" class="col-sm-1 red control-label">友情链接:</div>
+			                        <div class="col-sm-10">
+			                          <textarea id="fLink" name="fLink" class="my_desc" cols="60" rows="4" placeholder="友情链接"></textarea>
+			                        </div>
+			                    </div>
+			                    <div class="form-group ">
+			                     	<div for="statement1" class="col-sm-1 red control-label">网站申明1:</div>
+			                        <div class="col-sm-10">
+			                          <textarea id="statement1" name="statement1" class="my_desc" cols="60" rows="4" placeholder="网站申明1"></textarea>
+			                        </div>
+			                    </div>
+			                    <div class="form-group ">
+			                     	<div for="statement2" class="col-sm-1 red control-label">网站申明2:</div>
+			                        <div class="col-sm-10">
+			                          <textarea id="statement2" name="statement2" class="my_desc" cols="60" rows="4" placeholder="网站申明2"></textarea>
+			                        </div>
+			                    </div>
+			                    <div class="form-group">
+								    <div class="col-sm-offset-1 col-sm-12">
+								        <button type="button" id="btn" class="btn btn-success col-sm-10">发布</button>
+								    </div>
+								</div>
+			                </form>
+			            </div>
+			        </div>
+			    </div>
+			</div><!-- /.page-content -->
+		</div><!-- /.main-content -->
+	</div><!-- /.main-container-inner -->
+	<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+		<i class="icon-double-angle-up icon-only bigger-110"></i>
+	</a>
+</div><!-- /.main-container -->
+<script src="assets/js/jquery-2.0.3.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<!-- ace scripts -->
+<script src="assets/js/ace-elements.min.js"></script>
+<script src="assets/js/ace.min.js"></script>
+<script src="js/module.js"></script>
+<script type="text/javascript" src="js/comjs.js"></script>
+<script>
+module.nav.data();
+</script>
+
+<script type="text/javascript">
+$(function(){
+	$.ajax({
+		url:"datapage/othersetting.php",
+		type:"POST",
+		data:"type=GetOtherSetting",
+		success:function(str){
+			
+			var oData=$.parseJSON(str);
+			console.log(oData);
+			if(oData.respondCode==0){
+				$('#keyword').val(oData.keyword);
+				$('#keyword1').val(oData.keyword1);
+				$('#keyword2').val(oData.keyword2);
+				$('#keyword3').val(oData.keyword3);
+				$('#description').val(oData.description);
+				$('#videoTag').val(oData.videoTag);
+				$('#newsTag').val(oData.newsTag);
+				$('#contactQQ').val(oData.contactQQ);
+				$('#fLink').val(oData.fLink);
+				$('#statement1').val(oData.statement1);
+				$('#statement2').val(oData.statement2);
+				//alert(oData.respondMsg);
+			}else{
+				alert(oData.respondMsg);
+			}
+		}
+	});
+
+
+	$('#btn').on('click',function(){
+		var keyword=$('#keyword').val();
+		var keyword1=$('#keyword1').val();
+		var keyword2=$('#keyword2').val();
+		var keyword3=$('#keyword3').val();	
+		var description=$('#description').val();
+		var videoTag=$('#videoTag').val();
+		var newsTag=$('#newsTag').val();
+		var contactQQ=$('#contactQQ').val();
+
+		var fLink=$('#fLink').val();
+		var statement1=$('#statement1').val();
+		var statement2=$('#statement2').val();
+
+		description=description.replace(/[\n]/ig,'');
+		 var datas='type=UpdateOtherSetting&keyword='+keyword+'&keyword1='+keyword1+'&keyword2='+keyword2+'&keyword3='+keyword3+'&description='+description+'&videoTag='+videoTag+'&newsTag='+newsTag+'&contactQQ='+contactQQ+'&fLink='+fLink+'&statement1='+statement1+'&statement2='+statement2;
+		$.ajax({
+			url:'datapage/othersetting.php',
+			type:'POST',
+			data:datas,
+			success:function(str){
+				console.log(str);
+				var oData=eval('('+str+')');
+				if(oData.respondCode==0){
+					alert(oData.respondMsg);
+				}else{
+					alert(oData.respondMsg);
+				}
+			}
+		})
+
+	})
+
+});
+</script>
+</body>
+</html>
+

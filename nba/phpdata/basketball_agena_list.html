@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>赛程列表</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link rel="stylesheet" href="assets/css/my_css.css" type="text/css" />
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-rtl.min.css" />
+		<link rel="stylesheet" href="assets/css/ace-skins.min.css" />
+    <script type="text/javascript" src="jeDate/jedate.js"></script>
+		<script src="assets/js/ace-extra.min.js"></script>
+
+	<link href="css/web_cack.css" type="text/css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							后台管理系统
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
+								<span class="user-info">
+									<small>欢迎光临,</small>
+									admin
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="icon-cog"></i>
+										设置
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-user"></i>
+										个人资料
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="#">
+										<i class="icon-off"></i>
+										退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+		
+		<div class="main-container" id="main-container">
+			
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<div class="sidebar" id="sidebar">
+					
+
+					<div class="sidebar-shortcuts" id="sidebar-shortcuts">
+					</div><!-- #sidebar-shortcuts -->
+					<div id="nav">
+
+					</div>
+					
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+				</div>
+
+				<div class="main-content">
+          
+          <style type="text/css">
+            .list_box li,
+            .list-category li{ font-size: 12px !important; }
+          </style>
+          <!-- 球队列表 -->
+          <div class="container">
+            <div class="row">
+                
+                  <div class="col-lg-12">
+                    
+                      <div class="content_push">
+                        <h2 class="bg-info arc_title_h2">
+                          <div class="form-group clearfix">
+                              
+                              <div class="col-sm-3">
+                                <label for="firstname5" class="pull-left control-label">比赛时间</label>
+                                <input type="text" class="pull-right col-sm-8" name="ptime2" id="ptime2" placeholder="比赛时间">
+                              </div>
+                              <div class="col-sm-1">
+                                 <input type="button" class="form-control" id="searchslist" value="查询">
+                              </div>
+                          </div>
+                        </h2>
+
+                        <ol class="list-category">
+                          <li class="w3">ID</li>
+                          <li class="w10">联赛</li>
+                          <li class="w10">对阵</li>
+                          <li class="w10">赛季</li>
+                          <li class="w15">时间</li>
+                          <li class="w5">全让1</li>
+                          <li class="w5">全大1</li>
+                         
+                          <li class="w5">半让1</li>
+                         
+                          <li class="w5">半大1</li>
+                          <li class="w10">比分</li>
+                          <li class="w15">操作</li>
+                        </ol>
+                        <ul class="list_box">
+                          
+                        </ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          <div style="height: 100px;"></div>
+				</div><!-- /.main-content -->
+
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<script src="assets/js/jquery-2.0.3.min.js"></script>
+		<!-- <![endif]-->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<script src="assets/js/typeahead-bs2.min.js"></script>
+		<!-- ace scripts -->
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+    <!-- inline scripts related to this page -->
+
+		
+<script src="js/module.js"></script>
+<script>
+  module.nav.data();
+  jeDate({
+    dateCell:"#ptime2",
+    format:"YYYY-MM-DD",
+    isinitVal:true,
+    isTime:true, //isClear:false,
+    minDate:"2004-09-19 00:00",
+    okfun:function(val){}
+  });
+  function getContent() {
+      var arr = [];
+      arr.push(UE.getEditor('analysis').getContent());
+      return arr;
+  }
+  function setContent(str,isAppendTo) {
+      var arr = [];
+      arr.push();
+      UE.getEditor('analysis').setContent(str, isAppendTo);
+      return arr;
+  }
+
+
+ //结算 只能结算一次 不能重复结算
+
+// $('.jiesuan').on('click',function(){
+// 	alert($(this).attr('tagid'))
+// });
+
+
+
+
+
+</script>
+
+<script src="js/basketball_agena.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,111 @@
+/* LESS Document */
+
+@import "com.less";
+
+@import "index.less";
+
+.reg-box{
+	width:@comwidth;
+	height:auto;
+	background:@fff;
+	margin:@auto;
+	
+	.reg-warp{
+		width:60%;
+		background:#fff;
+		border:1px dashed @bgcolor+#645635;
+		padding:20px 40px;
+		.border-radius (5px);
+		.reg-tit{
+			.h2;
+			
+			h2{
+				
+			}
+			border-left:5px solid @hoverred;
+			line-height:30px;
+			
+			color:@acolor;	
+		}
+		/* 注册区域 */
+		.reg-par{
+			
+			color:@acolor;
+			a{color:@hoverred;	}
+			ul{
+				padding-top:20px;
+			}
+			
+			li{
+			  .inputC{
+				height:30px;
+				width:350px;
+			   .border-radius (3px);
+			   font-size:14px;
+			   padding-left:8px;
+			   margin-bottom:20px;
+			   border:1px solid #ccc;
+			  }	
+			  span{
+				display:inline-block;
+				margin-left:25px;
+				position:relative;
+				&.error{
+					color:#f00;	
+				}
+				&.success{
+					color:green;	
+				}
+				&:after{
+					.after;
+					content:"*";
+					color:#f00;
+					width:6px;
+					height:6px;
+					left:-10px;
+					top:0;	
+				}  
+			  }
+			  .textarea{
+					width:350px;
+					height:100px;
+					padding:5px;
+					line-height:20px;
+					border:1px solid #ccc;
+					.border-radius (3px); 
+			  }
+			}
+			.regBtn{
+				height:50px;
+				line-height:50px;
+				text-align:left;
+				padding-bottom:30px;
+				a{
+					background:@pagecolor;
+					padding:10px 50px;	
+					.border-radius(3px);
+					color:@acolor;
+					.transition;
+					&:hover{
+						background:@hoverred;	
+						color:#fff;
+					}
+				}	
+			}
+			
+		}
+	}
+}
+
+
+#user_btn{
+	width:120px;
+	height:32px;
+	background:#F0F0EE;	
+	.transition;
+	cursor:pointer;
+}
+#user_btn:hover{
+	background:@hoverred;	
+	color:#fff;
+}

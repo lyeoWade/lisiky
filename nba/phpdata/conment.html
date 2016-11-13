@@ -1,0 +1,265 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<title>评论列表</title>
+		<meta name="keywords" content="" />
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- basic styles -->
+		<link rel="stylesheet" href="assets/css/my_css.css" type="text/css" />
+		<link href="assets/css/bootstrap.min.css" rel="stylesheet" />
+		<link rel="stylesheet" href="assets/css/font-awesome.min.css" />
+		
+
+		<link rel="stylesheet" href="assets/css/ace.min.css" />
+
+
+		<script src="assets/js/ace-extra.min.js"></script>
+
+	<link href="css/web_cack.css" type="text/css" rel="stylesheet">
+	</head>
+
+	<body>
+		<div class="navbar navbar-default" id="navbar">
+			<div class="navbar-container" id="navbar-container">
+				<div class="navbar-header pull-left">
+					<a href="#" class="navbar-brand">
+						<small>
+							<i class="icon-leaf"></i>
+							后台管理系统
+						</small>
+					</a><!-- /.brand -->
+				</div><!-- /.navbar-header -->
+
+				<div class="navbar-header pull-right" role="navigation">
+					<ul class="nav ace-nav">
+						<li class="light-blue">
+							<a data-toggle="dropdown" href="#" class="dropdown-toggle">
+								<img class="nav-user-photo" src="assets/avatars/user.jpg" alt="Jason's Photo" />
+								<span class="user-info">
+									<small>欢迎光临,</small>
+									admin
+								</span>
+
+								<i class="icon-caret-down"></i>
+							</a>
+
+							<ul class="user-menu pull-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+								<li>
+									<a href="#">
+										<i class="icon-cog"></i>
+										设置
+									</a>
+								</li>
+
+								<li>
+									<a href="#">
+										<i class="icon-user"></i>
+										个人资料
+									</a>
+								</li>
+
+								<li class="divider"></li>
+
+								<li>
+									<a href="#">
+										<i class="icon-off"></i>
+										退出
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul><!-- /.ace-nav -->
+				</div><!-- /.navbar-header -->
+			</div><!-- /.container -->
+		</div>
+		
+		<div class="main-container" id="main-container">
+			
+
+			<div class="main-container-inner">
+				<a class="menu-toggler" id="menu-toggler" href="#">
+					<span class="menu-text"></span>
+				</a>
+
+				<div class="sidebar" id="sidebar">
+					<div id="nav">
+
+					</div>
+					
+					<div class="sidebar-collapse" id="sidebar-collapse">
+						<i class="icon-double-angle-left" data-icon1="icon-double-angle-left" data-icon2="icon-double-angle-right"></i>
+					</div>
+				</div>
+
+
+				<div class="main-content">
+					<div class="container">
+						<div class="row">
+					        <div class="col-lg-12">
+					        	
+					            <div class="content_push">
+					              <h2 class="bg-info arc_title_h2">文章评论管理</h2>
+					              <div class="col-lg-12 headseach">
+					        		<div class="form-group fl">
+				                      <label for="uesrname" class="col-sm-3 control-label">用户:</label>
+				                      <div class="col-sm-8">
+				                        <input type="text" class="" value="" id="uesrname">
+				                      </div>
+				                    </div>
+
+				                    <div class="form-group fl">
+				                      <label for="title" class="col-sm-3 control-label">标题:</label>
+				                      <div class="col-sm-8">
+				                        <input type="text" class="" value="" id="title">
+				                      </div>
+				                    </div>
+
+				                    <div class="form-group fl col-lg-3">
+				                      <label for="newtype" class="col-sm-3 control-label">栏目:</label>
+				                      <div class="col-sm-9">
+				                        <select class="form-control" id="newtype">
+								       		<option value="1">篮球新闻</option>
+								       		<option value="2">足球新闻</option>
+								       		<option value="3">实时新闻</option>
+								       		<option value="4">神棍区</option>
+								       		<option value="5">推荐文章</option>
+								       		<option value="6">篮球心水</option>
+								       		<option value="7">足球心水</option>
+								        </select>
+				                      </div>
+				                    </div>
+
+				                    <div class="form-group fl">
+				                      <div class="col-sm-8">
+				                        <input type="button" class="btn btn-info btn-sm" value="查找" id="searchBtn">
+				                      </div>
+				                    </div>
+					        	  </div>
+					              <ol class="list-category">
+					              	<li class="w5">序号</li>
+					                <li class="w50">评论内容</li>
+					                <li class="w15">评论目标ID</li>
+					                <li class="w15">所属栏目</li>
+					                <li class="w5">赞</li>
+					                <li class="w10">操作</li>
+					              </ol>
+								  <ul class="list_box">
+					                <li>
+					                	<div class="w5 pull-left">1</div>
+					                	<div class="w50 atc_title pull-left"><a href="">曝卡戴珊遭奥多姆突袭 哈登正随美国队集训</a></div>
+					                    <div class="w15 pull-left">100</div>
+					                    <div class="w15 pull-left">新闻</div>
+					                    <div class="w5 pull-left">100</div>
+					              
+					                    <div class="handle pull-left w10"><a href="javascript:;">删除</a><a href="javascript:;">修改</a></div>
+					                </li>
+					              </ul>
+					              <div class="page">
+						        	<ul class="page-list" id="pages">
+						        	
+						        	</ul>
+						          </div>
+					            </div>
+					        </div>
+					    </div>
+					</div>
+				</div><!-- /.main-content -->
+
+			</div><!-- /.main-container-inner -->
+
+			<a href="#" id="btn-scroll-up" class="btn-scroll-up btn btn-sm btn-inverse">
+				<i class="icon-double-angle-up icon-only bigger-110"></i>
+			</a>
+		</div><!-- /.main-container -->
+
+		<!-- basic scripts -->
+
+		<script src="assets/js/jquery-2.0.3.min.js"></script>
+		<!-- <![endif]-->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<!-- ace scripts -->
+
+		<script src="assets/js/ace-elements.min.js"></script>
+		<script src="assets/js/ace.min.js"></script>
+
+		<!-- inline scripts related to this page -->
+
+		
+<script src="js/module.js"></script>
+<script>
+module.nav.data();
+</script>
+
+<script>
+$(function(){
+	getList()
+	
+});
+
+function getList(){
+		$.ajax({
+		url:"datapage/conment.php",
+		type:"POST",
+		data:"act=list",
+		success: function(data){
+			console.log(data)
+			var json=$.parseJSON(data);
+			var Liststr='';
+			for(var i=0; i<json.result.length; i++){
+				console.log(json.result[i])
+				var newjson=eval('('+json.result[i]+')');
+				
+				Liststr+='<li><div class="w5 pull-left">'+(i+1)+'</div>';
+                Liststr+='<div class="w50 atc_title pull-left"><a href="../content.html?page='+newjson.targetId+'" target="_blank">'+newjson.content+'</a></div>';
+                Liststr+='  <div class="w15 pull-left">'+newjson.targetId+'</div>';
+                Liststr+='  <div class="w15 pull-left">未知</div>';
+                Liststr+='  <div class="w5 pull-left" typeid="">123</div>';
+                Liststr+='  <div class="handle pull-left w10"><a href="javascript:;" tagid="'+newjson.id+'">删除</a><a href="javascript:;">修改</a></div></li>';	
+			} 
+			$('.list_box').html(Liststr);
+			
+			Delete();
+		},
+		error: function(){
+			
+		}	
+	});	
+}
+// 删除
+function Delete(){
+	var oBtn=$('.handle a:contains("删除")');
+	
+	oBtn.each(function(index, element) {
+       oBtn.eq(index).on("click",function(){
+			if(confirm("你确定要删除本条数据？"))
+			{
+				var oId=$(this).attr("tagid")
+				$.ajax({
+					url:"datapage/conment.php",
+					data:"act=deletes&id="+oId,
+					type:"POST",
+					success: function(data){
+						var json=eval('('+data+')');
+						if(json.des==1){
+							getList();
+						}else{
+							alert("删除失败！")	
+						};
+						
+					},
+					error:function(){
+						
+					}
+				});
+			};
+		});
+    });
+}
+
+
+</script>
+</body>
+</html>
+

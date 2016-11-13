@@ -1,0 +1,281 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>足球</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="../js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js" ></script>
+<script src="js/module.js"></script>
+<script src="../js/fteam.js"></script>
+<style>
+
+</style>
+<link href="css/web_cack.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<!-- 加载编辑器的容器 -->
+
+<div class="container">
+	<div class="row">
+    	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+           
+        </nav>
+    </div>
+</div>
+<script>
+module.nav.data();
+</script>
+<div class="scrollbar_back"></div>
+<!-- 修改,发布球队 -->
+<div id="edit-warp">
+	<div class="container">
+        <div class="row">
+            
+            <div class="col-lg-12">
+                
+                <div class="content_push">
+                  <h2 class="bg-info arc_title_h2">
+                    新增球队数据
+                  </h2>
+                </div>
+            </div>
+            
+            <div class="col-lg-12">
+            	 <div class="col-lg-12 warp-add">
+            	 <div class="form-group">
+                      <label for="firstname" class="col-sm-2 control-label">联赛</label>
+                      <div class="col-sm-8 ">
+                          
+                             <select class="form-control leagueList">
+                                 
+                              </select>
+                        
+                          
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="firstname" class="col-sm-2 control-label">球队</label>
+                      <div class="col-sm-8">
+                         <select class="form-control teamList">
+                             <!--<option>英超</option>
+                             <option>意甲</option>
+                             <option>德甲</option>
+                             <option>西甲</option>
+                             <option>中超</option>
+                             <option>亚冠</option>-->
+                          </select>
+                      </div>
+                  </div>
+                 
+                  <div class="form-group">
+                      <label for="firstname" class="col-sm-2 control-label">logo</label>
+                      <div class="col-sm-8">
+                        <label class="sr-only" for="inputfile">文件输入</label>
+     					<input type="file" id="inputfile">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="firstname4" class="col-sm-2 control-label">球队链接</label>
+                      <div class="col-sm-8">
+                         <input type="text" class="form-control" id="firstname4" 
+                            placeholder="球队的链接(新浪,或者腾讯)">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="" class="col-sm-2 control-label">赛季</label>
+                      <div class="col-sm-8">
+                         <select class="form-control">
+                             <option>2010-2011</option>
+                             <option>2011-2012</option>
+                             <option>2012-2013</option>
+                             <option>2013-2014</option>
+                             <option>2014-2015</option>
+                             <option>2015-2016</option>
+                          </select>
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="firstname5" class="col-sm-2 control-label">积分</label>
+                      <div class="col-sm-8">
+                         <input type="text" class="form-control" id="firstname5" 
+                            placeholder="球队积分(注意赛季)">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="firstname6" class="col-sm-2 control-label">胜场</label>
+                      <div class="col-sm-8">
+                         <input type="text" class="form-control" id="firstname6" 
+                            placeholder="胜场(一定要细心)">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="firstname7" class="col-sm-2 control-label">平</label>
+                      <div class="col-sm-8">
+                         <input type="text" class="form-control" id="firstname7" 
+                            placeholder="平">
+                      </div>
+                  </div>
+                  <div class="form-group">
+                      <label for="firstname8" class="col-sm-2 control-label">负</label>
+                      <div class="col-sm-8">
+                         <input type="text" class="form-control" id="firstname8" 
+                            placeholder="负">
+                      </div>
+                  </div>
+                  
+                   <div class="form-group">
+                      <label for="" class="col-sm-2 control-label"></label>
+                      <div class="col-sm-8">
+                         <input type="button" id="surebtn" class="form-control" value="确定">
+                      </div>
+                  </div>
+                  
+                  
+                  </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 球队列表 -->
+<div class="container">
+	<div class="row">
+    	
+        <div class="col-lg-12">
+        	
+            <div class="content_push">
+              <h2 class="bg-info arc_title_h2">
+              	球队列表
+              	<select>
+                	<option value="中超">中超</option>
+                    <option value="英超">英超</option>
+                    <option value="意甲" selected>意甲</option>
+                    <option value="德甲">德甲</option>
+                    <option value="法甲">法甲</option>
+                </select>
+              </h2>
+              <ol class="list-category">
+              	<li class="w5">ID</li>
+                <li class="w15">球队</li>
+                <li class="w25">教练</li>
+                <li class="w10">赛季</li>
+                <li class="w5">积分</li>
+                <li class="w5">胜</li>
+                <li class="w5">平</li>
+                <li class="w5">负</li>
+                <li class="w15">联赛</li>
+                <li class="w10">操作</li>
+              </ol>
+			  <ul class="list_box">
+                <li>
+                	<div class="w5 pull-left">1</div>
+                	<div class="w15  pull-left"><a href="">北京国安</a></div>
+                    <div class="w25 pull-left">夏海兵</div>
+                    <div class="w10 pull-left">2015-2016</div>
+                    <div class="w5 pull-left">8</div>
+                    <div class="w5 pull-left">2</div>
+                    <div class="w5 pull-left">0</div>
+                    <div class="w5 pull-left">0</div>
+                    <div class="w15 pull-left">中超</div>
+                    <div class="w10 pull-left handle"><a href="">修改</a><a href="">删除</a></div>
+                </li>
+                <li>
+                	<div class="w5 pull-left">1</div>
+                	<div class="w15  pull-left"><a href="">北京国安</a></div>
+                    <div class="w25 pull-left">夏海兵</div>
+                    <div class="w10 pull-left">2015-2016</div>
+                    <div class="w5 pull-left">8</div>
+                    <div class="w5 pull-left">2</div>
+                    <div class="w5 pull-left">0</div>
+                    <div class="w5 pull-left">0</div>
+                    <div class="w15 pull-left">中超</div>
+                    <div class="w10 pull-left handle"><a href="">修改</a><a href="">删除</a></div>
+                </li>
+               
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="js/football_team.js"></script>
+<script>
+$(function(){
+	//getList()
+	
+});
+
+
+//select * from student where sex='男' and age=20;
+
+
+function getList(){
+		$.ajax({
+		//url:"datapage/football_team.php",
+		type:"POST",
+		data:"act=list",
+		success: function(data){
+			var json=$.parseJSON(data);
+			
+			//console.log(json.result);
+			
+			var Liststr='';
+			for(var i=0; i<json.result.length; i++){
+				//alert(json.result[i])
+				var newjson=eval('('+json.result[i]+')');
+				
+				if(newjson.typeid=='')newjson.typeid="未分类";
+				Liststr+='<li><div class="w5 pull-left">'+(i+1)+'</div>';
+                Liststr+='<div class="w60 atc_title pull-left"><a href="http://localhost/phptext/myblong/content.php?page='+newjson.id+'" target="_blank">'+newjson.title+'</a></div>';
+                Liststr+='  <div class="w5 pull-left">100</div>';
+                Liststr+='  <div class="w5 pull-left">11029</div>';
+                Liststr+='  <div class="w10 pull-left" typeid="">'+newjson.typeid+'</div>';
+                Liststr+='  <div class="handle pull-left w15"><a href="javascript:;" tagid="'+newjson.id+'">删除</a><a href="javascript:;">修改</a><a href="javascript:;">下架</a></div></li>';	
+			}
+			
+			$('.list_box').html(Liststr);
+			
+			Delete();
+		},
+		error: function(){
+			
+		}	
+	});	
+}
+// 删除
+function Delete(){
+	var oBtn=$('.handle a:contains("删除")');
+	
+	oBtn.each(function(index, element) {
+       oBtn.eq(index).on("click",function(){
+			
+			var oId=$(this).attr("tagid")
+			$.ajax({
+				//url:"datapage/arclist.php",
+				data:"act=deletes&id="+oId,
+				type:"POST",
+				success: function(data){
+					var json=eval('('+data+')');
+					if(json.des==1){
+						getList();
+					}else{
+						alert("删除失败！")	
+					};
+					
+				},
+				error:function(){
+					
+				}
+			});
+		});
+    });
+}
+
+
+</script>
+</body>
+</html>

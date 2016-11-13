@@ -1,0 +1,193 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>联系我们</title>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="../js/jquery.min.js"></script>
+<script src="js/bootstrap.min.js" ></script>
+<script src="js/module.js"></script>
+<style>
+
+</style>
+<link href="css/web_cack.css" type="text/css" rel="stylesheet">
+</head>
+
+<body>
+<!-- 加载编辑器的容器 -->
+
+<div class="container">
+	<div class="row">
+    	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+           
+        </nav>
+    </div>
+</div>
+<script>
+module.nav.data();
+</script>
+<div class="scrollbar_back"></div>
+<div class="container">
+	<div class="row">
+        <div class="col-lg-12">
+        	
+            <div class="content_push">
+              <h2 class="bg-info arc_title_h2">信息列表</h2>
+              <ol class="list-category">
+              	<li class="w5">序号</li>
+                <li class="w45">内容</li>
+                <li class="w15">姓名</li>
+                <li class="w10">电话</li>
+                <li class="w10">QQ</li>
+                <li class="w10">邮箱</li>
+                <li class="w5">操作</li>
+              </ol>
+			  <ul class="list_box">
+                <li>
+                	<div class="w5 pull-left">1</div>
+                	<div class="w40 atc_title pull-left"><a href="">曝卡戴珊遭奥多姆突袭 哈登正随美国队集训</a></div>
+                    <div class="w15 pull-left">100</div>
+                    <div class="w15 pull-left">新闻</div>
+                    <div class="w5 pull-left">100</div>
+              
+                    <div class="handle pull-left w10"><a href="javascript:;">删除</a><a href="javascript:;">修改</a></div>
+                </li>
+              </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 模态框（Modal） -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
+   aria-labelledby="myModalLabel" aria-hidden="true">
+     <div class="modal-dialog">
+        <div class="modal-content">
+           <div class="modal-header">
+              <button type="button" class="close" 
+                 data-dismiss="modal" aria-hidden="true">
+                    &times;
+              </button>
+              <h4 class="modal-title" id="myModalLabel">
+                 信息内容
+              </h4>
+           </div>
+           <div class="modal-body">
+              在这里添加一些文本
+           </div>
+           <div class="modal-footer">
+              <button type="button" class="btn btn-default" 
+                 data-dismiss="modal">关闭
+              </button>
+           </div>
+        </div><!-- /.modal-content -->
+  </div><!-- /.modal -->
+</div>
+
+<script>
+
+
+$(function(){
+	getList();
+});
+
+function getList(){
+		$.ajax({
+		url:"datapage/contact.php",
+		type:"POST",
+		data:"act=list",
+		success: function(data){
+			console.log(data)
+			var json=$.parseJSON(data);
+			var Liststr='';
+			for(var i=0; i<json.result.length; i++){
+				console.log(json.result[i])
+				var newjson=eval('('+json.result[i]+')');
+				
+				Liststr+='<li><div class="w5 pull-left">'+(i+1)+'</div>';
+                Liststr+='<div class="w45 atc_title pull-left"><span class="clickshow" data-toggle="modal" data-target="#myModal">'+newjson.content+'</span></div>';
+                Liststr+='  <div class="w15 pull-left">'+newjson.name+'</div>';
+                Liststr+='  <div class="w10 pull-left">'+newjson.tel+'</div>';
+                Liststr+='  <div class="w10 pull-left" typeid="">'+newjson.qq+'</div>';
+				Liststr+='  <div class="w10 pull-left" >'+newjson.email+'</div>';
+                Liststr+='  <div class="handle pull-left w5"><a href="javascript:;" tagid="'+newjson.id+'">删除</a></div></li>';	
+			} 
+			$('.list_box').html(Liststr);
+			shows();
+			Delete();
+		},
+		error: function(){
+			
+		}	
+	});	
+}
+// 删除
+function Delete(){
+	var oBtn=$('.handle a:contains("删除")');
+	
+	oBtn.each(function(index, element) {
+       oBtn.eq(index).on("click",function(){
+			 var oId=$(this).attr("tagid")
+			if(confirm("你确定要删除本条数据？"))
+			{
+				$.ajax({
+					url:"datapage/contact.php",
+					data:"act=deletes&id="+oId,
+					type:"POST",
+					success: function(data){
+						//alert(data)
+						var json=eval('('+data+')');
+						if(json.des==1){
+							getList();
+						}else{
+							alert("删除失败！")	
+						};
+						
+					},
+					error:function(){
+						
+					}
+				});
+			};
+		});
+    });
+}
+
+function shows(){
+  var content=$('.modal-body');
+      var oCon=$('.clickshow');
+      var disHtml=[];
+      
+      var str='';
+      oCon.each(function(index,elements){
+        disHtml.push($('.clickshow').eq(index).html());
+        //alert(disHtml)
+        // 控制摘要的字数
+        if(oCon.eq(index).html().length>=60){
+          //alert(oCon.html().substring(0,200))
+          str=oCon.eq(index).html().substring(0,60);
+          
+        }else{
+          str=oCon.eq(index).html();
+        }
+        oCon.eq(index).html(str+'...');
+      });
+      oCon.each(function(index, element) {
+          
+        $(this).on('click',function(){
+          content.html(disHtml[index])
+        });
+      });
+}
+</script>
+
+<script>
+
+
+</script>
+
+</body>
+</html>

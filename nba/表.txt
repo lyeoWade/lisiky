@@ -1,0 +1,102 @@
+
+
+
+用户竞猜
+	首先判断是否竞猜该比赛
+	在判断是否超出场次
+	接着判断是否还有重点竞猜机会
+
+	写入竞猜表 
+
+	isRight 	默认0
+				正确:1
+				错误:2
+
+查看记录表 --->显示一个月
+	id
+	userid
+	gameid
+	guesstype
+	guessdetail
+	money
+	isKey
+	updatetime
+
+用户显示竞猜表今日竞猜,历史竞猜
+
+
+
+比赛结束之后
+	更新用户竞猜列表是否猜正确
+	下午16点自动更新榜单 结束上日竞猜
+	//  到了下午16点
+		查找到昨天的比赛竞猜日期 更新isRight
+
+	(查询竞猜列表找到今天所有用户竞猜的场次,分别判断是否正确)
+
+
+榜单表
+id
+userid  
+allNumWin
+allNumFail
+allWinrate
+quarterWin
+quarterFail
+quarterWinrate
+monthWin
+monthFail
+monthWinrate
+weekWin
+weekFail
+weekWinrate
+monthKeyWin
+monthKeyFail 
+monthWinrate
+
+
+
+结束比赛
+	更新比分 
+	更新isend
+	
+手动更新赛果
+	赛程列表处点击
+	判断isend
+	// 半场 
+	if((h-g)>h){
+
+	}else if(){
+
+	} else{
+		平
+	}
+
+	mysql_query("updata * set isRight = '.agdh.' where gameid=gid and guessType=1");
+
+每日15点自动判断是否isend 计算盘口
+
+
+
+周榜单----
+	查询会员表根据月胜率从高到低(至少20场),连续3天未竞猜的用户将会掉出排行榜，重新竞猜即可恢复排行。
+	月胜率低于70%奖金减半，当月连续3天没竞猜的用户取消领奖资格。
+
+
+月榜单----
+	查询会员表根据月胜率从高到低(至少60场),连续7天未竞猜的用户将会掉出排行榜，重新竞猜即可恢复排行。
+	月胜率低于70%奖金减半，当月连续7天没竞猜的用户取消领奖资格。
+
+
+季榜单----
+	查询会员表根据月胜率从高到低(至少160场),连续7天未竞猜的用户将会掉出排行榜，重新竞猜即可恢复排行。
+	月胜率低于70%奖金减半，当月连续7天没竞猜的用户取消领奖资格。
+
+
+
+
+
+
+
+
+
