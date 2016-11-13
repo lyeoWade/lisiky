@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="dqtIndex">
+<head>
+	<meta charset="UTF-8">
+	<title>第七图</title>
+	<meta name="aplus-terminal" content="1"> 
+	<meta name="apple-mobile-web-app-capable" content="yes"> 
+	<!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏。content有两个值”yes”和”no” -->
+	<meta name="apple-touch-fullscreen" content="no"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+	<meta name="format-detection" content="telephone=no"> 
+	<!-- 清除微信缓存 -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link rel="stylesheet" href="css/mui.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/rem.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link rel="stylesheet" type="text/css" href="css/app.css">
+	<link rel="stylesheet" href="css/mui.min.css">
+	<script type="text/javascript" src="../js/angular.js"></script>
+	<style type="text/css">
+			.mui-preview-image.mui-fullscreen {
+				position: fixed;
+				z-index: 20;
+				background-color: #000;
+			}
+			.mui-preview-header,
+			.mui-preview-footer {
+				position: absolute;
+				width: 100%;
+				left: 0;
+				z-index: 10;
+			}
+			.mui-preview-header {
+				height: 44px;
+				top: 0;
+			}
+			.mui-preview-footer {
+				height: 50px;
+				bottom: 0px;
+			}
+			.mui-preview-header .mui-preview-indicator {
+				display: block;
+				line-height: 25px;
+				color: #fff;
+				text-align: center;
+				margin: 15px auto 4;
+				width: 70px;
+				background-color: rgba(0, 0, 0, 0.4);
+				border-radius: 12px;
+				font-size: 16px;
+			}
+			.mui-preview-image {
+				display: none;
+				-webkit-animation-duration: 0.5s;
+				animation-duration: 0.5s;
+				-webkit-animation-fill-mode: both;
+				animation-fill-mode: both;
+			}
+			.mui-preview-image.mui-preview-in {
+				-webkit-animation-name: fadeIn;
+				animation-name: fadeIn;
+			}
+			.mui-preview-image.mui-preview-out {
+				background: none;
+				-webkit-animation-name: fadeOut;
+				animation-name: fadeOut;
+			}
+			.mui-preview-image.mui-preview-out .mui-preview-header,
+			.mui-preview-image.mui-preview-out .mui-preview-footer {
+				display: none;
+			}
+			.mui-zoom-scroller {
+				position: absolute;
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: flex;
+				-webkit-box-align: center;
+				-webkit-align-items: center;
+				align-items: center;
+				-webkit-box-pack: center;
+				-webkit-justify-content: center;
+				justify-content: center;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				width: 100%;
+				height: 100%;
+				margin: 0;
+				-webkit-backface-visibility: hidden;
+			}
+			.mui-zoom {
+				-webkit-transform-style: preserve-3d;
+				transform-style: preserve-3d;
+			}
+			.mui-slider .mui-slider-group .mui-slider-item img {
+				width: auto;
+				height: auto;
+				max-width: 100%;
+				max-height: 100%;
+			}
+			.mui-android-4-1 .mui-slider .mui-slider-group .mui-slider-item img {
+				width: 100%;
+			}
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-slider-group .mui-slider-item {
+				display: inline-table;
+			}
+			.mui-android-4-1 .mui-slider.mui-preview-image .mui-zoom-scroller img {
+				display: table-cell;
+				vertical-align: middle;
+			}
+			.mui-preview-loading {
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				top: 0;
+				left: 0;
+				display: none;
+			}
+			.mui-preview-loading.mui-active {
+				display: block;
+			}
+			.mui-preview-loading .mui-spinner-white {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -25px;
+				margin-top: -25px;
+				height: 50px;
+				width: 50px;
+			}
+			.mui-preview-image img.mui-transitioning {
+				-webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+				transition: transform 0.5s ease, opacity 0.5s ease;
+			}
+			@-webkit-keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@keyframes fadeIn {
+				0% {
+					opacity: 0;
+				}
+				100% {
+					opacity: 1;
+				}
+			}
+			@-webkit-keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			@keyframes fadeOut {
+				0% {
+					opacity: 1;
+				}
+				100% {
+					opacity: 0;
+				}
+			}
+			p img {
+				max-width: 100%;
+				height: auto;
+			}
+	</style>
+	<script type="text/javascript">
+		var app=angular.module('dqtIndex',[]);
+		app.controller('main',function($scope,$http,$location){
+			$scope.nav=[
+				{"name":"首页","link":"index.html"},
+				{"name":"性感美女","link":"index.html"},
+				{"name":"清纯美女","link":"index.html"},
+				{"name":"黑丝美女","link":"index.html"},
+				{"name":"性感动图","link":"index.html"}
+			];
+			$scope.imageContent='';
+			$scope.ownTagArr=[];
+			$scope.imagesArr=[];
+			$scope.isShow=0;
+			var transform = function(data){
+                return $.param(data);
+            }
+            $scope.pageid=$location.absUrl().split('?')[1].split('=')[1];
+
+            try{
+				getImageDetail($scope.pageid);
+				getTag();
+            }catch(e){
+            	console.log(e)
+            }
+            function getImageDetail(id){
+            	$http.post('../dqt/php/imageList.php',{
+					"type":"GetOneImage",
+					"id"  :id
+				},{
+	                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+	                transformRequest: transform
+	            }).success(function(res){
+	            	//console.log(res)
+	            	if(res.result.length<=0){ 
+	            		history.go(-1);
+	            	};
+					$scope.imageContent=eval('('+res.result[0]+')');
+					console.log($scope.imageContent);
+
+					$scope.ownTagArr=$scope.imageContent.tag.split('-');
+					$scope.imagesArr=$scope.imageContent.pic.split(',');
+				}).error(function(){
+					alert('失败;');
+				});
+            };
+
+			//tag
+			$scope.tagArr=[];
+			function getTag(){
+            	$http.post('../dqt/php/imageList.php',{
+					"type":"tagList"
+				},{
+	                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+	                transformRequest: transform
+	            }).success(function(res){
+	            	//console.log(res)
+	            	
+					res.result.forEach(function(str){
+	                    $scope.tagArr.push(eval('('+str+')'));
+	                });
+	                
+				}).error(function(){
+					alert('失败;');
+				});
+            };
+		});
+	</script>
+</head>
+<body class="mui-ios mui-ios-9 mui-ios-9-1 mui-fullscreen" ng-controller='main'>
+
+<!-- mui-draggable -->
+<div id="offCanvasWrapper" class="mui-off-canvas-wrap ">
+	<!--侧滑菜单部分-->
+	<aside id="offCanvasSide" class="mui-off-canvas-left">
+		<div id="offCanvasSideScroll" class="mui-scroll-wrapper">
+			<div class="mui-scroll ">
+				<div class="logo"><img src="../images/logo2.png"></div>
+				<ul class="mui-table-view mui-table-view-chevron mui-table-view-inverted sideNav">
+					<li class="mui-table-view-cell" ng-repeat="navdata in nav">
+						<a class="mui-navigate-right" href="{{navdata.link}}">
+							{{navdata.name}}
+						</a>
+					</li>
+				</ul>
+				<div class="tagWrap">
+					<p>相关标签</p>
+					<a href="" ng-repeat=" v in tagArr">{{v.name}}</a>
+				</div>
+			</div>
+		</div>
+	</aside>
+	<!--主界面部分-->
+	<div class="mui-inner-wrap">
+		<header class="mui-bar mui-bar-nav">
+			<a href="#offCanvasSide" class="mui-icon mui-action-menu mui-icon-bars mui-pull-left"></a>
+		</header>
+		
+		<div id="offCanvasContentScroll" class="mui-content mui-scroll-wrapper">
+
+			<div class="mui-scroll">
+				
+				<div class="mui-content-padded detail-content">
+					<div class="content-main">
+						<h1>{{imageContent.title}}</h1>
+						<p class="sundry"><span>浏览:{{imageContent.frequency}}</span><time>Time:{{imageContent.pushtime}}</time><a href="">清纯妹子</a></p>
+						<p class="content-main-wrap">
+							<img ng-repeat="v in imagesArr" ng-show="isShow==$index" title="{{$index}}-{{isShow}}" src="http://www.images007.com/{{v}}" data-preview-src="" data-preview-group="1" />
+						</p>
+						<p class="wxts">温馨提示：点击图片左右滑动查看图集</p>
+						<p class="ssbq">所属标签:<a href="" ng-repeat="v in ownTagArr">{{v}}</a></p>
+					</div>
+					<div class="">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- off-canvas backdrop -->
+		<div class="mui-off-canvas-backdrop"></div>
+	</div>
+</div>
+
+
+<!-- 例子 -->
+<script src="js/mui.min.js"></script>
+<script src="js/mui.lazyload.js"></script>
+<script src="js/mui.lazyload.img.js"></script>
+<script src="js/mui.zoom.js"></script>
+<script src="js/mui.previewimage.js"></script>
+<script>
+	mui.init();
+	mui.previewImage();
+	 //主界面和侧滑菜单界面均支持区域滚动；
+	mui('#offCanvasSideScroll').scroll();
+	mui('#offCanvasContentScroll').scroll();
+	 //实现ios平台原生侧滑关闭页面；
+	if (mui.os.plus && mui.os.ios) {
+		mui.plusReady(function() { //5+ iOS暂时无法屏蔽popGesture时传递touch事件，故该demo直接屏蔽popGesture功能
+			plus.webview.currentWebview().setStyle({
+				'popGesture': 'none'
+			});
+		});
+	}
+	// var createFragment = function(count) {
+	// 	var fragment = document.createDocumentFragment();
+	// 	var li;
+	// 	for (var i = 0; i < count; i++) {
+	// 		li = document.createElement('li');
+	// 		li.className = 'mui-table-view-cell mui-media';
+	// 		li.innerHTML = '<a class="mui-navigate-right"><img class="mui-media-object mui-pull-left" data-lazyload="http://www.dcloud.io/hellomui/images/' + (i % 5 + 1) + '.jpg?version=' + Math.random() * 1000 + '"></a>';
+	// 		fragment.appendChild(li);
+	// 	}
+	// 	return fragment;
+	// };
+
+
+	// (function($) {
+	// 	var list = document.getElementById("list");
+	// 	list.appendChild('<li></li>');
+	// 	$(document).imageLazyload({
+	// 		placeholder: '../images/60x60.gif'
+	// 	});
+	// })(mui);
+</script>
+
+
+</body>
+</html>
+

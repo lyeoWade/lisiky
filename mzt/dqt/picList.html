@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="picList">
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <script type="text/javascript" src="../js/angular.js"></script>
+    <title>图片列表管理 </title>
+    <!--Core CSS -->
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <!-- 自己添加的样式文件 -->
+    <link rel="stylesheet" type="text/css" href="css/new-add-style.css">
+    <!--responsive table-->
+    <link href="css/table-responsive.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <script type="text/javascript">
+        var app=angular.module('picList',[]);
+        app.controller('mainList',function($scope,$http){
+            
+            $scope.AllNum=0;
+            $scope.pageNum=15;
+            $scope.curPage=1;
+            
+            $scope.AllPageNum=0;
+            $scope.ceil=function(str){
+                return Math.ceil(str);
+            }
+
+            function setPage(count){
+                $scope.page=[];
+                for(var i=1; i<=count; i++){
+                    if(i==$scope.curPage){
+                        $scope.page.push({num:i,className:'active'});
+                    }else{
+                        $scope.page.push({num:i,className:''});
+                    }
+                }
+            }
+
+            var transform = function(data){
+                return $.param(data);
+            }
+
+            getPageList($scope.pageNum,$scope.curPage);
+
+            function getPageList(pageNum,curPage){
+                $scope.curPage=curPage;
+                $scope.imagesArr=[];
+                $http.post("php/imageList.php",{
+                    "type":"GetImageList",
+                    "num":pageNum,
+                    "page":curPage
+                },{
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                    transformRequest: transform
+                }).success(function(res){
+                    $scope.AllNum=res.count;
+                    $scope.AllPageNum=$scope.ceil(res.count/$scope.pageNum);
+                    res.result.forEach(function(str){
+                        $scope.imagesArr.push(eval('('+str+')'));
+                    });
+                    setPage($scope.AllPageNum);
+                }).error(function(){
+
+                });
+            };
+
+            
+            $scope.getPageList=getPageList;//($scope.pageNum,n);
+            
+
+        });
+
+        app.filter('columnsfilter',function(){
+            return function(info){
+                var str='';
+                switch(info){
+                    case '1':
+                    str = '性感妹子';
+                    break;
+                    case '2':
+                    str = '清纯妹子';
+                    break;
+                    case '3':
+                    str = '丝袜美腿';
+                    break;
+                    case '4':
+                    str = '性感动图';
+                    break;
+                }
+                return str;
+            }
+        });
+        //分割为数组 两个参数以什么分割 分割的符号
+        app.filter('splitArr',function(){
+            return function(info,arg){
+                var lastStr=arg[1];
+                if(arg.length==1){
+                    lastStr=',';
+                }
+                return info.split(arg[0]).join(lastStr);
+            }
+        });
+
+        app.directive('pagemodule',function(){
+            var json={
+                restrict:"E",
+                template:'<div class="box-footer clearfix" id="pagination">\
+                            <div class="pull-left">\
+                                <span>共 {{AllNum}} 条数据</span>&nbsp;&nbsp;&nbsp;<span>共  {{AllPageNum}} 页</span>\
+                            </div>\
+                            <ul class="pagination pagination-sm no-margin pull-right">\
+                                <li><a href="javascript:;" ng-click="getPageList(pageNum,1)">首页</a></li>\
+                                <li><a href="javascript:;" ng-click="getPageList(pageNum,v.num-1)">上一页</a></li>\
+                                <li ng-repeat="v in page"  class="{{v.className}}" ><a href="javascript:;" ng-click="getPageList(pageNum,v.num)">{{v.num}}</a></li>\
+                                <li><a>下一页</a></li>\
+                                <li><a>末页</a></li>\
+                            </ul>\
+                        </div>',
+                tansclude:true
+            }
+            return json;
+        });
+
+    </script>
+</head>
+
+<body ng-controller="mainList">
+<section id="container" class="format" >
+    <!--main content start-->
+    <section id="main-content">
+        <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+            <div class="col-sm-12 table-set">
+                <section class="panel">
+                    <header class="panel-heading lh30" >
+                        <span><i class="fa fa-code"></i>&nbsp;&nbsp;图片列表管理</span>
+                        <a href="javascript:history.go(-1);" class="btn btn-primary btn-sm pull-right backpage"><i class="fa  fa-chevron-circle-left"></i>&nbsp;&nbsp;返回上一页</a>
+                    </header>
+                    <header class="panel-heading clearfix searchpanel">
+                        <div class="pull-left col-sm-11  col-lg-11">
+                            <div class="form-group pull-left col-lg-4">
+                                <label for="password" class="control-label col-lg-1 col-sm-2">姓名</label>
+                                <div class="col-lg-8 col-sm-8">
+                                    <input class="form-control " id="password" name="password" type="text" placeholder="姓名" />
+                                </div>
+                            </div>
+                            <div class="form-group pull-left col-lg-4">
+                                <label for="password" class="control-label col-lg-1 col-sm-2">手机</label>
+                                <div class="col-lg-8 col-sm-8">
+                                    <input class="form-control " id="password" name="password" type="text" placeholder="手机" />
+                                </div>
+                            </div>
+                            <div class="form-group pull-left col-lg-4">
+                                <label for="selectdate" class="control-label col-lg-1 col-sm-2">日期</label>
+                                <div class="col-lg-8 col-sm-8">
+                                    <input id="selectdate" name="selectdate" placeholder="选择日期" class="form-control " onClick="laydate({istime: true, format: 'YYYY-MM-DD'})">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pull-right">
+                            <input type="button" class="btn btn-success" value="查询">
+                        </div>
+                    </header>
+                    <div class="panel-body">
+                        <section id="unseen">
+                            <table class="table table-bordered table-striped table-condensed">
+                                <thead class="thead">
+                                    <tr>
+                                        <th class="numeric">序号</th>
+                                        <th><i class=""></i>标题</th>
+                                        <th><i class="fa  fa-mobile-phone"></i>所属栏目</th>
+                                        <th class="numeric">作者</th>
+                                        <th class="numeric">标签</th>
+                                        <th class="numeric"><i class="fa fa-clock-o"></i>发表时间</th>
+                                        <th class="numeric"><i class="fa fa-wrench"></i>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="v in imagesArr">
+                                        <td>{{$index+1}}</td>
+                                        <td><a target="_blank" href="../content.html?id={{v.id}}">{{v.title}}</a></td>
+                                        <td class="numeric">{{v.columns | columnsfilter}}</td>
+                                        <td class="numeric">{{v.user}}</td>
+                                        <td class="numeric">{{v.tag | splitArr:['-']}}</td>
+                                        <td class="numeric">{{v.pushtime}}</td>
+                                        <td class="numeric">
+                                           <div class="btn-group">
+                                            <a href="bookingTrainEdit.html" class="btn btn-primary btn-sm"><i class="fa fa-search-minus"></i></a>
+                                            <a href="javascript:;" title="删除教练" class="btn btn-primary btn-sm"><i class="fa fa-times"></i></a>
+                                           </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </section>
+
+                        <pagemodule></pagemodule>
+                        <!-- <div class="box-footer clearfix" id="pagination">
+                            <div class="pull-left">
+                                <span>共 4 条数据</span>&nbsp;&nbsp;&nbsp;<span>共  1 页</span>
+                            </div>
+                            <ul class="pagination pagination-sm no-margin pull-right">
+                                <li><a>首页</a></li>
+                                <li><a>上一页</a></li>
+                                <li class="active"><a onclick="onSub(1)">1</a></li>
+                                <li><a>下一页</a></li>
+                                <li><a>末页</a></li>
+                            </ul>
+                        </div> -->
+                    </div>
+
+                </section>
+            </div>
+        </div>
+        <!-- page end-->
+        </section>
+    </section>
+    <!--main content end-->
+</section>
+
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+
+</body>
+</html>

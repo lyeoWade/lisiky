@@ -80,6 +80,22 @@ input[type=time] {-webkit-appearance:none; /*去除input默认样式*/}
 }
 
 
+.mainTitle{
+  font-size: 0.20rem;
+  text-align: center;
+  line-height: 0.34rem;
+}
+.mainTitle a{
+  display: block;
+  color: #ff88af;
+  text-indent: -20px;
+}
+
+/* sider */
+  
+.sideNav li a{
+  font-size: 0.14rem;
+}
 .mainWrap{}
 .mainWrap li{
   margin-bottom: 0.2rem;
@@ -93,7 +109,124 @@ input[type=time] {-webkit-appearance:none; /*去除input默认样式*/}
   background-color:rgba(243,237,239,0.6);
   padding:0.05rem;
 }
+.mainWrap li a{
+  color: #FF88AF;
+}
+
 .mainWrap li h2{
   font-size: 0.12rem;
   line-height: 0.20rem;
 }
+.sundry{
+  font-size: 0.12rem;
+
+}
+
+.sundry span{
+  margin: 0 0.1rem 0 0;
+}
+.sundry{
+  
+}
+.sundry{
+  
+}
+.sundry a{
+  color: #ff88af ;
+  float: right;
+  font-weight: bold;
+  font-size: 0.12rem;
+  text-decoration: underline;
+}
+.loadMore{
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+.loadMore span{
+  color: #FF88AF;
+  font-size: 0.16rem;
+} 
+
+.logo{
+  text-align: center;
+  padding: 0.2rem 0;
+}
+
+.logo img{
+  border-radius: 50%;
+}
+
+
+
+
+/* 标签 */
+
+.tagWrap{
+  padding:0 0.15rem;
+}
+.tagWrap p{font-size: 0.14rem;  line-height: 0.22rem; padding-top: 0.18rem; }
+
+.tagWrap a{
+  font-size: 0.12rem;
+  border-radius: 0.4rem;
+  border:0.01rem solid #f9f9f9;
+  padding:0.01rem 0.06rem;
+  white-space: nowrap;
+  color: #f9f9f9;
+  margin-bottom: 0.1rem;
+  display:inline-block;
+  line-height: 0.18rem;
+  margin-right: 0.05rem;
+}
+
+
+
+
+
+
+/*详情页*/
+
+.detail-content{
+  
+}
+.detail-content h1{
+  font-size: 0.16rem;
+}
+.content-main-wrap{ width: 100%;  }
+.content-main-wrap img{ text-align: center; display: inline-block; }
+.wxts{ font-size: 0.12rem;  }
+.ssbq a{  color: #ff88af; margin-left: 0.05rem; }
+
+.guess h2{ font-size: 0.14rem; height: 0.3rem; line-height: 0.3rem;  }
+.guess li{
+  line-height: 0.24rem;
+  font-size: 0.12rem;
+}
+.guess li i{
+  font-style: normal;
+  padding: 0.01rem;
+  font-size: 0.16rem !important;
+  color: #ff88af;
+}
+.guess li a{
+  color: #ff88af;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

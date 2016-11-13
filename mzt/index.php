@@ -33,7 +33,7 @@
           
         if (!isset($id)) {
           $id='';
-         };
+        };
         $perNumber=21; //每页显示的记录数
         $page=$_GET['page']; //获得当前的页面值
         //echo $page;
@@ -54,7 +54,7 @@
         while ($row=mysql_fetch_array($result)) {
         ?>
         <li>
-          <a href="content.html?id=<?php echo $row['id']?>" target="_blank"><img width="236" height="354" class="lazy" title="<?php echo $row['title'];?>" src="<?php echo substr($row['coverpic'],3)?>" data-original="" style="display: inline;"></a><span><a href="content.html?id=<?php echo $row['id']?>" target="_blank"><?php echo $row['title'];?></a></span><span class="time"><?php echo $row['pushtime']?></span><span class="view"><?php echo $row['frequency']?>次</span>
+          <a href="content.html?id=<?php echo $row['id']?>" target="_blank"><img width="236" height="354" class="lazy" title="<?php echo $row['title'];?>" src="<?php echo $seaverSrc.substr($row['coverpic'],3)?>" data-original="" style="display: inline;"></a><span><a href="content.html?id=<?php echo $row['id']?>" target="_blank"><?php echo $row['title'];?></a></span><span class="time"><?php echo $row['pushtime']?></span><span class="view"><?php echo $row['frequency']?>次</span>
         </li>
         <?php
             };

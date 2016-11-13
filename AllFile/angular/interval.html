@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('test',[]);
+		app.controller('main',function($scope,$interval){
+			$scope.a=10;
+			var timer=$interval(function(){
+				$scope.a++;
+
+				if($scope.a==100){
+					$interval.cancel(timer);
+				}
+			},100);
+		});
+	</script>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-controller='main'>
+	
+	<div>{{a}}</div>
+</body>
+</html>

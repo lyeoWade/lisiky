@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="angular.js"></script>
+	<title>Document</title>
+	<script type="text/javascript">
+		var app=angular.module('test',[]);
+		app.controller('main',function($scope){
+			$scope.iNow=0;
+			$scope.arr=[
+				{"name":"实时新闻","content":"实时新闻实时新闻实时新闻实时新闻"},
+				{"name":"八卦新闻","content":"八卦新闻八卦新闻八卦新闻"},
+				{"name":"野史","content":"野史野史野史野史野史"}
+			];
+			$scope.fnclick=function(n){
+				$scope.iNow=n;
+			}
+		});
+	</script>
+	<style type="text/css">
+		input.active{  background: #f00;  }
+	</style>
+</head>
+<body ng-controller="main">
+	<input type="button" ng-repeat="v in arr" ng-class="iNow==$index?'active':''" value="{{v.name}}" ng-click="fnclick($index)">
+	<div ng-repeat="data in arr" ng-show="iNow==$index">{{data.content}}</div>
+</body>
+</html>

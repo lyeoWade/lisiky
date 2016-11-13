@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='myapp'>
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('myapp',[]);
+		app.controller('main',function($scope){
+			$scope.submitFn=function(){
+				console.log('触发了');
+			}
+		});
+	</script>
+	<title>Document</title>
+</head>
+<body ng-controller="main">
+	<input type="text" ng-model="t" ng-minlength="3" ng-maxlength="13"  name=""><br />
+	{{t}}
+</body>
+</html>

@@ -22,5 +22,26 @@
     }
   }
 </script>
-<script src="http://e.e708.net/cpc/tj.php?78285_5_21_2_d70000___0" charset="gb2312"></script>
+<script type="text/javascript">
+function IsPC() {
+    var userAgentInfo = navigator.userAgent;
+    var Agents = ["Android", "iPhone",
+                "SymbianOS", "Windows Phone",
+                "iPad", "iPod"];
+    var flag = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
+        }
+    }
+    return flag;
+}
+if(!IsPC()){
+  window.location.href='m/home.html';
+ // window.location.href
+}
+</script>
+<!-- <script src="http://e.e708.net/cpc/tj.php?78285_5_21_2_d70000___0" charset="gb2312"></script>
 <script src="http://e.e708.net/cpc/pf.php?78285_3_18_0|1|2_d70000___0" charset="gb2312"></script>
+ -->

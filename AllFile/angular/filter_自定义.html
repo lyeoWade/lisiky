@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="test" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('test',[]);
+		app.filter('my_filter',function(){
+			return function(str){
+				return str+5;
+			}
+		});
+		app.controller('main',function($scope){
+			$scope.t=1478658989044;
+			$scope.arr=[23,4,5,6,7,8,9];
+		});
+	</script>
+	<title>Document</title>
+</head>
+<body ng-controller="main">
+	{{t|date:"yyyy-MM-dd"}}
+
+	<div ng-repeat="v in arr" >{{v | my_filter }}</div>
+</body>
+</html>

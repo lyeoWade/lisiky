@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="test">
+<head>
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('test',[]);
+		app.controller('main',function($scope){
+			$scope.arr=[23,2344,56,7,0];
+			$scope.$watch('arr',function(s){
+				console.log("变了"+s);
+			},true);
+		});
+	</script>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body ng-controller='main'>
+	<input type="button" value="点击" ng-model="arr"  name="" ng-click="arr.push(99)">
+	<div>{{arr}}</div>
+</body>
+</html>

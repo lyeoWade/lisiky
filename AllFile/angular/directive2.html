@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html ng-app="test" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="angular.js"></script>
+	<script type="text/javascript">
+		var app=angular.module('test',[]);
+		app.controller('main',function($scope){
+
+		});
+		app.directive('ngdirective',function(){
+			var json={
+				/*
+				restrict: 'E'	使用限制
+					E(Element)	元素型		<xxx></xxx>
+					A(Attribute)	属性型		<div xxx=""></div>
+					C(Class)	Class型		<div class="xxx"></div>
+					M(coMment)	注释型		<!-- directive:xxx -->
+						*加上replace: true
+						**两边的空格是必须的
+				*/
+				//restrict:'E',
+				//restrict:"A",
+				//restrict:"C",
+				restrict:"A",
+				template:'<span ng-transclude></span><a href="javascript:;">x</a>',
+				transclude:true
+			}
+
+			return json;
+		});
+	</script>
+	<title>Document</title>
+</head>
+<body ng-controller="main">
+	<ul>
+		<li ngdirective>湖人换人，英格拉姆换下了莫兹戈夫</li>
+		<li ngdirective>塞思-库里助攻哈里森-巴恩斯17英尺外跳投命</li>
+		<li ngdirective>邓拿到后场篮板</li>
+		<li >尼克-杨个人犯规 (贾斯廷-安德森造成了犯规)</li>
+	</ul>
+</body>
+</html>

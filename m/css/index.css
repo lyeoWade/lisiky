@@ -1,0 +1,186 @@
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+code,
+form,
+fieldset,
+legend,
+input,
+textarea,
+p,
+blockquote,
+th,
+td,
+hr,
+button,
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+}
+input,
+select,
+textarea,
+a,
+div {
+  box-sizing: border-box;
+  font-family: "微软雅黑";
+}
+body{ background: #fff;  }
+ul{ list-style: none; padding: 0; margin: 0;  }
+/* padding 0 */
+.p0 {
+  padding: 0 !important;
+}
+.abs {
+  position: absolute;
+}
+.rel {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+}
+.fontCenter {
+  text-align: center;
+}
+.bgnone {
+  background: none !important;
+}
+html { 
+  overflow-x:hidden; 
+}
+.mr10{ margin-right: 0.1rem;  }
+.mt0{ margin-top: 0rem !important;  }
+/*endTime*/
+input[type=time] {-webkit-appearance:none; /*去除input默认样式*/}
+#slider img{
+  height: 1.5rem;
+}
+
+/* sider */
+  
+.sideNav li a{
+  font-size: 0.14rem;
+}
+.mainWrap{}
+.mainWrap li{
+  margin-bottom: 0.2rem;
+  border-radius: 5px;
+}
+.mainWrap img{ width: 100%;  }
+
+.mui-content  { background: #fff !important;  }
+
+.mainWrap li{
+  background-color:rgba(243,237,239,0.6);
+  padding:0.05rem;
+}
+.mainWrap li a{
+  color: #FF88AF;
+}
+
+.mainWrap li h2{
+  font-size: 0.12rem;
+  line-height: 0.20rem;
+}
+.sundry{
+  font-size: 0.12rem;
+
+}
+
+.sundry span{
+  margin: 0 0.1rem 0 0;
+}
+.sundry{
+  
+}
+.sundry{
+  
+}
+.sundry a{
+  color: #ff88af ;
+  float: right;
+  font-weight: bold;
+  font-size: 0.12rem;
+  text-decoration: underline;
+}
+.loadMore{
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+.loadMore span{
+  color: #FF88AF;
+  font-size: 0.16rem;
+} 
+
+.logo{
+  text-align: center;
+  padding: 0.2rem 0;
+}
+
+.logo img{
+  border-radius: 50%;
+}
+
+
+
+
+/* 标签 */
+
+.tagWrap{
+  padding:0 0.15rem;
+}
+.tagWrap p{font-size: 0.14rem;  line-height: 0.22rem; padding-top: 0.18rem; }
+
+.tagWrap a{
+  font-size: 0.12rem;
+  border-radius: 0.4rem;
+  border:0.01rem solid #f9f9f9;
+  padding:0.01rem 0.06rem;
+  white-space: nowrap;
+  color: #f9f9f9;
+  margin-bottom: 0.1rem;
+  display:inline-block;
+  line-height: 0.18rem;
+  margin-right: 0.05rem;
+}
+
+
+
+
+
+
+/*详情页*/
+
+.detail-content{
+  
+}
+.detail-content h1{
+  font-size: 0.16rem;
+}
+.content-main-wrap{ width: 100%;  }
+.content-main-wrap img{ text-align: center; display: inline-block; }
+.wxts{ font-size: 0.12rem;  }
+.ssbq a{  color: #ff88af; margin-left: 0.05rem; }

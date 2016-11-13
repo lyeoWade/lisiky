@@ -21,8 +21,8 @@
                yspeed = 0.05;
            
            var ball = new Ball();
-//           ball.x = canvas.width/4;
-//           ball.y = canvas.height/4;
+            //ball.x = canvas.width/4;
+            //ball.y = canvas.height/4;
            
            (function drawFrame(){
                window.requestAnimationFrame(drawFrame,canvas);
@@ -34,7 +34,6 @@
                if(ball.x > canvas.width+ball.radius){
                    ball.x = -ball.radius;
                };
-
                ball.y = canvas.height/2+Math.sin(angle)*range;
                //ball.y 是一个常量 
                // angle += 0.05; //加上就变成wave运动
