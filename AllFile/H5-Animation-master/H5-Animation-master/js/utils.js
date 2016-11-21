@@ -20,8 +20,6 @@ if (!window.cancelAnimationFrame) {
 }
 
 
-
-
 //console.log(requestAnimationFrame)
 
 
@@ -152,7 +150,6 @@ window.utils.colorToRGB = function(color,alpha){
 
     }
     alpha = (alpha === undefined)? 1 : alpha;
-    
     //将color转换成r,g,b值，>>右移  <<左移
     var r = color >> 16 & 0xff; //例如：16777215 >> 16 变成 255， 255 & 0xff为255
     var g = color >>8 & 0xff;

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- <a href="1.jpg" download>下载</a> -->
+	
+	<input type="button" value="下载" id="btn" name="">
+
+	<script type="text/javascript">
+
+		
+		var arr=['1.jpg','2.jpg','3.jpg','4.png'];
+		for(var i=0; i<arr.length; i++){
+			var oA=document.createElement('a');
+			oA.href=arr[i];
+			oA.innerHTML='下载'
+			document.body.appendChild(oA);
+			oA.setAttribute('download',arr[i]);
+		}
+		var A=document.getElementsByTagName('a');
+		var oBtn=document.getElementById('btn');
+		oBtn.onclick=function(){
+			for(var i=0; i<A.length; i++){
+				A[i].click();
+			}
+		}
+	</script>
+</body>
+</html>

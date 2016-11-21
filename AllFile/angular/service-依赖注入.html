@@ -6,16 +6,15 @@
 	<title>Document</title>
 	<script type="text/javascript">
 		var app=angular.module('test',[]);
-		app.factory('add',function(){
-			return {
-				add:function(n,m){
-					return n+m;
-				}
-			}
+		app.service('add',function(){
+			this.a=324;
+			this.sum=function(n,m){
+				return n+m;
+			};
 		});
 		app.controller('main',function($scope,add){
 			$scope.a=9;
-			alert(add.add(2,$scope.a));
+			alert(add.sum(324,4));
 		});
 	</script>
 </head>

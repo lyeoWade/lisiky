@@ -71,7 +71,7 @@
             </div>
 		</div>
 		 <div class="mainAdwidth">
-            <br/>
+            <!-- <br/>
             <br/>
             <div class="sideAd">
                 <a href="http://www.well188.com/aff.php?vid=337016" target="_blank"><img src="img/a2.gif" /></a>
@@ -81,10 +81,10 @@
             </div>
             <div class="sideAd">
                 <a href="http://www.well188.com/aff.php?vid=45499 " target="_blank"><img src="img/a1.gif" /></a>
-            </div>
+            </div> -->
         </div>
          <div class="mainAdwidth">
-            <br/>
+            <!-- <br/>
             <br/>
             <div class="sideAd">
                 <a href="http://www.well188.com/aff.php?vid=337016" target="_blank"><img src="img/a2.gif" /></a>
@@ -94,17 +94,17 @@
             </div>
             <div class="sideAd">
                 <a href="http://www.well188.com/aff.php?vid=45499 " target="_blank"><img src="img/a1.gif" /></a>
-            </div>
+            </div> -->
         </div>
 	</div>
 	<div class="rightside fl">
-		<div class="ad">
+		<!-- <div class="ad">
             <a href="http://www.williamhillph.com/?a=A000127" target="_blank"><img src="img/w1.jpg" /></a>
-		</div>
+		</div> -->
 		<!-- 热门视频 -->
 		<?php include 'hotvideo.php'; ?>
 		<div id="siderAd">
-            <div class="sideAd">
+            <!-- <div class="sideAd">
                 <a href="http://www.well188.com/aff.php?vid=45499&url=promo.php" target="_blank"><img src="img/01.gif" /></a>
             </div>
             <div class="sideAd">
@@ -118,7 +118,7 @@
             </div>
             <div class="sideAd">
                 <a href="http://www.williamhillph.com/?a=A000127" target="_blank"><img src="img/w1.jpg" /></a>
-            </div>
+            </div> -->
         </div>
 	</div><!-- ad -->
 </div>

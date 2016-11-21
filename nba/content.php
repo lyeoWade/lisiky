@@ -92,9 +92,9 @@
 					?>
 				</section>
 		</div>
-		<div class="mtb15">
+		<!-- <div class="mtb15">
 			<a target="_blank" href="http://aff.weideaff.com/processing/clickthrgh.asp?btag=a_2994b_6"><img src="img/wd.gif" title="韦德国际,伟德国际,伟德国际备用网址','吉祥坊|吉祥坊合作伙伴|吉祥坊合作|吉祥坊官网|吉祥坊备用网址|吉祥坊手机官网" /></a>
-		</div>
+		</div> -->
       	<div class="conment">
 			<h2 class="conment_title">给我一个回复</h2>
 			<div class="conment_warp">

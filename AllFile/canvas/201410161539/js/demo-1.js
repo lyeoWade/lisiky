@@ -19,7 +19,6 @@
         canvas.width = width;
         canvas.height = height;
         ctx = canvas.getContext('2d');
-
         // create points
         points = [];
         for(var x = 0; x < width; x = x + width/20) {

@@ -8,14 +8,14 @@
 		var app=angular.module('test',[]);
 		app.factory('add',function(){
 			return {
-				add:function(n,m){
+				fn:function(n,m){
 					return n+m;
 				}
 			}
 		});
 		app.controller('main',function($scope,add){
 			$scope.a=9;
-			alert(add.add(2,$scope.a));
+			alert(add.fn(2,$scope.a));
 		});
 	</script>
 </head>

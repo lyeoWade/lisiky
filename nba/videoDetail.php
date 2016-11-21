@@ -54,9 +54,9 @@
 
 <div class="center clearfix">
     <div class="mainAdwidth">
-         <a href="http://aff.weide8aff.com/processing/clickthrgh.asp?btag=a_2994b_4" target="_blank"><img src="img/b2.gif" /></a>
+         <!-- <a href="http://aff.weide8aff.com/processing/clickthrgh.asp?btag=a_2994b_4" target="_blank"><img src="img/b2.gif" /></a>
          <br/>
-         <br/>
+         <br/> -->
     </div>
     <div class="videoLeft fl">
         
@@ -203,7 +203,7 @@
                 };
             ?>
         <div class="mainAdwidth">
-            <br/>
+            <!-- <br/>
             <br/>
             <div class="sideAd">
                 <a href="http://www.well188.com/aff.php?vid=337016" target="_blank"><img src="img/a2.gif" /></a>
@@ -213,7 +213,7 @@
             </div>
             <div class="sideAd">
                 <a href="http://www.well188.com/aff.php?vid=45499 " target="_blank"><img src="img/a1.gif" /></a>
-            </div>
+            </div> -->
         </div>
     </div>
     <div class="rightside1 fr">
@@ -221,7 +221,7 @@
         <?php include 'hotvideo.php'; ?>
         
         <div id="siderAd">
-            <div class="sideAd">
+            <!-- <div class="sideAd">
                 <a href="http://www.well188.com/aff.php?vid=45499&url=promo.php" target="_blank"><img src="img/01.gif" /></a>
             </div>
             <div class="sideAd">
@@ -229,7 +229,7 @@
             </div>
             <div class="sideAd">
                 <a href="http://www.well188.com/aff.php?vid=345427 " target="_blank"><img src="img/03.gif" /></a>
-            </div>
+            </div> -->
         </div>
     </div><!-- ad -->
 </div>
