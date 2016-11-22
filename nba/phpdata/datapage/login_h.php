@@ -1,8 +1,5 @@
-
 <?php
-	
 	session_start();
-	
 	include('../datapage/com.php');
 	//header("Content-type:text/html;charset=utf-8");
 	$username=$_POST['username'];
@@ -22,6 +19,4 @@
 	}else{
 		echo '{error:1,des:"没有此用户!!!"}';
 	}
-	
-	
 ?>

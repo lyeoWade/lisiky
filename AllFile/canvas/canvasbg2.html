@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{ padding: 0; margin: 0;   }
+		body{ overflow: hidden;  }
+		/*#canvas{ position: absolute;  }*/
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oCanvas=document.getElementById('canvas');
+			var ctx=oCanvas.getContext('2d');
+
+			var width=window.innerWidth,
+				height=window.innerHeight;
+
+
+			//alert(height)
+			oCanvas.width=width;
+			oCanvas.height=height;
+
+			for(var i=0; i<10; i++){
+				for(var j=0; j<6; j++){
+					ctx.beginPath();
+					//ctx.translate(0.5, 0.5);
+					ctx.fillStyle="#fff";
+					ctx.fillRect(i*100,j*100,100,100);
+					ctx.strokeStyle="#ccc";
+					ctx.strokeRect(i*100,j*100,100,100);
+					//ctx.isPointInPath(i*100,j*100);
+					ctx.fillStyle="#000";
+					ctx.font="18px serif";
+					ctx.textBaseline="hanging";
+					ctx.textAlign="hanging"
+					ctx.fillText((i+1)+'x'+(j+1), i*100, j*100);
+					ctx.closePath();
+				}
+			}
+
+			console.log(ctx)
+			
+			// oCanvas.addEventListener('mouseover',function(ev){
+			// 	//var p=getEventPosition(ev);
+			// 	 var x = ev.pageX , y =ev.pageY ;
+			// 	if(ctx.isPointInPath(x, y)){
+			// 	    //点击了矩形
+			// 	    console.log(123);
+			// 	}
+			// },false);
+
+			oCanvas.onmouseover=function(ev){
+				 var x = ev.pageX , y =ev.pageY ;
+				if(ctx.isPointInPath(x, y)){
+				    //点击了矩形
+				    console.log(123);
+				}
+			}
+
+			function getEventPosition(ev){
+			  var x, y;
+			  if (ev.layerX || ev.layerX == 0) {
+			    x = ev.layerX;
+			    y = ev.layerY;
+			  } else if (ev.offsetX || ev.offsetX == 0) { // Opera
+			    x = ev.offsetX;
+			    y = ev.offsetY;
+			  }
+			  return {x: x, y: y};
+			}
+			//注：使用上面这个函数，需要给Canvas元素的position设为absolute。
+		}
+	</script>
+</body>
+</html>

@@ -136,7 +136,7 @@
 		</div>
 		<?php include 'hotArc.php'; ?>
 		<div class="new-articl">
-			<div class="adimg">
+			<!-- <div class="adimg">
 				<a  href="http://www.well188.net/aff.php?vid=45499&url=reg.php" title="吉祥坊备用网址,吉祥坊,吉祥坊手机官网" target="_blank"><img src="img/01.gif" /></a>
 				
 			</div>
@@ -147,7 +147,7 @@
 			
 			<div class="adimg2">
 			    <a target="_blank" title="韦德国际,伟德国际,伟德国际备用网址','吉祥坊|吉祥坊合作伙伴|吉祥坊合作|吉祥坊官网|吉祥坊备用网址|吉祥坊手机官网" href="http://aff.weideaff.com/processing/clickthrgh.asp?btag=a_2994b_6"><img src="img/wd2.gif" /></a>
-			</div>
+			</div> -->
 		</div>	
     </aside>
 </div>

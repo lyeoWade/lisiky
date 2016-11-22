@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>Type Write</title>
+<style type="text/css">a{text-decoration:none}</style>
+</head>
+  <body>  
+    <div id="newsticker">
+      <span id="tickertitle"></span>
+      
+      <div>
+        I Love To Do <strong id="typewriter"></strong>
+      </div>
+    </div>  
+  </body>  
+</html>  
+<script type="text/javascript">  
+ var current = 0
+var x = 0
+var speed = 140
+var speed2 = 2000
+
+function initArray(n) {
+  this.length = n;
+  for (var i = 1; i <= n; i++) {
+    this[i] = ' '
+  }
+}
+typ = new initArray(16);
+typ[0] = "Web Development";
+typ[1] = "Swimming";
+typ[2] = "Watch NBA";
+
+var oBox=  document.getElementById("typewriter");
+
+function typewrite() {
+  var m = typ[current];
+  m = m.substring(m.indexOf(':') + 1);
+
+  oBox.innerHTML =m.substring(0, x++) + "<span>|</span>";
+  
+ // alert(m.length)
+  if (x == m.length + 1) {
+    x = 0
+    current++
+    if (current >= typ.length - 1) {
+      //alert(123)
+      current = 0;
+    }
+    oBox.style.backgroundColor = "#5caaad";
+    setTimeout("typewrite()", 600);
+  } else {
+    oBox.style.backgroundColor = "";
+    setTimeout("typewrite()", speed);
+  }
+}
+typewrite();
+
+
+</script>

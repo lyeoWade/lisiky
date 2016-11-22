@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{ padding: 0; margin: 0;   }
+		body{ overflow: hidden;  }
+	</style>
+</head>
+<body>
+	<canvas id="canvas"></canvas>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oCanvas=document.getElementById('canvas');
+			var ctx=oCanvas.getContext('2d');
+
+			var width=window.innerWidth,
+				height=window.innerHeight;
+
+			//alert(height)
+			oCanvas.width=width;
+			oCanvas.height=height;
+
+			lineFn();
+			function lineFn(){
+				ctx.translate(0.5, 0.5);
+				for(var i=1; i<height*0.012; i++){
+					ctx.beginPath();
+				    ctx.moveTo(0,110*i);
+				    ctx.lineTo(width,110*i);
+				    ctx.lineWidth=1;
+				    ctx.strokeStyle = "#ddd";  
+				    ctx.stroke();
+				    ctx.closePath();
+				}
+				for(var i=1; i<height*0.04; i++){
+					ctx.beginPath();
+				    ctx.moveTo(110*i,0);
+				    ctx.lineTo(110*i,height);
+				    ctx.lineWidth=1;
+				    ctx.strokeStyle = "#ccc";  
+				    ctx.stroke();
+				    ctx.closePath();
+				}
+			}
+			
+		}
+	</script>
+</body>
+</html>
