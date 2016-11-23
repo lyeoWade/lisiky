@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="hzl">
+<head>
+	<meta charset="UTF-8">
+	<meta name="aplus-terminal" content="1"> 
+	<meta name="apple-mobile-web-app-capable" content="yes"> 
+	<!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏。content有两个值”yes”和”no” -->
+	<meta name="apple-touch-fullscreen" content="no"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+	<meta name="format-detection" content="telephone=no"> 
+	<!-- 清除微信缓存 -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="viewport" content="width=device-width , initial-scale=1.0 , maximum-scale=1.0 , user-scalabel=no">
+	<link rel="stylesheet" type="text/css" href="css/com.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script type="text/javascript" src="js/com.js"></script>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/hzl.js"></script>
+	<title>众合林 - 空中农场</title>
+</head>
+<body ng-controller="hzlWrap">
+	<header class="toplogo">
+		&nbsp;
+	</header>
+
+	<section class="content">
+		<ul class="content-ul clearfix">
+
+			<li class="{{classNum[$index]}}" ng-repeat="info in dataList">
+				<strong>{{info.title}}</strong>
+				<img src="{{info.coverpic}}">
+				<p class="price"><span>{{info.price}}</span><i>元/{{info.unit}}</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down" ng-click="down(info.id);">-</a>
+					<input type="number" min="3" name="" value="{{info.num}}">
+					<a class="up" ng-click="up(info.id);">+</a>
+				</div>
+			</li>
+
+			<!-- <li class="white">
+				<strong>大山黑猪肉</strong>
+				<img src="images/hzl_1.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="black">
+				<strong>大山纯良土鸡</strong>
+				<img src="images/hzl_2.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="black">
+				<strong>大山黑猪肉</strong>
+				<img src="images/hzl_09.png">
+				<p class="price"><span>22</span><i>元/斤</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="white">
+				<strong>大山纯良土鸡</strong>
+				<img src="images/hzl_10.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="white">
+				<strong>大山黑猪肉</strong>
+				<img src="images/hzl_13.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="black">
+				<strong>大山纯良土鸡</strong>
+				<img src="images/hzl_14.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="black">
+				<strong>大山黑猪肉</strong>
+				<img src="images/hzl_17.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="white">
+				<strong>大山纯良土鸡</strong>
+				<img src="images/hzl_18.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="white">
+				<strong>大山黑猪肉</strong>
+				<img src="images/hzl_03.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="black">
+				<strong>大山纯良土鸡</strong>
+				<img src="images/hzl_22.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="black">
+				<strong>大山黑猪肉</strong>
+				<img src="images/hzl_25.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li>
+			<li class="white">
+				<strong>大山纯良土鸡</strong>
+				<img src="images/hzl_26.png">
+				<p class="price"><span>22</span><i>元/只</i></p>
+				<div class="numwrap">
+					<a href="javascript:;" class="down">-</a>
+					<input type="number" min="3" value="3" name="">
+					<a href="javascript:;" class="up">+</a>
+				</div>
+			</li> -->
+		</ul>
+	</section>
+
+	<div class="buyWrap">
+		
+	</div>
+</body>
+</html>

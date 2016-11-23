@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="cart">
+<head>
+ <meta charset="UTF-8">
+ <title>购物车</title>
+ <link rel="stylesheet" href="../scripts/angular-1.4.0-rc.2/docs/components/bootstrap-3.1.1/css/bootstrap.min.css">
+ <link rel="stylesheet" href="main.css">
+</head>
+<body ng-controller="cartCtr">
+<table class="table table-hover" ng-show="items.length">
+ <caption>AngularJS实现购物车</caption>
+ <tr>
+ <th>序号</th>
+ <th>商品信息</th>
+ <th>单价（元）</th>
+ <th>数量</th>
+ <th>金额（元）</th>
+ <th>操作</th>
+ </tr>
+ <tr ng-repeat=" item in items">
+ <td>{{$index + 1}}</td>
+ <td><a href="{{item.linkUrl}}" target="_blank" title="此链接将跳转到淘宝相关页面...">{{item.title}}</a></td>
+ <td class="bold">{{item.price|number:2}}</td>
+ <td>
+  <button type="button" class="btn btn-default btn-xs" ng-click="reduce(item.id)" ng-disabled="item.quantity<=1">－</button>
+  <input type="text" size="5" ng-model="item.quantity" ng-keydown="quantityKeydown()" ng-keyup="quantityKeyup()">
+  <button type="button" class="btn btn-default btn-xs" ng-click="add(item.id)">＋</button>
+ </td>
+ <td class="bold mark">{{item.price*item.quantity|number:2}}</td>
+ <td>
+  <button type="button" class="btn btn-default btn-xs" ng-click="delete(item.id)">删除</button>
+ </td>
+ </tr>
+</table>
+<div class="empty" ng-show="!items.length">购物车空空，快去寻找宝贝</div>
+<div class="total">
+ 已选商品：<span>{{getQuantites()}} </span>
+ 合计：
+ <span class=" mark" ng-show="getTotalAmount()<15000">{{getTotalAmount()|number:2}}</span>
+ <span class=" mark" ng-show="getTotalAmount()>=15000">
+ {{getTotalAmount()*discount|number:2}}<span class="btn btn-xs">(9折)</span>
+ <span class="discount">({{getTotalAmount()|number:2}})</span>
+ </span>
+ <button type="button" class="btn btn-primary btn-sm" ng-click="alertSubmit()">结 算</button>
+</div>
+<script src="angular.js"></script>
+<script src="a.js"></script>
+</body>
+</html>
