@@ -1,0 +1,36 @@
+body{   }
+.canvasBg,
+.canvasBg2{
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 10000;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+.canvasBg{
+	z-index: 300;
+}
+.canvasBg2{
+	z-index: 200;
+}
+#canvas{
+	
+}
+#canvas2{
+	
+}
+.v{
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+
+
+
+
+
+
+
