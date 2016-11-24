@@ -47,3 +47,12 @@ em{ font-style:normal;  }
 .selectclassfiy {
   margin-bottom: 0.05rem;
 }
+
+
+
+@font-face {
+  font-family: 'hzl';
+  src: url('font-hzl.otf') format('OpenType');
+  font-weight: normal;
+  font-style: normal;
+ }

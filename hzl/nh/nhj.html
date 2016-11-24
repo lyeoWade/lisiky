@@ -24,17 +24,15 @@
 	<header class="toplogo">
 		&nbsp;
 	</header>
-
 	<section class="content">
 		<ul class="content-ul clearfix">
-
 			<li class="{{classNum[$index]}}" ng-repeat="info in dataList">
 				<strong>{{info.title}}</strong>
 				<img src="{{info.coverpic}}">
 				<p class="price"><span>{{info.price}}</span><i>元/{{info.unit}}</i></p>
 				<div class="numwrap">
 					<a href="javascript:;" class="down" ng-click="down(info.id);">-</a>
-					<input type="number" min="3" name="" value="{{info.num}}">
+					<input type="number" disabled="" min="3" name="" value="{{info.num}}">
 					<a class="up" ng-click="up(info.id);">+</a>
 				</div>
 			</li>
@@ -162,8 +160,54 @@
 		</ul>
 	</section>
 
-	<div class="buyWrap">
-		
+	<div class="buyWrap clearfix">
+		<div class="buyinfo fl"><strong>一共选购了</strong></div>
+		<div class="all-price fl" ng-click="showShop=!showShop">
+			<p><!-- {{selected.length}}种 &nbsp;-->{{getTotalAmount()}}元的年货{{showShop}}</p>
+			<p>节省<sapn class="cut-down">500元</sapn></p>
+		</div>
+		<div class="buy-sub fr">
+			<a href="javascript:;">购买</a>
+		</div>
+	</div>
+	<div class="car" ng-show="showShop"  ng-click="showShop=!showShop">
+		<ul>
+			<li class="title">
+				<span>序号</span>
+				<span class="name">名称</span>
+				<span>数量</span>
+				<span>价格</span>
+				<span>小计</span>
+			</li>
+			<li class="" ng-repeat="selectedInfo in selected">
+				<span>{{$index+1}}</span>
+				<span class="slh">{{selectedInfo.title}}</span>
+				<span>{{selectedInfo.num}}</span>
+				<span>{{selectedInfo.price}}</span>
+				<span>{{selectedInfo.price * selectedInfo.num}}</span>
+			</li>
+			<li class="title">
+				<span>总计</span>
+				<span class="name"></span>
+			<!-- 	<span>{{selected.length}}种</span> -->
+				<span>&nbsp;</span>
+				<span>&nbsp;</span>
+				<span>{{getTotalAmount()}}元</span>
+			</li>
+		</ul>
+		<!-- <div class="closeWrap"><a href="javascript:;" class="close">X</a></div> -->
+	</div>
+
+
+	<div class="imagesWrap">
+		<ul>
+			<li><img src="images/1.jpg"><p>休斯敦火箭队今天坐镇主场迎战东部强队多伦多猛龙队。本场比赛，火箭队发挥欠佳，最终在主场以102-115输给了猛龙队。火箭队全场疯狂出手三分球，出手43球投进14个。</p></li>
+			<li><img src="images/3.jpeg"><p>这也是火箭队在开季至今第6次单场比赛三分球出手次数超过40次了。这样一支火箭队堪称是NBA历史上最疯狂的三分大队。遗憾的是，火箭队在这6场比赛中，取得的战绩仅仅是2胜</p></li>
+			<li><img src="images/2.jpg"><p>休斯敦火箭队今天坐镇主场迎战东部强队多伦多猛龙队。本场比赛，火箭队发挥欠佳，最终在主场以102-115输给了猛龙队。火箭队全场疯狂出手三分球，出手43球投进14个。</p></li>
+			<li><img src="images/3.jpeg"><p>这也是火箭队在开季至今第6次单场比赛三分球出手次数超过40次了。这样一支火箭队堪称是NBA历史上最疯狂的三分大队。遗憾的是，火箭队在这6场比赛中，取得的战绩仅仅是2胜</p></li>
+			<li><img src="images/4.jpg"><p>休斯敦火箭队今天坐镇主场迎战东部强队多伦多猛龙队。本场比赛，火箭队发挥欠佳，最终在主场以102-115输给了猛龙队。火箭队全场疯狂出手三分球，出手43球投进14个。</p></li>
+			<li><img src="images/3.jpeg"><p>这也是火箭队在开季至今第6次单场比赛三分球出手次数超过40次了。这样一支火箭队堪称是NBA历史上最疯狂的三分大队。遗憾的是，火箭队在这6场比赛中，取得的战绩仅仅是2胜</p></li>
+		</ul>
 	</div>
 </body>
 </html>

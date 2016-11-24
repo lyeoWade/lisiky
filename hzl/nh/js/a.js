@@ -4,7 +4,13 @@ cartModule.controller('cartCtr', ['$scope', function ($scope) {
  $scope.items = [{id: 10001,title: "Web全栈工程师的自我修养 余果", price: 40.80,quantity: 2,linkUrl: "https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.4.cwywJs&id=532166746631"},
      {id: 10002,title: "MacBook Pro Retina 15英寸", price: 16088.00,quantity: 1,linkUrl: "https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.26.cwywJs&id=45771116847"},
      {id: 10003,title: "Surface Book I5 128G 独显",price: 11088.00, quantity: 1,linkUrl: "https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.15.cwywJs&id=525614504276"},
-     {id: 10004, title: "Lenovo Yoga3Pro I5 4G",price: 7299.00, quantity: 1,linkUrl: "https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.37.cwywJs&id=41541519814"} ];
+     {
+	id: 10004,
+	title: "Lenovo Yoga3Pro I5 4G",
+	price: 7299.00,
+	quantity: 1,
+	linkUrl: "https://detail.tmall.com/item.htm?spm=a1z0d.6639537.1997196601.37.cwywJs&id=41541519814"
+}];
  
 
 $scope.add = function (id) {
@@ -62,10 +68,12 @@ $scope.quantityKeyup = function (event) {
  };
  //计算合计总金额
  $scope.getTotalAmount = function () {
- var totalAmount = 0;
- angular.forEach($scope.items, function (item, index, array) {
-  totalAmount += item.quantity * item.price;  });
- return totalAmount;
+	 var totalAmount = 0;
+	 angular.forEach($scope.items, function (item, index, array) {
+	  totalAmount += item.quantity * item.price;  
+	 });
+	 return totalAmount;
  };
+
  $scope.alertSubmit = function () {alert("Angular实现购物车"); }
 }]);
