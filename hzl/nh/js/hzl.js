@@ -1,12 +1,14 @@
 
 var app=angular.module('hzl',[]);
-app.controller('hzlWrap',function($scope,$http){
+app.controller('hzlWrap',function($scope,$http,$timeout){
 
 	$scope.classNum=[];
 	$scope.dataList=[];
 	//$scope.num=0;
 	$scope.AllPrice=0;
 
+	$scope.loading=false;
+	$scope.imagesArrTmp=[];
 	$scope.selected=[];
 	$http.get('js/data.php',{
 
@@ -52,10 +54,35 @@ app.controller('hzlWrap',function($scope,$http){
 		}
 
 		//减少
-		$scope.down=function(id){
+		$scope.down=function(id,nums){
 			console.log($scope.selected)
 			var init=false;
+
+			
+
 			$scope.dataList.forEach(function(data,index){
+				//限制鸡和猪肉
+
+				if(id==1 && id===data.id){
+					if(data.num<=5){
+						data.num=5;
+						init=true;
+						alert("请最少选购5斤大山黑猪肉");
+					}else{
+						data.num--;	
+					}
+					return false;
+				}
+				if(id==2 && id===data.id){
+					if(data.num<=3){
+						data.num=3;
+						init=true;
+						alert("请最少选购3只大山纯良土鸡");
+					}else{
+						data.num--;	
+					}
+					return false;
+				}
 				if(id===data.id){
 					if(data.num<=1){
 						data.num=0;
@@ -65,6 +92,7 @@ app.controller('hzlWrap',function($scope,$http){
 						data.num--;	
 					}
 				}
+
 			});
 
 
@@ -88,12 +116,38 @@ app.controller('hzlWrap',function($scope,$http){
 		 };
 
 
+		$scope.showImageArr=function(id){
+			///alert(id);
+			angular.forEach(info,function(info , index ){
+				if(info.id===id){
+					//console.log(info);
+					$scope.imagesArrTmp=info;
+				}
+			});
+			
+			$scope.imagesArrBys=!$scope.imagesArrBys;
+			
+			
+			var oTab=document.getElementById("tabPic");
+			oTab.style.width=document.documentElement.clientWidth+'px';
+			$timeout(function() {
+				fnTab();
+				$scope.loading=true;
+			}, 1500);
+		}
+
 	}).error(function(){
 
 	});
-
+	
 	$scope.showShop=false;
-	//console.log($scope.dataList);
+
+	$scope.imagesArrBys=false;
+
+	$scope.imagesArrBysfn=function(){
+		$scope.imagesArrBys=!$scope.imagesArrBys;
+		$scope.loading=!$scope.loading;
+	}
 });
 app.directive('allnum',function(){
 	return {
@@ -102,7 +156,20 @@ app.directive('allnum',function(){
 					<a href="javascript:;" class="down">-</a>\
 					<input type="number" min="3" name="" value="{{num}}">\
 					<a class="up" ng-click="$scope.up()">+</a></div>'
+	}
+});
 
+app.directive('imagesarr',function(){
+	return {
+		restrict:"E",
+		template:'<div class="imagesWrap" ng-show="imagesArrBys" ng-click="imagesArrBysfn()">\
+		<div  id="tabPic">\
+			<section class="loaders" ng-class="loading?\'hide\':\'show\'"><span class="loader loader-quart"> </span> 加载中，请稍后...</section>\
+			<span id="picnum" ng-class="loading?\'show\':\'hide\'">{{}}</span>\
+			<ul id="picList" ng-class="loading?\'show\':\'hide\'">\
+				<li ng-repeat="imagesArrInfo in imagesArrTmp.imageList"><img src="{{imagesArrInfo.pic}}"><p>{{imagesArrInfo.pictitle}}</p></li>\
+			</ul></div></div>',
+		replace:true
 	}
 });
 
@@ -111,9 +178,72 @@ app.directive('allnum',function(){
 
 
 
+function fnTab(){
+	var oTab=document.getElementById("tabPic");
+	var oList=document.getElementById("picList");
+	var oLi=oList.children;
+	var picnum=document.getElementById('picnum');
+	var iNow=0;
+	var iX=0;
+	var iW=view().w;
+	var oTimer=0;
+	var iStartTouchX=0;
+	var iStartX=0;
+	oTab.style.width=iW+'px';
+	oList.style.width=oLi.length*100+'%';
+	picnum.innerHTML=(iNow+1)+'/'+oLi.length;
+	for(var i=0; i<oLi.length; i++){
+		oLi[i].style.width=100/oLi.length+'%';
+		oLi[i].style.height=view().h+'px';
+	}
+	bind(oTab,"touchstart",fnStart);
+	bind(oTab,"touchmove",fnMove);
+	bind(oTab,"touchend",fnEnd);
+	function fnStart(ev)
+	{
+		oList.style.transition="none";
+		ev=ev.changedTouches[0];
+		iStartTouchX=ev.pageX;
+		iStartX=iX;
+		//clearInterval(oTimer);
+	}
+	function fnMove(ev)
+	{
+		ev=ev.changedTouches[0];
+		var iDis=ev.pageX-iStartTouchX;
+		iX=iStartX+iDis;
+		oList.style.WebkitTransform=oList.style.transform="translateX("+iX+"px)";
+	}
+	function fnEnd()
+	{
+		iNow=iX/iW;
+		iNow=-Math.round(iNow);
+		if(iNow<0)
+		{
+			iNow=0;
+		}
+		if(iNow>oLi.length-1)
+		{
+			iNow=oLi.length-1;
+		}
 
+		picnum.innerHTML=(iNow+1)+'/'+oLi.length;
+		tab();
+	}
+	function tab()
+	{
+		iX=-iNow*iW;
+		oList.style.transition="0.5s";
+		oList.style.WebkitTransform=oList.style.transform="translateX("+iX+"px)";
+	}
 
-
+}
+function view() {
+    return {
+        w: document.documentElement.clientWidth,
+        h: document.documentElement.clientHeight
+    };
+}
 
 
 
