@@ -26,7 +26,7 @@ try{
         },600)
     }
 }catch(e){
-    console.log('测试')
+    console.log(e)
 }
 </script>
 
