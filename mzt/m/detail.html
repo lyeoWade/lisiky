@@ -259,10 +259,38 @@
 					alert('失败;');
 				});
             };
+
+    		$scope.downImg=function(){
+    			var oImg=document.getElementsByClassName('contentimgwarp');
+	   			for(var i=0; i<angular.element(oImg).length; i++){
+        			angular.element(oImg)[i].click();	
+        		}
+    		}
+    		$scope.downs=function(){
+				var a = document.getElementsByClassName('aaaaaa')[0];  
+				alert(typeof a)
+        		//for(var i=0; i<angular.element(a).length; i++){
+        			angular.element(a).click();	
+        		//}
+        		
+			}
+		});
+		app.directive('alldown',function(){
+			return {
+				restrict:'EA',
+				template:'<span class="AllDown" ng-click="downImg()">批量下载</span>',
+				//replace:true
+			}
 		});
 	</script>
 </head>
+<!-- 
+<a class="aaaaaa" href="http://www.images007.com/../../server/upload/14764512630002.jpg"  download="true" >111</a> -->
+
 <body class="mui-ios mui-ios-9 mui-ios-9-1 mui-fullscreen" ng-controller='main'>
+
+
+
 
 <!-- mui-draggable -->
 <div id="offCanvasWrapper" class="mui-off-canvas-wrap ">
@@ -305,14 +333,17 @@
 						<h1>{{imageContent.title}}</h1>
 						<p class="sundry"><span>浏览:{{imageContent.frequency}}</span><time>Time:{{imageContent.pushtime}}</time><!-- <a href="">清纯妹子</a> --></p>
 						<p class="content-main-wrap">
-							<img ng-repeat="v in imagesArr" ng-show="isShow==$index" title="{{$index}}-{{isShow}}" src="http://www.images007.com/{{v}}" data-preview-src="" data-preview-group="1" />
+							<a href="http://www.images007.com/{{v}}" class="contentimgwarp" ng-repeat="v in imagesArr" download>
+								<img ng-show="isShow==$index" title="{{$index}}-{{isShow}}" src="http://www.images007.com/{{v}}" data-preview-src="" data-preview-group="1" />
+							</a>
 						</p>
+						
 						<script type="text/javascript">
 						    /*自适应 创建于 2016/11/8*/
 						    var cpro_id = "u2811270";
 						</script>
 						<script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/mi.js"></script>
-						<p class="wxts">温馨提示：点击图片左右滑动查看图集</p>
+						<p class="wxts">温馨提示：点击图片左右滑动查看图集 <alldown></alldown> </p>
 						<p class="ssbq">所属标签:<a href="label.html?keywords={{v}}" ng-repeat="v in ownTagArr">{{v}}</a></p>
 					</div>
 					<div class="guess">
@@ -320,7 +351,6 @@
 						<h2><i class="mui-icon mui-icon-arrowright"></i>猜你喜欢</h2>
 						<ul>
 							<li ng-repeat="v in GuessYouLike"><i class="mui-icon mui-icon-arrowright"></i><a class="mui-navigate-left" href="detail.html?id={{v.id}}">{{v.title}}</a></li>
-							
 						</ul>
 					</div>
 					<div style="height: 0.32rem;"></div>
@@ -378,12 +408,12 @@
 	// 		placeholder: '../images/60x60.gif'
 	// 	});
 	// })(mui);
-
+	//plus.downloader.clear();
 	mui('body').on( 'tap' , 'a' , function(){
 		window.location.href=this.href;//业务逻辑
+
 	});
 </script>
-
 
 </body>
 </html>

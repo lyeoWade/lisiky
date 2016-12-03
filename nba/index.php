@@ -69,7 +69,7 @@
           ?>
           </li>
           <?php 
-            $arr=array('勇士','骑士','热火','马刺','湖人','快船','火箭','雷霆');
+            $arr=array('勇士','骑士','马刺','湖人','快船','火箭','雷霆');
             $class=array('shityellow','meihong','red','throuthblue','shityellow','blueshot','red','blueshot');
             for($i=0; $i<count($arr); $i++){
 
@@ -144,7 +144,6 @@
     <a href="video.html" target="_blank" class="fr more">更多 +</a>
   </div>
   <div class="videolist clearfix">
-    
     <div class="videoplay fl">
       <div class="videoplay-warp">
         <?php 

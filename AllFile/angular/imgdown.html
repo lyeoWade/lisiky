@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="tttt" lang="en">
+<head>
+	<script type="text/javascript" src="angular.js"></script>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="aplus-terminal" content="1"> 
+	<meta name="apple-mobile-web-app-capable" content="yes"> 
+	<!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏。content有两个值”yes”和”no” -->
+	<meta name="apple-touch-fullscreen" content="no"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+	<meta name="format-detection" content="telephone=no"> 
+	<!-- 清除微信缓存 -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<link rel="stylesheet" href="mui.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script type="text/javascript">
+		var app=angular.module('tttt',[]);
+		app.controller('ccc',function($scope){
+			$scope.downs=function(){
+				var a = document.getElementsByTagName('a');  
+        		for(var i=0; i<angular.element(a).length; i++){
+        			angular.element(a)[i].click();	
+        		}
+			}
+		});
+	</script>
+</head>
+<body ng-controller="ccc">
+	<!-- <input type="button" value="下载" ng-click="downs()" > -->
+	<span ng-click="downs()">下载</span><br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<a class="aaaaaa" href="http://www.images007.com/../../server/upload/14764512630002.jpg"  download="true" >111</a>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<a href="1.jpg"  download >111</a>
+	<a href="http://www.images007.com/../../server/upload/14764512630002.jpg"  download >111</a>
+	<a href="http://www.images007.com/../../server/upload/14764512640001.jpg"  download >111</a>
+	<a href="http://www.images007.com/../../server/upload/14764512680006.jpg"  download >111</a>
+</body>
+</html>

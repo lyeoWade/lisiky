@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<style type="text/css">
+ .canvas-box {position: relative;}
+ canvas {box-shadow: 0 0 10px rgba(0,0,0,0.2) }
+</style>
+<div class="canvas-box"> 
+ <canvas id="cvs" width="400" height="300">不支持canvas</canvas>
+</div>
+<script>
+
+var cvs = document.getElementById('cvs');
+var ctx = cvs.getContext('2d');
+function draw (color) {
+  ctx.fillStyle = '#000';
+  ctx.beginPath();
+  ctx.moveTo(100,100);
+  ctx.bezierCurveTo(110,110,199,278,300,379);
+  ctx.lineTo(400,100)
+  ctx.closePath();
+  ctx.fillStyle = color;
+  ctx.fill()  
+}
+
+ draw();
+ cvs.onmousemove = function (e) {
+  var x = e.pageX , y =e.pageY ;
+  if(ctx.isPointInPath(x,y)) {
+    draw('#f00');
+  } else {
+    draw()
+  }
+}
+
+
+</script>
+</body>
+</html>

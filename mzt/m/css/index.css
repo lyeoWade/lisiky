@@ -213,7 +213,10 @@ input[type=time] {-webkit-appearance:none; /*去除input默认样式*/}
 }
 
 
-
+.AllDown{
+  float: right;
+  color: #ff88af;
+}
 
 
 

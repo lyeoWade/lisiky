@@ -71,6 +71,7 @@ $(function(){
             url:"web/Regadd.php",
             data:"act=login&login_name="+oName.val()+"&login_pass="+oPass.val(),
             success: function(data){
+                console.log(data)
                 var oData=eval('('+data+')');
                 if(oData.error==1){
                     $('#addtip').html(oData.des);

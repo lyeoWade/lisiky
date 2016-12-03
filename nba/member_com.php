@@ -21,7 +21,6 @@
 	    }else{
 	        $mysql=mysql_query("SELECT * FROM member WHERE id=".$userid) or die("查询用户失败2:".mysql_error());
 
-
 	        $mysqlRow=mysql_query("select * from ( SELECT @rownum:=@rownum+1 PM, userid, montnpercent From (SELECT @rownum:=0,k.* FROM monthrank k  ORDER BY montnpercent desc limit 10) t ) t where t.userid='".$userid."'");
 
 	        $mysqlweekRow=mysql_query("select * from ( SELECT @rownum:=@rownum+1 PM, userid, weekpercent From (SELECT @rownum:=0,k.* FROM weekrank k  ORDER BY weekpercent desc limit 50) t ) t where t.userid='".$userid."'");

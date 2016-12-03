@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html ng-app="test" lang="en">
+<head>
+	<meta charset="UTF-8">
+	<script type="text/javascript" src="angular.js"></script>
+	<title>Document</title>
+	<script type="text/javascript">
+		var app=angular.module('test',[]);
+		app.service('add',function(){
+			this.a=324;
+			this.sum=function(n,m){
+				return n+m;
+			};
+		});
+		app.controller('main',function($scope,add){
+			$scope.a=9;
+			alert(add.sum(324,4));
+		});
+	</script>
+</head>
+<body ng-controller="main">
+	
+</body>
+</html>

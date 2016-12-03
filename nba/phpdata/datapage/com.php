@@ -5,8 +5,6 @@ $conn=@mysql_connect("localhost:3306","root","root")or die ("mysql链接失败")
 @mysql_select_db("php_blog",$conn) or die ("db链接失败".mysql_error()); 
 mysql_query('SET NAMES UTF8')or die ("字符集设置错误"); 
 */
-
-
 	//$conn=mysql_connect('www.chuanshangwuyu.com','a0822222809','16622437') or die("数据库连接失败");
 
 	//mysql_select_db('a0822222809') or die("数据库查询失败".mysql_error());
@@ -19,7 +17,6 @@ mysql_query('SET NAMES UTF8')or die ("字符集设置错误");
 	function echo_status($str){
 
 		echo json_encode($str);
-
 		exit;
 	};
 	function echo_status2($str){

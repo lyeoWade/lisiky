@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+	// var arr1 = ["星期一"];
+	// var arr2 = ["星期一"];
+	// var arr3 = ["星期二"];
+	// var arr4 = ["星期二"];
+	// var arr5 = ["星期二"];
+	// var arr6 = ["星期三"];
+	// var arr = [
+	//     arr1,arr2,arr3,arr4,arr5,arr6
+	// ];
+
+	var tem=[1,24,5,6,7,8,9,3];
+
+	var a=0;
+
+	for(var i=0; i<tem.length; i++){
+		if(tem[i]==3){
+			//tem.push(3);
+			a=i;
+		}
+	}
+	alert(a)
+	tem.splice(a,1);
+	alert(tem)
+	</script>
+</body>
+</html>
