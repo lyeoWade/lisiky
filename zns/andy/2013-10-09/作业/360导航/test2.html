@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<style>
+img{  opacity:1; }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var aImg=document.getElementsByTagName('img')[0];
+	var oBtn=document.getElementById('btn');
+	var timer=null;
+	
+	oBtn.onclick=function()
+	{
+		
+		move();
+	}
+	
+	function move()
+	{
+		var aLpha=getStyle(aImg,'opacity');
+		
+		clearInterval(timer);
+		timer=setInterval(function(){
+			var iSpeed=0.1;
+			if(aLpha<=0)
+			{
+				clearInterval(timer);
+			}
+			else
+			{
+				aLpha-=iSpeed;
+				aImg.style.opacity=aLpha;
+				document.title=aLpha;
+			}
+			
+			
+			},30);
+	}
+	
+	
+	function getStyle(obj,attr)
+	{
+		if(obj.currentStyle)
+		{
+			return obj.currentStyle[attr];
+		}else
+		{
+			return getComputedStyle(obj,false)[attr];
+		}
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<img src="img/bgSkin_6.png">
+<input type="button" value="改变" id="btn">
+</body>
+</html>

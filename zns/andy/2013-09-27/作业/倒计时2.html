@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0;}
+input{ position:absolute;   cursor:pointer;
+ width:120px; height:40px; text-align:center; line-height:40px; background:#ccc; border:1px solid #666; }
+</style>
+<script>
+window.onload=function()
+{
+	var aInput=document.getElementById('btn');
+	var n=11;
+	var timer=null;
+	var	bKg=true;
+	aInput.onclick=function()
+	{
+		clearInterval(timer);
+	//	timer=null;
+		//
+		if(bKg==false)
+		{
+			bKg=true
+		}else
+		{
+			timer=setInterval(send,1000);
+			bKg=false
+		}
+	
+			function send()
+			{
+				n--;
+				aInput.value=''+n+'秒后发送';
+				
+				if(n<0)
+				{
+					clearInterval(timer);
+					aInput.value='点击重新发送'
+					n=11;
+				}
+			
+			}
+	}
+}
+	
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<input type="button" id="btn" value="点击获取验证码" />
+
+</body>
+</html>

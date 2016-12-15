@@ -1,0 +1,55 @@
+1.在不指定特殊属性的情况下，哪几种HTML标签可以手动输入文本：
+A. <TEXTAREA></TEXTAREA>
+B. <INPUT   type=”text”/>
+C. <INPUT   type=”hidden”/>
+D. <DIV></DIV>
+
+2.以下哪些是javascript的全局函数：
+A. escape
+B. parseFloat
+C. eval
+D. setTimeout
+E. alert
+
+3.关于IFrame表述正确的有：
+A. 通过IFrame，网页可以嵌入其他网页内容，并可以动态更改
+B. 在相同域名下，内嵌的IFrame可以获取外层网页的对象
+C. 在相同域名下，外层网页脚本可以获取IFrame网页内的对象
+D. 可以通过脚本调整IFrame的大小
+
+4.关于表格表述正确的有：
+A. 表格中可以包含TBODY元素
+B. 表格中可以包含CAPTION元素
+C. 表格中可以包含多个TBODY元素
+D. 表格中可以包含COLGROUP元素
+E. 表格中可以包含COL元素
+
+5.关于IE的window对象表述正确的有：
+A. window.opener属性本身就是指向window对象
+B. window.reload()方法可以用来刷新当前页面
+C. window.location=”a.html”和window.location.href=”a.html”的作用都是把当前页面替换成a.html页面
+D. 定义了全局变量g；可以用window.g的方式来存取该变量
+
+6.简述DIV元素和SPAN元素的区别
+
+7.结合<span id="outer"><span id="inner">text</span></span>这段结构，谈谈innerHTML，outerHTML 和 innerText之间的区别
+
+8.说几条XHTML规范的内容（至少3条）
+
+9.对Web标准化（或网站重构）知道哪些相关的知识，简述几条你知道的Web标准？
+
+10.JS中的三种弹出式消息提醒(警告窗口、确认窗口、信息输入窗口)的命令是什么？
+
+
+
+
+
+
+
+
+
+
+
+
+
+

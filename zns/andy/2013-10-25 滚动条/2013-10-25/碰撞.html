@@ -1,0 +1,90 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+.div1{width:200px;height:200px; background:red; position:absolute;top:0;left:0}
+
+.div2{width:200px;height:200px; background:red; position:absolute;top:300px;left:400px; background:blue;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementsByTagName('div')[0];
+	var oDiv2=document.getElementsByTagName('div')[1];
+	oDiv.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var disX=oEvent.clientX-oDiv.offsetLeft;
+		var disY=oEvent.clientY-oDiv.offsetTop;
+		
+		
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			oDiv.style.top=oEvent.clientY-disY+'px';
+			oDiv.style.left=oEvent.clientX-disX+'px';
+			
+			var l1=oDiv.offsetLeft;
+			var r1=l1+oDiv.offsetWidth;
+			var t1=oDiv.offsetTop;
+			var b1=t1+oDiv.offsetHeight;
+			var l2=oDiv2.offsetLeft;
+			var r2=l2+oDiv2.offsetWidth;
+			var t2=oDiv2.offsetTop;
+			var b2=t2+oDiv2.offsetHeight;
+			
+			if(b1<t2||l1>r2||t1>b2||r1<l2)
+			{
+				//碰不上
+				oDiv2.style.background='blue';	
+			}
+			else
+			{
+				oDiv2.style.background='yellow';	
+			}
+
+				
+				
+		};
+		
+		document.onmouseup=function()
+		{
+			document.onmousemove=document.onmouseup=null;
+			if(oDiv.releaseCapture)
+			{
+				oDiv.releaseCapture();//取消获捕
+			};
+		};
+		
+		if(oDiv.setCapture)
+		{
+			oDiv.setCapture();
+		}
+		
+		
+		return false;
+			
+	};
+		
+		
+    //作业：
+	/*
+		1.  碰上了，up的时候互换位置
+		2.  没碰上，up回原位
+		3.  双向碰撞互换
+	
+	*/
+};
+</script>
+</head>
+
+<body>
+
+<div class="div1"></div>
+
+<div class="div2"></div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+     var oS1=document.getElementById('s1');
+  	 // 2013 10 11
+	 var oDate=new Date();
+	 oDate.setFullYear(2013,9,17);  //月份0－11
+	 oDate.setHours(0,0,0,0);
+	 var newTime=oDate.getTime();
+	 
+	 
+	 var now=new Date();
+	 var nowTime=now.getTime();
+	 
+	 var time=parseInt( (newTime-nowTime)/1000 );
+	 
+	
+	 
+	 var d=parseInt( time/86400 );
+	
+	x=time%86400;
+	// var h=t/3600;
+	 var h=parseInt(x/3600);
+	 
+	 time%=3600;
+	 
+	 var m=parseInt(time/60);
+	 
+	 var s=time%60;
+	 
+	 
+	 oS1.innerHTML='距2011年10月11日还有'+d+'天'+h+'小时'+m+'分'+s+'秒';
+	 
+	
+	 
+	 
+};
+</script>
+</head>
+
+<body>
+<span id="s1"></span>
+</body>
+
+</html>

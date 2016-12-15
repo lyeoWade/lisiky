@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#div1{ width:200px; height:200px; background:red; position:absolute; left:100px; top:100px; z-index:2; }
+.box{ position:absolute;  background:red;  z-index:1; }
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	oDiv.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var posX=oEvent.clientX-oDiv.offsetLeft;
+		var posY=oEvent.clientY-oDiv.offsetTop;
+		
+		var str=oDiv.outerHTML;
+		//alert(str)
+		var oBox=document.createElement('div'); // 创建一个div并且让它下面的innerHTML等于str
+		oBox.innerHTML=str;
+		var oBig=oBox.children[0];
+		document.body.appendChild(oBig); //取出div下面的所有  添加到页面
+		
+		oDiv.style.zIndex=3;
+		oDiv.style.opacity=0.3;
+		//复制div全过程1 outerHTML  ： 取出原来的div的outerHTML 将取出来的outerHTML添加到新建的DIV当中，然后再从新建的div中取出children[0]
+		//取出来的就是原来那个div  
+		
+		//2/innerHTML  :  
+		oDiv.style.filter='alpha(opacity=30)';
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			oDiv.style.left=oEvent.clientX-posX+'px';
+			oDiv.style.top=oEvent.clientY-posY+'px';
+			
+			return false;
+		}
+		document.onmouseup=function()
+		{
+			document.onmousemove=document.onmouseup=null;
+			oDiv.style.opacity='';
+			oDiv.style.filter='';
+			document.body.removeChild(oBig)
+		}
+		return false;
+	}
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="div1">
+afsfaf
+</div>
+
+</body>
+</html>

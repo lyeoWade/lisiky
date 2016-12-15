@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function show()
+{
+	alert(this);
+}
+var arr=[12,5,7];
+arr.show=show;
+
+//---------------------------
+
+/*
+show();		//window
+arr.show();	//arr
+*/
+
+//new show();		//new出来的Object
+//new arr.show();	//new出来的Object
+
+//document.onclick=show;		//document
+//document.onclick=arr.show;	//document
+
+/*
+document.onclick=show;
+new document.onclick();		//new出来的Object
+*/
+
+/*
+document.onclick=arr.show;
+new document.onclick();		//new出来的Object
+*/
+
+//setTimeout(show, 10);		//window
+//setTimeout(arr.show, 10);	//window
+
+/*
+document.onclick=show;
+setTimeout(document.onclick, 10);	//window
+*/
+
+/*
+document.onclick=arr.show;
+setTimeout(document.onclick, 10);	//window
+*/
+
+document.onclick=arr.show;
+setTimeout(new document.onclick(), 10);	//new出来的Object
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

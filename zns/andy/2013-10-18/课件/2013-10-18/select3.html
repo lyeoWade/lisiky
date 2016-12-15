@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oS1=document.getElementById('oS1');
+	var aOpt=oS1.getElementsByTagName('option');
+	alert(aOpt.length); // 4
+	alert(aOpt[1].innerHTML); // 2222
+	alert(aOpt[1].value); // b
+	oS1.onchange=function()
+	{
+		alert(this.value);	 
+	};	
+};
+</script>
+</head>
+
+<body>
+<select id="oS1">
+	<option value="a">1111</option>
+	<option value="b">2222</option>
+	<option value="c">3333</option>
+	<option value="d">4444</option>
+</select>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function copyArr(arr)
+{
+	var result=[];
+	
+	for(var i=0;i<arr.length;i++)
+	{
+		result[i]=arr[i];
+	}
+	
+	return result;
+}
+
+var aItem=[];	//商品
+
+for(var i=0;i<10;i++)
+{
+	aItem.push(parseInt(Math.random()*100)+1);
+}
+		// n  手上的钱
+		// i  商品
+		// aResult 买的什么？
+function findMin(n, i, aResult)
+{
+	if(i>=aItem.length)  // 如果商品都被浏览完了  
+	{
+		return {
+			n:	n,
+			result:	aResult 
+		};
+	}
+	
+	//站在第i个东西面前
+	var result1=null; 
+	
+	var arr1=copyArr(aResult);
+	
+	var result2=null;
+	
+	var arr2=copyArr(aResult);
+	
+	//1.买
+	if(n>=aItem[i])  // 手上的钱能买商品  买 并且 给买的那个arr[i]  做个记号  1 
+	{
+		arr1[i]=1;
+		result1=findMin(n-aItem[i], i+1, arr1);
+	}
+	
+	//2.不买（或买不起）
+	arr2[i]=0;
+	result2=findMin(n, i+1, arr2);
+	
+	if(result1==null)
+	{
+		return result2;
+	}
+	else
+	{
+		if(result1.n<result2.n)
+		{
+			return result1;  //
+		}
+		else
+		{
+			return result2;  // 
+		}
+	}
+}
+
+var result=findMin(100, 0, []);
+
+alert(result.n);
+alert(result.result);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

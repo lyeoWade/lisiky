@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+div{width:200px;height:200px; background:red; position:absolute;top:100px;left:0;}
+p{width:200px;height:200px; background:blue; position:absolute;top:100px;left:210px; display:none}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementsByTagName('div')[0];
+	var oP=document.getElementsByTagName('p')[0];	
+	var timer=null;
+	oDiv.onmouseover=function()
+	{
+		clearTimeout(timer);
+		oP.style.display='block';	
+	};
+	
+	oDiv.onmouseout=function()
+	{
+		timer=setTimeout(function(){
+			oP.style.display='none';	
+		},100);	
+	};
+	
+	oP.onmouseover=function()
+	{
+		clearTimeout(timer);
+	};
+	
+	oP.onmouseout=function()
+	{
+		timer=setTimeout(function(){
+			oP.style.display='none';	
+		},100);		
+	};
+};
+
+
+</script>
+</head>
+
+<body>
+<div>123</div>
+<p>323</p>
+</body>
+</html>

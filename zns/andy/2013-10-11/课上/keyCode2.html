@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#div1{ width:100px; height:100px; background:red; position:absolute; left:0; top:0; }
+</style>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var timer=null;
+	document.onkeydown=function(ev)
+	{
+		clearInterval(timer);
+		
+		var oEvent=ev||event;
+		timer=setInterval(function(){
+			if(oEvent.keyCode==39)
+			{
+				oDiv.style.left=oDiv.offsetLeft+4+'px';
+			}
+		},10);
+		
+	}
+	
+	document.onkeyup=function()
+	{
+		clearInterval(timer);
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

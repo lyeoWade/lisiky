@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div>asdasd</div>
+	<input type="button" value="添加" id="btn" name="">
+	<script type="text/javascript">
+		document.getElementById('btn').onclick=function(){
+			var aLi=document.createElement('div');
+			aLi.innerHTML='213123';
+			document.body.appendChild(aLi);
+		}
+		document.body.addEventListener('DOMSubtreeModified', function () {
+		  console.log('DOM Changed at ' + new Date());
+		}, false);
+	</script>
+</body>
+</html>

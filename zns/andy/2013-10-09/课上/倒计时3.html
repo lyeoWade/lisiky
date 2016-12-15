@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	
+	var aInput=document.getElementsByTagName('input');
+	var oBox=document.getElementById('box');
+	
+	
+	
+	aInput[3].onclick=function()
+	{
+		
+		//alert(aInput[0].value)
+		setInterval(aaa,1000);
+	}
+		/*var Year=aInput[0].value;
+		var Mounth=aInput[1].value;
+		var Day=aInput[2].value;*/
+	function  aaa()
+	{
+		
+		
+		var oDate=new Date();
+		oDate.setFullYear(aInput[0].value,aInput[1].value-1,aInput[2].value);
+		oDate.setHours(0,0,0,0);
+		var newDate=oDate.getTime();
+		
+		//alert(typeof newDate)
+		
+		var nowDate=new Date();
+		
+		var nowTime=nowDate.getTime();
+		var time=parseInt((newDate-nowTime)/1000);
+		
+		var d=parseInt(time/86400);
+		
+		time%=86400;
+		
+		var h=parseInt(time/3600);
+		
+		time%=3600
+		
+		var m=parseInt(time/60);
+		
+		var s=time%=60;
+		
+		oBox.innerHTML=d+'-'+h+'-'+m+'-'+s;
+	}
+	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="text"  ><input type="text"  ><input type="text" ><input type="button" value="倒计时" >
+<div id="box"></div>
+</body>
+</html>

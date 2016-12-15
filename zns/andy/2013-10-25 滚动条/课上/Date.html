@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+<script>
+var oDate=new Date();
+var oHours=oDate.getHours();
+var oM=oDate.getMinutes();
+if(oHours==7)
+{
+	document.write('现在是'+oHours+'点'+oM+'分,该起床上学了')
+}else if(oHours>7&&oHours<=12) 
+{
+	document.write('现在是'+oHours+'点'+oM+',上午的学习时间开始了')
+}else if(oHours>=12&&oHours<=14)
+{
+	document.write('现在是'+oHours+'点'+oM+',现在是午餐时间')
+}else if(oHours>14&&oHours<=17)
+{
+	document.write('现在是'+oHours+'点'+oM+',下午的学习时间开始了')
+}else if(oHours>17&&oHours<18)
+{
+	document.write('现在是'+oHours+'点'+oM+',现在是晚餐时间')
+}else
+{
+	document.write('现在是'+oHours+'点'+oM+',自由休息')
+}
+alert(oHours)
+
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>

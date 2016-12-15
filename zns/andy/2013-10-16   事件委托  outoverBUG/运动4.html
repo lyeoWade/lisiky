@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+ul{height:32px;margin-left:40px;}
+li{ float:left;height:60px; position:relative;width:150px;border:1px solid #000; list-style:none}
+span{ position: absolute;top:60px;left:0;width:100%;height:60px; background:red;}
+p{ position: absolute;top:0;left:0;width:100%;height:60px;  text-align:center; line-height:30px;}
+</style>
+<script>
+window.onload=function()
+{
+	var aLi=document.getElementById('ul1').getElementsByTagName('li');
+	var n=0;
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].top=false;  // 代表没有走到顶
+		aLi[i].onmouseover=function()
+		{
+			alert(1);
+		};	
+		
+		aLi[i].onmouseout=function()
+		{
+				alert(2);
+		};
+	}	
+};
+
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li><span></span><p>1111</p></li>
+	<li><span></span><p>2222</p></li>
+	<li><span></span><p>3333</p></li>
+	<li><span></span><p>4444</p></li>
+	<li><span></span><p>5555</p></li>
+	<li><span></span><p>6666</p></li>
+</ul>
+</body>
+</html>

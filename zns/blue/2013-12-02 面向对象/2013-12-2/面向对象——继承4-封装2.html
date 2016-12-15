@@ -1,0 +1,55 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function Person(name, age)
+{
+	this.name=name;
+	this.age=age;
+}
+
+Person.prototype.showName=function ()
+{
+	alert('我的名字是：'+this.name);
+};
+Person.prototype.showAge=function ()
+{
+	alert(this.age);
+};
+
+
+function extend(Parent)
+{
+	function Child()
+	{
+		Parent.apply(this, arguments);
+		
+		//?子级的属性
+		this.job=job;
+	}
+	
+	//继承父级方法
+	for(var i in Parent.prototype)
+	{
+		Child.prototype[i]=Parent.prototype[i];
+	}
+	
+	//?子级的方法
+	Child.prototype.showJob=function ()
+	{
+		alert('我的工作是：'+this.job);
+	};
+	
+	return Child;
+}
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

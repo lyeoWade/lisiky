@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+body {background:black;}
+#c1 {background:white;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oC=document.getElementById('c1');
+	var gd=oC.getContext('2d');
+	
+	gd.beginPath();
+	
+	//起点
+	gd.moveTo(418, 82);
+	gd.lineTo(672, 245);
+	gd.lineTo(514, 423);
+	gd.lineTo(303, 286);
+	
+	gd.closePath();	//闭合
+	
+	gd.stroke();	//描边
+	//gd.fill();
+};
+</script>
+</head>
+
+<body>
+<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>

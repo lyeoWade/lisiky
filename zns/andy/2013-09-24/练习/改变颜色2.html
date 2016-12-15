@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box{ width:200px; height:200px; background:#0f0; }
+</style>
+<script>
+
+var arr=['red','blue','black'];
+
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var aInput=document.getElementsByTagName('input');
+	for(var i=0; i<aInput.length; i++)
+	{
+		aInput[i].index=i;
+		(aInput[i].onclick=function(i)
+		{
+			oBox.style.background=arr[this.index];
+		})(i)
+	}
+	
+}
+</script>
+</head>
+
+<body>
+
+<input type="button" value="变红"  />
+<input type="button" value="变烂"  />
+<input type="button" value="变黑" />
+<div id="box"></div>
+</body>
+</html>
+

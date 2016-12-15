@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var a_Div=oDiv.children[0];
+	oDiv.onmouseover=function()
+	{
+		a_Div.style.display='block';
+		oDiv.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			
+			
+			a_Div.style.display='block';
+			a_Div.style.left=oEvent.clientX-oDiv.offsetLeft+'px';
+			a_Div.style.top=oEvent.clientY-oDiv.offsetTop-20+'px';
+		}
+	}
+	oDiv.onmouseout=function()
+	{
+		a_Div.style.display='none';
+	}
+}
+
+
+</script>
+<style>
+#div1{ cursor:pointer; width:500px; position:relative; height:500px; margin:100px auto 0; border:1px solid #999; background:#CCC;  }
+#div1 div{ display:none; width:150px; height:20px; background:red; position:absolute; }
+</style>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="div1">
+		<div>213</div>
+</div>
+</body>
+</html>

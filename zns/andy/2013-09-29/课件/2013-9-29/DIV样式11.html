@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{height:50px; line-height:50px; margin:10px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+
+    function getStyle()
+	{
+		if(oBox.currentStyle)  
+		{
+			return oBox.currentStyle.width;	
+		}
+		else
+		{
+			return getComputedStyle(oBox,false).width;	
+		}  
+			
+	};
+	
+	var boxWidth=getStyle();
+	alert(boxWidth);
+
+	
+};
+
+</script>
+</head>
+
+<body>
+<div id="box">
+dfdsfsd
+</div>
+</body>
+</html>

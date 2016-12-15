@@ -1,0 +1,69 @@
+
+str.charAt(下标) 取字符串
+str.substring(开始，结束)  取其中一段
+
+－－－－－－－－－－－
+
+ 新建一个时间对象
+var oDate=new Date();
+
+oDate.getFullYear()  年
+oDate.getMonth()+1   月 从零开始
+oDate.getDate()      日
+
+oDate.getHours()       小时
+oDate.getMinutes()     分
+oDate.getSeconds()     秒
+oDate.getMilliseconds()毫秒
+
+oDate.getDay() 星期  0－6  星期天：0
+
+
+oDate.getTime()
+1970年1月1日到现在的毫秒数
+
+
+
+
+oDate.setFullYear(2013,9,11);  
+设置日期  三个参数  后面两个是可选
+
+
+oDate.setHours(0,0,0,0);    范围 0-23  0-59 0-59 0-999
+设置日期  四个参数  后面三个是可选的
+
+oDate.setDate(11);
+
+offsetWidth  物体的宽度，带边框
+offsetHeight  
+不管有没有css 只要有宽高。都可以拿到
+
+
+
+
+
+
+作业：
+输入框输入日期倒计时
+
+
+http://hao.360.cn/  头部  菜单的背景运动
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

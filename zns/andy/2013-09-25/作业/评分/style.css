@@ -1,0 +1,6 @@
+*{margin:0;padding:0;}
+#pingfen{ position:relative; width:235px;margin:10px auto;height:28px;}
+ul{height:28px; }
+#pingfen li{ width:27px;float:left;height:28px;
+cursor:pointer;background:url(star.gif) no-repeat 0 0; list-style:none;}
+#pingfen .active{background:url(star.gif) no-repeat 0px -29px;  }

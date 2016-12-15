@@ -1,0 +1,49 @@
+window.open();    打开一个新窗口
+window.open('http://www.zhinengshe.com');   
+
+
+document.write(1233324234);  往页面写东西
+
+ window.close();  //关闭自己窗口，FF不兼容
+但是：可以关闭open出来的
+
+
+alert(window.location);  路径，网址
+
+
+window.location='http://www.zhinengshe.com';  跳转网址
+
+offsetHeight  如果display为none  取出来为零
+
+offsetLeft 找有定位的父级
+
+
+parentNode  结构上的父级
+offsetParent  定位的父级
+
+
+-----------
+
+http://a.hiphotos.baidu.com/album/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=d98969c3574e9258b93484e8a4b9b22a/2e2eb9389b504fc205c831a2e4dde71191ef6d86.jpg
+http://f.hiphotos.baidu.com/album/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=348717a35882b2b7b89f3bc20996a89d/500fd9f9d72a6059b0ee6ebd2934349b023bba9f.jpg
+http://h.hiphotos.baidu.com/album/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=ae020f0ea8014c08063b2aa33240617a/eac4b74543a9822688daa9808b82b9014a90eb7a.jpg
+http://c.hiphotos.baidu.com/album/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=440f761c3b87e9505d17f16a28033031/08f790529822720efefc9b257acb0a46f21fab3b.jpg
+
+
+obj.getAttribute('取自定义的属性名')
+obj.setAttribute('名称','值');  设置
+
+
+-------------------------
+
+img.onload
+
+
+
+
+
+作业：
+http://www.zhinengshe.com/works/3525/zns_demo.html
+
+
+

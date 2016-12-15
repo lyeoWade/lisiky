@@ -1,0 +1,228 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+var root=null;	//根
+
+function bst_add(node, n)
+{
+	if(root==null)
+	{
+		//空的->创建
+		root={value: n, l: null, r: null};
+	}
+	else
+	{
+		if(node.value==n)	//重复了
+		{
+			return;
+		}
+		else if(node.value<n)
+		{
+			//右边
+			if(node.r)
+			{
+				bst_add(node.r, n);
+			}
+			else
+			{
+				//右边——空的
+				node.r={value: n, l: null, r: null};
+			}
+		}
+		else
+		{
+			//左边
+			if(node.l)
+			{
+				bst_add(node.l, n);
+			}
+			else
+			{
+				//左边——空的
+				node.l={value: n, l: null, r: null};
+			}
+		}
+	}
+}
+
+function bst_find(node, n)
+{
+	if(root==null)
+	{
+		return false;
+	}
+	else
+	{
+		if(node.value==n)
+		{
+			return true;
+		}
+		else if(node.value<n)
+		{
+			if(!node.r)
+			{
+				return false;
+			}
+			else
+			{
+				return bst_find(node.r, n);
+			}
+		}
+		else
+		{
+			if(!node.l)
+			{
+				return false;
+			}
+			else
+			{
+				return bst_find(node.l, n);
+			}
+		}
+	}
+}
+
+//--------------------
+
+var arr=[];
+
+function arr_add(n)
+{
+	if(!arr_find(n))
+	{
+		arr.push(n);
+	}
+}
+
+function arr_find(n)
+{
+	for(var i=0;i<arr.length;i++)
+	{
+		if(arr[i]==n)return true;
+	}
+	return false;
+}
+
+//--------------------
+
+var arr=[];
+
+arr.length=100000;
+
+var used=0;
+
+function hash_add(n)
+{
+	//alert('添加'+n);
+	
+	//极慢
+	if(used==arr.length)	//满了
+	{
+		var oldArr=arr;
+		
+		arr=[];
+		arr.length=oldArr.length*2;
+		used=0;
+		
+		for(var i=0;i<oldArr.length;i++)
+		{
+			hash_add(oldArr[i]);
+		}
+	}
+	
+	var pos=n%arr.length;
+	
+	if(arr[pos]==n)
+	{
+		//重复
+		return;
+	}
+	else if(!arr[pos])
+	{
+		arr[pos]=n;
+		used++;
+	}
+	else
+	{
+		while(arr[pos])
+		{
+			if(arr[pos]==n)return;
+			
+			pos++;
+			
+			if(pos==arr.length)
+			{
+				pos=0;
+			}
+		}
+		
+		arr[pos]=n;
+		
+		used++;
+	}
+}
+
+function hash_find(n)
+{
+	var pos=n%arr.length;
+	
+	if(arr[pos]==n)return true;
+	else if(!arr[pos])return false;
+	else
+	{
+		while(arr[pos])
+		{
+			if(arr[pos]==n)return true;
+			
+			pos++;
+			
+			if(pos==arr.length)
+			{
+				pos=0;
+			}
+		}
+		
+		return false;
+	}
+}
+
+var start=new Date().getTime();
+
+var N=100000;
+
+for(var i=0;i<N;i++)
+{
+	var n=Math.floor(Math.random()*N);
+	
+	//bst_add(root, n);		//2400
+	//arr_add(n);			//2400000
+	//hash_add(n);			//1049300
+	hash_add(n);			//9400
+}
+for(var i=0;i<N;i++)
+{
+	var n=Math.floor(Math.random()*N);
+	
+	//bst_find(root, n);
+	//arr_find(n);
+	hash_find(n);
+}
+
+alert(new Date().getTime()-start);
+
+
+
+
+
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

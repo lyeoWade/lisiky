@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{padding:0; margin:0;}
+li{ list-style:none; }
+#div1{ position:absolute; width:100px; height:200px; overflow:hidden; display:none; border:1px solid #eeeeee; }
+ul{ padding-top:12px;}
+ul li{ cursor:pointer; width:90px; height:26px; line-height:26px; text-align:left; padding-left:10px; border-bottom:1px dashed #F90 }
+ul li:hover{ background:#F90; color:#ffffff; }
+</style>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	document.oncontextmenu=function(ev)
+	{
+		var oEvent=ev||event;
+		oDiv.style.left=oEvent.clientX+'px'
+		oDiv.style.top=oEvent.clientY+'px'
+		oDiv.style.display='block';
+		return false;
+		
+	}
+	
+	oDiv.onclick=function(ev)
+	{
+		var oEvent=ev||event;
+		oEvent.cancelBubble=true;
+	}
+	
+	document.onclick=function()
+		{
+			oDiv.style.display='none';
+		}
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+		<ul>
+        		<li>淘宝特卖</li>
+                <li>重口微电影</li>
+                <li>红袖添香</li>
+                <li>中国银行</li>
+                <li>电脑之家</li>
+                <li>省钱装备</li>
+                <li>大战僵尸2</li>
+        </ul>
+</div>
+</body>
+</html>

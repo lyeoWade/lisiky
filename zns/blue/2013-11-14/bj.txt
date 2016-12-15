@@ -1,0 +1,122 @@
+原型-----给类加东西
+类---->构造函数
+
+
+
+直接量 -------> 字符串 数字  布尔值
+
+
+对象 (实例)
+typeof  ---->大概类型
+instanceof  -----> 实例   不光能够看直接的类  同时也能看父类
+
+
+var arr=[];
+arr  instanceof Array     arr 是不是Array的实例化
+
+Object ( 空对象 --- 是js里面所有对象的父级 )   是所有对象的实例化
+
+
+
+
+constructor   // 构造函数   能够看直接的类   
+
+
+
+js自身的bug
+
+任何东西都继承自 object
+
+基本类型(数字 、 字符串 、 布尔值 、 undefined )   instanceof    object   都是false
+
+包装类型 number String Boolean
+
+
+
+new 后面只能是function
+
+
+面向对象 避免冲突 
+
+封闭空间 
+命名空间
+面向对象
+
+
+
+
+
+this 
+
+
+
+函数对象的方法 call 
+
+
+call         apply改变this 
+
+this -->12
+show.call(12)
+
+this 优先
+
+function show(a,b)
+{
+
+}
+show.call(12,2,3)   this-->12, a-->2, b---->3
+
+
+show.apply( this, arr)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

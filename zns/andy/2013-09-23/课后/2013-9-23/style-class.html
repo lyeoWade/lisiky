@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:#000;}
+.red{ background:red;} 
+</style>
+<script>
+function toRed()
+{
+	var oBox=document.getElementById('box');
+     
+	oBox.className='red';
+};
+
+function toYellow()
+{
+	var oBox=document.getElementById('box');
+     
+	oBox.style.background='yellow';
+};
+
+</script>
+</head>
+
+<body>
+<input type="button" value="点击" onclick="toRed()" >
+<input type="button" value="点击" onclick="toYellow()" >
+<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+#div1 {position:relative; width:900px; height:380px; background:yellow; margin:40px auto; overflow:hidden;}
+#div1 ul { width: 100%; background: green; height:170px; position:absolute; left:0; top:50%; margin-top:-85px;}
+#div1 ul li {width:100px; height:150px; background:#CCC; border:1px solid black; float:left; margin:10px; font-size:50px; text-align:center; line-height:150px;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var oUl=oDiv.children[0];
+	var aLi=oUl.children;
+	
+	oUl.style.width=aLi.length*(aLi[0].offsetWidth+20)+'px';
+	
+	var aPos=[];
+	//布局转换
+	for(var i=0;i<aLi.length;i++)
+	{
+		aPos[i]={left: aLi[i].offsetLeft, top: aLi[i].offsetTop}; // 储存aLi的原始位置
+		
+		aLi[i].style.left=aLi[i].offsetLeft+'px'; // 布局转换
+		aLi[i].style.top=aLi[i].offsetTop+'px';
+	}
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].style.position='absolute';
+		aLi[i].style.margin='0';
+	}
+	
+	//拖拽
+	oUl.onmousedown=function (ev)
+	{
+		var oEvent=ev||event;
+		
+		var disX=oEvent.clientX-oUl.offsetLeft;
+		
+		document.onmousemove=function (ev)
+		{
+			var oEvent=ev||event;
+			var l=oEvent.clientX-disX;
+			
+			// 判断是不是在最后和第一张
+			if(l>oDiv.offsetWidth/2-(0+0.5)*(102+20)) 
+			// (102+20) li 的宽度 
+			{
+				l=oDiv.offsetWidth/2-(0+0.5)*(102+20);
+			}
+			else if(l<oDiv.offsetWidth/2-(aLi.length-1+0.5)*(102+20))
+			{
+				l=oDiv.offsetWidth/2-(aLi.length-1+0.5)*(102+20);
+			}
+			
+			oUl.style.left=l+'px'; 
+			
+			//算
+			setPos();
+		};
+		document.onmouseup=function ()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+		};
+		
+		return false;
+	};
+	
+	function setCenter(n) // 让第几个显示
+	{
+		oUl.style.left=oDiv.offsetWidth/2-(n+0.5)*(102+20)+'px';
+		 // 
+	}
+
+	setCenter(0);
+	
+	function setPos()
+	{
+		var divCenter=oDiv.offsetWidth/2;
+		
+		for(var i=0;i<aLi.length;i++)
+		{
+			//offsetLeft——包括margin，下面给margin赋值，反过来影响offsetLeft
+			//var l=aLi[i].offsetLeft+oUl.offsetLeft+50;
+
+			var l=aPos[i].left+oUl.offsetLeft+51;  // aPos[i].left 第I个li距Ul的left  51是每个li宽度的一半  
+				//oUl.offsetLeft   ul到oDiv的left
+
+			var dis=Math.abs(l-divCenter);  
+			
+			document.title=dis;
+			
+			var scale=1-dis/500; 
+			
+			if(scale<0.5)scale=0.5; // 控制范围
+			
+			aLi[i].innerHTML=parseInt(scale*1000)+'<span style="width:1px ; height:100%; background:red; position:absolute; left:50%; top:0; display:block"></span>'; 
+			
+			aLi[i].style.height=300*scale+'px'; // 通过比列控制宽高大小
+			aLi[i].style.width=200*scale+'px';
+			
+			aLi[i].style.marginLeft=-(aLi[i].offsetWidth-102)/2+'px'; // 
+			aLi[i].style.marginTop=-(aLi[i].offsetHeight-152)/2+'px';
+			aLi[i].style.zIndex=parseInt(scale*1000);
+			
+			aLi[i].style.filter='alpha(opacity:'+scale*100+')';
+			aLi[i].style.opacity=scale;
+		}
+	}
+	
+	setPos();
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<ul>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    	<li></li>
+    </ul>
+    <p style="width:1px ; height:100%; background:black; position:absolute; left:50%; top:0;"></p>
+</div>
+</body>
+</html>

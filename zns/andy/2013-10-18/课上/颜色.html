@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{margin:0; padding:0; }
+li{ list-style:none; width:20px; float:left; height:20px;}
+ul{ width:60px; height:240px; margin:110px auto;  }
+div{ background: }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	var color=['00','33','66','99','cc','ff'];
+	 var fiexdColor=['ff0000','00ff00','0000ff','ffff00','00ffff','ff00ff'];
+	for(var i=0; i<12; i++)
+	{
+		for(var k=0; k<3; k++)
+		{
+			var oLi=document.createElement('li');
+			oUl.appendChild(oLi);
+			if(k==1&&i<6)
+			{
+				oLi.style.background='#'+color[i]+color[i]+color[i];
+			}else if(k==1)
+			{
+				oLi.style.background='#'+fiexdColor[i-6]; //从第七个开始
+			}else
+			{
+				oLi.style.background='#000000';
+			}
+		}
+
+	}
+	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<ul id="ul1">
+
+</ul>
+</body>
+</html>

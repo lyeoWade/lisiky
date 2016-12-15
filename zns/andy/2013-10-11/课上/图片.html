@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+#box{ width:300px; height:200px; margin:50px auto; position:relative; }
+#box img{ position:absolute; opacity:0; filter:alpha(opacity=0);   }
+#box .show{ opacity:1; filter:alpha(opacity=100); }
+#btn{ position:absolute; top:310px; }
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var aImg=oBox.getElementsByTagName('img');
+	var oBtn=document.getElementById('btn');
+	var iNow=0;
+	
+	
+	oBtn.onclick=function()
+	{
+		var opy=100;
+		
+		aImg[iNow].style.opacity=opy-5;
+	}
+	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box">
+	<img class="show" src="3.jpg" width="300" height="200">
+    <img src="4936459btdb2f22ecb6bc&690.jpg" width="300" height="200">
+    <img src="4936459btdc54b0da6d85.jpg" width="300" height="200">
+    <input type="button" value="点我" id="btn">
+</div>
+</body>
+</html>

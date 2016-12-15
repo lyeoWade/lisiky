@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+var json=
+{
+	email:	/^(\w+@\w+(\.[a-z]{2,4}){1,2})$/
+};
+
+window.onload=function ()
+{
+	var oForm=document.getElementById('form1');
+	var aTxt=oForm.getElementsByTagName('input');
+	
+	//1.提交
+	oForm.onsubmit=function ()
+	{
+	};
+	
+	//2.blur
+	for(var i=0;i<aTxt.length;i++)
+	{
+		
+	}
+};
+</script>
+<style>
+input {border:1px solid #CCC; outline:none;}
+input.ok {border:1px solid green;}
+input.error {border:1px solid red;}
+</style>
+</head>
+
+<body>
+<form id="form1" action="http://www.zhinengshe.com/">
+	邮箱：<input type="text" name="email" /><br>
+    <input type="submit" />
+</form>
+</body>
+</html>

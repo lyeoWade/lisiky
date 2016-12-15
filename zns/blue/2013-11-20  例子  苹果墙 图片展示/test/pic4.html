@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+* {margin:0; padding:0; list-style:none;}
+
+#div1 {position:relative; width:900px; height:380px; background:yellow; margin:40px auto; overflow:hidden;}
+#div1 ul {  background: green; height:170px; position:absolute; left:0; top:50%; margin-top:-85px;}
+#div1 ul li {width:100px; height:150px; background:#CCC; border:1px solid black; float:left; margin:10px; font-size:50px; text-align:center; line-height:150px;}
+</style>
+
+<script type="text/javascript">
+	
+	window.onload=function()
+	{
+		var oDiv=document.getElementById('div1');
+		var oUl=oDiv.getElementsByTagName('ul')[0];
+		var aLi=oUl.children;
+
+		oUl.style.width=(aLi[0].offsetWidth+20)*aLi.length+'px';
+
+		var aPos=[];
+		for(var i=0; i<aLi.length; i++)
+		{
+			aPos[i]={ left:aLi[i].offsetLeft,top:aLi[i].offsetTop }
+
+			aLi[i].style.left=aLi[i].offsetLeft+'px';
+			aLi[i].style.top=aLi[i].offsetTop+'px';
+		}
+
+		for(var i=0; i<aLi.length; i++)
+		{
+			aLi[i].style.position='absolute';
+			aLi[i].style.margin='0';
+		}
+		//拖拽
+		oUl.onmousedown=function(ev)
+		{
+			var oEvent=ev||event;
+			var posX=oEvent.clientX-oUl.offsetLeft;
+
+			document.onmousemove=function(ev)
+			{
+				var oEvent=ev||event;
+
+				var l=oEvent.clientX-posX;
+
+				if(l>oDiv.offsetWidth/2-(0+0.5)*(102+20))
+				{
+					l=oDiv.offsetWidth/2-(0+0.5)*(102+20)
+				}else if(l<oDiv.offsetWidth/2-(aLi.length-1+0.5)*(102+20))
+				{
+					l=oDiv.offsetWidth/2-(aLi.length-1+0.5)*(102+20)
+				}
+
+
+				oUl.style.left=l+'px';
+				getPos();
+				
+			}
+			document.onmouseup=function()
+			{
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+			return false;
+		}
+
+		function Now(n)
+		{
+			//当n等于1时     divCenter-(w+m)-(w/2+m/2)
+			//当n等于2时     divCenter-2*(w+m)-(w/2+m/2)
+			oUl.style.left=oDiv.offsetWidth/2-(n+0.5)*(102+20)+'px';  
+		}
+        Now(3)
+		function getPos()
+		{
+			// 当Ul移动时 越接近oDiv中心的那个Li变最大
+				var Divcenter=oDiv.offsetWidth/2;
+				for(var i=0; i<aLi.length; i++)
+				{
+						
+						var l=aPos[i].left+oUl.offsetLeft+51; // 
+
+						var dis=Math.abs(l-Divcenter); // dis的值不断变小 当l等于Divcenter时 scale为1
+						var scale=1-dis/600; // scale 越来越大  值越来越大
+						
+						if(scale<0.5){scale=0.5}
+						
+						aLi[i].style.width=200*scale+'px'; // 最大为200
+						aLi[i].style.height=300*scale+'px';
+						aLi[i].style.marginLeft=-(200*scale-102)/2+'px';
+						aLi[i].style.marginTop=-(300*scale-152)/2+'px';
+						aLi[i].style.zIndex=100*scale;
+						aLi[i].style.opacity=scale;
+						aLi[i].style.filter='alpha(opacity:'+scale*100+')';
+						console.log(dis)
+
+						aLi[i].innerHTML=parseInt(scale*1000)+'<span style="width:1px ; height:100%; background:red; position:absolute; left:50%; top:0; display:block"></span>'; 
+				}
+		}
+		getPos();
+		// 
+		//alert(oUl.offsetWidth)
+	}
+</script>
+</head>
+<body>
+	<div id="div1">
+	<ul>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+    </ul>
+    <p style="width:1px ; height:100%; background:black; position:absolute; left:50%; top:0;"></p>
+</div>
+</body>
+</html>

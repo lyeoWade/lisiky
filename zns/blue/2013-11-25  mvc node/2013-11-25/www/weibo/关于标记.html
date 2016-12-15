@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function dupEle(obj, data)
+{
+	var oTmp=document.createElement('div');
+	
+	oTmp.innerHTML=obj.outerHTML.replace(/\{\$[\w\-]+\}/g, function (s){
+		var name=s.substring(2, s.length-1);
+		
+		return data[name];
+	});
+	
+	return oTmp.children[0];
+}
+
+window.onload=function ()
+{
+	var oTmpLi=document.getElementById('tmpLi');
+	var oUl=document.getElementById('ul1');
+	var oTxt1=document.getElementById('txt1');
+	var oTxt2=document.getElementById('txt2');
+	var oBtn=document.getElementById('btn1');
+	
+	//开始
+	oUl.removeChild(oTmpLi);
+	
+	oBtn.onclick=function ()
+	{
+		var oNewLi=dupEle(oTmpLi, {name: oTxt1.value, age: oTxt2.value});
+		
+		oNewLi.id='';
+		
+		oUl.appendChild(oNewLi);
+	};
+};
+</script>
+</head>
+
+<body>
+姓名：<input type="text" id="txt1" /><br>
+年龄：<input type="text" id="txt2" /><br>
+<input type="button" value="创建" id="btn1" />
+<ul id="ul1">
+	<li id="tmpLi" class="box">
+    	<h2>姓名：{$name}</h2>
+        <em><input type="button" value="修改" />{$age}岁</em>
+    </li>
+</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

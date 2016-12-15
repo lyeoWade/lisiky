@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0; }
+div{ width:300px; height:100px; background:#CCC; margin:10px 0;  }
+</style>
+
+<script>
+
+window.onload=function()
+{
+	var oDiv=document.getElementsByTagName('div');
+	for(var i=0; i<oDiv.length; i++)
+	{
+		oDiv[i].onmouseover=function()
+		{
+			startMove(this,'width',400)
+		}
+	}
+}
+
+function getStyle(obj,attr){return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr]}
+
+
+function startMove(obj,name,iTarget)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+		var cur=parseInt(getStyle(obj,name));	
+		
+		
+		if(cur<iTarget)
+		{
+			var iSpeed=10;
+		}else
+		{
+			var iSpeed=-10;
+		}
+
+		if(Math.abs(cur-iTarget)<Math.abs(iSpeed))
+		{
+			clearInterval(obj.timer);
+			obj.style[name]=iTarget+'px';
+		}else
+		{
+			obj.style[name]=cur+iSpeed+'px';
+		}
+		},30);
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

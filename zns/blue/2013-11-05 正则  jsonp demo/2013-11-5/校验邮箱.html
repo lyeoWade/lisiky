@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+window.onload=function ()
+{
+	var oTxt=document.getElementById('txt1');
+	var oBtn=document.getElementById('btn1');
+	
+	oBtn.onclick=function ()
+	{
+		var re=/[a-z0-9][\w\.]*@[a-z0-9\-]+(\.[a-z]{2,4}){1,2}/i;
+		// [a-z0-9] 第一位是a-z0-9  
+		// [\w\.] 接着是  a-zA-Z0-9_ 和所有的字符 
+		// *  至少0个 多不限( +  至少一个 多不限)
+		// [a-z0-9\-]  a-z0-9和 -
+		// + 至少一个 多不限
+		// \. 转移之后 就是普通的点 不是所有字符了
+		// 
+		if(re.test(oTxt.value))
+		{
+			alert('OK');
+		}
+		else
+		{
+			alert('你填错了');
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="text" style="width:250px;" id="txt1" />
+<input type="button" value="校验" id="btn1" />
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var a='[1,2,3,4,5]';
+	alert(a[0]);  //不兼容   [
+	a=eval(a);   //  arr= [1,2,3,4,5]
+	alert(a[0]); // 1
+};
+
+</script>
+</head>
+
+<body>
+<input type="text" >
+<select id="s1">
+	<option value="+">+</option>
+	<option value="-">-</option>
+	<option value="*">*</option>
+	<option value="/">/</option>
+</select>
+<input type="text" >
+<input type="button" value="开始计算">
+</body>
+</html>

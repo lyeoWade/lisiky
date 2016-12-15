@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function cloneObj(obj)
+{
+	if(obj.constructor==Object)
+	{
+		var newObj=new Object();
+		
+		for(var i in obj)
+		{
+			if(typeof obj[i]=='object')
+			{
+				newObj[i]=cloneObj(obj[i]);
+			}
+			else
+			{
+				newObj[i]=obj[i];
+			}
+		}
+	}
+	else
+	{
+		var newObj=new obj.constructor(obj.valueOf());
+	}
+	
+	return newObj;
+}
+
+var json1={a: 12, b: [1,2,3]};
+var json2=cloneObj(json1);
+
+json2.b.push(5);
+
+alert(json1.b);
+alert(json2.b);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

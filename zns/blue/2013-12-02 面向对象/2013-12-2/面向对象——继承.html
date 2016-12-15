@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function Person(name, age)
+{
+	this.name=name;
+	this.age=age;
+}
+
+Person.prototype.showName=function ()
+{
+	alert('我的名字是：'+this.name);
+};
+Person.prototype.showAge=function ()
+{
+	alert(this.age);
+};
+
+/*var oP=new Person('blue', 18);
+
+oP.showName();
+oP.showAge();*/
+
+function Worker(name, age, job)
+{
+	//this->oW
+	//继承父级的属性——骗
+	Person.call(this, name, age); 
+	
+	this.job=job;
+}
+
+//继承父级的方法
+Worker.prototype=Person.prototype;  // 
+
+Worker.prototype.showJob=function ()
+{
+	alert('我的工作是：'+this.job);
+};
+
+var oW=new Worker('blue', 18, '打杂的');
+
+oW.showName();
+oW.showAge();
+oW.showJob();
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

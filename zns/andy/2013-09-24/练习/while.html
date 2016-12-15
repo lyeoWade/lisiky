@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>while</title>
+<style>
+div{ float:left; margin:5px;  width:100px; height:100px; background:red; border-radius:50%; }
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementsByTagName('div');
+	var i=0;
+	while(i<oDiv.length)
+	{
+		oDiv[i].style.background='#444';	
+		i++;
+	}
+}
+</script>
+</head>
+
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+<div>6</div>
+<div>7</div>
+<div>8</div>
+<div>9</div>
+<div>10</div>
+</body>
+</html>

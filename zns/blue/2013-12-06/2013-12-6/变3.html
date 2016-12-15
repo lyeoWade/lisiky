@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:980px; height:300px; background:#CCC; margin:10px auto; position:relative;}
+#div1 div {position:absolute;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var R=40;
+	var C=1;
+	
+	for(var i=0;i<R;i++)
+	{
+		for(var j=0;j<C;j++)
+		{
+			var oNewDiv=document.createElement('div');
+			
+			oNewDiv.style.width=oDiv.offsetWidth/C+'px';
+			oNewDiv.style.height=oDiv.offsetHeight/R+'px';
+			
+			oDiv.appendChild(oNewDiv);
+			
+			oNewDiv.style.left=oNewDiv.offsetWidth*j+'px';
+			oNewDiv.style.top=oNewDiv.offsetHeight*i+'px';
+			
+			oNewDiv.style.background='url(img/1.jpg) -'+oNewDiv.offsetLeft+'px -'+oNewDiv.offsetTop+'px no-repeat';
+			
+			//oNewDiv.innerHTML=i+','+j;
+		}
+	}
+	
+	//预加载——防止图片闪一下
+	for(var i=0;i<5;i++)
+	{
+		var oImg=new Image();
+		
+		oImg.src='img/'+(i+1)+'.jpg';
+	}
+	
+	//换
+	var timer=null;
+	var oBtn=document.getElementById('btn1');
+	var aDiv=oDiv.children;
+	
+	var now=0;
+	
+	oBtn.onclick=function ()
+	{
+		now++;
+		
+		if(now==5)now=0;
+		
+		var i=0;
+		
+		clearInterval(timer);
+		timer=setInterval(function (){
+			aDiv[i].style.backgroundImage='url(img/'+(now+1)+'.jpg)';
+			
+			i++;
+			
+			if(i==aDiv.length)
+			{
+				clearInterval(timer);
+			}
+		}, 100);
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="换" id="btn1" />
+<div id="div1">
+</div>
+</body>
+</html>

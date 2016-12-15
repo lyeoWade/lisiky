@@ -1,0 +1,185 @@
+()()
+
+函数表达式
+
+
+封闭空间
+
+
+
+
+
+arguments  参数数组  每个函数默认会有，不需要声明
+
+
+lastIndexOf 
+ 出来的位置是从头开始计算的
+
+但是计算的时候是从字符串最后往前进行的
+
+
+
+split  切字符串  转数组
+
+
+切完之后的字符串变成数组
+
+
+没找到目标值 则之后的数组就只有一个 
+
+
+
+split 封装 byClassName
+
+
+push   往数组后面添加 尾部添加  可以添加、、、
+
+
+
+pop()   从后面删除  只删除最后一位
+
+删除掉的那个可以赋值   即可以取到删除的那位
+
+
+
+unshift () 往数组前面添加  可以添加多个  可以放很多类型的东西  如数组  字符串
+
+即数组里面能存什么  就能添加什么
+
+
+shift ()往数组前面删除
+
+
+
+
+
+
+
+
+concat    数组拼接，变成字符串 相连数组  组合数组
+
+
+引用
+
+var arr1 =[1,2,3]
+var arr2=arr1.concat();   连接了一个空  复制了自己
+
+arr2.pop();
+
+
+alert(arr2)   //  1,2
+
+alert(arr1) // 1,2,3
+
+
+
+
+
+只有数组有复制的特性  如：
+
+var arr1 =[1,2,3]
+var arr2=arr1；
+
+arr2.push(4);
+
+
+alert(arr2)   //  1,2,3,4
+
+alert(arr1) // 1,2,3,4
+
+
+字符串
+
+var arr1 =[1,2,3]
+var arr2=arr1；
+
+arr2+=4；
+
+
+alert(arr2)   //  1,2,3,4
+
+alert(arr1) // 1,2,3
+
+
+
+
+
+join('-')  合并字符串  （和split相反） 将数组拼成字符串
+()内可以放任何东西
+
+
+
+
+
+函数复制 
+
+
+每执行一次  都是不一样的
+
+
+事件、定时器不能用 i  
+
+用index代替
+
+
+
+
+
+for(var i=0; i<4; i++)
+{
+	(function(index){
+	setTimeout(function(){
+	console.log(index);
+	},30)
+})(i)
+}
+ 
+
+
+
+
+cssText =' width:400px; height:400px; background:green' //给一个元素设置多个样式   能写能读
+  给行间
+
+设置在他之前的样式会被覆盖
+ 适用于刚创建的元素的样式
+
+
+
+
+
+with 方法  批量给对象加属性和样式
+
+with( obj.style )
+{
+		width:'';
+		height:'';
+		...
+}
+
+
+
+sort()  排序  参数只能是函数
+
+比较第一位
+
+
+sort(function(n1,n2){
+	return n1-n2;
+}); 从小到大 
+
+sort(function(n1,n2){
+	return n2-n1;
+}); 从大到小
+
+
+
+
+
+
+
+
+
+
+
+

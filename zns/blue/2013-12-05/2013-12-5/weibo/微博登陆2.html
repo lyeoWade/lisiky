@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js?appkey=3182442519" type="text/javascript" charset="utf-8"></script>
+<script>
+WB2.anyWhere(function(W){
+    W.widget.connectButton({
+        id: "div1",	
+        type:"3,1",
+        callback : {
+            login:function(o){	//登录后的回调函数
+				alert('成功');
+            },	
+            logout:function(){	//退出后的回调函数
+				alert('失败');
+            }
+        }
+    });
+});
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

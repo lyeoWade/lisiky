@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<script>
+window.onload=function()
+{
+	document.onmousemove=function(ev)
+	{
+		var oEvent=ev||event;
+		var ToElement=oEvent.toElement||oEvent.relatedTarget;//relatedTarget
+		if(isChild(ToElement,document)) return;
+		var oDiv=document.createElement('div');
+		oDiv.style.width=100+'px';
+		oDiv.style.height=100+'px';
+		oDiv.style.background='red';
+		oDiv.style.position='absolute';
+		document.body.appendChild(oDiv);
+		//if(isChild(ToElement,document)) return;
+		oDiv.style.left=oEvent.clientX+'px';
+		oDiv.style.top=oEvent.clientY+'px';
+	}
+}
+function  isChild(obj,oParent)
+{
+	while(obj)
+	{
+		if(obj==oParent)
+		{
+			return true;
+		}
+		obj=obj.parentode;
+	}
+	return false;
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>

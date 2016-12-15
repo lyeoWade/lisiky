@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+input {border:1px solid #CCC; outline:none; padding:4px;}
+
+input.ok {border:1px solid green;}
+input.error {border:1px solid red;}
+</style>
+<script>
+var form_reg={
+	email:		/^([a-z0-9][\w\.]*@[a-z0-9\-]+(\.[a-z]{2,4}){1,2})$/,
+	cn_name:	/^([\u4e00-\u9fa5]{2,8})$/,
+	zip_code:	/^([1-9]\d{5})$/
+};
+
+window.onload=function ()
+{
+	var oForm=document.getElementById('form1');
+	var aInput=oForm.getElementsByTagName('input');
+	
+	function check(oTxt,re)
+	{
+		if(re.test(oTxt.value))
+		{
+			oTxt.className='ok';
+			return true;
+		}
+		else
+		{
+			oTxt.className='error';
+			return false;
+		}
+	}
+	
+	//失去焦点
+	for(var i=0;i<aInput.length;i++)
+	{
+		if(form_reg[aInput[i].name])
+		{
+			(function (index){
+				aInput[i].onblur=function ()
+				{
+					check(this, form_reg[aInput[index].name]);
+				};
+			})(i);
+		}
+	}
+	//提交
+	oForm.onsubmit=function ()
+	{
+		var ok=true;
+		
+		for(var i=0;i<aInput.length;i++)
+		{
+			if(form_reg[aInput[i].name])
+			{
+				if(false==check(aInput[i], form_reg[aInput[i].name]))
+				{
+					ok=false;
+				}
+			}
+		}
+		
+		if(!ok)
+		{
+			return false;
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<form id="form1" action="http://www.zhinengshe.com/">
+	邮箱：<input type="text" name="email" /><br>
+    姓名：<input type="text" name="cn_name" /><br>
+    邮编：<input type="text" name="zip_code" /><br>
+    <input type="submit" />
+</form>
+</body>
+</html>

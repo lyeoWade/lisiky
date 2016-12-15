@@ -1,0 +1,453 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社 - www.zhinengshe.com</title>
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<link type="text/css" rel="stylesheet" href="style/common.css">
+<script>
+//nav_item nav_item_active
+//item_show show
+window.onload=function()
+{
+	var aLi=document.getElementById('navUl').getElementsByTagName('li');
+	
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].index=i;
+		aLi[i].onmouseover=function()
+		{
+			this.getElementsByTagName('h3')[0].className='nav_item nav_item_active';
+			this.getElementsByTagName('div')[0].className='item_show show';
+		};
+		
+		aLi[i].onmouseout=function()
+		{
+			this.getElementsByTagName('h3')[0].className='nav_item';
+			this.getElementsByTagName('div')[0].className='item_show';
+		};
+			
+	}
+	
+		
+};
+
+</script>
+</head>
+
+<body>
+<div class="navBox">
+	<div class="allShop fl">
+		<h3 class="allShop_title">全部商品分类</h3>
+		<ul class="nav" id="navUl">
+			<li>
+				<h3 class="nav_item">图书、音像、数字商品<i></i></h3>
+				<div class="item_show">
+					<dl class="fore1">
+						<dt><a href="#">电子书</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">通俗流行</a><a href="#">古典音乐</a><a href="#">摇滚说唱</a><a href="#">爵士蓝调</a><a href="#">乡村民谣</a><a href="#">有声读物</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">大 家 电</a> </dt>
+						<dd><a href="#">平板电视</a><a href="#">空调</a><a href="#">冰箱</a><a href="#">洗衣机</a><a href="#">家庭影院</a><a href="#">DVD</a><a href="#">迷你音响</a><a href="#">烟机/灶具</a><a href="#">热水器</a><a href="#">消毒柜/洗碗机</a><a href="#">酒柜/冷柜</a><a href="#">家电配件</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">生活电器</a> </dt>
+						<dd><a href="#">电风扇</a><a href="#">冷风扇</a><a href="#">净化器</a><a href="#">饮水机</a><a href="#">净水设备</a><a href="#">挂烫机/熨斗</a><a href="#">吸尘器</a><a href="#">除湿/干衣机</a><a href="#">加湿器</a><a href="#">电话机</a><a href="#">插座</a><a href="#">收录/音机</a><a href="#">清洁机</a><a href="#">取暖电器</a><a href="#">其它生活电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+				</div>
+			</li>
+			<li>
+				<h3 class="nav_item">家用电器<i></i></h3>
+				<div class="item_show">
+					<dl class="fore1">
+						<dt><a href="#">电子书2</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">通俗流行</a><a href="#">古典音乐</a><a href="#">摇滚说唱</a><a href="#">爵士蓝调</a><a href="#">乡村民谣</a><a href="#">有声读物</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">大 家 电</a> </dt>
+						<dd><a href="#">平板电视</a><a href="#">空调</a><a href="#">冰箱</a><a href="#">洗衣机</a><a href="#">家庭影院</a><a href="#">DVD</a><a href="#">迷你音响</a><a href="#">烟机/灶具</a><a href="#">热水器</a><a href="#">消毒柜/洗碗机</a><a href="#">酒柜/冷柜</a><a href="#">家电配件</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">生活电器</a> </dt>
+						<dd><a href="#">电风扇</a><a href="#">冷风扇</a><a href="#">净化器</a><a href="#">饮水机</a><a href="#">净水设备</a><a href="#">挂烫机/熨斗</a><a href="#">吸尘器</a><a href="#">除湿/干衣机</a><a href="#">加湿器</a><a href="#">电话机</a><a href="#">插座</a><a href="#">收录/音机</a><a href="#">清洁机</a><a href="#">取暖电器</a><a href="#">其它生活电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+				</div>
+			</li>
+			<li>
+				<h3 class="nav_item">手机、数码<i></i></h3>
+				<div class="item_show">
+					<dl class="fore1">
+						<dt><a href="#">电子书3</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">通俗流行</a><a href="#">古典音乐</a><a href="#">摇滚说唱</a><a href="#">爵士蓝调</a><a href="#">乡村民谣</a><a href="#">有声读物</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">大 家 电</a> </dt>
+						<dd><a href="#">平板电视</a><a href="#">空调</a><a href="#">冰箱</a><a href="#">洗衣机</a><a href="#">家庭影院</a><a href="#">DVD</a><a href="#">迷你音响</a><a href="#">烟机/灶具</a><a href="#">热水器</a><a href="#">消毒柜/洗碗机</a><a href="#">酒柜/冷柜</a><a href="#">家电配件</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">生活电器</a> </dt>
+						<dd><a href="#">电风扇</a><a href="#">冷风扇</a><a href="#">净化器</a><a href="#">饮水机</a><a href="#">净水设备</a><a href="#">挂烫机/熨斗</a><a href="#">吸尘器</a><a href="#">除湿/干衣机</a><a href="#">加湿器</a><a href="#">电话机</a><a href="#">插座</a><a href="#">收录/音机</a><a href="#">清洁机</a><a href="#">取暖电器</a><a href="#">其它生活电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+				</div>
+			</li>
+			<li>
+				<h3 class="nav_item">电脑、办公<i></i></h3>
+				<div class="item_show">
+					<dl class="fore1">
+						<dt><a href="#">电子书4</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">通俗流行</a><a href="#">古典音乐</a><a href="#">摇滚说唱</a><a href="#">爵士蓝调</a><a href="#">乡村民谣</a><a href="#">有声读物</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">大 家 电</a> </dt>
+						<dd><a href="#">平板电视</a><a href="#">空调</a><a href="#">冰箱</a><a href="#">洗衣机</a><a href="#">家庭影院</a><a href="#">DVD</a><a href="#">迷你音响</a><a href="#">烟机/灶具</a><a href="#">热水器</a><a href="#">消毒柜/洗碗机</a><a href="#">酒柜/冷柜</a><a href="#">家电配件</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">生活电器</a> </dt>
+						<dd><a href="#">电风扇</a><a href="#">冷风扇</a><a href="#">净化器</a><a href="#">饮水机</a><a href="#">净水设备</a><a href="#">挂烫机/熨斗</a><a href="#">吸尘器</a><a href="#">除湿/干衣机</a><a href="#">加湿器</a><a href="#">电话机</a><a href="#">插座</a><a href="#">收录/音机</a><a href="#">清洁机</a><a href="#">取暖电器</a><a href="#">其它生活电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+				</div>
+			</li>
+			<li>
+				<h3 class="nav_item">家居、家具、家装、厨具<i></i></h3>
+				<div class="item_show">
+					<dl class="fore1">
+						<dt><a href="#">电子书5</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">通俗流行</a><a href="#">古典音乐</a><a href="#">摇滚说唱</a><a href="#">爵士蓝调</a><a href="#">乡村民谣</a><a href="#">有声读物</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">大 家 电</a> </dt>
+						<dd><a href="#">平板电视</a><a href="#">空调</a><a href="#">冰箱</a><a href="#">洗衣机</a><a href="#">家庭影院</a><a href="#">DVD</a><a href="#">迷你音响</a><a href="#">烟机/灶具</a><a href="#">热水器</a><a href="#">消毒柜/洗碗机</a><a href="#">酒柜/冷柜</a><a href="#">家电配件</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">生活电器</a> </dt>
+						<dd><a href="#">电风扇</a><a href="#">冷风扇</a><a href="#">净化器</a><a href="#">饮水机</a><a href="#">净水设备</a><a href="#">挂烫机/熨斗</a><a href="#">吸尘器</a><a href="#">除湿/干衣机</a><a href="#">加湿器</a><a href="#">电话机</a><a href="#">插座</a><a href="#">收录/音机</a><a href="#">清洁机</a><a href="#">取暖电器</a><a href="#">其它生活电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+				</div>
+			</li>
+			<li>
+				<h3 class="nav_item">服饰鞋帽<i></i></h3>
+				<div class="item_show">
+					<dl class="fore1">
+						<dt><a href="#">电子书6</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">通俗流行</a><a href="#">古典音乐</a><a href="#">摇滚说唱</a><a href="#">爵士蓝调</a><a href="#">乡村民谣</a><a href="#">有声读物</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">大 家 电</a> </dt>
+						<dd><a href="#">平板电视</a><a href="#">空调</a><a href="#">冰箱</a><a href="#">洗衣机</a><a href="#">家庭影院</a><a href="#">DVD</a><a href="#">迷你音响</a><a href="#">烟机/灶具</a><a href="#">热水器</a><a href="#">消毒柜/洗碗机</a><a href="#">酒柜/冷柜</a><a href="#">家电配件</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">生活电器</a> </dt>
+						<dd><a href="#">电风扇</a><a href="#">冷风扇</a><a href="#">净化器</a><a href="#">饮水机</a><a href="#">净水设备</a><a href="#">挂烫机/熨斗</a><a href="#">吸尘器</a><a href="#">除湿/干衣机</a><a href="#">加湿器</a><a href="#">电话机</a><a href="#">插座</a><a href="#">收录/音机</a><a href="#">清洁机</a><a href="#">取暖电器</a><a href="#">其它生活电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+				</div>
+			</li>
+			<li>
+				<h3 class="nav_item">个护化妆<i></i></h3>
+				<div class="item_show">
+					<dl class="fore1">
+						<dt><a href="#">电子书7</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">通俗流行</a><a href="#">古典音乐</a><a href="#">摇滚说唱</a><a href="#">爵士蓝调</a><a href="#">乡村民谣</a><a href="#">有声读物</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">大 家 电</a> </dt>
+						<dd><a href="#">平板电视</a><a href="#">空调</a><a href="#">冰箱</a><a href="#">洗衣机</a><a href="#">家庭影院</a><a href="#">DVD</a><a href="#">迷你音响</a><a href="#">烟机/灶具</a><a href="#">热水器</a><a href="#">消毒柜/洗碗机</a><a href="#">酒柜/冷柜</a><a href="#">家电配件</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">生活电器</a> </dt>
+						<dd><a href="#">电风扇</a><a href="#">冷风扇</a><a href="#">净化器</a><a href="#">饮水机</a><a href="#">净水设备</a><a href="#">挂烫机/熨斗</a><a href="#">吸尘器</a><a href="#">除湿/干衣机</a><a href="#">加湿器</a><a href="#">电话机</a><a href="#">插座</a><a href="#">收录/音机</a><a href="#">清洁机</a><a href="#">取暖电器</a><a href="#">其它生活电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+				</div>
+			</li>
+			<li>
+				<h3 class="nav_item">礼品箱包、钟表、珠宝<i></i></h3>
+				<div class="item_show">
+					<dl class="fore1">
+						<dt><a href="#">电子书8</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">通俗流行</a><a href="#">古典音乐</a><a href="#">摇滚说唱</a><a href="#">爵士蓝调</a><a href="#">乡村民谣</a><a href="#">有声读物</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">大 家 电</a> </dt>
+						<dd><a href="#">平板电视</a><a href="#">空调</a><a href="#">冰箱</a><a href="#">洗衣机</a><a href="#">家庭影院</a><a href="#">DVD</a><a href="#">迷你音响</a><a href="#">烟机/灶具</a><a href="#">热水器</a><a href="#">消毒柜/洗碗机</a><a href="#">酒柜/冷柜</a><a href="#">家电配件</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">生活电器</a> </dt>
+						<dd><a href="#">电风扇</a><a href="#">冷风扇</a><a href="#">净化器</a><a href="#">饮水机</a><a href="#">净水设备</a><a href="#">挂烫机/熨斗</a><a href="#">吸尘器</a><a href="#">除湿/干衣机</a><a href="#">加湿器</a><a href="#">电话机</a><a href="#">插座</a><a href="#">收录/音机</a><a href="#">清洁机</a><a href="#">取暖电器</a><a href="#">其它生活电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+				</div>
+			</li>
+			<li>
+				<h3 class="nav_item">母婴、玩具乐器<i></i></h3>
+				<div class="item_show">
+					<dl class="fore1">
+						<dt><a href="#">电子书10</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">通俗流行</a><a href="#">古典音乐</a><a href="#">摇滚说唱</a><a href="#">爵士蓝调</a><a href="#">乡村民谣</a><a href="#">有声读物</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">大 家 电</a> </dt>
+						<dd><a href="#">平板电视</a><a href="#">空调</a><a href="#">冰箱</a><a href="#">洗衣机</a><a href="#">家庭影院</a><a href="#">DVD</a><a href="#">迷你音响</a><a href="#">烟机/灶具</a><a href="#">热水器</a><a href="#">消毒柜/洗碗机</a><a href="#">酒柜/冷柜</a><a href="#">家电配件</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">生活电器</a> </dt>
+						<dd><a href="#">电风扇</a><a href="#">冷风扇</a><a href="#">净化器</a><a href="#">饮水机</a><a href="#">净水设备</a><a href="#">挂烫机/熨斗</a><a href="#">吸尘器</a><a href="#">除湿/干衣机</a><a href="#">加湿器</a><a href="#">电话机</a><a href="#">插座</a><a href="#">收录/音机</a><a href="#">清洁机</a><a href="#">取暖电器</a><a href="#">其它生活电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt> <a href="#">厨房电器</a> </dt>
+						<dd><a href="#">料理/榨汁机</a><a href="#">豆浆机</a><a href="#">电饭煲</a><a href="#">电压力锅</a><a href="#">面包机</a><a href="#">咖啡机</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">微波炉</a><a href="#">电烤箱</a><a href="#">电磁炉</a><a href="#">电饼铛/烧烤盘</a><a href="#">煮蛋器</a><a href="#">酸奶机</a><a href="#">电水壶/热水瓶</a><a href="#">电炖锅</a><a href="#">多用途锅</a><a href="#">果蔬解毒机</a><a href="#">其它厨房电器</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">音像</a> </dt>
+						<dd><a href="#">畅读</a><a href="#">音乐</a></dd>
+					</dl>
+					<dl class="fore1">
+						<dt><a href="#">数字音乐</a> </dt>
+						<dd><a href="#">免费</a><a href="#">小说</a><a href="#">励志与成功</a><a href="#">婚恋/两性</a><a href="#">文学</a><a href="#">经管</a><a href="#">畅读VIP</a></dd>
+					</dl>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,234 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+ul {width: 940px; margin:10px auto; position:relative;}
+
+li {width:128px; height:128px; float:left; margin:30px; z-index:1;}
+
+li img {width:128px; height:128px;}
+
+li.active {border:2px solid red; width:124px; height:124px;}
+li.active img {width:124px; height:124px;}
+</style>
+<script src="move.js"></script>
+<script>
+window.onload=function ()
+{
+	var aLi=document.getElementsByTagName('li');
+	var aPos=[];
+	var zIndex=2;
+	
+	//布局转换
+	for(var i=0;i<aLi.length;i++)
+	{
+		aPos[i]={left: aLi[i].offsetLeft, top: aLi[i].offsetTop};
+		aLi[i].style.left=aLi[i].offsetLeft+'px';
+		aLi[i].style.top=aLi[i].offsetTop+'px';
+	}
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].style.position='absolute';
+		aLi[i].style.margin='0';
+		
+		aLi[i].index=i;
+	}
+	
+	//拖拽
+	function drag(obj)
+	{
+		obj.onmousedown=function (ev)
+		{
+			var oEvent=ev||event;
+			
+			var disX=oEvent.clientX-obj.offsetLeft;
+			var disY=oEvent.clientY-obj.offsetTop;
+			
+			obj.style.zIndex=zIndex++;
+			clearInterval(obj.timer);
+			
+			function fnMove(ev)
+			{
+				var oEvent=ev||event;
+				
+				obj.style.left=oEvent.clientX-disX+'px';
+				obj.style.top=oEvent.clientY-disY+'px';
+				
+				//碰撞检测
+				for(var i=0;i<aLi.length;i++)
+				{
+					aLi[i].className='';
+				}
+				
+				var oNear=findNearest(obj);
+				
+				if(oNear)
+				{
+					oNear.className='active';
+				}
+			}
+			function fnUp()
+			{
+				this.onmousemove=null;
+				this.onmouseup=null;
+				
+				if(this.releaseCapture)
+				{
+					this.releaseCapture();
+				}
+				
+				//碰撞——交换
+				var oNear=findNearest(obj);
+				
+				if(oNear)
+				{
+					//碰上——交换
+					startMove(obj, aPos[oNear.index]);
+					
+					startMove(oNear, aPos[obj.index]);
+					
+					var tmp;
+					
+					tmp=oNear.index;
+					oNear.index=obj.index;
+					obj.index=tmp;
+					
+					oNear.className='';
+				}
+				else
+				{
+					//没碰上——回去
+					startMove(obj, aPos[obj.index]);
+				}
+			}
+			
+			if(obj.setCapture)
+			{
+				obj.onmousemove=fnMove;
+				obj.onmouseup=fnUp;
+				
+				obj.setCapture();
+			}
+			else
+			{
+				document.onmousemove=fnMove;
+				document.onmouseup=fnUp;
+			}
+			
+			return false;
+		};
+	}
+	
+	for(var i=0;i<aLi.length;i++)
+	{
+		drag(aLi[i]);
+	}
+	
+	//碰撞
+	function collTest(obj1, obj2)
+	{
+		var l1=obj1.offsetLeft;
+		var t1=obj1.offsetTop;
+		var r1=obj1.offsetLeft+obj1.offsetWidth;
+		var b1=obj1.offsetTop+obj1.offsetHeight;
+		
+		var l2=obj2.offsetLeft;
+		var t2=obj2.offsetTop;
+		var r2=obj2.offsetLeft+obj2.offsetWidth;
+		var b2=obj2.offsetTop+obj2.offsetHeight;
+		
+		if(r1<l2 || l1>r2 || b1<t2 || t1>b2)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	
+	//找到碰上的最近的
+	//1.碰上
+	//2.最近
+	function findNearest(obj)
+	{
+		var iMin=9999999;
+		var iMinIndex=-1;
+		
+		for(var i=0;i<aLi.length;i++)
+		{
+			if(obj==aLi[i])continue;	//?
+			
+			//1.碰上
+			if(collTest(obj, aLi[i]))
+			{
+				//2.看距离
+				var d=getDis(obj, aLi[i]);
+				
+				if(d<iMin)
+				{
+					iMin=d;
+					iMinIndex=i;
+				}
+			}
+		}
+		
+		if(iMinIndex==-1)
+		{
+			return null;
+		}
+		else
+		{
+			return aLi[iMinIndex];
+		}
+	}
+	
+	function getDis(obj1, obj2)
+	{
+		/*
+		var l1=obj1.offsetLeft+obj1.offsetWidth/2;
+		var t1=obj1.offsetTop+obj1.offsetHeight/2;
+		
+		var l2=obj2.offsetLeft+obj2.offsetWidth/2;
+		var t2=obj2.offsetTop+obj2.offsetHeight/2;
+		
+		var a=l1-l2;
+		var b=t1-t2;
+		*/
+		
+		//偷懒——width、height都一样
+		var a=obj1.offsetLeft-obj2.offsetLeft;
+		var b=obj1.offsetTop-obj2.offsetTop;
+		
+		return Math.sqrt(a*a+b*b);
+	}
+};
+</script>
+</head>
+
+<body>
+<ul>
+	<li><img src="img2/8.png" /></li>
+	<li><img src="img2/2.png" /></li>
+	<li><img src="img2/3.png" /></li>
+	<li><img src="img2/4.png" /></li>
+	<li><img src="img2/5.png" /></li>
+	<li><img src="img2/6.png" /></li>
+	<li><img src="img2/7.png" /></li>
+	<li><img src="img2/1.png" /></li>
+	<li><img src="img2/9.png" /></li>
+	<li><img src="img2/10.png" /></li>
+	<li><img src="img2/11.png" /></li>
+	<li><img src="img2/12.png" /></li>
+	<li><img src="img2/13.png" /></li>
+	<li><img src="img2/14.png" /></li>
+	<li><img src="img2/14.png" /></li>
+</ul>
+</body>
+</html>

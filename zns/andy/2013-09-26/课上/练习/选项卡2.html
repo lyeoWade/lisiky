@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0; }
+li{ list-style:none; }
+#box{width:160px; height:100px; margin:100px auto; background:#CCC; position:relative; }
+#box .pre{left:-30px; top:-100px; }
+#box .next{right:-30px; top:30px;}
+#box div{width:160px; height:100px; position:relative; overflow:hidden;}
+#box .pre,.next{/*top:50%; margin-top:-10px;*/   position:absolute;  width:30px; height:20px; background:#6C3 ; 
+text-align:center; line-height:20px; }
+#box ul{ position:absolute; left:0; top:0; width:640px; height:100px;  }
+#box li{ color:#fff; width:160px; height:100px; background:#069; float:left;}
+#box .active{ display:block; }
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var aBtn=oBox.getElementsByTagName('a');
+	var oUl=oBox.getElementsByTagName('ul')[0];
+	var aLi=oUl.children;
+	var iNow=0
+	aBtn[1].onclick=function()
+	{
+		document.title=iNow;
+		iNow++;
+		oUl.style.left=-iNow*aLi[0].offsetWidth+'px';
+		
+		if(iNow==3)
+		{
+			iNow=-1;
+		}
+	}
+
+	aBtn[0].onclick=function()
+	{
+		if(iNow==0)
+		{
+			iNow=aLi.length;
+		}
+		iNow--;
+		oUl.style.left=-iNow*aLi[0].offsetWidth+'px';
+		
+		document.title=iNow;
+		
+		
+		
+		
+	}
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box">
+    <a href="javascript:;" class="pre"><</a>
+    <div>
+        <ul>
+                <li>11111</li>
+                <li>22222</li>
+                <li>33333</li>
+                <li>44444</li>
+        </ul>
+    </div>
+    <a href="javascript:;" class="next">></a>
+</div>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="jsonp.js"></script>
+<script>
+window.onload=function ()
+{
+	var oTxt1=document.getElementById('txt1');
+	var oTxt2=document.getElementById('txt2');
+	var oSel1=document.getElementById('sel1');
+	var oBtn1=document.getElementById('btn1');
+	var oBtn2=document.getElementById('btn2');
+	var oBtn3=document.getElementById('btn3');
+	var oDiv1=document.getElementById('div1');
+	var oDiv2=document.getElementById('div2');
+	var oDiv3=document.getElementById('div3');
+	
+	var URL='http://zhinengshe.com/exercise/im/api.php';
+	
+	oBtn1.onclick=function ()
+	{
+		//登录
+		jsonp(URL, {
+			a:		'lgn',
+			user:	oTxt1.value,
+			pass:	oTxt2.value
+		}, function (json){
+			if(json.err)
+			{
+				alert('登录出错，'+json.msg);
+			}
+			else
+			{
+				//alert('登录成功');
+				oDiv1.style.display='none';
+				oDiv2.style.display='block';
+				oDiv3.style.display='block';
+				
+				//获取消息
+				getMsg();
+				
+				//获取用户列表
+				getUserList();
+			}
+		});
+	};
+	
+	function getMsg()
+	{
+		jsonp(URL, {a: 'get_msg'}, function (json){
+			if(json.err)
+			{
+				alert('获取消息失败');
+			}
+			else
+			{
+				var oUl=oDiv2.children[2];
+				oUl.innerHTML='';
+				for(var i=0;i<json.data.length;i++)
+				{
+					var oLi=document.createElement('li');
+					
+					oLi.innerHTML='<strong>'+json.data[i].username+'</strong> - <span>'+json.data[i].post_time+'</span><p>'+json.data[i].content+'</p>';
+					
+					oUl.appendChild(oLi);
+				}
+			}
+		});
+	}
+	
+	function getUserList()
+	{
+		jsonp(URL, {a: 'get_user_list'}, function (json){
+			if(json.err)
+			{
+				alert('获取用户列表失败');
+			}
+			else
+			{
+				json.data
+			}
+		});
+	}
+	
+	oBtn2.onclick=function ()
+	{
+		//注册
+		jsonp(URL, {
+			a:		'reg',
+			user:	oTxt1.value,
+			pass:	oTxt2.value,
+			face:	oSel1.value
+		}, function (json){
+			if(json.err)
+			{
+				alert('注册出错，'+json.msg);
+			}
+			else
+			{
+				alert('注册成功');
+			}
+		});
+	};
+};
+</script>
+<style>
+#div2,#div3 {display:none;}
+</style>
+</head>
+
+<body>
+<div id="div1">
+	用户：<input type="text" id="txt1" /><br>
+	密码：<input type="password" id="txt2" /><br>
+    头像：<select id="sel1">
+        <option value="1">头像1</option>
+        <option value="2">头像2</option>
+        <option value="3">头像3</option>
+        <option value="4">头像4</option>
+        <option value="5">头像5</option>
+        <option value="6">头像6</option>
+        <option value="7">头像7</option>
+        <option value="8">头像8</option>
+    </select><br>
+    <input type="button" value="登录" id="btn1" />
+    <input type="button" value="注册" id="btn2" />
+</div>
+<div id="div2">
+	<textarea id="txt3"></textarea>
+    <input type="button" id="btn3" value="发送" />
+	<ul style="height:400px; overflow:auto;"></ul>
+</div>
+<div id="div3">
+	<ul></ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:0px; height:300px; position:absolute; right:0; top:50%; margin-top:-150px; background:#CCC;}
+
+#div1 span {position:absolute; width:20px; height:60px; line-height:20px; text-align:center; background:yellow; left:-20px; top:50%; margin-top:-30px;}
+</style>
+<script src="move.js"></script>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	oDiv.onmouseover=function ()
+	{
+		startMove(this, 200);
+	};
+	oDiv.onmouseout=function ()
+	{
+		startMove(this, 0);
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<span>分享到</span>
+</div>
+</body>
+</html>

@@ -1,0 +1,236 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>二级菜单 - 智能课堂 - www.zhinengshe.com</title>
+<style>
+* { padding: 0; margin: 0; }
+li { list-style: none; }
+body { background: #ebebeb; margin: 40px; }
+#nav { width: 606px; height: 40px; }
+#nav .adorn1 { width: 3px; height: 40px; background: url(images/bg.gif) no-repeat 0 0; float: left; }
+#nav .adorn2 { width: 3px; height: 40px; background: url(images/bg.gif) no-repeat 0 -82px; float: left; }
+#nav .nav_ul { width: 580px; padding-left: 20px; height: 40px; background: url(images/bg.gif) repeat-x 0 -41px; float: left; }
+#nav .nav_li { float: left; position: relative; cursor: pointer; }
+
+#nav h2 { width: 90px; padding-left: 14px; height: 31px; line-height: 31px; font-size: 14px; }
+#nav .active { background: url(images/active.gif) no-repeat; }
+
+#nav .list { width: 150px; position: absolute; top: 31px; left: 0px; display: none; }
+#nav .list1 { width: 150px; height: 2px; overflow: hidden; background: url(images/list1.gif) no-repeat; }
+#nav .list2 { width: 150px; height: 8px; overflow: hidden; background: url(images/list2.gif) no-repeat; }
+
+#nav .list_ul { width: 146px; padding: 0 2px; background: url(images/list3.gif) repeat-y; }
+#nav .list_li { height: 27px; line-height: 27px; border-bottom: 1px solid #dedede; font-size: 14px; color: #9c9c9c; padding-left: 15px; background: url(images/ico.gif) no-repeat 130px center; position: relative; }
+
+#nav .child_list { position: absolute; top: -2px; left: -2px; display: none; }
+#nav .child_list h3 { width: 111px; height: 34px; font-size: 14px; line-height: 34px; background: url(images/h3_bg.gif) no-repeat; padding-left: 15px; position: absolute; top: 0; left: 0; z-index: 2; }
+#nav .child_list ul { width: 180px; padding: 2px 10px; border: 2px solid #949494; background: #fff; position: absolute; top: 0; left: 124px; z-index: 1; }
+#nav .child_list li {}
+#nav .child_list li a { color:#9c9c9c; text-decoration: none; }
+#nav .child_list li a:hover { text-decoration: underline; }
+</style>
+<script>
+window.onload=function()
+{
+	var oNav=document.getElementById('nav');
+	var aLi=oNav.getElementsByTagName('ul')[0].children;
+	//alert(oLi.length);
+	for(var i=0; i<aLi.length; i++)
+	{
+		aLi[i].onmouseover=function()
+		{
+			var a_Div=this.getElementsByTagName('div')[0];
+			
+			
+			
+			if(a_Div)
+			{
+				a_Div.style.display='block';
+				var oUl=a_Div.getElementsByTagName('ul')[0];
+			
+				var aaLi=oUl.children;
+				
+				for(var j=0; j<aaLi.length; j++)
+				{
+					aaLi[j].onmouseover=function()
+					{
+						var o_Div=this.getElementsByTagName('div')[0];
+						if(o_Div)
+						{
+							o_Div.style.display='block';
+						}
+					
+					}
+				}
+			}	
+				
+		}
+		
+
+		
+		aLi[i].onmouseout=function()
+		{
+			var a_Div=this.getElementsByTagName('div')[0];
+			
+			if(a_Div)
+			{
+				a_Div.style.display='none';
+				var oUl=a_Div.getElementsByTagName('ul')[0];
+			
+				var aaLi=oUl.children;
+				for(var j=0; j<aaLi.length; j++)
+				{
+					aaLi[j].onmouseout=function()
+					{
+						var o_Div=this.getElementsByTagName('div')[0];
+						if(o_Div)
+						{
+							o_Div.style.display='none';
+						}
+					
+					}
+				}
+				
+			}
+		}
+	}
+	
+		
+}
+</script>
+</head>
+
+<body>
+
+<div id="nav">
+	<div class="adorn1"></div>
+	<ul class="nav_ul">
+		<li class="nav_li">
+			<h2>智能课堂</h2>
+			<div class="list" id="list">
+				<div class="list1"></div>
+				<ul class="list_ul">
+					<li class="list_li">
+						<p>课程设置</p>
+						<div class="child_list">
+							<h3>课程设置</h3>
+							<ul>
+								<li><a href="#">精通JavaScript开发课程</a></li>
+								<li><a href="#">精通JavaScript开发课程</a></li>
+								<li><a href="#">高级页面架构师课程</a></li>
+								<li><a href="#">零基础网页制作课程</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="list_li">
+						<p>关于我们</p>
+						<div class="child_list">
+							<h3>关于我们</h3>
+							<ul>
+								<li><a href="#">智能讲师</a></li>
+								<li><a href="#">培训方式</a></li>
+								<li><a href="#">智能培训理念</a></li>
+								<li><a href="#">智能课堂大事记</a></li>
+								<li><a href="#">照片走廊</a></li>
+								<li><a href="#">智能课堂大事记</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="list_li">
+						<p>最新消息</p>
+						<div class="child_list">
+							<h3>最新消息</h3>
+							<ul>
+								<li><a href="#">课程常见问题集合</a></li>
+								<li><a href="#">JavaScript课程结课标准</a></li>
+								<li><a href="#">JS网页特效集合</a></li>
+								<li><a href="#">智能课堂上课地点</a></li>
+								<li><a href="#">JS最新开班时间</a></li>
+								<li><a href="#">CSS课程开班时间</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="list_li">
+						<p>智能QQ群</p>
+						<div class="child_list">
+							<h3>智能qQQ群</h3>
+							<ul>
+								<li><a href="#">QQ群：100566743</a></li>
+								<li><a href="#">智能学员秀</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<div class="list2"></div>
+			</div>
+		</li>
+		<li class="nav_li">
+			<h2>智能茶馆</h2>
+			<div class="list">
+				<div class="list1"></div>
+				<ul class="list_ul">
+					<li class="list_li">
+						<p>课程设置</p>
+						<div class="child_list">
+							<h3>课程设置</h3>
+							<ul>
+								<li><a href="#">精通JavaScript开发课程</a></li>
+								<li><a href="#">高级页面架构师课程</a></li>
+								<li><a href="#">零基础网页制作课程</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="list_li">
+						<p>关于我们</p>
+						<div class="child_list">
+							<h3>关于我们</h3>
+							<ul>
+								<li><a href="#">智能讲师</a></li>
+								<li><a href="#">培训方式</a></li>
+								<li><a href="#">智能培训理念</a></li>
+								<li><a href="#">智能课堂大事记</a></li>
+								<li><a href="#">照片走廊</a></li>
+								<li><a href="#">智能课堂大事记</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="list_li">
+						<p>最新消息</p>
+						<div class="child_list">
+							<h3>最新消息</h3>
+							<ul>
+								<li><a href="#">课程常见问题集合</a></li>
+								<li><a href="#">JavaScript课程结课标准</a></li>
+								<li><a href="#">JS网页特效集合</a></li>
+								<li><a href="#">智能课堂上课地点</a></li>
+								<li><a href="#">JS最新开班时间</a></li>
+								<li><a href="#">CSS课程开班时间</a></li>
+							</ul>
+						</div>
+					</li>
+					<li class="list_li">
+						<p>智能QQ群</p>
+						<div class="child_list">
+							<h3>智能QQ群</h3>
+							<ul>
+								<li><a href="#">QQ群：100566743</a></li>
+								<li><a href="#">智能学员秀</a></li>
+							</ul>
+						</div>
+					</li>
+				</ul>
+				<div class="list2"></div>
+			</div>
+		</li>
+		<li class="nav_li">
+			<h2>智能视频</h2>
+		</li>
+	</ul>
+	<div class="adorn2"></div>
+</div>
+
+
+
+</body>
+</html>

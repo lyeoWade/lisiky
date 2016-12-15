@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<dwquery>
+  <queryparams matchcase="false" ignorewhitespace="false" useregexp="false" wholeword="false" />
+  <find searchmode="document">
+    <qtag qname="a" qconvertednls="true"><qattribute qname="href" qcompare="=" qvalue="" qanyvalue="true"></qattribute></qtag>
+  </find>
+  <replace action="setAttribute" param1="href" param2="#"/>
+</dwquery>

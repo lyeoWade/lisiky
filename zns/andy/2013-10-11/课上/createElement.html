@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; }
+#box{ width:300px; height:400px; overflow:hidden; border:1px solid #CCC; margin:0 auto; }
+#box ul { width:260px; margin:0 auto; }
+#box ul li{ list-style:none; line-height:30px; height:30px; margin-bottom:1px; border-bottom:1px solid #999; }
+</style>
+<script>
+window.onload=function()
+{
+	var oTxt=document.getElementById('text');
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	var oUl=oBox.getElementsByTagName('ul')[0];
+	
+	
+	oBtn.onclick=function()
+	{
+		var aLi=oUl.getElementsByTagName('li');
+		
+		var o=document.createElement('li');
+		o.innerHTML=oTxt.value;
+		
+		if(aLi.length==0)
+		{
+			oUl.appendChild(o);
+		}else
+		{
+			oUl.insertBefore(o,aLi[0]);
+		}
+		
+		
+		
+	}
+}
+</script>
+
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="box">
+		<ul>		
+        			
+        </ul>
+</div>
+<input type="text" id="text">
+<input type="button" id="btn" value="创建" >
+
+</body>
+</html>

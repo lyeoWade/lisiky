@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oSpan=document.getElementsByTagName('span')[0];
+	oBtn.onclick=function()
+	{
+		var arr=[];
+		for(var i=0; i<6; i++)
+		{
+			arr[arr.length]=rand(1,37);
+		}
+		oSpan.innerHTML=arr;
+	}
+	
+}
+
+function rand(n,m){ return parseInt(Math.random()*(m-n+1)+n);}
+
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<span></span>
+<input type="button" id="btn" value="iisssssssssssssssssssssssssiiii">
+</body>
+</html>

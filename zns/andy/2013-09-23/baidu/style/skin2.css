@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* 智能社 - www.zhinengshe.com */
+.headerBar {background-color:rgba(0,0,0,.4); border-bottom-color:#333;}
+.weather span,
+.tab li a,
+.tab .active a,
+.menu a,
+.bottom,
+.bottom a{color: #FFF;}
+.logo{background-image:url(../img/logo_white.png);}
+.menu .ui_tool_edit{background:#666;}

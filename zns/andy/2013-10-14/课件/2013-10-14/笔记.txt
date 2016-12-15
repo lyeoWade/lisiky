@@ -1,0 +1,28 @@
+onscroll
+onresize  浏览器尺寸改变的时候
+
+document.createElement('div') 创建DIV
+创建出来得有地方放
+
+插入
+父级.appendChild(创建出来的元素);      往后插入
+
+插入到谁谁之前
+父级.insertBefore(创建出来的元素,到谁之前);
+
+
+
+删除
+父级.removeChild(删除的对象);
+
+
+parentNode  父节点
+
+
+
+
+
+
+
+
+

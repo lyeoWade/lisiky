@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+function addDomLoaded(fn) {
+if (document.addEventListener) { //W3C
+addEvent(document, 'DOMContentLoaded', function () {
+fn();
+removeEvent(document, 'DOMContentLoaded', arguments.callee);
+});
+}
+else { //IE
+var timer = null;
+timer = setInterval(function () {
+try {
+document.documentElement.doScroll('left');
+fn();
+} catch (ex) {};
+});
+}
+}
+addDomLoaded(function () {
+var box = document.getElementById('box');
+alert(box.innerHTML);
+});
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>

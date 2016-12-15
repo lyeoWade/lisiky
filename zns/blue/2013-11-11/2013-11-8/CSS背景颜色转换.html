@@ -1,0 +1,259 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+* {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+body {
+	padding-bottom: 35px;
+	font: 12px/1.5 "Microsoft YaHei";
+}
+.nav {
+	overflow: hidden;
+	padding: 10px 0;
+	text-align: center;
+}
+.nav a {
+	color: #242424;
+	margin-left: 8px;
+}
+.nav a:hover {
+	text-decoration: none;
+	color: #F32600;
+}
+.nav a.current {
+	font-weight: bold;
+	text-decoration: none;
+	color: #F32600;
+	cursor: default;
+}
+.top_tips {
+	position: relative;
+	padding: 10px;
+	color: #272727;
+	background-color: #F0F0F0;
+	zoom: 1;
+}
+.top_tips:after {
+	clear: both;
+	display: block;
+	content: ".";
+	height: 0;
+	visibility: hidden;
+	font-size: 0;
+	line-height: 0;
+}
+.top_tips:hover {
+	color: #000000;
+	border-color: #99CC29;
+	background-color: #E0E0E0;
+}
+.top_tips:hover h1 {
+	color: #B50000;
+}
+h1 {
+	text-align: center;
+	font-size: 16px;
+}
+h2 {
+	font-size: 14px;
+}
+p {
+	margin: 0;
+	line-height: 20px;
+	font-size: 12px;
+}
+label {
+	color: #F32600;
+}
+label, button {
+	cursor: pointer;
+}
+input {
+	width: 100px;
+	height: 18px;
+	text-align: center;
+	font-family: Tahoma;
+	font-size: 12px;
+	color: #F32600;
+}
+button {
+	padding: 4px 8px;
+	color: #EFEFEF;
+	border: 1px solid #000000;
+	border-radius: 8px;
+	background-color: #242424;
+}
+button:hover {
+	color: #FFFF00;
+	background-color: #000000;
+	box-shadow: 0 0 5px #FFFF00;
+}
+textarea {
+	width: 650px;
+	height: 170px;
+	margin-top: 20px;
+	line-height: 20px;
+	padding: 5px;
+	font-size: 13px;
+	font-family: Tahoma;
+	color: #A6CAF0;
+	border: 1px solid #FFFFFF;
+	background-color: #272727;
+	resize: none;
+}
+#simple {
+	width: 200px;
+	height: 100px;
+	overflow: hidden;
+	text-align: center;
+	line-height: 100px;
+}
+.wrap {
+	width: 660px;
+	overflow: hidden;
+	margin: 20px auto 0;
+	zoom: 1;
+}
+#tip {
+	background: #999;
+	color: #FFF;
+}
+</style>
+</head>
+<body>
+<div class="top_tips">
+	<h1>CSS背景颜色属性值转换 v3</h1>
+	<h2>实现背景色透明效果的代码</h2>
+	<ul>
+		<li>实现各个浏览器中具备良好的透明特性的效果，IE中使用私有滤镜filter，高端浏览器使用CSS3中的rgba属性。</li>
+		<li>输入十六进制的颜色值以及透明度，自动在IE的过渡滤镜以及CSS3中的rgba属性之间进行十六进制与十进制的换算。</li>
+		<li><strong>增加对IE9浏览器中的滤镜取消效果</strong></li>
+		<li><span style="color:#FF0000;">★</span> <strong>鉴于需要做浏览器的hack，使用了<span style="color:#FF0000;">:root</span>来让IE9以前的浏览器不支持效果，所以增加了一个需要添加选择符类名的方式，对于这块需要大家在后期添加样式到代码中做单独的处理</strong></li>
+	</ul>
+	<p></p>
+	<p></p>
+	<div id="tip"></div>
+</div>
+<div class="wrap">
+	<label for="tag_type">需要定义的ID或者class，再或者直接是HTML标签名：</label>
+	<input type="text" value="" id="tag_type" />
+	<br />
+	<br />
+	<label for="color_value">需要透明的颜色十六进制值：#</label>
+	<input type="text" value="" id="color_value" maxlength="6" />
+	<label for="original">透明度：</label>
+	<input type="input" id="original" />
+	<button type="button" onclick="change_10_to_16()">转为16进制的颜色</button>
+	<br />
+	<textarea rows="2" cols="90" id="alpha_style"></textarea>
+</div>
+<script type="text/javascript">
+var oOriginal = document.getElementById("original");
+var co_value = document.getElementById("color_value");
+var css_cont = document.getElementById("alpha_style");
+var warn_tip = document.getElementById("tip");
+var warn_tip_a = document.getElementById("tip_alphe");
+var tag_type = document.getElementById("tag_type");
+
+function change_10_to_16() {
+	var pattern = /^[0-9a-fA-F]{6}$/;
+	var pattern_3 = /^[0-9a-fA-F]{3}$/;
+	var co = co_value.value;
+	var num = Math.floor((Math.floor(oOriginal.value*100)/100)*255);
+	var num_10 = (Math.floor(oOriginal.value*100)/100);
+	var num_change = num.toString(16);
+	var txt='';
+
+	num = parseInt(num);
+
+	if (co.match(pattern) == null){
+		if (co.length == 3){
+			if (co.match(pattern_3) == null){
+				warn_tip.style.display = "block";
+				warn_tip.innerHTML = "十六进制是从【0】到【9】以及【a】到【f】组合而成的，再来一次吧！\n如果是十六进制的缩写，是前后相邻的字母可简写成为一个，例如【#FF000FF】可转为【#F0F】\n请检查你的颜色值是否为【三位】或者符合【十六进制的组合方式】。";
+			}else{
+				if(oOriginal.value == ""){
+					warn_tip.style.display = "none";
+					warn_tip_a.style.display = "block";
+					warn_tip_a.innerHTML = "透明度的值在【0】到【1】之间的数值，如0.5。";
+				}else if (oOriginal.value >=0 && oOriginal.value <= 1){
+					if (num_change.length == 1){
+						num_change = "0" + num_change;
+					}
+					var co_a = co.substring(0, 1);
+					var co_b = co.substring(1, 2);
+					var co_c = co.substring(2, 3);
+					var co_a2 = co_a + co_a;
+					var co_b2 = co_b + co_b;
+					var co_c2 = co_c + co_c;
+					co = co_a2 + co_b2 + co_c2;
+
+					//css_cont.innerHTML = tag_type.value + " {\n\tfilter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "', endColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "');\n\tbackground-color:rgba(" + parseInt(co_a2,16) + "," + parseInt(co_b2,16) + "," + parseInt(co_c2,16) + "," + num_10 + ");\n}\n:root " + tag_type.value + " {\n\tfilter:none;\t /*处理IE9浏览器中的滤镜效果*/\n\tbackground-color:rgba(" + parseInt(co_a2,16) + "," + parseInt(co_b2,16) + "," + parseInt(co_c2,16) + "," + num_10 + ");\n}";
+					
+					css_cont.innerHTML = tag_type.value + " {filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "', endColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "');background-color:rgba(" + parseInt(co_a2,16) + "," + parseInt(co_b2,16) + "," + parseInt(co_c2,16) + "," + num_10 + ");}\n:root " + tag_type.value + "{filter:none; background-color:rgba(" + parseInt(co_a2,16) + "," + parseInt(co_b2,16) + "," + parseInt(co_c2,16) + "," + num_10 + ");}";
+					
+					
+					temp_cont = css_cont.value;
+					warn_tip.style.display = "none";
+					warn_tip_a.style.display = "none";
+
+					txt += css_cont.innerHTML;
+
+					if (css_cont.value == "" || css_cont.value != txt){
+						css_cont.value = txt;
+					}
+
+				}else{
+					warn_tip.style.display = "none";
+					warn_tip_a.style.display = "block";
+					warn_tip_a.innerHTML = "透明度的值在【0】到【1】之间的数值，如0.5。";
+				}
+			}
+		}else{
+			warn_tip.style.display = "block";
+			warn_tip.innerHTML = "十六进制是从【0】到【9】以及【a】到【f】组合而成的，再来一次吧！\n如果是十六进制的缩写，是前后相邻的字母可简写成为一个，例如【#FF000FF】可转为【#F0F】\n请检查你的颜色值是否为【三位】或者符合【十六进制的组合方式】。";
+		}
+	}else{
+		if(oOriginal.value == ""){
+			warn_tip.style.display = "none";
+			warn_tip_a.style.display = "block";
+			warn_tip_a.innerHTML = "透明度的值在【0】到【1】之间的数值，如0.5。";
+		}else if (oOriginal.value >=0 && oOriginal.value <= 1){
+			if (num_change.length == 1){
+				num_change = "0" + String(num_change);
+			}
+			var co_a = co.substring(0, 2);
+			var co_b = co.substring(2, 4);
+			var co_c = co.substring(4, 6);
+			//css_cont.innerHTML = tag_type.value + " {\n\tfilter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "', endColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "');\n}\n:root "  + tag_type.value + " {\n\tfilter:none;\t /*处理IE9浏览器中的滤镜效果*/\n\tbackground-color:rgba(" + parseInt(co_a,16) + "," + parseInt(co_b,16) + "," + parseInt(co_c,16) + "," + num_10 + ");\n}";
+			css_cont.innerHTML = tag_type.value + " {filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "', endColorstr='#" + num_change.toUpperCase() + co.toUpperCase() + "');}\n:root "  + tag_type.value + " {filter:none;background-color:rgba(" + parseInt(co_a,16) + "," + parseInt(co_b,16) + "," + parseInt(co_c,16) + "," + num_10 + ");}";
+			
+			
+			temp_cont = css_cont.value;
+
+			warn_tip.style.display = "none";
+			warn_tip_a.style.display = "none";
+
+			txt += css_cont.innerHTML;
+
+			if (css_cont.value == "" || css_cont.value != txt){
+				css_cont.value = txt;
+			}
+
+
+		}else{
+			warn_tip.style.display = "none";
+			warn_tip_a.style.display = "block";
+			warn_tip_a.innerHTML = "透明度的值在【0】到【1】之间的数值，如0.5。";
+		}
+	}
+}
+
+</script>
+</body>
+</html>

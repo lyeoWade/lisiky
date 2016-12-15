@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+body {height:3000px;}
+#div1 {width:100px; height:200px; background:#CCC; position:absolute; right:0;}
+</style>
+<script src="move.js"></script>
+<script>
+var start=0;
+window.onresize=window.onscroll=window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+	
+	//oDiv.style.top=scrollTop+(document.documentElement.clientHeight-oDiv.offsetHeight)/2+'px';
+	start=new Date().getTime();
+	startMove(oDiv, 'top', scrollTop+(document.documentElement.clientHeight-oDiv.offsetHeight)/2);
+};
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

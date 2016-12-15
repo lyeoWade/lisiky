@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	document.onclick=function(ev)
+	{
+		var oEvent=ev||event;
+		//事件源
+		//alert(123);
+		//  toElement   
+		//   formElement
+		//  relatedTarget
+		alert(2);
+	};	
+	
+	document.getElementById('box').onclick=function()
+	{
+		alert(1);	
+	};//DOM标准中事件流将这两种方式结合.一个完整的事件流是:window -> document -> body -> div -> button -> button -> div -> body -> document -> window;这里会有两个button.因为是处在两种不同捕获事件中的;所以会触发两次.
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+sdfsdfdsf
+</div>
+</body>
+</html>

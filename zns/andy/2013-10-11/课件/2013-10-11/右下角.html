@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;pdding:0;}
+#box1{width:100px;height:100px; position:fixed;bottom:0;right:0; background:red;}
+</style>
+<script>
+window.onload=function()
+{
+  var oBox=document.getElementsByTagName('box1');
+  // IE6不兼容fixed
+  
+  var n=0;
+  window.onscroll=function()
+  {
+	  n++;
+	  document.title=n;
+  };
+		
+};
+</script>
+</head>
+
+<body>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<div id="box1">
+</div>
+</body>
+</html>

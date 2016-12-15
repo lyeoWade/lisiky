@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style type="text/css">
+* { margin:0; padding:0;}
+#txt { width: 418px; height: 20px; display: none;}
+ul { width: 420px; border:1px solid #000; overflow: hidden;}
+li { float: left; list-style: none; width: 18px; height: 18px; cursor: pointer; border:1px solid #000; }
+</style>
+<script type="text/javascript">
+window.onload = function(){
+	var oUl = document.getElementsByTagName('ul')[0];
+	var aColor = ['0','3','6','9','c','f','0','3','6','9','c','f'];
+	var aFixed = ['#f00','#ff0','#00f','#0f0','#0ff','#f0f'];
+	var oTxt = document.getElementById('txt');
+
+	for (var i = 0; i < 12; i++) {
+		for (var j = 0; j < 3; j++) {
+			var oLi = document.createElement('li');
+			oUl.appendChild(oLi);
+			if(j === 1){
+				if(i >= 6){
+					oLi.style.background = aFixed[i - 6]
+				}else{
+					oLi.style.background = '#'+aColor[i]+aColor[i]+aColor[i];
+				}					
+			}else{
+				oLi.style.background = '#000';
+			}			
+		};
+
+		for (var k = 0; k < 3; k++) {
+			for (var j = 0; j < 6; j++) {
+				var oLi = document.createElement('li');
+				oUl.appendChild(oLi);
+				if (i >= 6) {
+					oLi.style.background ='#' + aColor[k+3] + aColor[j] + aColor[i];
+				}else{
+					oLi.style.background ='#' + aColor[k] + aColor[j] + aColor[i];
+				}
+			};
+		};
+	};
+
+	var oLi = oUl.getElementsByTagName('li');
+
+	for (var i = 0; i < oLi.length; i++) {
+		oLi[i].onmouseover = function(){
+			var str = this.style.background;
+			var length = str.length - 1;
+			str = str.substring(4,length);
+			var aRgb = str.split(',');
+			document.title=aRgb
+			var aC = [];
+			this.style.borderColor = '#fff';
+			for (var i = 0; i < aRgb.length; i++) {
+				switch(aRgb[i]){
+					case '0':
+					aRgb[i] = '0';
+					break;
+					case '51':
+					aRgb[i] = '3';
+					break;
+					case '102':
+					aRgb[i] = '6';
+					break;
+					case '153':
+					aRgb[i] = '9';
+					break;
+					case '204':
+					aRgb[i] = 'c';
+					break;
+					case '255':
+					aRgb[i] = 'f';
+					break;
+				}
+			};
+			aRgb = aRgb.join('');
+			this.title =  aRgb;
+		}
+		oLi[i].onmouseout = function(){
+			this.style.borderColor = '#000';
+		}
+		oLi[i].onclick = function(){
+			oTxt.value = this.title;
+			oUl.style.display = 'none';
+			oTxt.style.display = 'block';
+		}
+	};
+	oTxt.onfocus = function(){
+		if(oTxt.value == ''){
+			oUl.style.display = 'block';
+			oTxt.style.display = 'none';
+		}
+	}
+}
+</script>
+</head>
+<body>
+<div style="margin:0 auto; width:420px;">
+<input type="text" id="txt">
+<ul></ul>
+</div>
+</body>
+</html>

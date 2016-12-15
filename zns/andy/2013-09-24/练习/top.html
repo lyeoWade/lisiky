@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+#box{ width:80px; height:80px; background:#000; position:fixed; right:0;bottom:0; display:none;  }
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box')
+	aDdevent(window,'scroll',function(){
+		
+		if(document.documentElement.scrollTop||document.body.scrollTop>=50)
+		{
+			oBox.style.display='block';
+		}else
+		{
+			oBox.style.display='none'
+		}
+	
+		
+		})
+		
+		var bSys=true;
+		
+		window.onscroll=function()
+		{
+			if(!bSys)
+			{
+				clearInterval(timer)
+			}
+			bSys=false;
+		}
+		oBox.onclick=function()
+		{
+			Domove(0)
+		}
+		var timer=null;
+		function Domove(iTarget)
+		{
+			clearInterval(timer);
+			timer=setInterval(function(){
+				
+				var osc=document.body.scrollTop||document.documentElement.scrollTop;
+				
+				var iSpeed=(iTarget-osc)/8;
+				
+				if(osc<iTarget)
+				{
+					clearInterval(timer)
+				}else
+				{
+					bSys=true;
+					document.documentElement.scrollTop=document.body.scrollTop=osc+iSpeed;
+				}
+				
+				},30);
+		}
+}
+
+function aDdevent(obj,events,fn)
+{
+	if(obj.addEventListener){
+				   obj.addEventListener(events,fn,false);
+				}
+				else{
+				   obj.attachEvent('on'+events,fn);
+				}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body style="height:3000px;">
+
+<div id="box"></div>
+
+</body>
+</html>

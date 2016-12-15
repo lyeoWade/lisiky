@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function Person(name1, age1)
+{
+	this.name=name1;
+	this.age=age1;
+}
+
+Person.prototype.showName=function ()
+{
+	alert('我的名字是：'+this.name);
+};
+
+Person.prototype.showAge=function ()
+{
+	alert(this.age);
+};
+
+var oP=new Person('blue', 18);
+
+oP.showName();
+
+oP.showAge();
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

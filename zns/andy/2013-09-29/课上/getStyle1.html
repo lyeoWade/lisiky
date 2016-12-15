@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+<style>
+div{ width:100px; height:100px; background:red; }
+</style>
+<script>
+
+window.onload=function()
+{
+	var oDiv=document.getElementById('div');
+	
+	//alert(oDiv.currentStyle.width);   IE 下
+	 // alert(getComputedStyle(oDiv,false).width);  标准
+	 
+	 //兼容
+	 
+	 
+	 if(oDiv.currentStyle)
+	 {
+		 alert(oDiv.currentStyle.width)
+	 }else
+	 {
+		 alert(getComputedStyle(oDiv,false).width)
+	 }
+}
+
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="div"></div>
+
+</body>
+</html>

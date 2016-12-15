@@ -1,0 +1,19 @@
+r:
+var oldWidth=oDiv.offsetWidth;
+var oldX=oEvent.clientX;
+oDiv.style.width=oldWidth+oEvent.clientX-oldX+'px';
+
+br:
+var oldWidth=oDiv.offsetWidth;
+var oldHeight=oDiv.offsetHeight;
+var oldX=oEvent.clientX;
+var oldY=oEvent.clientY;
+oDiv.style.width=oldWidth+Event.clientX-oldX+'px'
+oDiv.style.height=oldHeight+oEvent.clientY-oldY+'px';
+
+l
+var oldWidth=oDiv.offsetWidth;
+var oldX=oEvent.clientX;
+var oldLeft=oDiv.offsetLeft;
+oDiv.style.width=oldWidth-(oEvent.clientX-oldX)+'px';	
+oDiv.style.left=oldLeft+(oEvent.clientX-oldX)+'px';

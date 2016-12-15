@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+#div1 {position:absolute; bottom:0; width:100%; text-align:center;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var aImg=document.getElementsByTagName('img');
+	var aTxt=document.getElementsByTagName('input');
+	
+	document.onmousemove=function (ev)
+	{
+		var oEvent=ev||event;
+		
+		for(var i=0;i<aImg.length;i++)
+		{
+			var l=aImg[i].offsetLeft+aImg[i].offsetWidth/2;
+			var t=aImg[i].offsetTop+oDiv.offsetTop+aImg[i].offsetHeight/2;
+			
+			//距离
+			var a=oEvent.clientX-l;
+			var b=oEvent.clientY-t;
+			
+			var dis=Math.sqrt(a*a+b*b);
+			
+			aTxt[i].value=parseInt(dis);
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="text" />
+<input type="text" />
+<input type="text" />
+<input type="text" />
+<input type="text" />
+<div id="div1">
+	<img src="img/1.png" width="64" />
+	<img src="img/2.png" width="64" />
+	<img src="img/3.png" width="64" />
+	<img src="img/4.png" width="64" />
+	<img src="img/5.png" width="64" />
+</div>
+</body>
+</html>

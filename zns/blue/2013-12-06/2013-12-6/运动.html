@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+#ul1 {width:688px; margin:10px auto; position:relative;}
+#ul1 li {width:150px; height:150px; background:#CCC; border:1px solid black; margin:10px; float:left; opacity:1;}
+</style>
+<script src="move.js"></script>
+<script>
+window.onload=function ()
+{
+	var oBtn=document.getElementById('btn1');
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	var timer=null;
+	
+	
+	//布局转换
+	var aPos=[];
+	for(var i=0;i<aLi.length;i++)
+	{
+		aPos[i]={left: aLi[i].offsetLeft, top: aLi[i].offsetTop};
+		aLi[i].style.left=aLi[i].offsetLeft+'px';
+		aLi[i].style.top=aLi[i].offsetTop+'px';
+	}
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].style.position='absolute';
+		aLi[i].style.margin='0';
+	}
+	
+	oBtn.onclick=function ()
+	{
+		/*for(var i=0;i<aLi.length;i++)
+		{
+			startMove(aLi[i], {left: -100, top: -100});
+		}*/
+		
+		var i=0;
+		clearInterval(timer);
+		timer=setInterval(function (){
+			(function (index){
+				startMove(aLi[i], {left: -100, top: -100, opacity: 0, width: 20, height: 20}, {end: function (){
+					if(index==aLi.length-1)
+					{
+						//alert('完了');
+						
+						for(var i=0;i<aLi.length;i++)
+						{
+							aLi[i].style.background='yellow';
+						}
+						
+						i=aLi.length-1;
+						clearInterval(timer);
+						timer=setInterval(function (){
+							startMove(aLi[i], {left: aPos[i].left, top: aPos[i].top, opacity: 100, width: 150, height: 150});
+							
+							i--;
+							
+							if(i==-1)
+							{
+								clearInterval(timer);
+							}
+						}, 100);
+					}
+				}});
+			})(i);
+			
+			i++;
+			
+			if(i==aLi.length)
+			{
+				clearInterval(timer);
+			}
+		}, 100);
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="aaa" id="btn1" />
+<ul id="ul1">
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</body>
+</html>

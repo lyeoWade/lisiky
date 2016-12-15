@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<style>
+img{  opacity:1; }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var aImg=document.getElementsByTagName('img');
+	var oBtn=document.getElementById('btn');
+	var iNow=0;
+	var timer=null;
+	timer=setInterval(function(){
+		
+		if(iNow==aImg.length-1)
+		{
+			iNow=0;
+		}else
+		{
+			iNow++
+		}
+		
+		for(var i=0; i<aImg.length; i++)
+		{
+			move(aImg[i])
+		}
+		moveout(aImg[iNow])
+	},1000);
+}
+function move(obj)
+	{
+		var aLpha=getStyle(obj,'opacity');
+		
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var iSpeed=0.1;
+			if(aLpha<=0)
+			{
+				clearInterval(obj.timer);
+			}
+			else
+			{
+				aLpha-=iSpeed;
+				obj.style.opacity=aLpha;
+
+			}
+			
+			
+			},30);
+	}
+	function moveout(obj)
+	{
+		var aLpha=getStyle(obj,'opacity');
+		
+		clearInterval(obj.timer);
+		obj.timer=setInterval(function(){
+			var iSpeed=0.1;
+			if(aLpha>=1)
+			{
+				clearInterval(obj.timer);
+			}
+			else
+			{
+				aLpha+=iSpeed;
+				obj.style.opacity=aLpha;
+
+			}
+			
+			
+			},30);
+	}
+function getStyle(obj,attr)
+{
+	if(obj.currentStyle)
+	{
+		return obj.currentStyle[attr];
+	}else
+	{
+		return getComputedStyle(obj,false)[attr];
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<img src="img/bgSkin_6.png">
+<img src="img/bgSkin_5.png">
+<input type="button" value="改变" id="btn">
+</body>
+</html>

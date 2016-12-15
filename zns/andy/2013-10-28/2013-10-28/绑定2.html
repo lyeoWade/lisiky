@@ -1,0 +1,27 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+div{width:300px;height:300px; background:red;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+// FF
+	oBox.addEventListener('DOMMouseScroll',function(ev){
+		alert(123);	
+		ev.preventDefault();
+		//只要是绑定，都不能用return false
+	},false);
+};
+</script>
+</head>
+
+<body style="height:2000px">
+<div id="box"></div>
+</body>
+</html>

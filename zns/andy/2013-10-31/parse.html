@@ -1,0 +1,19 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+
+var json=JSON.parse(str);
+alert(json.a);
+
+var jsontext = '{"firstname":"Jesper","surname":"Aaberg","phone":["555-0100","555-0120"]}';
+var contact = JSON.parse(jsontext);
+document.write(contact.surname + ", " + contact.firstname);
+</script>
+</head>
+
+<body>
+</body>
+</html>

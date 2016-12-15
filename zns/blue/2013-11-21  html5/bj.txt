@@ -1,0 +1,86 @@
+
+
+
+格子.存的Li的位置
+
+
+
+
+标签功能和div一样   语义化方便搜索引擎
+
+querySelectorAll()  //选择器
+
+HTML5 为移动而生
+
+
+特性：
+
+地理位置 ---- pc上精度不好！
+
+	移动.GPS硬件--精度高
+	
+localStorage、cookie ----不能跨域、都不安全 、 
+
+localStorage   没有过期时间  容量大(10M)  存取方便         保存未完成信息
+
+localStorage.a=1111;
+
+
+
+
+video  视频   audio 音频
+controls
+
+html5 单线程 webWorker 多个cup上面运行
+
+
+传统js单线程
+
+
+ajax---拉-(浪费资源) 无时无刻不在拉消息 (不管有没有)
+ajax、(jsonp)-------webSocket (性能高[7000多倍])
+
+webSocket   ---   推-节约             有数据就工作(实时性好)
+
+
+
+canvas     -(SVg(不兼容)、VML)标签
+
+
+var gb=obj.getContext('2d')---->图形接口
+
+gb.beginPath();
+
+gb.moveTo( , )
+gb.lineTo( , )
+
+gb.closePath()  //闭合曲线 
+
+gb.stroke() // 描边
+
+
+
+drawImage()
+
+
+webSql ( 前端数据库 网页实现)
+
+-------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

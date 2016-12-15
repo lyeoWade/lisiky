@@ -1,0 +1,27 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="ZQuery.js"></script>
+<script>
+$(function (){
+	$('input').toggle(function (){
+		alert('a');
+	}, function (){
+		alert('b');
+	}, function (){
+		alert('c');
+	});
+});
+</script>
+</head>
+
+<body>
+<input type="button" value="aaa" />
+<input type="button" value="bbb" />
+<input type="button" value="ccc" />
+</body>
+</html>

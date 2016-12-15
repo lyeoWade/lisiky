@@ -1,0 +1,164 @@
+复习：
+
+return false;  
+document.oncontextmenu
+
+
+window.navigator.userAgent  
+浏览器的信息
+indexOf
+
+var json={a:1,b:1};
+
+
+
+有一个人叫小明，他今年24岁，他是一个前端工程师，家住北京，他有两个姐姐
+大姐叫小红，今年29岁，是一个老师
+二姐叫小花，今年26岁，是一个医生
+
+
+var 小明={
+   年龄：24,
+    职业：前端工程师,
+   住址：北京,
+   姐姐：[
+	{大姐：小红，年龄：29，职业：老师}
+	{二姐：小花，年龄：26，职业：医生}
+  ]
+
+}
+
+
+var baidu={
+   贴吧：{}
+   搜索：{
+	
+   }
+
+};
+
+for in   :json 用
+
+
+阻止冒泡：
+var oEvent=ev||event;
+oEvent.cancelBubble=true;   
+
+
+--------------------
+
+onkeydown 键盘按下去的时候   没有抬起来
+onkeyup   键盘抬起的时候
+
+oEvent.keyCode  键值
+
+
+onmousedown 鼠标左键按下
+onmouseup   鼠标左键抬起
+onclick     点击   
+
+
+
+oDiv.offsetTop  计算后的top值
+oDiv.offsetLeft  计算后的left值
+
+
+
+－－－－
+
+事件绑定：  给一个对象加多个事件
+
+obj.attactEvent(事件，函数);    ie
+obj.addEventListener(事件，函数，false);
+false 事件捕获   ture捕获
+
+
+解除绑定：
+detachEvent  IE
+removeEventListener   非IE
+
+
+定时器里面不能用this
+
+
+js的浮点运算有问题     小数运算
+
+---
+
+ window.onscroll  浏览器滚动的事件
+
+ document.body.scrollTop  滚动距离   chrome
+document.documentElement.scrollTop   IE FF
+
+
+可视区：
+document.documentElement.clientHeight;
+document.documentElement.clientWidth;
+
+
+
+
+
+
+作业：
+用定时器写键盘事件DIV移动
+一直左右居中的广告栏
+布局360
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

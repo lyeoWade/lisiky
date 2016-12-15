@@ -1,0 +1,197 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0; }
+#div1{ width:200px; height:200px; background:#096; position:relative; left:400px; top:200px;}
+#div1 p{ width:200px; height:200px; background:#036; position:absolute; }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oP=oDiv.getElementsByTagName('p')[0];
+/*	document.onmousemove=function(ev)
+	{
+	
+	}*/
+	
+	oDiv.onmouseover=function(ev)
+	{
+			var oEvent=ev||event;
+		// var oEvent=ev||event;
+					// 看始发地  看源节点  
+			/*var toElement=oEvent.formElement||oEvent.relatedTarget;
+			if( isChild(oDiv,toElement) )return;*/
+			if(oEvent.clientX>oDiv.offsetLeft && oEvent.clientX<oDiv.offsetLeft+oDiv.offsetWidth && oEvent.clientY>oDiv.offsetTop+oDiv.offsetHeight)
+			{
+						
+	//			oDiv.style.left=getPos(oInput).left+'px';
+	//			oDiv.style.top=getPos(oInput).top+oInput.offsetHeight+'px';
+				oP.style.left=0+'px';
+				oP.style.top=oDiv.offsetHeight+'px'
+	/*			oDiv.onmouseover=function(ev)
+				{
+					
+					
+					startMove(oP,{ left : 0 },{ time:'fast'})
+				}*/
+				startMove(oP,{ top : 0 },{ time:'fast'})
+				
+			}else if(oEvent.clientX<oDiv.offsetLeft && oEvent.clientY<oDiv.offsetTop+oDiv.offsetHeight && oEvent.clientY>oDiv.offsetTop)
+			{
+				oP.style.left=-oDiv.offsetWidth+'px';
+				oP.style.top=0+'px'
+			}else if(oEvent.clientX>oDiv.offsetLeft && oEvent.clientX<oDiv.offsetLeft+oDiv.offsetWidth && oEvent.clientY<oDiv.offsetTop)
+			{
+				oP.style.left=-0+'px';
+				oP.style.top=-oDiv.offsetHeight+'px'			
+			}else if(oEvent.clientX>oDiv.offsetLeft+oDiv.offsetWidth && oEvent.clientY<oDiv.offsetTop+oDiv.offsetHeight && oEvent.clientY>oDiv.offsetTop)
+			{
+				oP.style.left=oDiv.offsetWidth+'px';
+				oP.style.top=0+'px'
+			}
+	}
+	
+}
+function isChild(oParent,obj)
+{
+	while(obj)
+	{
+		if(obj==oParent)return true;
+        obj=obj.parentNode;	
+	}	
+	// 不是我的子级
+	return false;
+};
+
+function getPos(obj)
+{
+	var l=0;
+	var t=0;
+	while(obj)
+	{
+		l+=obj.offsetLeft;
+		t+=obj.offsetTop;
+		obj=obj.offsetParent;
+	}
+	return { left:l,top:t }
+}
+
+function getStyle(obj,attr){return obj.currentStyle?obj.currentStyle[atrt]:getComputedStyle(obj,false)[attr]}
+
+function getCur(obj,attr)
+{
+	var cur;
+	if(attr=='opacity')
+	{
+		cur=Math.round(parseFloat(getStyle(obj,attr)));
+	}else
+	{
+		cur = parseInt(getStyle(obj,attr));
+	}
+	
+	if(isNaN(cur))
+	{
+		switch(attr)
+		{
+			case 'top':
+				return obj.offsetTop;
+			case 'left':
+				return obj.offsetLeft;
+			case 'width':
+				return obj.offsetWidth;
+			case 'height':
+				return obj.offsetHeight;	
+		}	
+	}
+	return cur;
+}
+
+function startMove(obj,json,options)
+{
+	clearInterval(obj.timer);
+	var timers={
+		
+		fast:300,
+		normal:1500,
+		slow:4000
+		}
+	if(typeof options.time=='string')
+	{
+		if(timers[options.time])
+		{
+			options.time=timers[options.time];
+		}else
+		{
+			options.time=1500;
+		}
+	}
+	options=options||{};
+	options.time=options.time||700;
+	options.type=options.type||'StoF';
+	
+	
+	var count=parseInt(options.time/30);
+	var first={}
+	var dis={};
+	
+	for(var i in json)
+	{
+		first[i]=getCur(obj,i);
+		dis[i]=json[i]-first[i];
+	}
+	
+	
+	var n=0;
+	obj.timer=setInterval(function(){
+		
+		n++;
+		var cur;
+		for( i in json){
+			switch (options.type)
+			{
+				case 'linear':
+					cur=first[i]+n*dis[i]/count;
+					break;
+				case 'buffer':
+					var a=(1-n/count);
+					cur=first[i]+dis[i]*(1-a*a*a);
+					break;
+				case 'StoF':
+					var a=n/count;
+					cur=first[i]+dis[i]*a*a*a;
+					break;
+				default:
+			}	
+			if(i=='opacity')
+			{
+				obj.style.opacity=cur/100;
+				obj.style.filter='alpha(opacity='+cur+')';
+			}
+			else
+			{
+				obj.style[i]=cur+'px'	
+			}
+		}		
+		if(n==count)
+		{
+			clearInterval(obj.timer)
+			options.end&&options.end();
+		}
+		},30);
+		
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="div1">
+	<p>pppppppppppppppp</p>
+</div>
+
+</body>
+</html>

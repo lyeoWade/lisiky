@@ -1,0 +1,161 @@
+1.请说明要输出正确的myName的值要如何修改程序?并解释原因
+
+foo = function(){
+    this.myName = "Foo function.";
+}
+foo.prototype.sayHello = function(){
+    alert(this.myName);
+}
+foo.prototype.bar = function(){
+    setTimeout(this.sayHello, 1000);
+}
+var f = new foo;
+f.bar();
+
+-----------------------------------------------------------------
+
+2.
+
+function Dog() {
+     
+    this.wow = function() {
+        alert('Wow');
+    }
+     
+    this.yelp = function() {
+        this.wow();
+    }
+}
+ 
+function MadDog() {
+ 
+    this.yelp = function() {
+        var self = this;
+        setInterval(function() {
+            self.wow();
+        }, 500);
+    }
+ 
+}
+ 
+MadDog.prototype = new Dog();
+ 
+var dog = new Dog();
+dog.yelp();
+ 
+var madDog = new MadDog();
+// 我用firebug调试，发现程序从这里执行进入到MadDog中的方法的时候，里面的this指针指向的竟然是Dog()，费解了！
+madDog.yelp();
+
+-----------------------------------------------------------------
+
+3.
+
+var a = {
+    b : function() {
+        alert(this.c);
+    },
+    c : 1
+};
+
+a.b();
+(a.b)();
+(a.b = a.b)();
+请问以上输出是什么？
+
+-----------------------------
+
+当你搞定上面这道之后，请再看下面这道题：
+var foo = {
+    bar: function () {
+        return this.baz;
+    },
+    baz: 1
+};
+(function () {
+    return typeof arguments[0]();
+})(foo.bar);
+
+A. "undefined"
+B. "object"
+C. "number"
+D. "function"
+
+-----------------------------
+
+var baz = 'laruence';
+var foo = {
+    bar: function () {
+        alert(this.baz);
+    },
+    baz: 'll'
+};
+(f = foo.bar)();
+
+-----------------------------------------------------------------
+
+4.javascript是面向对象的，怎么体现javascript的继承关系？
+
+-----------------------------------------------------------------
+
+5.
+
+写一个对象（类）里面有一个isyear属性 两个方法setyear（） leapyear（）
+leapyear（）用来判断输入的数是不是闰年
+setyear（） 如果没有输入自动生成一个1000——2011的随机数然后判断是否是闰年
+
+body中
+有一个text文本框 （输入年份）
+一个button用于判断
+
+-----------------------------------------------------------------
+
+6.尝试实现注释部分的javascript代码，可在其它任何地方添加更多代码（如不能实现，说明不能实现的原因
+）：
+
+var Obj = function(msg){
+	this.msg = msg;
+	this.shout = function(){
+		alert(this.msg);
+	};
+	this.waitAndShout = function(){
+		//隔五秒钟后执行上面的shout方法
+	};
+}
+
+-----------------------------------------------------------------
+
+7.
+小贤是一条可爱的小狗(Dog)，它的叫声很好听(wow)，每次看到主人的时候就会乖乖叫一声(yelp)。从这段描
+
+述可以得到以下对象：
+function Dog() {
+     this.wow = function() {
+         alert('Wow');
+         }
+     this.yelp = function() {
+         this.wow();
+     }
+}
+小芒和小贤一样，原来也是一条可爱的小狗，可是突然有一天疯了(MadDog)，一看到人就会每隔半秒叫一声
+
+(wow)地不停叫唤(yelp)。请根据描述，按示例的形式用代码来实现（提示关键字: 继承，原型，setInterval）。
+
+-----------------------------------------------------------------
+
+8.请给Array本地对象增加一个原型方法，它的用途是删除数组条目中重复的条目(可能有多个)，返回值是一个仅包含被删除的重复条目的新数组。
+
+-----------------------------------------------------------------
+
+9.给Array原型添加一个方法,这个方法接受一个参数,如果这个参数在数组中存在那么就把它从数组中删除。
+
+-----------------------------------------------------------------
+
+10.对下面这个对象进行克隆. var student = { name:"zhang3", sno:"20080328", age:"20", call:function(){alert(this.name+this.sno+this.age);} };
+
+
+
+
+
+
+

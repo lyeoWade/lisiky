@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+  // 1： 1－32    2：  6位  3：不重复
+  var oTex1=document.getElementById('tex1');
+  var oBtn=document.getElementById('btn');   	
+  oBtn.onclick=function()
+  {
+	 var arr=[];
+	 for(var i=0;i<6;i++)
+	 {
+		var number= rnd(1,32) ;
+		if( findSame(number,arr) )
+		{
+			// 有相同的
+		}
+		else
+		{
+			arr[arr.length]=toDou(number);
+		}	
+	 };
+	 
+	 oTex1.value=arr; 	 
+  };
+   
+  function findSame(n,_Array)
+  {
+	  for(var i=0;i<_Array.length;i++)
+	  {
+			if(_Array[i]==n)
+			{
+				return true;	
+			}  
+	  }
+	  
+	  return false;
+  }; 
+   
+   
+  function rnd(n,m)
+  {
+	return parseInt(Math.random()*(m-n+1)+n);  
+  }; 
+   	
+  function toDou(n)
+  {
+	  return n<10?'0'+n:''+n;
+  };
+};
+
+
+</script>
+</head>
+
+<body>
+<input type="text" id="tex1" value="1,2,3,4,5,6">
+<input type="button" id="btn" value="开始">
+</body>
+</html>

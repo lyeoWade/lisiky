@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	document.getElementById('btn').onclick=function()
+	{
+		var oTex=document.getElementById('tex');
+		//alert(oTex.value);
+		//alert( eval(oTex.value) );
+		eval(oTex.value);
+	};
+
+};
+
+</script>
+</head>
+
+<body>
+<input type="text" id="tex" >
+<input type="button" id="btn" value="开始计算">
+</body>
+</html>

@@ -1,0 +1,3037 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社 - www.zhinengshe.com</title>
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<link type="text/css" rel="stylesheet" href="style/reset.css">
+<link type="text/css" rel="stylesheet" href="style/common.css">
+<!--[if IE 6]>
+<script type="text/javascript" src="js/DD_belatedPNG_0.0.8a-min.js"></script>
+<script type="text/javascript" src="js/ie6Fixpng.js"></script>
+<![endif]-->
+</head>
+<body>
+<div class="headerBar">
+	<div class="header comWidth clearfix">
+		<div class="topNav fl">
+			<a href="#">设为主页</a>|<a href="#">主页修复</a>
+		</div>
+		<div class="topNav fr topTool">
+			<a href="#" class="top_yunpan">360云盘(0/360T)</a>
+			<a href="#" class="top_feedback">反馈</a>
+			<div class="toolbar">
+				<a href="#" class="toolbar_link">正式版</a>
+				<div class="more_edit">
+					<a href="#" class="active">正式版</a>
+					<a href="#">个人版</a>
+					<a href="#">大字版</a>
+				</div>
+			</div>
+			<a href="javascript:;" class="top_skin">换肤</a>
+		</div>
+	</div>    
+</div>
+<div class="header_frame comWidth clearfix">
+	<div class="item_logo fl">
+		<a href="http://www.zhinengshe.com/" target="_blank" class="fr"><img src="img/logo.png" alt=""></a>
+	</div>
+	<div class="item_weather fl">
+		<div class="weather">
+			<div class="city">
+				<h3 class="name">朝阳</h3>
+				<a class="change" href="javascript:;">[切换]</a>
+			</div>
+			<a href="#" class="today">
+				<span><img src="img/3.png" alt=""></span>
+				<span>
+					<em><i>今 阵雨</i><i>34~87℃</i></em><br>
+					<em>无持续风向：微风</em>
+				</span>
+			</a>
+			<a href="#" class="today">
+				<span><img src="img/3.png" alt=""></span>
+				<span>
+					<em><i>明 暴雨</i></em><br>
+					<em><i>34~87℃</i></em>
+				</span>
+			</a>
+			<a href="#" class="lookDay">&gt;&gt;</a>
+		</div>
+	</div>
+	<div class="item_calendar fl">
+		<a id="calendar" href="javascript:;">
+			<span>9月17日周二</span><span>八月十三</span>
+		</a>
+	</div>
+	<div class="item_last fl">
+		<div class="joke">
+			<a href="#" title="换一条" class="refresh"></a><a href="#" class="text">笑话：大叔你的发型好帅气</a>
+		</div>
+		<div class="email_bg">
+			<span class="email_icon"></span>
+			<ul class="email">
+				<li class="icon_mail"><input type="text" class="userName" placeholder="邮箱账号"></li>
+				<li>
+					<select id="mail-opts" class="mail_type">
+						<option value="">请选择邮箱</option>
+						<option value="@163.com 网易">@163.com 网易</option>
+						<option value="@126.com 网易">@126.com 网易</option>
+						<option value="@sina.com 新浪">@sina.com 新浪</option>
+						<option value="@sohu.com 搜狐">@sohu.com 搜狐</option>
+						<option value="@yeah.net 网易">@yeah.net 网易</option>
+						<option value="@tom.com">@tom.com</option>
+						<option value="@21cn.com">@21cn.com</option>
+						<option value="@139.com">@139.com</option>
+						<option value="以下在弹出页登录" style="font-weight:600;">以下在弹出页登录</option>
+						<option value="@qq.com">@qq.com</option>
+						<option value="@gmail.com">@gmail.com</option>
+						<option value="@hotmail.com">@hotmail.com</option>
+						<option value="阿里云邮箱" style="color:red;">阿里云邮箱</option>
+						<option value="淘宝账号">淘宝账号</option>
+						<option value="支付宝">支付宝</option>
+						<option value="新浪微博">新浪微博</option>
+						<option value="开心网">开心网</option>
+						<option value="人人网">人人网</option>
+						<option value="百度">百度</option>
+						<option value="51.com">51.com</option>
+						<option value="chinaren校友录">chinaren校友录</option>
+						<option value="天涯社区">天涯社区</option>
+					</select>
+
+				</li>
+				<li><input type="password" class="pass" placehlder="*****"><input type="button" class="login" value="登陆"></li>
+			</ul>
+	   </div>
+	</div>
+</div>
+<!--搜索-->
+<div class="search_frame clearfix comWidth">
+	<div class="search_box">
+		<div class="search_hd auto">
+			<ul class="tab clearfix">
+				<li class="active"><a href="#">网页</a></li>
+				<li><a href="#">新闻</a></li>
+				<li><a href="#">图片</a></li>
+				<li><a href="#">音乐</a></li>
+				<li><a href="#">微博</a></li>
+				<li><a href="#">地图</a></li>
+				<li><a href="#">问答</a></li>
+				<li><a href="#">机票</a></li>
+				<li><a href="#">汽车</a></li>
+			</ul>
+		</div>
+		<div class="search_form">
+			<div class="search_close"><!--打开加search_open-->
+				<div class="search_select">
+					<a class="somulti" title="综合搜索"></a>
+					<i class="s_toggle"></i>
+				</div>
+				<div class="eng_list"><a class="somulti" title="综合搜索">somulti</a><a class="so360" title="360搜索">so360</a><a class="bing" title="必应">bing</a><a class="google" title="谷歌" data-site="google" data-cate="webpage">google</a><a class="youdao" title="有道">youdao</a><a class="baidu" title="百度">baidu</a><a class="jike" title="即刻">jike</a></div>
+			</div>
+			<div class="search_input">
+				<input type="text" class="search_sr"><div class="s_toggle"></div><div class="s_toggle_txt">5</div>
+				<div class="suggest_bd">
+					<div class="suggest_nc">
+						<a href="#"><span class="hot">1</span>测试内容啊 啊啊啊啊啊啊 </a>
+						<a href="#"><span class="hot">2</span>测试内容啊 啊啊啊啊啊啊 </a>
+						<a href="#"><span class="hot">3</span>测试内容啊 啊啊啊啊啊啊 </a>
+						<a href="#"><span>4</span>测试内容啊 啊啊啊啊啊啊 </a>
+						<a href="#"><span>5</span>测试内容啊 啊啊啊啊啊啊 </a>
+						<a href="#"><span>6</span>测试内容啊 啊啊啊啊啊啊 </a>
+						<a href="#"><span>7</span>测试内容啊 啊啊啊啊啊啊 </a>
+						<a href="#"><span>8</span>测试内容啊 啊啊啊啊啊啊 </a>
+						<a href="#"><span>9</span>测试内容啊 啊啊啊啊啊啊 </a>
+						<a href="#"><span>10</span>测试内容啊 啊啊啊啊啊啊 </a>
+					</div>
+					<div class="reci_setting">
+						<label for="reci_input" class="reci_input"><input type="checkbox" id="reci_input"><span>不再自动提示</span></label><p>由360提供的数据</p>
+					</div>
+				</div>
+			</div>
+			<input class="search_btn" type="submit" value="搜索一下">
+		</div>
+	</div>
+</div>
+<div class="hr_10"></div>
+<!--导航-->
+<div class="nav clearfix comWidth">
+	<!--nav_list li span 需要做随机颜色 -->
+	<ul class="nav_list fl">
+		<li class="on"><a href="#" class="home">我的主页</a><span></span></li>
+		<li><a href="#" class="news">新闻头条</a><span></span></li>
+		<li><a href="#" class="movie">电视剧</a><span></span></li>
+		<li><a href="#" class="tv">最新电影</a><span></span></li>
+		<li><a href="#" class="novel">小游戏</a><span></span></li>
+		<li><a href="#" class="travel">小说大全</a><span></span></li>
+		<li><a href="#" class="game">旅游度假</a><span></span></li>
+		<li><a href="#" class="mall">品牌特卖</a><span></span></li>
+		<li><a href="#" class="tuan">今日团购</a><span></span></li>
+	</ul>
+	<div class="valid close">
+		<a href="javascript:;" title="点击开启声音">声音开关</a>
+	</div>
+	<div class="menupiano_extra"><!--添加  menupiano_extra_hover  -->
+		<a href="" class="extra_toggle"></a>
+		<ul class="extra_list">
+			<li><a class="btn_opern">看谱弹琴</a></li>
+			<li><a class="btn_record">录制钢琴曲</a></li>
+			<li><a href="#" class="orange">范玮琪弹钢琴&gt;&gt;</a></li>
+			<li><a href="#" class="go">查看弹奏攻略&gt;&gt;</a></li>
+		</ul>
+	</div>
+</div>
+
+<div class="hr_10"></div>
+<div class="main clearfix comWidth">
+	<div class="leftArea fl">
+		<div class="hong_db">
+			<ul class="gBox gcolor">
+				<li class="yl"><a href="#">新闻</a><span class="split">•</span><a href="#">视频</a></li>
+				<li class="dy"><a href="#">电影</a><span class="split">•</span><a href="#">电视剧</a></li>
+				<li class="tg"><a href="#" class="orange">今日团购</a></li>
+				<li class="cp"><a href="#">彩票</a><span class="split">•</span><a href="#">双色球</a></li>
+				<li class="gw"><a href="#">网上购物</a></li>
+				<li class="bz"><a href="#">小说</a><span class="split">•</span><a href="#">小游戏</a></li>
+				<li class="yx"><a href="#">游戏</a><span class="split">•</span><a href="#">棋牌</a></li>
+				<li class="yy"><a href="#">音乐</a><span class="split">•</span><a href="#">动漫</a></li>
+				<li class="cx"><a href="#">查询</a><span class="split">•</span><a href="#">星座</a></li>
+				<li class="ly"><a href="#">机票</a><span class="split">•</span><a href="#">火车票</a></li>
+			</ul>
+		</div>
+		<div class="hr_10"></div>
+		<div class="gBox hidden">
+			<div class="activity_bd">
+				<div class="cover">
+					<div class="slide_content">
+						<div class="slide_item first">
+							<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+						</div>
+						<div class="slide_item">
+							<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+						</div>
+						<div class="slide_item">
+							<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+						</div>
+					</div>
+					<a href="javascript:;" class="slide_btn slide_pageup">
+						<span class="bg"></span>
+					</a>
+					<a href="javascript:;" class="slide_btn slide_pagedown">
+						<span class="bg"></span>
+					</a>
+				</div>
+			</div>
+		</div>
+		
+		<div class="hr_10"></div>
+		<div class="gBox gcolor hyp gBgColor">
+			<h3 class="youLook_title"><strong>猜你爱看</strong><span class="forNum">换一批</span></h3>
+			<div class="tab_item clearfix">
+				<a href="#" class="active">头条</a>
+				<a href="#">八卦</a>
+				<a href="#">正能量</a>
+				<a href="#">军事</a>
+			</div>
+			<div class="tabs">
+				<div class="tabs_item show">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+			</div>
+			<!--换一换-->
+			<div class="hypBox hide">
+				<i class="hypBox_sjBg"></i>
+				<i class="hypBox_sjBor"></i>
+				<p>马上点击选择你喜欢的内容</p>
+				<div class="clearfix">
+					<a href="#" class="hypIcon dy hypIcon_active">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						影视
+					</a>
+					<a href="#" class="hypIcon gw hypIcon_select">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						购物
+					</a>
+					<a href="#" class="hypIcon tg">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						娱乐
+					</a>
+					<a href="#" class="hypIcon yx">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						游戏
+					</a>
+					<a href="#" class="hypIcon cp">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						彩票
+					</a>
+					<a href="#" class="hypIcon xs">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						小说
+					</a>
+					<a href="#" class="hypIcon qc">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						汽车
+					</a>
+					<a href="#" class="hypIcon ly">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						旅游
+					</a>
+					<a href="#" class="hypIcon ty">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						体育
+					</a>
+					<a href="#" class="hypIcon yl">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						娱乐
+					</a>
+					<a href="#" class="hypIcon kj">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						科技
+					</a>
+					<a href="#" class="hypIcon xyx">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						小游戏
+					</a>
+					<a href="#" class="hypIcon yy">
+						<span class="mark"></span>
+						<span class="selected"></span>
+						玩手机
+					</a>
+				</div>
+				<div class="hypBtn">
+					<a href="javascript:;" class="save_btn">确定</a>
+					<a href="javascript:;" class="cancel_btn">取消</a>
+				</div>
+			</div>
+			
+			
+			<div class="hr_10"></div>
+			<div class="tab_item clearfix">
+				<a href="#" class="active">视频</a>
+				<a href="#">电视剧</a>
+				<a href="#">电影</a>
+				<a href="#">花边</a>
+			</div>
+			<div class="tabs">
+				<div class="tabs_item show">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="hr_10"></div>
+			<div class="tab_item clearfix">
+				<a href="#" class="active">购物</a>
+				<a href="#">鞋包</a>
+				<a href="#">数码</a>
+				<a href="#">女装</a>
+			</div>
+			<div class="tabs">
+				<div class="tabs_item show">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="hr_10"></div>
+			<div class="tab_item clearfix">
+				<a href="#" class="active">游戏</a>
+				<a href="#">最好玩</a>
+				<a href="#">最火爆</a>
+				<a href="#">小游戏</a>
+			</div>
+			<div class="tabs">
+				<div class="tabs_item show">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="hr_10"></div>
+			<div class="tab_item clearfix">
+				<a href="#" class="active">双色球</a>
+				<a href="#">大乐透</a>
+				<a href="#">福彩3D</a>
+				<a href="#">11选5</a>
+			</div>
+			<div class="tabs">
+				<div class="tabs_item show">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+				<div class="tabs_item">
+					<div class="hidden">
+						<div class="activity_bd">
+							<div class="cover slide_sm">
+								<div class="slide_content">
+									<div class="slide_item first">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+									<div class="slide_item">
+										<a href="#"><img src="img/t017e9bdfeccf7c665c.jpg"></a>
+									</div>
+								</div>
+								<a href="javascript:;" class="slide_btn slide_pageup">
+									<span class="bg"></span>
+								</a>
+								<a href="javascript:;" class="slide_btn slide_pagedown">
+									<span class="bg"></span>
+								</a>
+							</div>
+						</div>
+					</div>
+					<ul class="tabs_list">
+						<li><a href="#">省部级高官落马半数涉房地产</a></li>
+						<li><a href="#">女童幼儿园被猥亵警方拒立案</a></li>
+						<li><a href="#">美国北约阻土耳其买中国导弹</a></li>
+						<li><a href="#">孕妇过量补钙致女婴长出门牙</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="mainArea">
+		<div class="mzBox gBox defult_rel">
+			<div class="mysite_list clearfix">
+				<a href="javascript:;" class="mysite_link">添加你常用的网址</a>
+			</div>
+			<ul class="famous_section bor_b clearfix">
+				<li><a href="#">百度</a><span>•</span><a href="#">贴吧</a></li>
+				<li><a href="#">360搜索</a><span>•</span><a href="#">谷歌</a></li>
+				<li><a href="#">新浪</a><span>•</span><a href="#">微博</a></li>
+				<li><a href="#">搜狐</a><span>•</span><a href="#">视频</a></li>
+				<li><a href="#">网易</a><span>•</span><a href="#">邮箱</a></li>
+				<li><a href="#">凤凰</a><span>•</span><a href="#">军事</a></li>
+				<li><a href="#">359游戏</a></li>
+				<li><a href="#">淘 宝 网</a></li>
+				<li><a href="#">正品商城</a></li>
+				<li><a href="#">天 猫</a></li>
+				<li><a href="#">360</a><span>•</span><a href="#">手机卫士</a></li>
+				<li><a href="#">人人</a><span>•</span><a href="#">QQ空间</a></li>
+				<li><a href="#">淘宝特卖</a></li>
+				<li><a href="#">360影视</a><a href="#" class="ys"></a></li>
+				<li><a href="#">土 豆 网</a></li>
+				<li><a href="#">360彩票</a></li>
+				<li><a href="#">东方财富</a></li>
+				<li><a href="#" class="jd">京东商城</a></li>
+				<li><a href="#">人民</a><span>•</span><a href="#">新华</a></li>
+				<li><a href="#">CNTV</a><span>•</span><a href="#">直播</a></li>
+				<li><a href="#">太平洋电脑</a></li>
+				<li><a href="#">世纪佳缘</a></li>
+				<li><a href="#">携 程 网</a></li>
+				<li><a href="#">中关村在线</a></li>
+			</ul>
+			<ul class="famous_section clearfix">
+				<li><a href="#">汽车之家</a></li>
+				<li><a href="#">3易 车 网</a></li>
+				<li><a href="#">太平洋汽车</a></li>
+				<li><a href="#">百 合 网</a></li>
+				<li><a href="#" class="lf">乐 蜂 网</a></li>
+				<li><a href="#" class="sn">苏宁易购</a></li>
+				<li><a href="#">糯 米 网</a></li>
+				<li><a href="#">58 同 城</a></li>
+				<li><a href="#">赶 集 网</a></li>
+				<li><a href="#">当 当 网</a></li>
+				<li><a href="#" class="tn">途牛旅游网</a></li>
+				<li><a href="#">1 号 店</a></li>
+				<li><a href="#">凡客诚品</a></li>
+				<li><a href="#">梦 芭 莎</a></li>
+				<li><a href="#">亚 马 逊</a></li>
+				<li><a href="#">艺 龙 网</a></li>
+				<li><a href="#">去哪儿网</a></li>
+				<li><a href="#">智联招聘</a></li>
+				<li><a href="#">美 团 网</a></li>
+				<li><a href="#">国美在线</a></li>
+				<li><a href="#">唯 品 会</a></li>
+				<li><a href="#" class="orange">聚美优品</a></li>
+				<li><a href="#">M18麦考林</a></li>
+				<li><a href="#">蘑 菇 街</a></li>
+			</ul>
+			<!--点击 myNav_icon 弹出 myNav  - 我的导航-->
+			<div class="myNav_icon"></div>
+			<div class="myNav defult_abs hide">
+				<div class="myNav_show show">
+					<div class="myNav_title">
+						<h3>欢迎来到我的导航！</h3>
+						<div class="myNav_title_link fr"><a href="#">使用帮助</a>|<a href="#">意见反馈</a></div>
+						<a href="javascript:;" class="myNav_close"></a>
+					</div>
+					<div class="myNav_cont clearfix">
+						<div class="myNav_left fl">
+							<dl>									
+								<dt>登录我的360个人中心</dt>
+								<dd><span>账　号</span><input type="text" class="myNav_input"></dd>
+								<dd><span>密　码</span><input type="text" class="myNav_input"><a href="#" class="wjPass">忘记密码？</a></dd>
+								<dd class="myBtn_box"><span>&nbsp;</span><input type="button" class="myNav_btn" value="登陆"><a href="#" class="myReg">立即注册</a></dd>
+							</dl>
+						</div>
+						<div class="myNav_right fl">
+							
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--添加到我的导航 - 弹出部分-->
+		<div class="front_view hide">
+			<div class="mysite defult_abs">
+				<div class="mysite_title clearfix">
+					<div class="left"></div>
+					<div class="right">
+						<h2 class="title">管理我的网址</h2>
+						<span class="intro">你有什么建议，或者遇到什么问题，<a href="http://feedback.hao.360.cn/">点此告诉我们&gt;&gt;</a></span>
+						<a href="javascript:;" class="mysite_close"></a>
+					</div>
+				</div>
+				<div class="mysite_custom clearfix">
+					<div class="left">
+						<h3 class="subtitle">我添加的网址<span class="arrow"><span class="bor"></span><span class="bg"></span></span></h3>
+					</div>
+					<div class="right">
+						<p class="defult_txt">你添加的网址会显示在这里，快到下面添加吧</p>
+					</div>
+				</div>
+				<div class="mysite_add clearfix">
+					<div class="left">
+						<h3 class="subtitle">手动添加<span class="arrow"><span class="bor"></span><span class="bg"></span></span></h3>
+					</div>
+					<div class="right">
+						<ul class="mysite_add_input clearfix">
+							<li>网站名称：</li>
+							<li><input type="text" placeholder="如：智能社"></li>
+							<li>网址：</li>
+							<li><input type="text" placeholder="如：www.zhinengshe.com"></li>
+							<li><input type="button" value="添加" class="btn"></li>
+						</ul>
+					</div>
+				</div>
+				<div class="mysite_tui clearfix">
+					<div class="left">
+						<h3 class="subtitle">从推荐中添加<span class="arrow"><span class="bor"></span><span class="bg"></span></span></h3>
+						<ul class="clearfix">
+							<li><a href="#" class="active">大家经常用</a></li>
+							<li><a href="#">宅男福利</a></li>
+							<li><a href="#">生活更方便</a></li>
+							<li><a href="#">小清新</a></li>
+						</ul>
+					</div>
+					<div class="right">
+						<div class="tabs">
+							<div class="tabs_item show">
+								<h3 class="cyWeb"><span>·</span>常用网址</h3>
+								<ul class="link_box clearfix">
+									<li><a href="#">12306</a></li>
+									<li><a href="#">大众点评</a></li>
+									<li><a href="#">智能社</a></li>
+									<li><a href="#">智能社论坛</a></li>
+									<li><a href="#">支付宝</a></li>
+									<li><a href="#">126邮箱</a></li>
+									<li><a href="#">360游戏</a></li>
+									<li><a href="#">中国移动</a></li>
+									<li><a href="#">工商银行</a></li>
+									<li><a href="#">中国联通</a></li>
+									<li><a href="#">中国电信</a></li>
+									<li><a href="#">酷狗音乐</a></li>
+								</ul>
+								<h3 class="cyWeb"><span>·</span>娱乐</h3>
+								<ul class="link_box clearfix">
+									<li><a href="javascript:;">街机三国</a></li>
+									<li><a href="javascript:;">新仙剑</a></li>
+									<li><a href="javascript:;">诛仙3</a></li>
+									<li><a href="javascript:;">三国杀</a></li>
+									<li><a href="javascript:;">猫扑大杂烩</a></li>
+									<li><a href="javascript:;">天涯</a></li>
+									<li><a href="javascript:;">糗事百科</a></li>
+									<li><a href="javascript:;">暴走漫画</a></li>
+									<li><a href="javascript:;">捧腹网</a></li>
+									<li><a href="javascript:;">音乐排行榜</a></li>
+									<li><a href="javascript:;">虾米</a></li>
+									<li><a href="javascript:;">V电影</a></li>
+									<li><a href="javascript:;">电视剧大全</a></li>
+									<li><a href="javascript:;">影院热映</a></li>
+									<li><a href="javascript:;">美剧大全</a></li>
+									<li><a href="javascript:;">王牌综艺</a></li>
+									<li><a href="javascript:;">豆瓣影评</a></li>
+									<li><a href="javascript:;">17K小说网</a></li>
+									<li><a href="javascript:;">言情小说吧</a></li>
+									<li><a href="javascript:;">直播吧</a></li>
+									<li><a href="javascript:;">新浪体育</a></li>
+									<li><a href="javascript:;">虎扑体育</a></li>
+								</ul>
+								<h3 class="cyWeb"><span>·</span>生活</h3>
+								<ul class="link_box clearfix">
+									<li><a href="javascript:;">街机三国</a></li>
+									<li><a href="javascript:;">新仙剑</a></li>
+									<li><a href="javascript:;">诛仙3</a></li>
+									<li><a href="javascript:;">三国杀</a></li>
+									<li><a href="javascript:;">猫扑大杂烩</a></li>
+									<li><a href="javascript:;">天涯</a></li>
+									<li><a href="javascript:;">糗事百科</a></li>
+									<li><a href="javascript:;">暴走漫画</a></li>
+									<li><a href="javascript:;">捧腹网</a></li>
+									<li><a href="javascript:;">音乐排行榜</a></li>
+									<li><a href="javascript:;">虾米</a></li>
+									<li><a href="javascript:;">V电影</a></li>
+									<li><a href="javascript:;">电视剧大全</a></li>
+									<li><a href="javascript:;">影院热映</a></li>
+									<li><a href="javascript:;">美剧大全</a></li>
+									<li><a href="javascript:;">王牌综艺</a></li>
+									<li><a href="javascript:;">豆瓣影评</a></li>
+									<li><a href="javascript:;">17K小说网</a></li>
+									<li><a href="javascript:;">言情小说吧</a></li>
+									<li><a href="javascript:;">直播吧</a></li>
+									<li><a href="javascript:;">新浪体育</a></li>
+									<li><a href="javascript:;">虎扑体育</a></li>
+								</ul>
+							</div>
+							<div class="tabs_item">
+								<h3 class="cyWeb"><span>·</span>常用网址</h3>
+								<ul class="link_box clearfix">
+									<li><a href="#">12306</a></li>
+									<li><a href="#">大众点评</a></li>
+									<li><a href="#">智能社</a></li>
+									<li><a href="#">智能社论坛</a></li>
+									<li><a href="#">支付宝</a></li>
+									<li><a href="#">126邮箱</a></li>
+								</ul>
+								<h3 class="cyWeb"><span>·</span>娱乐</h3>
+								<ul class="link_box clearfix">
+									<li><a href="javascript:;">街机三国</a></li>
+									<li><a href="javascript:;">暴走漫画</a></li>
+									<li><a href="javascript:;">捧腹网</a></li>
+									<li><a href="javascript:;">音乐排行榜</a></li>
+									<li><a href="javascript:;">虾米</a></li>
+									<li><a href="javascript:;">V电影</a></li>
+									<li><a href="javascript:;">电视剧大全</a></li>
+									<li><a href="javascript:;">影院热映</a></li>
+									<li><a href="javascript:;">美剧大全</a></li>
+									<li><a href="javascript:;">王牌综艺</a></li>
+									<li><a href="javascript:;">豆瓣影评</a></li>
+									<li><a href="javascript:;">17K小说网</a></li>
+									<li><a href="javascript:;">言情小说吧</a></li>
+									<li><a href="javascript:;">直播吧</a></li>
+									<li><a href="javascript:;">新浪体育</a></li>
+									<li><a href="javascript:;">虎扑体育</a></li>
+								</ul>
+								<h3 class="cyWeb"><span>·</span>生活</h3>
+								<ul class="link_box clearfix">
+									<li><a href="javascript:;">街机三国</a></li>
+									<li><a href="javascript:;">暴走漫画</a></li>
+									<li><a href="javascript:;">捧腹网</a></li>
+									<li><a href="javascript:;">音乐排行榜</a></li>
+									<li><a href="javascript:;">虾米</a></li>
+									<li><a href="javascript:;">V电影</a></li>
+									<li><a href="javascript:;">电视剧大全</a></li>
+									<li><a href="javascript:;">影院热映</a></li>
+									<li><a href="javascript:;">美剧大全</a></li>
+									<li><a href="javascript:;">王牌综艺</a></li>
+									<li><a href="javascript:;">豆瓣影评</a></li>
+									<li><a href="javascript:;">17K小说网</a></li>
+									<li><a href="javascript:;">言情小说吧</a></li>
+									<li><a href="javascript:;">直播吧</a></li>
+									<li><a href="javascript:;">新浪体育</a></li>
+									<li><a href="javascript:;">虎扑体育</a></li>
+								</ul>
+							</div>
+							<div class="tabs_item">
+								<h3 class="cyWeb"><span>·</span>常用网址</h3>
+								<ul class="link_box clearfix">
+									<li><a href="javascript:;">街机三国</a></li>
+									<li><a href="javascript:;">新仙剑</a></li>
+									<li><a href="javascript:;">诛仙3</a></li>
+									<li><a href="javascript:;">三国杀</a></li>
+									<li><a href="javascript:;">猫扑大杂烩</a></li>
+									<li><a href="javascript:;">天涯</a></li>
+									<li><a href="javascript:;">糗事百科</a></li>
+									<li><a href="javascript:;">暴走漫画</a></li>
+									<li><a href="javascript:;">捧腹网</a></li>
+									<li><a href="javascript:;">音乐排行榜</a></li>
+									<li><a href="javascript:;">虾米</a></li>
+									<li><a href="javascript:;">V电影</a></li>
+									<li><a href="javascript:;">电视剧大全</a></li>
+									<li><a href="javascript:;">影院热映</a></li>
+									<li><a href="javascript:;">美剧大全</a></li>
+									<li><a href="javascript:;">王牌综艺</a></li>
+									<li><a href="javascript:;">豆瓣影评</a></li>
+									<li><a href="javascript:;">17K小说网</a></li>
+									<li><a href="javascript:;">言情小说吧</a></li>
+									<li><a href="javascript:;">直播吧</a></li>
+									<li><a href="javascript:;">新浪体育</a></li>
+									<li><a href="javascript:;">虎扑体育</a></li>
+								</ul>
+								<h3 class="cyWeb"><span>·</span>娱乐</h3>
+								<ul class="link_box clearfix">
+									<li><a href="javascript:;">街机三国</a></li>
+									<li><a href="javascript:;">新仙剑</a></li>
+									<li><a href="javascript:;">诛仙3</a></li>
+									<li><a href="javascript:;">三国杀</a></li>
+									<li><a href="javascript:;">猫扑大杂烩</a></li>
+									<li><a href="javascript:;">天涯</a></li>
+									<li><a href="javascript:;">糗事百科</a></li>
+									<li><a href="javascript:;">暴走漫画</a></li>
+									<li><a href="javascript:;">捧腹网</a></li>
+									<li><a href="javascript:;">音乐排行榜</a></li>
+									<li><a href="javascript:;">虾米</a></li>
+									<li><a href="javascript:;">V电影</a></li>
+									<li><a href="javascript:;">电视剧大全</a></li>
+									<li><a href="javascript:;">影院热映</a></li>
+									<li><a href="javascript:;">美剧大全</a></li>
+									<li><a href="javascript:;">王牌综艺</a></li>
+									<li><a href="javascript:;">豆瓣影评</a></li>
+									<li><a href="javascript:;">17K小说网</a></li>
+									<li><a href="javascript:;">言情小说吧</a></li>
+									<li><a href="javascript:;">直播吧</a></li>
+									<li><a href="javascript:;">新浪体育</a></li>
+									<li><a href="javascript:;">虎扑体育</a></li>
+								</ul>
+								<h3 class="cyWeb"><span>·</span>生活</h3>
+								<ul class="link_box clearfix">
+									<li><a href="#">12306</a></li>
+									<li><a href="#">大众点评</a></li>
+									<li><a href="#">智能社</a></li>
+									<li><a href="#">智能社论坛</a></li>
+									<li><a href="#">支付宝</a></li>
+									<li><a href="#">126邮箱</a></li>
+									<li><a href="#">360游戏</a></li>
+									<li><a href="#">中国移动</a></li>
+									<li><a href="#">工商银行</a></li>
+									<li><a href="#">中国联通</a></li>
+									<li><a href="#">中国电信</a></li>
+									<li><a href="#">酷狗音乐</a></li>
+								</ul>
+							</div>
+							<div class="tabs_item">
+								<h3 class="cyWeb"><span>·</span>常用网址</h3>
+								<ul class="link_box clearfix">
+									<li><a href="#">智能社</a></li>
+									<li><a href="#">智能社论坛</a></li>
+									<li><a href="#">支付宝</a></li>
+									<li><a href="#">126邮箱</a></li>
+									<li><a href="#">360游戏</a></li>
+									<li><a href="#">中国移动</a></li>
+									<li><a href="#">中国电信</a></li>
+									<li><a href="#">酷狗音乐</a></li>
+								</ul>
+								<h3 class="cyWeb"><span>·</span>娱乐</h3>
+								<ul class="link_box clearfix">
+									<li><a href="javascript:;">天涯</a></li>
+									<li><a href="javascript:;">糗事百科</a></li>
+									<li><a href="javascript:;">暴走漫画</a></li>
+									<li><a href="javascript:;">捧腹网</a></li>
+									<li><a href="javascript:;">音乐排行榜</a></li>
+									<li><a href="javascript:;">虾米</a></li>
+									<li><a href="javascript:;">V电影</a></li>
+									<li><a href="javascript:;">电视剧大全</a></li>
+									<li><a href="javascript:;">影院热映</a></li>
+									<li><a href="javascript:;">美剧大全</a></li>
+									<li><a href="javascript:;">王牌综艺</a></li>
+									<li><a href="javascript:;">豆瓣影评</a></li>
+								</ul>
+								<h3 class="cyWeb"><span>·</span>生活</h3>
+								<ul class="link_box clearfix">
+									<li><a href="javascript:;">天涯</a></li>
+									<li><a href="javascript:;">糗事百科</a></li>
+									<li><a href="javascript:;">暴走漫画</a></li>
+									<li><a href="javascript:;">捧腹网</a></li>
+									<li><a href="javascript:;">音乐排行榜</a></li>
+									<li><a href="javascript:;">虾米</a></li>
+									<li><a href="javascript:;">V电影</a></li>
+									<li><a href="javascript:;">电视剧大全</a></li>
+									<li><a href="javascript:;">影院热映</a></li>
+									<li><a href="javascript:;">美剧大全</a></li>
+									<li><a href="javascript:;">王牌综艺</a></li>
+									<li><a href="javascript:;">豆瓣影评</a></li>
+									<li><a href="javascript:;">17K小说网</a></li>
+									<li><a href="javascript:;">言情小说吧</a></li>
+									<li><a href="javascript:;">直播吧</a></li>
+									<li><a href="javascript:;">新浪体育</a></li>
+									<li><a href="javascript:;">虎扑体育</a></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<div class="hr_10"></div>
+		<!--发现你喜欢-->
+		<div class="iguess_bd gBox gColor">
+			<div class="iguess_bd_title bor_b">
+				<h3>发现你喜欢</h3>
+				<div class="iguess_bd_btn fr"> <a href="javascript:;" class="prev"></a> <a href="javascript:;" class="igu_d igu_d_active"></a> <a href="javascript:;" class="igu_d"></a> <a href="javascript:;" class="igu_d"></a> <a href="javascript:;" class="next"></a>
+					</div>
+			</div>
+			<div class="iguess_bd_cont">
+				<div class="iguess_bd_tab">
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">体育</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">人民网体育</a></li>
+								<li><a href="#">千龙体育</a></li>
+								<li><a href="#">体坛快报</a></li>
+								<li><a href="#">新浪NBA</a></li>
+								<li><a href="#">东方体育</a></li>
+								<li><a href="#">CCTV-5直播</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">体坛周报</a></li>
+								<li><a href="#">21CN体育</a></li>
+								<li><a href="#">网易体育</a></li>
+								<li><a href="#">PPTV体育</a></li>
+								<li><a href="#">体育之家</a></li>
+								<li><a href="#">TOM体育</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">网易NBA</a></li>
+								<li><a href="#">雪缘园</a></li>
+								<li><a href="#">优酷体育</a></li>
+								<li><a href="#">虎扑篮球</a></li>
+								<li><a href="#">网易中超</a></li>
+								<li><a href="#">本周赛事直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">音乐</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">个性手机铃声</a></li>
+								<li><a href="#">温暖老歌</a></li>
+								<li><a href="#">好声音铃声</a></li>
+								<li><a href="#">豆瓣音乐</a></li>
+								<li><a href="#">音悦Tai</a></li>
+								<li><a href="#">品味音乐</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">邻居的耳朵</a></li>
+								<li><a href="#">落网心音乐</a></li>
+								<li><a href="#">声音发源地</a></li>
+								<li><a href="#">rnb歌曲精选</a></li>
+								<li><a href="#">新歌抢鲜听</a></li>
+								<li><a href="#">爆热专辑</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">2013好听的歌</a></li>
+								<li><a href="#">经典老歌</a></li>
+								<li><a href="#">新歌首播</a></li>
+								<li><a href="#">热门歌单</a></li>
+								<li><a href="#">搞笑歌曲</a></li>
+								<li><a href="#">热歌榜</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">财经</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">财经网</a></li>
+								<li><a href="#">中国证券网</a></li>
+								<li><a href="#">福布斯中文网</a></li>
+								<li><a href="#">证券时报</a></li>
+								<li><a href="#">FT中文网</a></li>
+								<li><a href="#">和讯财经</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">体坛周报</a></li>
+								<li><a href="#">21CN体育</a></li>
+								<li><a href="#">网易体育</a></li>
+								<li><a href="#">PPTV体育</a></li>
+								<li><a href="#">体育之家</a></li>
+								<li><a href="#">TOM体育</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">网易NBA</a></li>
+								<li><a href="#">雪缘园</a></li>
+								<li><a href="#">优酷娱乐</a></li>
+								<li><a href="#">虎扑篮球</a></li>
+								<li><a href="#">网易赛事</a></li>
+								<li><a href="#">本周直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">旅游</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">宅在家看世界</a></li>
+								<li><a href="#">骆驼户外</a></li>
+								<li><a href="#">我是旅行家</a></li>
+								<li><a href="#">旅图画报</a></li>
+								<li><a href="#">穷游网锦囊</a></li>
+								<li><a href="#">悦旅行景点</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">全球旅行</a></li>
+								<li><a href="#">旅行新攻略</a></li>
+								<li><a href="#">磨坊心旅行</a></li>
+								<li><a href="#">结伴去旅行</a></li>
+								<li><a href="#">蝉游记</a></li>
+								<li><a href="#">驴妈妈旅游网</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">旅游线路</a></li>
+								<li><a href="#">特价机票</a></li>
+								<li><a href="#">折扣酒店</a></li>
+								<li><a href="#">岛国游</a></li>
+								<li><a href="#">十六番旅行</a></li>
+								<li><a href="#">忘情于丽江</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+				</div>
+				<div class="iguess_bd_tab hide">
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">团购</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">人民网体育</a></li>
+								<li><a href="#">千龙体育</a></li>
+								<li><a href="#">体坛快报</a></li>
+								<li><a href="#">新浪NBA</a></li>
+								<li><a href="#">东方体育</a></li>
+								<li><a href="#">CCTV-5直播</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">体坛周报</a></li>
+								<li><a href="#">21CN体育</a></li>
+								<li><a href="#">网易体育</a></li>
+								<li><a href="#">PPTV体育</a></li>
+								<li><a href="#">体育之家</a></li>
+								<li><a href="#">TOM体育</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">网易NBA</a></li>
+								<li><a href="#">雪缘园</a></li>
+								<li><a href="#">优酷体育</a></li>
+								<li><a href="#">虎扑篮球</a></li>
+								<li><a href="#">网易中超</a></li>
+								<li><a href="#">本周赛事直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">小说</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">个性手机铃声</a></li>
+								<li><a href="#">温暖老歌</a></li>
+								<li><a href="#">好声音铃声</a></li>
+								<li><a href="#">豆瓣音乐</a></li>
+								<li><a href="#">音悦Tai</a></li>
+								<li><a href="#">品味音乐</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">邻居的耳朵</a></li>
+								<li><a href="#">落网心音乐</a></li>
+								<li><a href="#">声音发源地</a></li>
+								<li><a href="#">rnb歌曲精选</a></li>
+								<li><a href="#">新歌抢鲜听</a></li>
+								<li><a href="#">爆热专辑</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">2013好听的歌</a></li>
+								<li><a href="#">经典老歌</a></li>
+								<li><a href="#">新歌首播</a></li>
+								<li><a href="#">热门歌单</a></li>
+								<li><a href="#">搞笑歌曲</a></li>
+								<li><a href="#">热歌榜</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">军事</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">财经网</a></li>
+								<li><a href="#">中国证券网</a></li>
+								<li><a href="#">福布斯中文网</a></li>
+								<li><a href="#">证券时报</a></li>
+								<li><a href="#">FT中文网</a></li>
+								<li><a href="#">和讯财经</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">体坛周报</a></li>
+								<li><a href="#">21CN体育</a></li>
+								<li><a href="#">网易体育</a></li>
+								<li><a href="#">PPTV体育</a></li>
+								<li><a href="#">体育之家</a></li>
+								<li><a href="#">TOM体育</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">网易NBA</a></li>
+								<li><a href="#">雪缘园</a></li>
+								<li><a href="#">优酷娱乐</a></li>
+								<li><a href="#">虎扑篮球</a></li>
+								<li><a href="#">网易赛事</a></li>
+								<li><a href="#">本周直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">生活</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">宅在家看世界</a></li>
+								<li><a href="#">骆驼户外</a></li>
+								<li><a href="#">我是旅行家</a></li>
+								<li><a href="#">旅图画报</a></li>
+								<li><a href="#">穷游网锦囊</a></li>
+								<li><a href="#">悦旅行景点</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">全球旅行</a></li>
+								<li><a href="#">旅行新攻略</a></li>
+								<li><a href="#">磨坊心旅行</a></li>
+								<li><a href="#">结伴去旅行</a></li>
+								<li><a href="#">蝉游记</a></li>
+								<li><a href="#">驴妈妈旅游网</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">旅游线路</a></li>
+								<li><a href="#">特价机票</a></li>
+								<li><a href="#">折扣酒店</a></li>
+								<li><a href="#">岛国游</a></li>
+								<li><a href="#">十六番旅行</a></li>
+								<li><a href="#">忘情于丽江</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+				</div>
+				<div class="iguess_bd_tab hide">
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">影视</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">人民网体育</a></li>
+								<li><a href="#">千龙体育</a></li>
+								<li><a href="#">体坛快报</a></li>
+								<li><a href="#">新浪NBA</a></li>
+								<li><a href="#">东方体育</a></li>
+								<li><a href="#">CCTV-5直播</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">体坛周报</a></li>
+								<li><a href="#">21CN体育</a></li>
+								<li><a href="#">网易体育</a></li>
+								<li><a href="#">PPTV体育</a></li>
+								<li><a href="#">体育之家</a></li>
+								<li><a href="#">TOM体育</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">网易NBA</a></li>
+								<li><a href="#">雪缘园</a></li>
+								<li><a href="#">优酷体育</a></li>
+								<li><a href="#">虎扑篮球</a></li>
+								<li><a href="#">网易中超</a></li>
+								<li><a href="#">本周赛事直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">购物</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">个性手机铃声</a></li>
+								<li><a href="#">温暖老歌</a></li>
+								<li><a href="#">好声音铃声</a></li>
+								<li><a href="#">豆瓣音乐</a></li>
+								<li><a href="#">音悦Tai</a></li>
+								<li><a href="#">品味音乐</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">邻居的耳朵</a></li>
+								<li><a href="#">落网心音乐</a></li>
+								<li><a href="#">声音发源地</a></li>
+								<li><a href="#">rnb歌曲精选</a></li>
+								<li><a href="#">新歌抢鲜听</a></li>
+								<li><a href="#">爆热专辑</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">2013好听的歌</a></li>
+								<li><a href="#">经典老歌</a></li>
+								<li><a href="#">新歌首播</a></li>
+								<li><a href="#">热门歌单</a></li>
+								<li><a href="#">搞笑歌曲</a></li>
+								<li><a href="#">热歌榜</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">游戏</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">财经网</a></li>
+								<li><a href="#">中国证券网</a></li>
+								<li><a href="#">福布斯中文网</a></li>
+								<li><a href="#">证券时报</a></li>
+								<li><a href="#">FT中文网</a></li>
+								<li><a href="#">和讯财经</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">体坛周报</a></li>
+								<li><a href="#">21CN体育</a></li>
+								<li><a href="#">网易体育</a></li>
+								<li><a href="#">PPTV体育</a></li>
+								<li><a href="#">体育之家</a></li>
+								<li><a href="#">TOM体育</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">网易NBA</a></li>
+								<li><a href="#">雪缘园</a></li>
+								<li><a href="#">优酷娱乐</a></li>
+								<li><a href="#">虎扑篮球</a></li>
+								<li><a href="#">网易赛事</a></li>
+								<li><a href="#">本周直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">新闻</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">宅在家看世界</a></li>
+								<li><a href="#">骆驼户外</a></li>
+								<li><a href="#">我是旅行家</a></li>
+								<li><a href="#">旅图画报</a></li>
+								<li><a href="#">穷游网锦囊</a></li>
+								<li><a href="#">悦旅行景点</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">全球旅行</a></li>
+								<li><a href="#">旅行新攻略</a></li>
+								<li><a href="#">磨坊心旅行</a></li>
+								<li><a href="#">结伴去旅行</a></li>
+								<li><a href="#">蝉游记</a></li>
+								<li><a href="#">驴妈妈旅游网</a></li>
+							</ul>
+							<ul class="list hide">
+								<li><a href="#">旅游线路</a></li>
+								<li><a href="#">特价机票</a></li>
+								<li><a href="#">折扣酒店</a></li>
+								<li><a href="#">岛国游</a></li>
+								<li><a href="#">十六番旅行</a></li>
+								<li><a href="#">忘情于丽江</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">换一换</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!--小文字-->
+		<div class="smLink">
+			<a href="#">1号店</a><a href="#">超市</a><a href="#">京东服装城</a><a href="#">酒仙网购酒</a><a href="#">优购网鞋城</a><a href="#">优众奢侈品</a><a href="#">珍爱网相亲</a><a href="#">赚钱生意街</a><a href="#">唯品团</a><a href="#">绿瘦商城</a>
+		</div>
+		
+		<!--各种文字-->
+		<div class="gBox gcolor">
+			<div class="cool_site">
+				<div class="cool_site_tit">
+					<a href="#">游戏</a>
+					<a href="#">电影</a>
+					<a href="#">电视剧</a>
+					<a href="#">小说</a>
+					<a href="#">音乐</a>
+					<a href="#">购物</a>
+					<a href="#">美食团</a>
+					<a href="#">逛女装</a>
+					<a href="#">淘宝皇冠店</a>
+					<a href="#">特供机</a>
+				</div>
+				<div class="cool_site_cont">
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">页游</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">凤凰令</a></li>
+								<li><a href="#">街机三国</a></li>
+								<li><a href="#">女神联盟</a></li>
+								<li><a href="#">枪 魂</a></li>
+								<li><a href="#">最无极</a></li>
+								<li><a href="#">新仙剑</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">影视</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">电 影</a></li>
+								<li><a href="#">电视剧</a></li>
+								<li><a href="#">综 艺</a></li>
+								<li><a href="#">娱 乐</a></li>
+								<li><a href="#">动 漫</a></li>
+								<li><a href="#">电视直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">视频</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+							  <li><a href="#">优 酷</a></li>
+							  <li><a href="#">土豆网</a></li>
+							  <li><a href="#">搜狐视频</a></li>
+							  <li><a href="#">乐视网高清</a></li>
+							  <li><a href="#">六间房秀场</a></li>
+							  <li><a href="#">最新影讯</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">小说</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">起点中文网</a></li>
+								<li><a href="#">纵横中文网</a></li>
+								<li><a href="#">小说阅读网</a></li>
+								<li><a href="#">17K小说网</a></li>
+								<li><a href="#">红袖添香</a></li>
+								<li><a href="#">言情小说吧</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">音乐</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">酷狗音乐</a></li>
+								<li><a href="#">一听音乐网</a></li>
+								<li><a href="#">九酷音乐网</a></li>
+								<li><a href="#">音乐主播秀</a></li>
+								<li><a href="#">美女音乐秀</a></li>
+								<li><a href="#">今生缘音乐</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">游戏</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">4399小游戏</a></li>
+								<li><a href="#">7K7K小游戏</a></li>
+								<li><a href="#">2144小游戏</a></li>
+								<li><a href="#">Touch炫舞</a></li>
+								<li><a href="#">武 魂</a></li>
+								<li><a href="#">倩女幽魂2</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">购物</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">京东商城</a></li>
+								<li><a href="#">苏宁易购</a></li>
+								<li><a href="#">亚马逊</a></li>
+								<li><a href="#">凡客诚品</a></li>
+								<li><a href="#">乐蜂化妆品</a></li>
+								<li><a href="#">天 猫</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+				</div>
+				<div class="cool_site_tit">
+					<a href="#">新闻</a>
+					<a href="#">军事</a>
+					<a href="#">体育</a>
+					<a href="#">NBA</a>
+					<a href="#">财经</a>
+					<a href="#">网游</a>
+					<a href="#">小游戏</a>
+					<a href="#">棋牌</a>
+					<a href="#">双色球</a>
+					<a href="#">英语</a>
+					<a href="#">考试</a>
+					<a href="#">公务员</a>
+				</div>
+				<div class="cool_site_cont">
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">页游</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">凤凰令</a></li>
+								<li><a href="#">街机三国</a></li>
+								<li><a href="#">女神联盟</a></li>
+								<li><a href="#">枪 魂</a></li>
+								<li><a href="#">最无极</a></li>
+								<li><a href="#">新仙剑</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">影视</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">电 影</a></li>
+								<li><a href="#">电视剧</a></li>
+								<li><a href="#">综 艺</a></li>
+								<li><a href="#">娱 乐</a></li>
+								<li><a href="#">动 漫</a></li>
+								<li><a href="#">电视直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">视频</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+							  <li><a href="#">优 酷</a></li>
+							  <li><a href="#">土豆网</a></li>
+							  <li><a href="#">搜狐视频</a></li>
+							  <li><a href="#">乐视网高清</a></li>
+							  <li><a href="#">六间房秀场</a></li>
+							  <li><a href="#">最新影讯</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">小说</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">起点中文网</a></li>
+								<li><a href="#">纵横中文网</a></li>
+								<li><a href="#">小说阅读网</a></li>
+								<li><a href="#">17K小说网</a></li>
+								<li><a href="#">红袖添香</a></li>
+								<li><a href="#">言情小说吧</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">音乐</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">酷狗音乐</a></li>
+								<li><a href="#">一听音乐网</a></li>
+								<li><a href="#">九酷音乐网</a></li>
+								<li><a href="#">音乐主播秀</a></li>
+								<li><a href="#">美女音乐秀</a></li>
+								<li><a href="#">今生缘音乐</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">游戏</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">4399小游戏</a></li>
+								<li><a href="#">7K7K小游戏</a></li>
+								<li><a href="#">2144小游戏</a></li>
+								<li><a href="#">Touch炫舞</a></li>
+								<li><a href="#">武 魂</a></li>
+								<li><a href="#">倩女幽魂2</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">购物</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">京东商城</a></li>
+								<li><a href="#">苏宁易购</a></li>
+								<li><a href="#">亚马逊</a></li>
+								<li><a href="#">凡客诚品</a></li>
+								<li><a href="#">乐蜂化妆品</a></li>
+								<li><a href="#">天 猫</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+				</div>
+				<div class="cool_site_tit">
+					<a href="#">新车</a>
+					<a href="#">二手车</a>
+					<a href="#">银行</a>
+					<a href="#">商城</a>
+					<a href="#">团购</a>
+					<a href="#">皇冠店</a>
+					<a href="#">淘宝特卖</a>
+					<a href="#">今日特价</a>
+					<a href="#">交友</a>
+					<a href="#">社区</a>
+					<a href="#">好项目</a>
+				</div>
+				<div class="cool_site_cont">
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">页游</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">凤凰令</a></li>
+								<li><a href="#">街机三国</a></li>
+								<li><a href="#">女神联盟</a></li>
+								<li><a href="#">枪 魂</a></li>
+								<li><a href="#">最无极</a></li>
+								<li><a href="#">新仙剑</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">影视</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">电 影</a></li>
+								<li><a href="#">电视剧</a></li>
+								<li><a href="#">综 艺</a></li>
+								<li><a href="#">娱 乐</a></li>
+								<li><a href="#">动 漫</a></li>
+								<li><a href="#">电视直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">视频</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+							  <li><a href="#">优 酷</a></li>
+							  <li><a href="#">土豆网</a></li>
+							  <li><a href="#">搜狐视频</a></li>
+							  <li><a href="#">乐视网高清</a></li>
+							  <li><a href="#">六间房秀场</a></li>
+							  <li><a href="#">最新影讯</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">小说</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">起点中文网</a></li>
+								<li><a href="#">纵横中文网</a></li>
+								<li><a href="#">小说阅读网</a></li>
+								<li><a href="#">17K小说网</a></li>
+								<li><a href="#">红袖添香</a></li>
+								<li><a href="#">言情小说吧</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">音乐</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">酷狗音乐</a></li>
+								<li><a href="#">一听音乐网</a></li>
+								<li><a href="#">九酷音乐网</a></li>
+								<li><a href="#">音乐主播秀</a></li>
+								<li><a href="#">美女音乐秀</a></li>
+								<li><a href="#">今生缘音乐</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">游戏</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">4399小游戏</a></li>
+								<li><a href="#">7K7K小游戏</a></li>
+								<li><a href="#">2144小游戏</a></li>
+								<li><a href="#">Touch炫舞</a></li>
+								<li><a href="#">武 魂</a></li>
+								<li><a href="#">倩女幽魂2</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">购物</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">京东商城</a></li>
+								<li><a href="#">苏宁易购</a></li>
+								<li><a href="#">亚马逊</a></li>
+								<li><a href="#">凡客诚品</a></li>
+								<li><a href="#">乐蜂化妆品</a></li>
+								<li><a href="#">天 猫</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+				</div>
+				<div class="cool_site_tit">
+					<a href="#">租房</a>
+					<a href="#">二手房</a>
+					<a href="#">彩票</a>
+					<a href="#">女性</a>
+					<a href="#">美体</a>
+					<a href="#">时尚</a>
+					<a href="#">招聘</a>
+					<a href="#">电脑</a>
+					<a href="#">软件</a>
+					<a href="#">手机</a>
+					<a href="#">保险</a>
+					<a href="#">度假</a>
+					<a href="#">酒店</a>
+				</div>
+				<div class="cool_site_cont">
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">页游</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">凤凰令</a></li>
+								<li><a href="#">街机三国</a></li>
+								<li><a href="#">女神联盟</a></li>
+								<li><a href="#">枪 魂</a></li>
+								<li><a href="#">最无极</a></li>
+								<li><a href="#">新仙剑</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">影视</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">电 影</a></li>
+								<li><a href="#">电视剧</a></li>
+								<li><a href="#">综 艺</a></li>
+								<li><a href="#">娱 乐</a></li>
+								<li><a href="#">动 漫</a></li>
+								<li><a href="#">电视直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">视频</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+							  <li><a href="#">优 酷</a></li>
+							  <li><a href="#">土豆网</a></li>
+							  <li><a href="#">搜狐视频</a></li>
+							  <li><a href="#">乐视网高清</a></li>
+							  <li><a href="#">六间房秀场</a></li>
+							  <li><a href="#">最新影讯</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">小说</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">起点中文网</a></li>
+								<li><a href="#">纵横中文网</a></li>
+								<li><a href="#">小说阅读网</a></li>
+								<li><a href="#">17K小说网</a></li>
+								<li><a href="#">红袖添香</a></li>
+								<li><a href="#">言情小说吧</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">音乐</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">酷狗音乐</a></li>
+								<li><a href="#">一听音乐网</a></li>
+								<li><a href="#">九酷音乐网</a></li>
+								<li><a href="#">音乐主播秀</a></li>
+								<li><a href="#">美女音乐秀</a></li>
+								<li><a href="#">今生缘音乐</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">游戏</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">4399小游戏</a></li>
+								<li><a href="#">7K7K小游戏</a></li>
+								<li><a href="#">2144小游戏</a></li>
+								<li><a href="#">Touch炫舞</a></li>
+								<li><a href="#">武 魂</a></li>
+								<li><a href="#">倩女幽魂2</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">购物</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">京东商城</a></li>
+								<li><a href="#">苏宁易购</a></li>
+								<li><a href="#">亚马逊</a></li>
+								<li><a href="#">凡客诚品</a></li>
+								<li><a href="#">乐蜂化妆品</a></li>
+								<li><a href="#">天 猫</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+					<div class="item clearfix">
+						<h3 class="item_title"><a href="#">影视</a></h3>
+						<div class="inner clearfix">
+							<ul class="list">
+								<li><a href="#">电 影</a></li>
+								<li><a href="#">电视剧</a></li>
+								<li><a href="#">综 艺</a></li>
+								<li><a href="#">娱 乐</a></li>
+								<li><a href="#">动 漫</a></li>
+								<li><a href="#">电视直播</a></li>
+							</ul>
+						</div>
+						<a href="#" class="huan">更多&gt;&gt;</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="hr_10"></div>
+<!--生活服务开始-->
+<div class="ft comWidth">
+	<div class="gmodule gBox">
+		<div class="inner_gmodule clearfix">
+			<div class="panel">
+				<h3 class="shTit sh"><a href="#">生活服务</a></h3>
+				<div class="item_word">
+					<h3 class="title"><a href="#">生活</a></h3>
+					<ul class="list">
+						<li><a href="#">房产</a></li>
+						<li><a href="#">家居</a></li>
+						<li><a href="#">美食</a></li>
+						<li><a href="#">招聘</a></li>
+					</ul>
+					<h3 class="title"><a href="#">购物</a></h3>
+					<ul class="list">
+						<li><a href="#">团购</a></li>
+						<li><a href="#">逛女装</a></li>
+						<li><a href="#">特惠</a></li>
+						<li><a href="#">奢侈品</a></li>
+					</ul>
+					<h3 class="title"><a href="#">汽车</a></h3>
+					<ul class="list">
+						<li><a href="#">二手车</a></li>
+						<li><a href="#">违章</a></li>
+						<li><a href="#">地图</a></li>
+						<li><a href="#">车贷</a></li>
+					</ul>
+					<h3 class="title"><a href="#">彩票</a></h3>
+					<ul class="list">
+						<li><a href="#">银行</a></li>
+						<li><a href="#">基金</a></li>
+						<li><a href="#">股票</a></li>
+						<li><a href="#">保险</a></li>
+					</ul>
+					<h3 class="title"><a href="#">女性</a></h3>
+					<ul class="list">
+						<li><a href="#">时尚</a></li>
+						<li><a href="#">减肥</a></li>
+						<li><a href="#">美容</a></li>
+						<li><a href="#">母婴</a></li>
+					</ul>
+					<h3 class="title"><a href="#">旅游</a></h3>
+					<ul class="list">
+						<li><a href="#">酒店</a></li>
+						<li><a href="#">机票</a></li>
+						<li><a href="#">火车票</a></li>
+						<li><a href="#">线路</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel">
+				<h3 class="shTit yl">
+					<a href="#">娱乐休闲</a>
+				</h3>
+				<div class="item_word">
+					<h3 class="title"><a href="#">新闻</a></h3>
+					<ul class="list">
+						<li><a href="#">军事</a></li>
+						<li><a href="#">历史</a></li>
+						<li><a href="#">八卦</a></li>
+						<li><a href="#">娱乐</a></li>
+					</ul>
+					<h3 class="title"><a href="#">电影</a></h3>
+					<ul class="list">
+						<li><a href="#">电视剧</a></li>
+						<li><a href="#">动漫</a></li>
+						<li><a href="#">综艺</a></li>
+						<li><a href="#">直播</a></li>
+					</ul>
+					<h3 class="title"><a href="#">小说</a></h3>
+					<ul class="list">
+						<li><a href="#">漫画</a></li>
+						<li><a href="#">音乐</a></li>
+						<li><a href="#">星座</a></li>
+						<li><a href="#">搞笑</a></li>
+					</ul>
+					<h3 class="title"><a href="#">游戏</a></h3>
+					<ul class="list">
+						<li><a href="#">单机</a></li>
+						<li><a href="#">棋牌</a></li>
+						<li><a href="#">小游戏</a></li>
+						<li><a href="#">手游</a></li>
+					</ul>
+					<h3 class="title"><a href="#">体育</a></h3>
+					<ul class="list">
+						<li><a href="#">NBA</a></li>
+						<li><a href="#">足球</a></li>
+						<li><a href="#">西甲</a></li>
+						<li><a href="#">网球</a></li>
+					</ul>
+					<h3 class="title"><a href="#">儿童</a></h3>
+					<ul class="list">
+						<li><a href="#">交友</a></li>
+						<li><a href="#">健康</a></li>
+						<li><a href="#">摄影</a></li>
+						<li><a href="#">设计</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="panel ">
+				<h3 class="shTit qt">
+					<a href="#">其他类别</a>
+				</h3>
+				<div class="item_word">
+					<h3 class="title"><a href="#">教育</a></h3>
+					<ul class="list">
+						<li><a href="#">英语</a></li>
+						<li><a href="#">留学</a></li>
+						<li><a href="#" class="orange">会计</a></li>
+						<li><a href="#">公务员</a></li>
+					</ul>
+					<h3 class="title"><a href="#">招商</a></h3>
+					<ul class="list">
+						<li><a href="#">行业</a></li>
+						<li><a href="#">法律</a></li>
+						<li><a href="#">黄页</a></li>
+						<li><a href="#">天气</a></li>
+					</ul>
+					<h3 class="title"><a href="#">政府</a></h3>
+					<ul class="list">
+						<li><a href="#">报纸</a></li>
+						<li><a href="#">大学</a></li>
+						<li><a href="#">爱好</a></li>
+						<li><a href="#">邮箱</a></li>
+					</ul>
+					<h3 class="title"><a href="#">电脑</a></h3>
+					<ul class="list">
+						<li><a href="#">软件</a></li>
+						<li><a href="#">手机</a></li>
+						<li><a href="#">家电</a></li>
+						<li><a href="#">社区</a></li>
+					</ul>
+					<h3 class="title"><a href="#">美女</a></h3>
+					<ul class="list">
+						<li><a href="#">图片</a></li>
+						<li><a href="#">婚嫁</a></li>
+						<li><a href="#">服饰</a></li>
+						<li><a href="#">曲艺</a></li>
+					</ul>
+					<h3 class="title"><a href="#">酷站</a></h3>
+					<ul class="list">
+						<li><a href="#">地方</a></li>
+						<li><a href="#">国外</a></li>
+						<li><a href="#">宗教</a></li>
+						<li><a href="#">宠物</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="hr_10"></div>
+<div class="comWidth">
+	<div class="beijing_sh clearfix gBox gBgColor">
+		<div class="localcity_hd">
+			<h2 class="tit">北京本地生活</h2>
+			<div class="hot_cities fr">			
+				<a href="#" target="_blank">网上挂号</a>
+				<a href="#" target="_blank">出行地图</a>
+                <a href="#">今日团购</a>
+				<a href="#" target="_blank">机票预订</a>
+				<a href="#" target="_blank">家常菜谱</a>
+				<a href="#" target="_blank">幽默搞笑</a>
+			</div>
+		</div>
+		<div class="localImg">
+			<div class="item">
+				<h3 class="tit"><a href="#">自助查询</a></h3>
+				<a href="#"><img src="img/t016e39d143013cf5bd.png" width="171" height="58" class="pic" alt=""></a>
+				<ul class="gclearfix">
+					<li><a href="#">快递查询</a></li>
+					<li><a href="#">公交查询</a></li>
+					<li><a href="#">手机查询</a></li>
+					<li><a href="#">周公解梦</a></li>
+				</ul>
+			</div>
+			<div class="item">
+				<h3 class="tit"><a href="#">本地资讯</a></h3>
+				<a href="#"><img src="http://p3.qhimg.com/t019de8650ffc9b6431.png" width="171" height="58" class="pic" alt=""></a>
+				<ul class="gclearfix">
+					<li><a href="#">北京青年报</a></li>
+					<li><a href="#">北青新闻</a></li>
+					<li><a href="#">明星访谈</a></li>
+					<li><a href="#">娱乐资讯</a></li>
+				</ul>
+			</div>
+			<div class="item">
+				<h3 class="tit"><a href="#">娱乐休闲</a></h3>
+				<a href="#"><img src="img/t0100da2d071416bb97.png" width="171" height="58" class="pic" alt=""></a>
+				<ul class="gclearfix">
+					<li><a href="#">白领消费</a></li>
+					<li><a href="#">周五读电影</a></li>
+					<li><a href="#">寻路旅游</a></li>
+					<li><a href="#">热点赛事</a></li>
+				</ul>
+			</div>
+			<div class="item">
+				<h3 class="tit"><a href="#">健康美食</a></h3>
+				<a href="#"><img src="img/t015118c2b3d0588375.png" width="171" height="58" class="pic" alt=""></a>
+				<ul class="gclearfix">
+					<li><a href="#">香锅烧烤</a></li>
+					<li><a href="#">特色地方菜</a></li>
+					<li><a href="#">麻辣火锅</a></li>
+					<li><a href="#">美食DIY</a></li>
+				</ul>
+			</div>
+			<div class="item">
+				<h3 class="tit"><a href="#">生活助手</a></h3>
+				<a href="#"><img src="img/t0194167167b9c708a3.png" width="171" height="58" class="pic" alt=""></a>
+				<ul class="gclearfix">
+					<li><a href="#">教育就业</a></li>
+					<li><a href="#">理财投资</a></li>
+					<li><a href="#">促销活动</a></li>
+					<li><a href="#">房产家居</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="hr_10"></div>
+<div class="hr_10"></div>
+<div class="footerTab" id="doc_ft">
+	<div class="footer_cont">
+		<div class="slide_nav clearfix">
+			<a href="javascript:;" class="active">八卦<i class="arrow"></i></a>
+			<a href="javascript:;">爱看电视<i class="arrow"></i></a>
+			<a href="javascript:;">宅男福利<i class="arrow"></i></a>
+			<a href="javascript:;">轻松一刻<i class="arrow"></i></a>
+			<a href="javascript:;">今日团购<i class="arrow"></i></a>
+			<a href="javascript:;">环球旅行<i class="arrow"></i></a>
+		</div>
+		<div class="slide_cont">
+			<div class="slide_cont_item clearfix s01 hide">
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+					</a>
+					<div class="linkTxt">
+						<a href="#">章子怡汪峰洛杉矶回京 避媒体分开出闸</a>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+					</a>
+					<div class="linkTxt">
+						<a href="#">章子怡汪峰洛杉矶回京 避媒体分开出闸</a>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+					</a>
+					<div class="linkTxt">
+						<a href="#">章子怡汪峰洛杉矶回京 避媒体分开出闸</a>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+					</a>
+					<div class="linkTxt">
+						<a href="#">章子怡汪峰洛杉矶回京 避媒体分开出闸</a>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+					</a>
+					<div class="linkTxt">
+						<a href="#">章子怡汪峰洛杉矶回京 避媒体分开出闸</a>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+					</a>
+					<div class="linkTxt">
+						<a href="#">章子怡汪峰洛杉矶回京 避媒体分开出闸</a>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+					</a>
+					<div class="linkTxt">
+						<a href="#">章子怡汪峰洛杉矶回京 避媒体分开出闸</a>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+					</a>
+					<div class="linkTxt">
+						<a href="#">章子怡汪峰洛杉矶回京 避媒体分开出闸</a>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+					</a>
+					<div class="linkTxt">
+						<a href="#">章子怡汪峰洛杉矶回京 避媒体分开出闸</a>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+					</a>
+					<div class="linkTxt">
+						<a href="#">章子怡汪峰洛杉矶回京 避媒体分开出闸</a>
+					</div>
+				</div>
+			</div>
+			<div class="slide_cont_item clearfix s02 hide">
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">1.王的女人</a>
+						<p>陈乔恩变腹黑大战袁姗姗</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">2.到爱的距离</a>
+						<p>李晨张馨予爱情绝唱</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">3.胜女的代价2</a>
+						<p>高端大气的狗血恋</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">4.英雄联盟</a>
+						<p>男子炸弹部队F5</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">5.爱情面前谁怕谁</a>
+						<p>平胸女汉子的春天</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">1.爸爸去哪儿</a>
+						<p>星爸考面食</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">2.快乐大本营</a>
+						<p>于小彤杨洋</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">3.非诚勿扰</a>
+						<p>约翰逊市长邀请再办英国专场</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">4.天天向上</a>
+						<p>奶爸们手足无措</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">5.全能星战</a>
+						<p>激战民歌淘汰赛</p>
+					</div>
+				</div>
+			</div>
+			<div class="slide_cont_item clearfix s03 hide">
+				<ul class="clearfix">
+					<li class="cell_01">
+						<div class="gPic">
+							<a href="#" class="gPic_link">
+								<img src="img/t0120349e177f76fa1f.jpg" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_02">
+						<div class="gPic gPic_180 mb_2">
+							<a href="#" class="gPic_link">
+								<img src="img/t013787803ebf85b2d6.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+						<div class="gPic gPic_124">
+							<a href="#" class="gPic_link">
+								<img src="img/t01799d830994ad9be0.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_02">
+						<div class="gPic gPic_124 mb_2">
+							<a href="#" class="gPic_link">
+								<img src="img/t01799d830994ad9be0.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+						<div class="gPic gPic_180">
+							<a href="#" class="gPic_link">
+								<img src="img/t013787803ebf85b2d6.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_01">
+						<div class="gPic">
+							<a href="#" class="gPic_link">
+								<img src="img/t0120349e177f76fa1f.jpg" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_02 last">
+						<div class="gPic gPic_124 mb_2">
+							<a href="#" class="gPic_link">
+								<img src="img/t01799d830994ad9be0.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+						<div class="gPic gPic_180">
+							<a href="#" class="gPic_link">
+								<img src="img/t013787803ebf85b2d6.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+			<div class="slide_cont_item clearfix s04 hide">
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">1.王的女人</a>
+						<p>陈乔恩变腹黑大战袁姗姗</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">2.到爱的距离</a>
+						<p>李晨张馨予爱情绝唱</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">3.胜女的代价2</a>
+						<p>高端大气的狗血恋</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">4.英雄联盟</a>
+						<p>男子炸弹部队F5</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">5.爱情面前谁怕谁</a>
+						<p>平胸女汉子的春天</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">1.爸爸去哪儿</a>
+						<p>星爸考面食</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">2.快乐大本营</a>
+						<p>于小彤杨洋</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">3.非诚勿扰</a>
+						<p>约翰逊市长邀请再办英国专场</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">4.天天向上</a>
+						<p>奶爸们手足无措</p>
+					</div>
+				</div>
+				<div class="gPic">
+					<a href="#" class="gPic_link">
+						<img src="img/t01c4c4c313ff850d0c.jpg" alt="">
+						<em class="txt">33:30</em>
+						<span class="gmark"></span>
+						<span class="playIcon"></span>
+					</a>
+					<div class="linkTxt">
+						<a href="#">5.全能星战</a>
+						<p>激战民歌淘汰赛</p>
+					</div>
+				</div>
+			</div>
+			<div class="slide_cont_item clearfix s03 hide">
+				<ul class="clearfix">
+					<li class="cell_01">
+						<div class="gPic">
+							<a href="#" class="gPic_link">
+								<img src="img/t0120349e177f76fa1f.jpg" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_02">
+						<div class="gPic gPic_180 mb_2">
+							<a href="#" class="gPic_link">
+								<img src="img/t013787803ebf85b2d6.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+						<div class="gPic gPic_124">
+							<a href="#" class="gPic_link">
+								<img src="img/t01799d830994ad9be0.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_02">
+						<div class="gPic gPic_124 mb_2">
+							<a href="#" class="gPic_link">
+								<img src="img/t01799d830994ad9be0.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+						<div class="gPic gPic_180">
+							<a href="#" class="gPic_link">
+								<img src="img/t013787803ebf85b2d6.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_01">
+						<div class="gPic">
+							<a href="#" class="gPic_link">
+								<img src="img/t0120349e177f76fa1f.jpg" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_02 last">
+						<div class="gPic gPic_124 mb_2">
+							<a href="#" class="gPic_link">
+								<img src="img/t01799d830994ad9be0.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+						<div class="gPic gPic_180">
+							<a href="#" class="gPic_link">
+								<img src="img/t013787803ebf85b2d6.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+				</ul>
+				
+			</div>
+			<div class="slide_cont_item clearfix s03">
+				<ul class="clearfix">
+					<li class="cell_01">
+						<div class="gPic">
+							<a href="#" class="gPic_link">
+								<img src="img/t0120349e177f76fa1f.jpg" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_02">
+						<div class="gPic gPic_124 mb_2">
+							<a href="#" class="gPic_link">
+								<img src="img/t01799d830994ad9be0.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+						<div class="gPic gPic_180">
+							<a href="#" class="gPic_link">
+								<img src="img/t013787803ebf85b2d6.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_01">
+						<div class="gPic">
+							<a href="#" class="gPic_link">
+								<img src="img/t0120349e177f76fa1f.jpg" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_02">
+						<div class="gPic gPic_180 mb_2">
+							<a href="#" class="gPic_link">
+								<img src="img/t013787803ebf85b2d6.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+						<div class="gPic gPic_124">
+							<a href="#" class="gPic_link">
+								<img src="img/t01799d830994ad9be0.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+					<li class="cell_02 last">
+						<div class="gPic gPic_124 mb_2">
+							<a href="#" class="gPic_link">
+								<img src="img/t01799d830994ad9be0.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+						<div class="gPic gPic_180">
+							<a href="#" class="gPic_link">
+								<img src="img/t013787803ebf85b2d6.png" alt="">
+								<em class="txt">秋冬款韩版针织衫 全场29元起</em>
+								<span class="gmark"></span>
+								<span class="playIcon"></span>
+							</a>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<a href="javascript:;" class="slide_prev"></a>
+			<a href="javascript:;" class="slide_next"></a>
+		</div>
+	</div>
+</div>
+<div class="footerBar">
+	<div class="copyright comWidth">
+		<a href="#">Investor Relations</a>
+		<i>|</i>
+		<a href="#">关于我们</a>
+		<i>|</i>
+		<a href="#">广告合作</a>
+		<i>|</i>
+		<a href="#">投诉建议</a>
+		<i>|</i>
+		<a href="#">挂马监测</a>
+		<i>|</i>
+		<a href="#">手机版</a>
+		<i>|</i>
+		<span class="rights">Copyright ©360.cn. All Rights Reserved.</span>
+		<a href="#">京ICP证080047号</a>
+		<a href="#">京公网安备110000000006号</a>
+	</div>
+</div>
+<div class="plane">
+	<a href="#doc_ft" class="downToFooter">发现精彩</a>
+	<a href="#" class="upToTop" title="返回顶部">回到顶部</a>
+</div>
+	
+</div>
+</body>
+</html>

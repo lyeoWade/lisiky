@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.lili{ background:red;}
+</style>
+<script>
+window.onload=function()
+{
+	var oLi=document.getElementById('li2');
+	var oAdd=document.getElementById('btn1');
+	var oRemove=document.getElementById('btn21');
+	
+	oAdd.onclick=function()
+	{
+		//判断，如果已有有这个CLASS，就不用再加
+		var oLiClassArr=oLi.className.split(' '); // 将所有的clss分开 成为一个数组
+		
+		if( findSame(oLiClassArr,'lili') )
+		{
+			addClass(oLi,'lili');	
+		};
+	};
+	function findSame(arr,str)
+	{
+	   for(var i=0;i<arr.length;i++)
+	   {
+		   if(arr[i]==str)
+		   {
+				return false;   
+			}   
+	   };
+	   //如果可以加
+	   return true;
+	};
+	
+	function addClass(obj,iClass)
+	{
+		obj.className+=' '+iClass
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="add" id="btn1">
+<input type="button" value="remove" id="btn2">
+<ul>
+	<li>1</li>
+	<li id="li2" class="li2">2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+</body>
+</html>

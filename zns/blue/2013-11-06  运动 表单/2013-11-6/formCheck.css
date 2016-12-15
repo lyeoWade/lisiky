@@ -1,0 +1,7 @@
+@charset "utf-8";
+/* CSS Document */
+
+input {border:1px solid #CCC; outline:none; padding:4px;}
+
+input.ok {border:1px solid green;}
+input.error {border:1px solid red;}

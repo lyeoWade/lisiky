@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0; }
+#box{ width:400px; height:300px; margin:0 auto; position:relative; background:#DEE7FA;}
+#box ul{  height:200px; position:absolute; left:0; bottom:0; background:#CCC;}
+#box li{ list-style:none; width:400px;  height:100%; background:#930; float:left;  }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box')
+	var oBtn=document.getElementById('btn')
+	var oUl=oBox.getElementsByTagName('ul')[0];
+	var aLi=oUl.children;
+	oUl.style.width=400*aLi.length+'px';
+	//=var timer=null;
+	var iNow=0;
+	oBtn.onclick=function ()
+	{
+		if(iNow==aLi.length-1)
+		{
+			oUl.style.left=0;
+			iNow=-1;
+		}
+		move(oUl,iNow*aLi[0].offsetWidth,(iNow+1)*aLi[0].offsetWidth);
+		iNow++;
+		
+	}
+	
+	function move(obj,iTarget,n)
+	{
+		
+		clearInterval(obj.timer);
+		
+		obj.timer=setInterval(function(){
+			var ispeed=10;
+			
+			if(n==iTarget)
+			{
+				clearInterval(obj.timer);
+			}else
+			{
+				iTarget+=10;
+				obj.style.left=-iTarget+'px';
+			}
+			},20);
+	}
+	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="box">
+		<input type="button" value="←" id="btn">
+		<ul>
+        		<li>1</li>
+                <li>2</li>
+               
+        </ul>
+</div>
+
+</body>
+</html>

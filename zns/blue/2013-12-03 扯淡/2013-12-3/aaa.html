@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+
+</style>
+<script>
+function removeClass(obj, sClass)
+{
+	var re=new RegExp('\\b'+sClass+'\\b', 'g');
+	
+	obj.className=obj.className.replace(re, '');
+	
+	if(/^\s*$/.test(obj.className))
+	{
+		obj.className='';
+		
+		obj.removeAttribute && obj.removeAttribute('className');
+		delete obj.className;
+	}
+}
+
+function addClass(obj, sClass)
+{
+	if(sClass.search(/\s/)!=-1)
+	{
+		sClass=sClass.split(/\s+/g);
+	}
+	
+	if(sClass instanceof Array)
+	{
+		for(var i=0;i<sClass.length;i++)
+		{
+			addClass(obj, sClass[i]);
+		}
+	}
+	else
+	{
+		if(obj.classList)
+		{
+			obj.classList.add(sClass);
+		}
+		else
+		{
+			var re=new RegExp('\\b'+sClass+'\\b');
+			
+			if(!re.test(obj.className))
+			{
+				obj.className+=' '+sClass;
+				
+				obj.className=obj.className.replace(/^\s+|\s+$/g, '');
+			}
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

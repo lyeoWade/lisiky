@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTex=document.getElementById('tex');
+	
+	//if(document.getElementsByClassName)
+	if(document.addEventListener)
+	{
+		//alert(1);  非IE678
+		if(window.navigator.userAgent.indexOf('MSIE 9')!=-1)  // ie9 oninput 退格不能用
+		{
+			oTex.onfocus=function()
+			{
+				this.timer=setInterval(function(){
+					document.title=oTex.value.length;		
+				},30);
+			};	
+			
+			oTex.onblur=function()
+			{
+				clearInterval(this.timer);
+			};	
+		}
+		else
+		{
+			oTex.oninput=function()
+			{
+				document.title=oTex.value.length;		
+			};
+		};
+	}
+	else
+	{
+		oTex.onpropertychange=function()
+		{
+			document.title=oTex.value.length;		
+		};
+	}	
+};
+</script>
+</head>
+
+<body>
+<input type="text" id="tex">
+</body>
+</html>

@@ -1,0 +1,43 @@
+onresize   改变窗口大小
+
+创建元素   创建出来一个元素
+
+
+
+var arr=document.creatElement('tagName');
+
+
+
+父级.appendChild(创建出来的元素)往后面插入
+
+
+父级.insertBefore (创建出来的元素，在谁之前) 
+
+ 往元素前面插入元素
+
+
+
+
+删除 
+
+
+removeChild   删除节点
+
+
+
+obj.innerHTML='';  清空
+
+
+this.index=i;
+
+
+
+
+
+
+
+obj.parentNode   父节点 
+
+
+this.parentNode.parentNode.removeChild(this.parentNode);
+

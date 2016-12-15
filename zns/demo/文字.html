@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+
+</style>
+<script>
+window.onload=function(){
+	var oUp=document.getElementById('up');
+	var oDown=document.getElementById('down');
+	var op=document.getElementById('p');
+	var iNow=14;
+	oUp.onclick=function(){
+		if(iNow>=20){
+			iNow=20;
+		}else{
+			iNow++;
+			op.style.fontSize=iNow+'px';
+		}	
+				
+	}
+	
+	oDown.onclick=function(){
+		if(iNow<=14){
+			iNow=14;
+		}else{
+			iNow--;
+			op.style.fontSize=iNow+'px';
+		}	
+				
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="加"  id="up">
+<a href="javascript:;" id="down">减</a>
+<p id="p">表单插件API
+
+
+英文原文：http://www.malsup.com/jquery/form/#api
+
+表单插件API提供了几个方法，让你轻松管理表单数据和进行表单提交。 
+
+ajaxForm
+
+增加所有需要的事件监听器，为AJAX提交表单做好准备。ajaxForm不能提交表单。在document的ready函数中，使用ajaxForm来为AJAX提交表单进行准备。ajaxForm接受0个或1个参数。这个单个的参数既可以是一个回调函数，也可以是一个Options对象。
+可链接（Chainable）：可以。
+
+实例：
+
+$('#myFormId').ajaxForm();
+
+ajaxSubmit
+
+马上由AJAX来提交表单。大多数情况下，都是调用ajaxSubmit来对用户提交表单进行响应。ajaxSubmit接受0个或1个参数。这个单个的参数既可以是一个回调函数，也可以是一个Options对象。
+可链接（Chainable）：可以。 
+
+实例：
+// 绑定表单提交事件处理器
+$('#myFormId').submit(function() {
+    // 提交表单
+    $(this).ajaxSubmit();
+    // 为了防止普通浏览器进行表单提交和产生页面导航（防止页面刷新？）返回false
+    return false;
+   });
+
+
+formSerialize
+
+将表单串行化（或序列化）成一个查询字符串。这个方法将返回以下格式的字符串：name1=value1&name2=value2。
+可链接（Chainable）：不能， 这个方法返回一个字符串。 
+
+实例：
+var queryString = $('#myFormId').formSerialize();
+
+// 现在可以使用$.get、$.post、$.ajax等来提交数据
+$.post('myscript.php', queryString);
+
+fieldSerialize
+
+将表单的字段元素串行化（或序列化）成一个查询字符串。当只有部分表单字段需要进行串行化（或序列化）时，这个就方便了。这个方法将返回以下格式的字符串：name1=value1&name2=value2。
+可链接（Chainable）：不能，这个方法返回一个字符串。 
+
+实例：
+var queryString = $('#myFormId .specialFields').fieldSerialize();
+
+
+fieldValue
+
+返回匹配插入数组中的表单元素值。从</p>
+</body>
+</html>

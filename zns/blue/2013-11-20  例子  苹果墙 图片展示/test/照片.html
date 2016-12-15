@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{ margin: 0; padding: 0; }
+	 ul{ width: 940px; margin: 40px auto; position: relative; background: #ccc; }
+	 li{ width: 128px; height: 128px; margin: 30px; float: left; list-style: none; z-index: 1; }
+	 li.active{ border: 1px solid #f00; }
+	</style>
+	<script type="text/javascript">
+	window.onload=function()
+	{
+		var aLi=document.getElementsByTagName('li');
+		var zIndex=2;
+		var aPos=[];
+
+		for(var i=0;i<aLi.length; i++)
+		{
+		  //aPos[i]={ left:aLi[i].offsetLeft,top:aLi[i].offsetTop }
+			aPos[i]={ left:aLi[i].offsetLeft,top:aLi[i].offsetTop};
+			aLi[i].style.left=aLi[i].offsetLeft+'px';
+			aLi[i].style.top=aLi[i].offsetTop+'px'
+			
+		}
+
+		for(var i=0; i<aLi.length; i++)
+		{
+			aLi[i].style.position='absolute';
+			aLi[i].style.margin='0';
+			
+			aLi[i].index=i;
+		}
+		for(var i=0; i<aLi.length; i++)
+		{
+				drag(aLi[i])
+		}
+		function drag(obj)
+		{
+			obj.onmousedown=function(ev)
+			{
+				var oEvent=ev||event;
+				var posX=oEvent.clientX-obj.offsetLeft;
+				var posY=oEvent.clientY-obj.offsetTop;
+				
+				obj.style.zIndex=zIndex++;
+				document.onmousemove=function(ev)
+				{
+					var oEvent=ev||event;
+					obj.style.left=oEvent.clientX-posX+'px';
+					obj.style.top=oEvent.clientY-posY+'px';
+					/*for(var i=0; i<aLi.length; i++)
+					{
+						if(obj==aLi[i])continue;
+						if(test(obj,aLi[i]))
+						{
+							aLi[i].className='active';
+						}else
+						{
+							aLi[i].className='';
+						}
+					}*/
+					
+					//console.log(obj.offsetLeft+'-'+obj.offsetTop)
+					var near=nearest(obj);
+
+					for(var i=0; i<aLi.length; i++)
+					{
+						aLi[i].className='';
+					}
+					
+					if(near)
+					{
+						near.className='active';
+					}
+
+					return false;
+				}
+				
+				document.onmouseup=function()
+				{
+					document.onmousemove=null;
+					document.onmouseup=null;
+
+					var near=nearest(obj);
+					if(near)
+					{
+						
+						near.className='';
+						startMove(near,aPos[obj.index])
+						startMove(obj,aPos[near.index])
+						
+						var tmp;
+						tmp=obj.index;
+						obj.index=near.index;
+						near.index=tmp;
+						obj.style.zIndex=zIndex++;
+						near.style.zIndex=zIndex++;
+					}else
+					{
+							
+							//
+							//startMove(obj,aPos[obj.index]);
+							startMove(obj,{ left : aPos[obj.index].left ,top:aPos[obj.index].top});
+							
+							//console.log('l:'+aPos[obj.index].left+'t:'+aPos[obj.index].top)
+					}
+					
+				}
+				clearInterval(obj.timer);
+				return false;
+			}		
+		}
+		function test(obj1,obj2)
+		{
+			var l1=obj1.offsetLeft;
+			var t1=obj1.offsetTop;
+			var r1=obj1.offsetLeft+obj1.offsetWidth;
+			var b1=obj1.offsetTop+obj1.offsetHeight;
+
+			var l2=obj2.offsetLeft;
+			var t2=obj2.offsetTop;
+			var r2=obj2.offsetLeft+obj2.offsetWidth;
+			var b2=obj2.offsetTop+obj2.offsetHeight;
+
+			if(l1>r2 || r1<l2 || b1<t2 || t1>b2)
+			{
+				return null;
+			}
+			else 
+			{
+				return true;
+			}
+		}
+		
+		function nest(obj1,obj2)
+		{
+			/*var disx=obj1.offsetLeft+obj1.offsetWidth/2;
+			var disy=obj1.offsetTop+obj2.offsetHeight/2;
+
+			var posx=obj2.offsetLeft+obj2.offsetWidth/2;
+			var posy=obj2.offsetTop+obj2.offsetHeight/2;
+
+			a=obj2.offsetLeft-obj1.offsetLeft
+			b=obj2.offsetTop+obj2.offsetHeight/2-obj1.offsetTop-obj2.offsetHeight/2*/
+			var a=obj2.offsetLeft-obj1.offsetLeft;
+			var b=obj2.offsetTop-obj1.offsetTop;
+			
+			return Math.sqrt(a*a+b*b)
+		}
+
+		function nearest(obj)
+		{
+			var minMax=999999;
+			var indexMin=-1;
+			// 先碰上
+			for(var i=0; i<aLi.length; i++)
+			{
+				if(obj==aLi[i])continue;
+				if(test(obj,aLi[i]))
+				{
+					// 找距离
+					var dis=nest(obj,aLi[i])
+
+					if(dis<=minMax)
+					{
+						minMax=dis;
+						indexMin=i;
+					}
+				}
+			}
+
+			if(indexMin==-1)
+			{
+				return null;
+			}else
+			{
+				return aLi[indexMin];
+			}
+		}
+
+	}
+
+	function getStyle(obj,attr){ return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr]}
+	function getCur(obj,name)
+	{
+		var cur=[];
+		if(name=='opacity')
+		{
+			cur=Math.round(parseFloat(getStyle))
+		}else
+		{
+			cur =parseInt(getStyle)
+		}
+
+		if(isNaN(cur))
+		{
+			switch(name)
+			{
+				case 'top':
+					return obj.offsetTop;
+				case 'left':
+					return obj.offsetLeft;
+				case 'width':
+					return obj.offsetWidth;
+				case 'height':
+					return obj.offsetHeight;
+
+			}
+		}
+
+		return cur;
+	}
+	function startMove(obj,json,options)
+	{
+		options=options||{};
+		options.time=options.time||700;
+		options.type=options.type||'buffer';
+		var count=parseInt(options.time/30);
+		var first={};
+		var dis={};
+		for(var i in json)
+		{
+			first[i]=getCur(obj,i)
+			dis[i]=json[i]-first[i];
+		}
+
+		clearInterval(obj.timer)
+		var n=0;
+		obj.timer=setInterval(function(){
+			
+			n++;
+			var wade;
+			for(var i in json)
+			{
+				switch(options.type)
+				{
+					case 'linear':
+					wade=first[i]+n*dis[i]/count;
+					break;
+					case 'buffer':
+					var a=1-n/count;
+					wade=first[i]+dis[i]*(1-a*a*a);
+					break;
+					case 'StoF':
+					var a=n/count;
+					wade=first[i]+dis[i]*a*a*a;
+					break;
+				}
+	
+				if(i=='opacity')
+				{
+					obj.style.opacity=wade;
+					obj.style.filter='alpha(opacity:'+wade*100+')';
+				}else
+				{
+					obj.style[i]=wade+'px';
+				}
+			}
+	
+			if(n==count)
+			{
+				clearInterval(obj.timer)
+				options.fn && options.fn();
+			}
+		},30)
+	}
+	</script>
+</head>
+<body>
+	<div id="box">
+		
+		<ul>
+			<li><img src="img2/4.png"></li>
+			<li><img src="img2/2.png"></li>
+			<li><img src="img2/3.png"></li>
+			<li><img src="img2/1.png"></li>
+			<li><img src="img2/5.png"></li>
+			<li><img src="img2/6.png"></li>
+			<li><img src="img2/7.png"></li>
+			<li><img src="img2/8.png"></li>
+			<li><img src="img2/9.png"></li>
+			<li><img src="img2/10.png"></li>
+			<li><img src="img2/11.png"></li>
+			<li><img src="img2/12.png"></li>
+			<li><img src="img2/13.png"></li>
+			<li><img src="img2/14.png"></li>
+			<li><img src="img2/5.png"></li>
+		</ul>
+
+	</div>
+</body>
+</html>

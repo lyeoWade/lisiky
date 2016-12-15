@@ -1,0 +1,18 @@
+
+事件委托  － 事件代理 
+oEvent.srcElement  事件源     chrome ie
+oEvent.target                 FF  非IE678   chrome
+ 
+
+-------
+
+mouseout  bug
+如果目的地是子元素，就不让它执行
+
+目标节点：oEvent.toElement   非FF
+          oEvent.relatedTarget   FF
+
+
+// 看始发地  看源节点
+var toElement=oEvent.formElement || oEvent.relatedTarget;
+

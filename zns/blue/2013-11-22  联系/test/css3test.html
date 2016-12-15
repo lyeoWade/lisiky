@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0; }
+#div1{ width:500px; height:300px; position:absolute; left:10px; top:10px; border:1px solid #CCC }
+#div1 span{ text-shadow:0 0 3px #999; display:block;  }
+
+#div1 .shadow{ text-align:center; line-height:200px; width:200px; height:200px; border-radius:50%;  background:#0C9;  transition:1s all ease;margin:10px;  }
+#div1 .shadow:hover{ box-shadow:0 0 30px #00FF99; }
+
+#div1 .btn{ width:120px; height:40px; border-radius:5px; background:#EBFCE4; border:1px solid #999; margin:1px 10px 0; text-align:center; line-height:40px; transition:0.3s all ease; }
+#div1 .btn:active{ box-shadow:0px 2px 5px #00CCCC; }
+
+#div2{ width:500px; height:500px; border:1px solid #CCC; position:absolute; left:10px; top:330px;   }
+#div2 ul{ position:relative; }
+#div2 li{ text-align:center; line-height:60px; list-style:none; border:1px solid #333; background:#ccc; margin:10px 0 0 10px; width:200px; height:60px;	transition:all 1s ease; 
+-webkit-transition:all 1s ease ;  
+transform-origin:right center;
+-webkit-transform-origin:right center;
+-moz-transform-origin:right center;
+-o-transform-origin:right center;
+-ms-transform-origin:right center;
+}
+#div2 li:nth-child(7) {transform-origin:right center; }
+#div2 li:nth-child(1){ left:0px; position:relative; }
+
+#div2 li:nth-child(1):hover{ left:100px; }
+#div2 li:nth-child(2):hover{ -webkit-transform:rotate(360deg); }
+#div2 li:nth-child(3):hover{ background:#f96; }
+#div2 li:nth-child(4):hover{ box-shadow:0 0 5px red; text-shadow:0 0 1px #000; }
+#div2 li:nth-child(5):hover{ -webkit-transform:translate(100px,10px) }
+#div2 li:nth-child(6):hover{ border-radius:30px 0 30px 0; background:#F60; }
+#div2 li:nth-child(7):hover{ width:300px; }
+</style>
+</head>
+
+<body>
+
+<div id="div1">
+	<span>打开时没有焦点的时候正常？</span>
+    <span class="shadow">圆</span>
+    <span class="btn">提交</span>
+</div>
+
+<div id="div2">
+	<ul>
+    		<li></li>
+            <li></li>
+            <li></li>
+            <li>打开时没有焦点的时候正常</li>
+            <li></li>
+            <li></li>
+            <li></li>
+            
+    </ul>
+
+
+</div>
+</body>
+</html>

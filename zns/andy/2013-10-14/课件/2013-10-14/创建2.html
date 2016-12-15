@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function()
+	{
+		var oNewDiv=document.createElement('div');
+			//alert(234);
+		document.body.appendChild(oNewDiv);
+	};
+	
+		
+};
+
+</script>
+
+</head>
+
+<body>
+<input type="button" value="点击创建" id="btn">
+</body>
+</html>

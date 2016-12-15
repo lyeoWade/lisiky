@@ -1,0 +1,132 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; }
+div{ text-align:center; width:400px; height:200px; margin:100px auto; }
+.txt{  padding-left:8px; color:#666; line-height:24px; width:220px; height:24px;  }
+input{ margin:4px;  outline:none; }
+.btn{ background:#FEFEE2; width:232px; height:26px; background:none;  border:none; border:1px solid #666; }
+.btn:hover{ background:#CCC;  }
+#box{ width:400px; height:100px; margin:0 auto;  text-align:center; }
+#box span{ color:#333; width:100%; height:40px; line-height:40px; display:block;  padding:0; border-bottom:1px dashed #C99; }
+#box p{width:100%; height:60px; line-height:60px; color:#222   }
+</style>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<!--实验5JavaScript基础（JS写在网页中，最后上交html文件，不许打压缩包）
+【实验目的】
+1.        掌握JS基本语法及函数；
+2.        掌握JS验证表单基本原理。
+【实验内容】
+
+1.完成类似如下代码，实现不同时间显示不同内容。 
+2.JS验证表单，请在以下基础上修改完善功能用户注册用的表单
+
+-->
+<form action="" onsubmit="return CheckForm(this);" method="post">
+   <div>
+       <input name="TextBoxUser" class="txt" type="text" value="我喜欢的一首歌" id="TextBoxUser"/><br/>
+       <input name="TextBoxPass1" class="txt" type="text" value="不过情人节" id="TextBoxPass1"/><br/>
+       <input name="TextBoxPass2" class="txt" type="text" value="不过情人节" id="TextBoxPass2"/><br/>
+       <input name="Email"type="text" class="txt" value="付辛博" id="Email"/><br/>
+       <input type="submit" value="提交" class="btn" id="ButtonPost"/>
+   </div>
+</form>
+ <!--验证表单的JS-->
+ 
+<div id="box" >
+	<span>12：:1</span>
+    <p></p>
+</div>
+<script>
+function CheckForm() {
+			
+			var oText=document.getElementById("TextBoxUser");
+			var oPass=document.getElementById("TextBoxPass1")
+			var oPass2=document.getElementById("TextBoxPass2")
+			var oEm=document.getElementById("Email")
+           var errString;
+           if(oText.value.length>4 || oText.value=='') {
+			  {
+				errString="我喜欢的一首歌！(1-4个字)";
+               alert(errString);
+               oText.focus();
+               return false;  
+			  } 
+           }
+		   if(oPass.value.length>17 || oPass.value.length<6)
+			   {
+				  alert('请输入歌名'); 
+				  return false;
+			   }
+           if(oPass.value !=oPass2.value) {
+               errString="请输入一致的歌名";
+               alert(errString);
+               return false;
+           }
+           else if(oEm.value.indexOf("@")<0) {
+               errString="请输入正确的Email地址！";
+               alert(errString);
+               return false;
+           }
+           else return true;
+       }
+
+   
+</script>
+</body>
+</html>
+<script >
+function oDate()
+{
+	var arr=['该起床了','现在是上午时间,新的一天！','累了一上午现在该吃午饭了','下午继续奋斗','忙碌了一天之后好好休息休息'];
+	var oDiv=document.getElementById('box');
+	var oSpan=document.getElementsByTagName('span')[0];
+	var oP=document.getElementsByTagName('p')[0];
+	
+	
+	dat();
+	setInterval(dat,1000)
+		
+	function dat(){
+		
+			var oDate=new Date();
+			var oY=oDate.getFullYear();
+			var oM=oDate.getMonth()+1;
+			var oD=oDate.getDate();
+			var oH=oDate.getHours();
+			var oMi=oDate.getMinutes();
+			var oS=oDate.getSeconds();
+			var str='现在是:'+oY+'-'+oM+'-'+oD+'---'+oH+':'+oMi+':'+oS;
+			oSpan.innerHTML=str;
+		}
+	var oDate=new Date();
+	var oH=oDate.getHours();
+	if(oH<=7)
+	{
+		oP.innerHTML=arr[0];
+	}else if(oH>7 && oH<=12)
+	{
+		oP.innerHTML=arr[1];
+	}
+	else if(oH>12 && oH<=14)
+	{
+		oP.innerHTML=arr[2];
+	}else if(oH>4 && oH<=17)
+	{
+		oP.innerHTML=arr[3];
+	}else
+	{
+		oP.innerHTML=arr[4];
+	}
+	
+}
+
+oDate();
+
+</script>

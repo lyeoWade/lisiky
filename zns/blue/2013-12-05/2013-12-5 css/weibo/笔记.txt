@@ -1,0 +1,43 @@
+seo——		search engine optimization
+	百度——seo
+
+1.语义化
+2.文字尽量别用图片——加上文字
+3.大部分搜索引擎都执行不了JS——静态化
+4.pr——page rank
+
+
+sem——		search engine market
+
+<a href="javascript:undefined;"
+
+------------------------------------------------------------------------------------------------
+
+nofollow
+
+------------------------------------------------------------------------------------------------
+
+3*ul
+ul: width 200 margin 10 border 1
+222
+
+clientWidth=547
+
+parseInt(clientWidth/222)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

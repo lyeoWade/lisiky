@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{ margin: 0; padding: 0;}
+		#div1{ width: 100%; position: absolute;  text-align: center; bottom: 0; left: 0;}
+		img{ border: 0;  }
+		input{ text-align: center; }
+	</style>
+	<script type="text/javascript">
+	window.onload=function()
+	{
+		var oDiv=document.getElementById('div1');
+		var aImg=oDiv.getElementsByTagName('img');
+		var oInput=document.getElementsByTagName('input');
+
+
+		
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+
+			for(var i=0; i<aImg.length; i++)
+			{
+				var left=aImg[i].offsetLeft+aImg[0].offsetWidth/2;
+				var top=aImg[i].offsetTop+oDiv.offsetTop+aImg[0].offsetHeight/2;
+				var posx=left-oEvent.clientX;
+				var posy=top-oEvent.clientY;
+				var dis=Math.sqrt(posx*posx+posy*posy);
+				var scale=1-dis/400;
+				if(scale<0.5)scale=0.5;
+				aImg[i].style.width=scale*128+'px';
+				aImg[i].style.height=scale*128+'px';
+				//oInput[i].value=left+'---'+top;
+				//oInput[i].value=parseInt(dis);
+				oInput[i].value=scale.toFixed(2);
+
+			}
+		}/**/
+	}
+	</script>
+</head>
+<body>
+	<input type="text" name="" id="">
+	<input type="text" name="" id="">
+	<input type="text" name="" id="">
+	<input type="text" name="" id="">
+	<input type="text" name="" id="">
+	
+	<div id="div1">
+		<img src="img/1.png" alt="1111" width="64">
+		<img src="img/2.png" alt="" width="64">
+		<img src="img/3.png" alt="" width="64">
+		<img src="img/4.png" alt="" width="64">
+		<img src="img/5.png" alt="" width="64">
+	</div>
+</body>
+</html>

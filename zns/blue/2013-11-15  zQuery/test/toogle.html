@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oInput=document.getElementsByTagName('input');
+	var count=0;
+	for(var i=0; i<oInput.length; i++)
+	{
+		oInput[i].onclick=function()
+		{
+			alert(count++)
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+
+<input type="button" value="111111">
+<input type="button" value="222222">
+<input type="button" value="333333">
+
+</body>
+</html>

@@ -1,0 +1,187 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+#dateDiv{width:210px;margin:100px auto; overflow:hidden;border:1px solid #000;}
+#dateDiv .name{height:20px; line-height:20px;}
+#dateDiv .name li{height:20px;width:100%; text-align:center; color:blue;list-style:none; position:relative;}
+#dateDiv .name li .a1{ position:absolute;top:0;left:0;}
+#dateDiv .name li .a2{ position:absolute;top:0;right:0;}
+#dateDiv .week{height:30px; line-height:20px;border-bottom:1px solid #000;}
+#dateDiv .week li{ float:left;width:30px;height:30px; text-align:center; list-style:none;}
+#dateDiv .dateUl{ overflow:hidden; clear:both}
+#dateDiv .dateUl li{float:left;width:30px;height:30px; text-align:center; line-height:30px;list-style:none;}
+#dateDiv .dateUl li.ccc{ color:#ccc;}
+#dateDiv .dateUl li.red{ background:#F90}
+#dateDiv .dateUl li.sun{ color:#f00;}
+</style>
+<script>
+
+window.onload=function()
+{
+   var dateDiv=document.getElementById('dateDiv');
+   var aUl=dateDiv.children;
+   //算出本月有多少天，放多少个LI
+   function nowDays()
+   {
+	   var oDate=new Date();
+	   //将日期先调到下个月，再将天数调为0 回到上个月最后一天
+	   oDate.setMonth(oDate.getMonth()+iNow);
+	   oDate.setMonth(oDate.getMonth()+1,0); 
+	   //oDate.setDate(0);
+	   return oDate.getDate();
+   };
+   
+   // 算出本月第一天是星期几
+   function firstDay()
+   {
+		var oDate=new Date();
+		oDate.setMonth(oDate.getMonth()+iNow);
+		 oDate.setDate(1);
+		 return oDate.getDay();
+		 // 0-6   星期天是0
+   };
+   
+	
+	function dateFn()
+	{
+	   //每次进来之前都要清空
+	   
+	   aUl[2].innerHTML='';	
+	   
+		
+	  //接收本月第一天是星期几
+	   var firstWeek=firstDay();
+	   if(firstWeek==0)firstWeek=7;
+	   firstWeek--;
+	   
+	   //塞空白日期的LI
+	   for(var i=0;i<firstWeek;i++)
+		{
+			var oLi=document.createElement('li');
+			aUl[2].appendChild(oLi);
+		}
+	   
+	   
+		//接收本月有几天
+		var days=nowDays();
+		
+		//根据本月有多少天创建LI
+		for(var i=0;i<days;i++)
+		{
+			var oLi=document.createElement('li');
+			oLi.innerHTML=i+1;
+			aUl[2].appendChild(oLi);
+		};
+		
+		//获取所有日期的LI
+		var aLi=aUl[2].children;
+		
+		//判断是上个月还是下个月还是本月
+		var oDate=new Date();
+		oDate.setMonth(oDate.getMonth()+iNow);
+		var d=oDate.getDate();
+		
+		if(iNow<0)
+		{
+			//上个月
+			for(var i=0;i<aLi.length;i++)
+			{
+				aLi[i].className='ccc';	
+			};
+		}
+		else if(iNow==0)
+		{
+				
+			for(var i=0;i<aLi.length;i++)
+			{
+				if(aLi[i].innerHTML<d)
+				{
+					//过去的日期变灰
+					aLi[i].className='ccc';	
+				}	
+				else if(aLi[i].innerHTML==d)
+				{
+					//当天
+					aLi[i].className='red';		
+				}
+				else if(i%7==5||i%7==6)
+				{
+					//星期六星期天
+					aLi[i].className='sun';	
+				}
+				
+			}
+		}
+		else
+		{
+							
+			for(var i=0;i<aLi.length;i++)
+			{
+				if(i%7==5||i%7==6)
+				{
+					//星期六星期天
+					aLi[i].className='sun';	
+				}
+				
+			}
+	
+		}
+		
+		//改日期标题
+		var oS=document.getElementById('s');
+		oS.innerHTML=oDate.getFullYear()+'年'+(oDate.getMonth()+1)+'月';
+	};
+	
+	
+	
+	
+	
+	var iNow=0;
+	dateFn();
+	//上月下月
+	var oPre=document.getElementById('pre');
+	var oNext=document.getElementById('next');
+	
+	oNext.onclick=function()
+	{
+		iNow++;
+		dateFn();
+	};
+	
+	oPre.onclick=function()
+	{
+		iNow--;
+		dateFn();
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="dateDiv">
+	<ul class="name">
+    <li>
+       <span id="s">2013年10月</span>
+       <a href="javascript:;" id="pre" class="a1">上月</a>
+       <a href="javascript:;" id="next" class="a2">下月</a>
+    </li>
+    </ul>
+    <ul class="week">
+    	<li>一</li>
+    	<li>二</li>
+    	<li>三</li>
+    	<li>四</li>
+    	<li>五</li>
+    	<li>六</li>
+    	<li>七</li>
+    </ul>
+    <ul class="dateUl">
+    	
+    </ul>
+</div>
+</body>
+</html>

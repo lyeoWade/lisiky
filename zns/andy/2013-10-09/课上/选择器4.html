@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+div { width:auto; height:30px; margin:5px; background:#EFEFEF }
+</style>
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var aDiv=$('div');
+	for(var i=0; i<aDiv.length; i++)
+	{
+		aDiv[i].style.background='#f96';
+	}
+	function $(str)
+	{
+		var firstStr=str.charAt(0); // 选择传进来的字符串第一位是什么？
+		switch(firstStr)
+		{
+			case '#':
+				return document.getElementById(str.substring(1));
+				break;
+			case '.':
+				return getByClass(document,str.substring(1));
+				break;
+			default:
+				return document.getElementsByTagName(str);
+		}
+		
+		
+	}
+}
+
+function getByClass(oParent,sClass)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(sClass);
+	}else
+	{
+		var aEle=oParent.getElementsByTagName('*');
+		var arr=[];
+		for(var i=0; i<aEle.length; i++)
+		{
+			if(aEle[i].className==sClass)
+			{
+				arr[arr.length]=aEle[i];
+			}
+		}
+		return arr;
+	}
+}
+</script>
+</head>
+
+<body>
+
+<div class="show"></div>
+<div id="div1"></div>
+<div class="show"></div>
+<div class="div1"></div>
+<div ></div>
+<div ></div>
+<div ></div>
+<div ></div>
+</body>
+</html>

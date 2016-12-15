@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title> 
+
+<style>
+
+</style>
+<script>
+/* \b是正则表达式规定的一个特殊代码（好吧，某些人叫它元字符，metacharacter），代表着单词的开头或结尾，也就是单词的分界处。虽然通常英文的单词是由空格，标点符号或者换行来分隔的，但是\b并不匹配这些单词分隔字符中的任何一个，它只匹配一个位置”
+
+问题来了，什么叫只匹配一个位置？？？？
+
+ 
+
+要知道是一个单词的开头，这个\b是去匹配开头的分隔符还是匹配开头的第一个字母？？
+
+ 
+
+从网上找到了这样一句话：“如果需要更精确的说法，\b匹配这样的位置：它的前一个字符和后一个字符不全是(一个是,一个不是或不存在)\w（匹配字母或数字或下划线或汉字）”
+
+ 
+
+这句话很隐晦的说出了是去匹配第一个字母，而不是去匹配分割符（我这说的匹配分隔符和上边说的不去匹配任何一个分隔符并不矛盾，因为我经过实验已经进本猜出了一个单词两边只要没有数字、字母、汉字、下划线就可以认为是独立单词，我说的匹配分隔符是去判断单词前一个字符是不是在这四个之外，是的话就认为是单词开头）
+
+ 
+
+再加上下边的两个例子就可以很清晰的理解这句很隐晦的话。
+
+引用Microsoft   VBScript   Regular   Expression  
+
+Dim myReg As RegExp
+
+Set myReg = New RegExp
+
+ 
+
+myReg.Pattern = "a\b.*h.*"
+
+Print myReg.Test("a,chia")
+
+输出的结果为Ture 说明是匹配的a，而不是，
+
+Dim myReg As RegExp
+
+Set myReg = New RegExp
+
+ 
+
+myReg.Pattern = "a.* \b h.*"
+
+Print myReg.Test("a,chia")
+
+输出的结果为flash 说明匹配的是h，而不是c
+
+ 
+
+这两个例子非常有助于理解\b的真实含义，希望对大家有帮助！
+
+ 
+
+接下来就是我保证目前网络中没有的内容了！！！！还有两点需要说明：
+
+1、\b只能匹配字母、数字、汉字、下划线
+
+2、\b就近匹配，比如\bAB 匹配A，AB\b 匹配B；但如果只写一个\b或者在两个字母、数字、汉字、下划线之间有\b时就在所有字符或者两个字母、数字、汉字、下划线之间所有字符去逐个匹配
+
+相信如果你能看懂我上面所写的东西，对于\b的使用算是没有任何问题了！对正则表达式的学习有一个好的开始和基础！
+
+*/
+alert('a\nb');   // 转义  \n 换行
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

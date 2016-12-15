@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="jquery-1.7.2.js"></script>
+<script>
+$(function (){
+	$('#btn1').click(function (){
+		//$('<li class="box">'+$('#txt1').attr('value')+'</li>').insertBefore('#ul1 li:contains(ccc)');
+		$('<li class="box">'+$('#txt1').attr('value')+'</li>').insertAfter('#ul1 li:contains(ccc)');
+	});
+});
+</script>
+</head>
+
+<body>
+<input type="text" id="txt1" />
+<input type="button" value="创建" id="btn1" />
+<ul id="ul1">
+	<li>aaa</li>
+	<li>bbb</li>
+	<li>ccc</li>
+	<li>ddd</li>
+	<li>eee</li>
+</ul>
+</body>
+</html>

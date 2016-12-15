@@ -1,0 +1,78 @@
+
+函数名加上括号就是执行
+
+如果执行完，没有return 会自动return undefined
+
+
+封闭空间:避免重名
+局部变量，变量是不会互相干扰
+
+
+-----------
+
+arguments  参数数组 不需要声明，默认就有
+
+-----------
+字符串：
+indexOf 查找字符
+window.navigator.userAgent  浏览器信息
+
+lastIndexOf  从后开始找
+
+split	切分字符串  切成一个数组
+
+substring
+
+toLowerCase 转小写
+toUpperCase 转大写
+
+
+
+数组：
+arr.push(4); 往数组后面填加
+
+arr.pop(); 删除最后面个
+
+arr.join(' ') 将数组拼成字符串
+
+arr.unshift(100);   往前面填加
+arr.shift();        从前面删除
+
+arr1.concat(arr2)    连接两个数组
+
+-----------
+oBox.style.cssText='width:400px;height:400px;background:blue;padding:5px';
+批量加样式
+
+－－－－－－－－－－－－－－－－－－－
+
+
+with 批量给对象加属性或样式  （不要用）
+
+
+
+
+---------------------
+
+
+sort 数组排序
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

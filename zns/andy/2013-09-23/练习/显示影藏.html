@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<style>
+div{ width:100px; height:100px; background:red; display:none; }
+</style>
+<script>
+function toHide()
+{
+	var odiv=document.getElementById('div1');
+	
+	if(odiv.style.display=='none')
+	{
+		odiv.style.display='block';
+	}else
+	{
+		odiv.style.display='none';
+	}	
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="button" value="显示隐藏" onclick="toHide();">
+
+<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+html,body{ height:100%;}
+.box{height:95%; background:red; width:100%;}
+.box .one{height:30px; background:blue}
+.box .two{background:yellow}
+</style>
+<script>
+window.onload=window.onresize=function()
+{
+	var oBox=document.getElementById('box');
+	var oTwo=document.getElementById('two');
+	oTwo.style.height=oBox.offsetHeight-30+'px';	
+};
+</script>
+</head>
+
+<body>
+<div class="box" id="box">
+    <div class="one"></div>
+	<div class="two" id="two"></div>
+</div>
+</body>
+</html>

@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+#box{width:240px;height:100px; margin:0 auto;}
+#box span{ float:left;width:20px;height:100px; background:blue;}
+#box div{width:200px;height:100px; float:left; position:relative;}
+#box div ul{height:100px; position:relative;}
+#box div ul li{width:200px;height:100px; position:absolute;top:0;left:0; display:none;}
+#box div ul li.show{ display:block}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var aSpan=oBox.getElementsByTagName('span');
+	var aLi=oBox.getElementsByTagName('li');
+	
+	
+	aSpan[1].onclick=function()
+	{
+		aLi[0].className='';
+		aLi[1].className='show';	
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+	<span>left</span>
+	<div>
+    	<ul>
+        	<li class="show"><img src="img/toyota_ad.jpg" width="200" height="100"></li>
+        	<li><img src="img/U3093P30DT20130911114332.jpg" width="200" height="100"></li>
+        	<li><img src="img/U3093P30DT20130923134652.jpg" width="200" height="100"></li>
+        </ul>
+    </div>
+	<span>right</span>
+</div>
+</body>
+</html>

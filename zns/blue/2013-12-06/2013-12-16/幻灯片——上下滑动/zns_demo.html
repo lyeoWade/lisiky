@@ -1,0 +1,69 @@
+<!--
+智能社© - http://www.zhinengshe.com/
+
+微博：@北京智能社
+微信：zhi_neng_she
+
+最具深度的前端开发培训机构 HTML+CSS/JS/HTML5
+-->
+
+
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>淘宝幻灯片上下滑动效果 —— www.zhinengshe.com —— 智能社</title>
+<link href="css.css" rel="stylesheet" type="text/css" />
+<script src="../jquery-1.7.2.js"></script>
+<script>
+$(function (){
+	var aBtn=$('#play ol li');
+	var oUl=$('#play ul');
+	
+	var now=0;
+	
+	aBtn.mouseover(function (){
+		now=$(this).index();
+		
+		tab();
+	});
+	
+	function tab()
+	{
+		aBtn.removeClass('active');
+		aBtn.eq(now).addClass('active');
+		oUl.stop().animate({top: -now*oUl.find('li').height()});
+	}
+	
+	function next()
+	{
+		now++;
+		
+		if(now==aBtn.length)now=0;
+		
+		tab();
+	}
+});
+</script>
+</head>
+
+<body>
+
+<div class="play" id="play">
+    <ol>
+    	<li class="active">1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+	<ul>
+		<li><a href="http://www.zhinengshe.com/"><img src="images/1.jpg" alt="广告一" /></a></li>
+		<li><a href="http://www.zhinengshe.com/"><img src="images/2.jpg" alt="广告二" /></a></li>
+		<li><a href="http://www.zhinengshe.com/"><img src="images/3.jpg" alt="广告三" /></a></li>
+		<li><a href="http://www.zhinengshe.com/"><img src="images/4.jpg" alt="广告四" /></a></li>
+		<li><a href="http://www.zhinengshe.com/"><img src="images/5.jpg" alt="广告五" /></a></li>
+	</ul>
+</div>
+</body>
+</html>

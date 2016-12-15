@@ -1,0 +1,5 @@
+1.请选择对javascript理解有误的：
+A. JScript是javascript的简称
+B. javascript是网景公司开发的一种Java脚本语言，其目的是为了简化Java的开发难度
+C. FireFox和IE存在大量兼容性问题的主要原因在于他们对javascript的支持不同上
+D. AJAX技术一定要使用javascript技术

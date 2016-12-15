@@ -1,0 +1,380 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+
+<script>
+
+function $(vag)
+{
+	return new XQuery(vag);
+}
+
+// 构造函数 XQuery
+function XQuery(vag)
+{
+	this.elements=[];
+	switch (typeof vag) // 函数  字符串   对象
+	{
+		case 'function':
+			this.elements=ready(vag);
+		break;
+		case 'string':
+			this.elements=getEle(vag);
+		break;
+		case 'object':
+			if(vag instanceof Array)
+			{
+				this.elements=vag;
+			}else
+			{
+				this.elements.push(vag);
+			}
+		break;
+	}
+}
+
+/*XQuery.prototype.click=function(fn)
+{
+	for(var i=0; i<this.elements.length; i++)
+	{
+		myEvent(this.elements[i],'click',fn)
+	}
+}*/
+//(function(){})()
+var arr="mouseover click mouseout blur focus change dblclick contextmenu".split(' ');
+for(var i=0; i<arr.length; i++)
+{
+	(function(ind){
+		XQuery.prototype[arr[i]]=function(fn)
+		{
+			this.bind(arr[ind],fn);
+		}
+		})(i)
+}
+XQuery.prototype.hover=function(fnover,fnout)
+{
+	this.mouseenter(fnover)
+	this.mouseleave(fnout);
+}
+XQuery.prototype.bind=function(sEv,fn)
+{
+	
+	for(var i=0; i<this.elements.length; i++)
+	{
+		myEvent(this.elements[i],sEv,fn)
+		
+	}
+}
+XQuery.prototype.mouseleave=function(fn)
+{
+	this.bind('mouseout',function(ev){
+		var obj=ev.toElement||ev.relatedTarget;
+		if(isChild(this,obj))return;
+		fn && fn.call(this,ev);
+		});
+}
+XQuery.prototype.mouseenter=function(fn)
+{
+	
+	this.bind('mouseover',function(ev){
+		
+			var obj=ev.fromElement||ev.relatedTarget;
+			if(isChild(this,obj))return;
+			
+			fn && fn.call(this,ev)
+		});
+}
+XQuery.prototype.toggle=function()
+{
+	
+	var _this=this;
+	var arg=arguments;
+	for(var i=0; i<this.elements.length; i++)
+	{
+		(function(count){
+			
+			myEvent(_this.elements[i],'click',function(ev){
+			
+			arg[count%arg.length].call(this,ev)
+			count++
+			});
+			
+			})(0)
+		
+	}
+
+}
+/*ZQuery.prototype.toggle=function ()
+{
+	var _this=this;
+	var _args=arguments; // 多了一层函数——this就会变
+	for(var i=0;i<this.elements.length;i++)
+	{
+		//多了一层函数——this就会变
+		(function (count){
+			addEvent( _this.elements[i], 'click', function (ev){
+				_args[count%_args.length].call(this, ev);   //count%_args.length  到头的时候 从头再来
+				count++;
+			});
+		})(0); // 传 count  不传的话共用一个  会累加
+	}
+};*/
+XQuery.prototype.css=function(name,value)
+{	// arguments
+	if(arguments.length==2)
+	{
+		
+		for(var i=0; i<this.elements.length; i++)
+		{
+			this.elements[i].style[name]=value;
+		}
+	}else
+	{
+		if(typeof name=='string')
+		{
+			return getStyle(this.elements[0],name);
+		}else  //json 
+		{
+			for(var i=0; i<this.elements.length; i++)
+			{
+				for(var j in name)
+				{
+					this.elements[i].style[j]=name[j];
+				}	
+			}
+			
+		}
+		
+	}
+
+}/**/
+function isChild(oParent,obj)
+{
+	while(obj)
+	{
+		if(obj==oParent)return true;
+		obj=obj.parentNode;
+	}
+	return false;
+}
+function ready(fn)
+{
+	if(document.addEventListener)
+	{  							 //DOMContentLoaded  DOMContentLoaded
+		document.addEventListener('DOMContentLoaded',fn,false);
+		
+	}else
+	{
+		document.attachEvent('onreadystatechange',function(){
+						  //compulete
+			if(document.readyState=='complete')
+			{
+				fn&&fn();
+			}
+			
+			});
+	}
+}
+function getStyle(obj,attr)
+{
+	if(obj.currentStyle)
+	{
+		return obj.currentStyle[attr];
+	}else
+	{
+		return getComputedStyle(obj,false)[attr]
+	}
+}
+function myEvent(obj,events,fn)
+{
+	if(obj.attachEvent)
+	{   // attachEvent
+		obj.attachEvent('on'+events,function(){
+			
+			if(false == fn.call(obj,event)) // event 阻止默认事件
+			{
+				event.cancelBubble=true;
+				return false;	
+			}
+			});
+	}else
+	{
+		obj.addEventListener(events,function(ev){
+			
+			if(false == fn.call(obj,ev)) // 阻止默认事件
+			{
+				ev.preventDefault(); // 阻止默认事件
+				ev.cancelBubble=true; // 阻止冒泡
+			}
+			},false);
+	}
+}
+function getByClass(oParent,sClass)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(sClass);
+	}
+	var aEle=oParent.getElementsByTagName('*');
+	var re=new RegExp('\\b'+sClass+'\\b');
+	var wade=[];
+	for(var i=0; i<aEle.length; i++)
+	{
+		if(re.test(aEle[i].className))
+		{
+			wade.push(aEle[i]);
+		}
+	}
+	return wade;
+}
+function filter(aParent,str)
+{
+	var aChild=[];
+	for(var i=0; i<aParent.length; i++)
+	{
+		// id .class  标签 --> 伪类  li.box  属性选择器
+		switch(str.charAt(0))
+		{
+			case '#':
+				var obj=aParent[i].getElementById(str.substring(1));
+				aChild.push(obj);
+			break;
+			case '.':
+				var arr=getByClass(aParent[i],str.substring(1));
+				for(var j=0; j<arr.length; j++)
+				{
+					aChild.push(arr[j]);
+				}
+			break;
+			default:
+				// 标签 --> 伪类  li.box  属性选择器
+				if(/\w+\.\w+/.test(str))
+				{
+					var aStr=str.split('.');
+					// aStr[0]  标签
+					// aStr[1]  calssName
+					var arr=aParent[i].getElementsByTagName(aStr[0]);
+					var re=new RegExp('\\b'+aStr[1]+'\\b');
+					for(var j=0; j<arr.length; j++)
+					{
+						if(re.test(arr[j].className))
+						{
+							aChild.push(arr[j]);
+						}
+					}
+				}else if(/\w+\[\w+=\w+\]/.test(str)) // input[type=text]
+				{
+					var aStr=str.split(/[\[\]]/); 
+					//alert(aStr[0])
+					var arr=aParent[i].getElementsByTagName(aStr[0]);
+					
+					var aStr2=aStr[1].split('=');
+					
+					for(var j=0; j<arr.length; j++)
+					{
+						if(arr[j].getAttribute(aStr2[0])==aStr2[1])
+						{
+							aChild.push(arr[j]);
+						}
+					}
+					
+					
+				}//伪类 li:first   li:eq();
+				else if(/\w+:\w+(\(.+\))?/.test(str))
+				{
+					var aStr=str.split(':');
+					var arr=aParent[i].getElementsByTagName(aStr[0]);
+					
+					switch(aStr[1].split('(')[0])
+					{
+						case 'first':
+							aChild.push(arr[0]);
+						break;
+						case 'last':
+							aChild.push(arr[arr.length-1])
+							break;
+						case 'eq':
+							var d=aStr[1].match(/\d+/g);
+							var s=parseInt(d);
+							if(s<arr.length && s>=0 && !isNaN(s))
+							{
+								aChild.push(arr[s]);
+							}
+						break;
+						case 'odd': //单数
+						
+						for(var j=1; j<arr.length; j+=2)
+						{
+							aChild.push(arr[j]);
+						}
+						break;
+						/*case 'contains':
+							
+							var s=aStr[1].split(/[\(\)]/)[1]; 
+							
+							for(var j=0;j<arr.length;j++)
+							{
+								if(arr[j].innerText.indexOf(s)!=-1)
+								{
+									aChild.push(arr[j]);
+								}
+							}
+							break;*/
+					}
+					
+				}
+				else
+				{
+					var arr=aParent[i].getElementsByTagName(str);
+					for(var j=0; j<arr.length; j++)
+					{
+						aChild.push(arr[j]);
+					}	
+				}
+				
+		} 
+	}
+	return aChild;
+}
+function getEle(str)
+{
+	var arr=str.replace(/^\s+|\s+$/g,'').split(/\s+/g);
+	var oParent=[document];
+	var aChild=[];
+	
+	for(var i=0; i<arr.length; i++)
+	{
+		aChild=filter(oParent,arr[i]);
+		oParent=aChild;
+	}
+	
+	return aChild;
+}
+
+$(function(){
+	
+	$('input').toggle(function (ev){
+		//alert(ev.clientX);
+		$(this).css('background', 'red');
+	}, function (){
+		$(this).css('background', 'green');
+	}, function (){
+		$(this).css('background', 'yellow');
+	});
+	
+	})
+</script>
+<style>
+#box{ width:200px; height:200px; background:#CCC; }
+</style>
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="button" value="aaa" >
+<input type="button" value="bbb" >
+<input type="button" value="ccc" >
+<div id="box" class="qq"></div>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+//用来创建对象——构造函数
+//工厂模式——
+function createPerson(name, sex)
+{
+	//1.原料
+	var obj=new Object();
+	
+	//2.加工
+	obj.name=name;
+	obj.sex=sex;
+	
+	obj.showName=function ()
+	{
+		alert('我叫：'+this.name);
+	};
+	obj.showSex=function ()
+	{
+		alert('我的性别是：'+this.sex);
+	};
+	
+	//3.出厂
+	return obj;
+}
+
+var p1=createPerson('blue', '男');
+var p2=createPerson('小红', '女');
+ 
+alert(p1.showName==p2.showName);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

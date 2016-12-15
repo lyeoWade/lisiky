@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+ div{width:500px;height:500px;border:1px solid #000;}
+ p{width:100px;height:30px; background:red; float:left;margin:5px;}
+ span{ display:block;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	var n=0;
+	oBtn.onclick=function()
+	{
+		n++;
+		oBox.innerHTML+='<p><span>'+n+'</span></p>';	
+	};	
+	
+	oBox.onclick=function(ev)
+	{
+		var oEvent=ev||event;
+		var oEl=oEvent.srcElement||oEvent.target;
+		//oEl.style.background='blue';
+		//alert(oEl.tagName);
+		if(oEl==this||oEl.tagName=='P')return;
+		//alert(13);
+		oBox.removeChild(oEl.parentNode);
+	};
+	
+	
+};
+</script>
+</head>
+
+<body>
+    <div id="box"></div>
+    <input type="button" value="aa" id="btn">
+</body>
+</html>

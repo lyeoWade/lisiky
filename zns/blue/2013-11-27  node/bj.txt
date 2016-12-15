@@ -1,0 +1,76 @@
+json链接字符串 ----> object
+
+
+nodejs 不支持mysql库                -----------> 第三方
+
+
+
+
+
+
+
+
+NPM    ------> nodejs  package  manager  --nodeJS 包管理器
+
+
+npm  install mysql
+
+
+
+
+mysql.createConnection({ host: 'localhost' , user : ' root ',password:'' , database:'一个库'});
+
+
+db.query();
+
+
+
+JSON.s                 将json转成字符串
+
+
+
+
+
+
+
+
+
+
+------------------------
+
+
+
+
+算法(提高性能) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

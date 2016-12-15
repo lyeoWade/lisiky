@@ -1,0 +1,93 @@
+startMove(obj, {fontSize: 50}
+
+'font-size'->'fontSize'
+'border-left-width'->'borderLeftWidth'
+
+function aaa(str)
+{
+	return str.replace(/\-\w/g, function (s){
+		return s.charAt(1).toUperCase()
+	});
+}
+
+console.log(GET+'')
+
+------------------------------------------------------------------------------------------------
+
+http模块
+http.createServer(function (request, response){}).listen(89762);
+
+request
+	.url
+
+response
+	.write
+	.end
+
+fs模块
+fs.readFile('文件名', [编码], function (err, data){});
+
+------------------------------------------------------------------------------------------------
+
+GET数据
+url<-切
+
+POST数据
+request.addListener('data'	获取数据
+request.addListener('end'	完了
+
+------------------------------------------------------------------------------------------------
+
+nodeJS——数据库
+
+第三方库——小心：都有bug
+
+npm——nodeJS package manager——nodeJS包管理器
+
+npm install mysql
+
+------------------------------------------------------------------------------------------------
+
+mysql
+
+------------------------------------------------------------------------------------------------
+
+PHP用数据库
+1.连接
+2.选择库
+3.请求
+4.接收
+
+NodeJS
+也是这些
+
+------------------------------------------------------------------------------------------------
+
+前台+node+数据库+get/post+文件
+用户注册、登录：
+ajax
+jsonp
+
+ajax版：
+接口
+user?act=reg/login&user=xxx&pass=xxx
+返回：{error: 0/1, desc: "原因"}
+
+
+a.html
+
+localhost/a.html	读文件
+localhost/user		程序
+
+
+/a.html
+
+ajax
+	{a: 12, b: 5}
+jsonp
+	succ({a: 12, b: 5})
+
+
+
+
+

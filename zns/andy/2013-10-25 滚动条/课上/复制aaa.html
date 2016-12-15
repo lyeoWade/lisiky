@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#div1{ width:200px; height:200px; background:red; position:absolute; left:100px; top:100px; z-index:2; }
+.box{ position:absolute;  background:red;  z-index:1; }
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	oDiv.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var posX=oEvent.clientX-oDiv.offsetLeft;
+		var posY=oEvent.clientY-oDiv.offsetTop;
+		// innerHTML
+/*		var oBig=document.createElement('div');
+		oBig.appendChild(oDiv);
+		var str=oBig.innerHTML;
+		document.body.appendChild(oDiv);
+		oBig.innerHTML=str;
+		var newBig=oBig.children[0];
+		document.body.appendChild(newBig);
+		oDiv.style.zIndex=3;*/
+		
+		var oBig=document.createElement('div');
+		oBig.innerHTML=oDiv.outerHTML;
+		var newBig=oBig.children[0];
+		document.body.appendChild(newBig);
+		
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			oDiv.style.left=oEvent.clientX-posX+'px';
+			oDiv.style.top=oEvent.clientY-posY+'px';
+			
+			return false;
+		}
+		document.onmouseup=function()
+		{
+			document.onmousemove=document.onmouseup=null;
+			oDiv.style.opacity='';
+			oDiv.style.filter='';
+			
+		}
+		return false;
+	}
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="div1">
+afsfaf
+</div>
+
+</body>
+</html>

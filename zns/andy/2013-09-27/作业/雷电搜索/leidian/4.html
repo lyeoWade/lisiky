@@ -1,0 +1,157 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0;  }
+#box{ width:300px; height:300px; border:1px solid #F93; margin:100px auto; position:relative; }
+#box ul{ width:300px; height:300px; position:relative;
+ }
+li{ list-style:none; }
+input { position:absolute; left:-20px; }
+#box li{ width:140px; height:140px; float:left; margin:5px; background:#0F9;  }
+#box .a_all{ position:absolute; right:0; bottom:0; width:30px; height:30px; background:#CCC; z-index:10; }
+#p{ width:300px; height:30px; line-height:30px; position:absolute; top:-30px; left:0;  }
+#box ul .active{ background:#F60; }
+
+</style>
+
+<meta charset="utf-8">
+
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oUl=oBox.getElementsByTagName('ul')[0];
+	var oP=document.getElementById('p');
+	var aLi=oUl.children;
+	//var bKg=false;
+	//var n=0;
+	for(var i=0; i<aLi.length; i++)
+	{
+		var oChe=oBox.getElementsByTagName('input')[0];
+		oChe.onclick=function()
+		{
+			if(this.checked)
+			{
+				for(var i=0; i<aLi.length; i++)
+				{
+					aLi[i].className='active';
+					aLi[i].bKg=true;
+				}
+				
+				oP.innerHTML='已选中'+aLi.length+'款'
+			}else
+			{
+				for(var i=0; i<aLi.length; i++)
+				{
+					aLi[i].className='';
+					aLi[i].bKg=false;
+				}
+				oP.innerHTML='已选中0款'
+			}
+		}
+		
+		oUl.n=0;
+		oUl.bKg=false;
+	
+		for(var i=0; i<aLi.length; i++)
+		{
+			aLi[i].bKg=false;
+			aLi[i].onclick=function()
+			{
+				var number=0;
+				if(this.bKg)
+				{
+					this.className='';
+					oUl.n-=1;
+					this.bKg=false;
+					//oP.innerHTML='已选中'+n+'款';
+					
+				}else
+				{
+
+					oUl.n+=1;
+					this.className='active';
+					this.bKg=true;					
+				}
+				
+				if(oUl.n==4)
+				{
+					oUl.bKg=true;
+					oUl.style.border='1px solid #000'
+				}
+				else
+				{
+					oUl.bKg=false;
+					oUl.style.border='1px solid #F93'
+				}
+				
+				number+=oUl.n;
+				
+				oP.innerHTML='已选中'+number+'款'
+			}
+			
+				
+		}
+		
+
+	}
+
+	
+}
+/*
+function aaaa(oUl)
+{
+	oUl.n=0;
+	oUl.b=false;
+	
+	for()
+	{
+		
+	}
+	aLi[i].onclick=function()
+	{
+		//aLi[i].bKg=false;
+		//var n=aLi.length;
+		if(!bKg)
+		{
+			this.className='active';
+			n++;
+			//oP.innerHTML='已选中'+n+'款';
+			oP.innerHTML='已选中'+n+'款'
+			if(n==4)
+			{
+				bKg=true;
+			}
+		}else
+		{
+			n--;
+			this.className='';
+			oP.innerHTML='已选中'+n+'款'
+			if(n==0)
+			{
+				bKg=false;
+			}
+		}
+		
+	}
+}*/
+</script>
+
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box">
+		<input type="checkbox" >
+		<p id="p"></p>
+		<a href="javascript:;" class="a_all"></a>
+		<ul>
+        	<li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+</div>
+</body>
+</html>

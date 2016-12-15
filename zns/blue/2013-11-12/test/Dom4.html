@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<script src="jquery-1.7.2.js"></script>
+<script>
+$(function(){
+	
+	$('#btn').click(function(){
+		
+		$('<li>'+$('#tex').val()+'</li>').insertAfter('li:contains(5)');
+		
+		});
+	
+	})
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="text" id="tex" >
+<input type="button" value="添加" id="btn">
+<ul>
+        <li>212334</li>
+        <li>545454645</li>
+        <li>gfhgfhg</li>
+        <li>57687687</li>
+        <li>1111111111</li>
+        <li>sadas</li>
+        <li>57687687</li>
+        <li>1111111111</li>
+        <li>sadas</li>
+</ul>
+</body>
+</html>

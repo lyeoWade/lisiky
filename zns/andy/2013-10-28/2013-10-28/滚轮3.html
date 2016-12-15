@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+div{width:300px;height:300px; background:red;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	//FF
+	/*oBox.DOMMouseScorll=function()  //滚轮事件
+	{
+		alert(13);
+	};	*/
+	
+	//DOMMouseScroll  DOM事件。  DOM事件大部分只支持FF
+	
+	
+	if(window.navigator.userAgent.indexOf('Firefox')!=-1)
+	{
+		//FF	
+		oBox.addEventListener('DOMMouseScroll',wheelFn,false);
+	}
+	else
+	{
+		oBox.onmousewheel=wheelFn;
+	};
+	
+	function wheelFn()
+	{
+		alert(123);	
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	oBtn.onclick=function()
+	{
+		var timer=setInterval(function(){
+			
+				var arr=[];
+		
+				//  for(var i=0; i<6; i++) 不能确定一定是6位数 
+				while(arr.length<6) //确定 六位数 while 不管出了什么状况 反正arr.length 要等于6  
+				{
+					var num=ran(1,32); // 每一个
+					if(!findAttr(num,arr))
+					{
+						arr[arr.length]=toZero(num);	//arr[arr.length]   将数字添加到数组里面
+					}
+				}
+				
+				oBox.innerHTML=arr;
+			
+			},30);
+		setTimeout(function(){
+			
+			clearInterval(timer);
+			
+			},300);
+	}
+	function findAttr(n,arr1)
+	{
+		for(var i=0; i<arr1.length; i++)
+		{
+			if(arr1[i]==n)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	function ran(n,m)
+	{
+		return parseInt(Math.random()*(m-n+1)+n);
+	}
+	function toZero(attr)
+	{
+		return attr<10?'0'+attr:attr;
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="box" style="height:20px;"></div>
+<input type="button" value="开始" id="btn" >
+</body>
+</html>

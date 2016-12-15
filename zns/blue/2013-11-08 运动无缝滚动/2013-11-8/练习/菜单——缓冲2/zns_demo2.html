@@ -1,0 +1,106 @@
+<!--
+智能社© - http://www.zhinengshe.com/
+
+微博：@北京智能社
+微信：zhi_neng_she
+
+最具深度的前端开发培训机构 HTML+CSS/JS/HTML5
+-->
+
+
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link rel="stylesheet" type="text/css" href="zns_style.css" />
+<script src="../move3.js"></script>
+<script>
+window.onload=function ()
+{
+	var oNav=document.getElementById('nav');
+	var aH2=oNav.getElementsByTagName('h2');
+	var aUl=oNav.getElementsByTagName('ul');
+	
+	for(var i=0;i<aH2.length;i++)
+	{
+		(function (index){
+			aH2[i].onmousedown=function ()
+			{
+				return false;
+			};
+			aH2[i].onclick=function ()
+			{
+				var aLi=aUl[index].children;
+				
+				if(this.className=='active')
+				{
+					this.className='';
+					startMove(aUl[index], 'height', 0);
+				}
+				else
+				{
+					for(var i=0;i<aH2.length;i++)
+					{
+						aH2[i].className='';
+						startMove(aUl[i], 'height', 0);
+					}
+					
+					this.className='active';
+					startMove(aUl[index], 'height', aLi.length*aLi[0].offsetHeight);
+				}
+			};
+		})(i);
+	}
+};
+</script>
+</head>
+
+<body>
+
+<ul id="nav" class="nav">
+	<li>
+    	<h2><span>智能社培训</span></h2>
+        <ul>
+            <li><a href="http://zhinengshe.com/js02_desc.html">JavaScript培训</a></li>
+            <li><a href="http://zhinengshe.com/html5_01_desc.html">HTML5培训</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">视频教程</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">空中课堂</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">视频教程</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">空中课堂</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">视频教程</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">空中课堂</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">视频教程</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">空中课堂</a></li>
+        </ul>
+    </li>
+	<li>
+    	<h2><span>智能社培训</span></h2>
+        <ul>
+            <li><a href="http://zhinengshe.com/js02_desc.html">JavaScript培训</a></li>
+            <li><a href="http://zhinengshe.com/html5_01_desc.html">HTML5培训</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">视频教程</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">空中课堂</a></li>
+        </ul>
+    </li>
+	<li>
+    	<h2><span>智能社培训</span></h2>
+        <ul>
+            <li><a href="http://zhinengshe.com/js02_desc.html">JavaScript培训</a></li>
+            <li><a href="http://zhinengshe.com/html5_01_desc.html">HTML5培训</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">视频教程</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">空中课堂</a></li>
+        </ul>
+    </li>
+	<li>
+    	<h2><span>智能社培训</span></h2>
+        <ul>
+            <li><a href="http://zhinengshe.com/js02_desc.html">JavaScript培训</a></li>
+            <li><a href="http://zhinengshe.com/html5_01_desc.html">HTML5培训</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">视频教程</a></li>
+            <li><a href="http://zhinengshe.com/train_list.html">空中课堂</a></li>
+        </ul>
+    </li>
+</ul>
+</body>
+</html>

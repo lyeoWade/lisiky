@@ -1,0 +1,113 @@
+
+
+复习
+
+简易的json库
+
+。。。。
+
+
+事件  
+
+var oEvent=ev||event;
+
+----------------------
+
+
+键盘事件 
+
+onkeydown  键盘按下的时候
+
+onkeyup       键盘抬起的时候
+
+
+var oEvent=ev||event;
+oEvent.keyCode       键值
+
+
+
+按下 div卡的问题   定时器
+
+
+----------------
+
+
+自动焦点
+
+oText.focus()  强制性的将focus给文本框
+
+
+
+--------------------------
+
+
+事件绑定
+
+obj.attactEvent(事件,函数)          attachEvent 函数里面的this指向window 
+
+obj.addeventListener(事件，函数，捕获);  //事件不加on  捕获，反过来找事件
+
+
+removeEventListener(事件，函数，捕获)  解除绑定  //标准
+
+detachEvent 	(事件，函数)
+
+匿名函数不能解除
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+onclick=onmouseup+onmousedown
+
+onmouseup
+
+onmousedown
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--------------------------------

@@ -1,0 +1,375 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+body {background:black; text-align:center;}
+#c1 {background:url(img/game_bg_2_hd.jpg) no-repeat; background-size:100% 100%;}
+</style>
+<script src="draw.js"></script>
+<script>
+var FPS=60;
+
+function toSix(n)
+{
+	var str=''+n;
+	
+	while(str.length<6)str='0'+str;
+	
+	return str;
+}
+
+window.onload=function ()
+{
+	var oC=document.getElementById('c1');
+	var gd=oC.getContext('2d');
+	
+	var W=oC.width;
+	var H=oC.height;
+	var BULL_SPEED=5;
+	var FISH_SPEED=1;
+	var BULL_INTERVAL=1000;
+	var BULL_BOOM_R=10000;
+	
+	var score=1000;
+	
+	//背景——台子
+	var bg=new Sprite(gd, 'img/bottom-bar.png', 0, 0, 765, 72);
+	bg.top=H-bg.height+2;
+	
+	//炮
+	var gun=new Sprite(gd, 'img/cannon1.png', 0, 0, 74, 74);
+	gun.left=392;
+	gun.top=540;
+	
+	//炮弹
+	var bulls=[];
+	
+	//鱼
+	var fishs=[];
+	
+	//金币
+	var coins=[];
+	
+	//分数
+	var scores=[];
+	
+	for(var i=0;i<6;i++)
+	{
+		scores[i]=new Sprite(gd, 'img/number_black.png', 0, 24*9, 20, 24);
+		scores[i].left=20+23*i;
+		scores[i].top=574;
+	}
+	
+	//让炮跟着鼠标转
+	document.onmousemove=function (ev)
+	{
+		var oEvent=ev||event;
+		
+		var mx=oEvent.clientX-oC.offsetLeft;
+		var my=oEvent.clientY-oC.offsetTop;
+		
+		var gl=gun.left+gun.width/2;
+		var gt=gun.top+gun.height/2;
+		
+		var A=mx-gl;
+		var B=my-gt;
+		
+		var r=a2d(-Math.atan(A/B));
+		
+		gun.rotate=r;
+		
+		document.title=r;
+	};
+	
+	setInterval(function (){
+		if(score<100)
+		{
+			score+=10;
+		}
+	}, 60000);
+	//点击创建炮弹
+	var lastCreateBull=0;
+	document.onclick=function (ev)
+	{
+		if(score==0)
+		{
+			alert('没钱了——请加入VIP');
+			return;
+		}
+		var now=new Date().getTime();
+		
+		if(now-lastCreateBull<BULL_INTERVAL)return;
+		
+		var oEvent=ev||event;
+		
+		var bull=new Sprite(gd, 'img/bullet1.png', 0, 0, 24, 26);
+		
+		bulls.push(bull);
+		
+		bull.left=gun.left+(gun.width-bull.width)/2;
+		bull.top=gun.top+(gun.height-bull.height)/2;
+		
+		bull.rotate=gun.rotate;
+		
+		bull.speed_x=BULL_SPEED*Math.sin(d2a(bull.rotate));
+		bull.speed_y=-BULL_SPEED*Math.cos(d2a(bull.rotate));
+		
+		lastCreateBull=now;
+		
+		score--;
+	};
+	
+	document.onmousedown=function ()
+	{
+		return false;
+	};
+	
+	
+	
+	function collTest(obj1, obj2)
+	{
+		var l1=obj1.left;
+		var t1=obj1.top;
+		var r1=obj1.left+obj1.width;
+		var b1=obj1.top+obj1.height;
+		
+		var l2=obj2.left;
+		var t2=obj2.top;
+		var r2=obj2.left+obj2.width;
+		var b2=obj2.top+obj2.height;
+		
+		if(l1>r2 || r1<l2 || b1<t2 || t1>b2)
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+	
+	function outOfWin(obj)
+	{
+		if(obj.top<-100 || obj.left<-100 || obj.left>W+100 || obj.top>H+100)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	function findFish(x, y, r)
+	{
+		var arr=[];
+		
+		for(var i=0;i<fishs.length;i++)
+		{
+			var fl=fishs[i].left+55/2;
+			var ft=fishs[i].top+37/2;
+			
+			var a=fl-x;
+			var b=ft-y;
+			
+			var dis=Math.sqrt(a*a+b*b);
+			
+			if(dis<=r)
+			{
+				arr.push(fishs[i]);
+			}
+		}
+		
+		return arr;
+	}
+	
+	//运动定时器
+	setInterval(function (){
+		//炮弹动
+		for(var i=0;i<bulls.length;i++)
+		{
+			bulls[i].left+=bulls[i].speed_x;
+			bulls[i].top+=bulls[i].speed_y;
+			
+			if(outOfWin(bulls[i]))
+			{
+				bulls.splice(i,1);
+				i--;
+			}
+		}
+		
+		//鱼动
+		for(var i=0;i<fishs.length;i++)
+		{
+			fishs[i].left+=fishs[i].speed_x;
+			fishs[i].top+=fishs[i].speed_y;
+			
+			fishs[i].frame+=0.1;
+			if(Math.floor(fishs[i].frame*100)==100*fishs[i].MAX_FRAME)
+			{
+				fishs[i].frame=0;
+			}
+			
+			if(outOfWin(fishs[i]))
+			{
+				fishs.splice(i,1);
+				i--;
+			}
+		}
+		
+		//检测碰撞
+		for(var i=0;i<bulls.length;i++)
+		{
+			for(var j=0;j<fishs.length;j++)
+			{
+				if(collTest(bulls[i], fishs[j]))
+				{
+					//加入爆炸半径
+					var arr=findFish(
+						bulls[i].left+bulls[i].width/2,
+						bulls[i].top+bulls[i].height/2,
+						BULL_BOOM_R
+					);
+					
+					//1.消除炮弹
+					bulls.splice(i, 1);
+					i--;
+					
+					for(var k=0;k<arr.length;k++)
+					{
+						//2.加金币
+						var coin=new Sprite(gd, 'img/coinAni2.png', 0, 0, 60, 60);
+						
+						coin.left=Math.floor(arr[k].left);
+						coin.top=Math.floor(arr[k].top);
+						
+						coin.frame=0;
+						coin.MAX_FRAME=10*100;
+						
+						coins.push(coin);
+						
+						(function (coin){
+							startMove(coin, {left: 65, top: 550}, function (){
+								score+=10;
+								
+								for(var i=0;i<coins.length;i++)
+								{
+									if(coins[i]==coin)
+									{
+										coins.splice(i, 1);
+										break;
+									}
+								}
+							});
+						})(coin);
+						
+						for(var c=0;c<fishs.length;c++)
+						{
+							if(arr[k]==fishs[c])
+							{
+								fishs.splice(c, 1);
+								break;
+							}
+						}
+					}
+										
+					break;
+				}
+			}
+		}
+		
+		//生成鱼
+		if(Math.random()<1)
+		{
+			var fish=new Sprite(gd, 'img/fish1.png', 0,0, 55, 37);
+			
+			if(Math.random()<0.5)
+			{
+				//左
+				fish.left=-20;
+				fish.top=Math.random()*H;
+				fish.rotate=Math.random()*40-20;
+			}
+			else
+			{
+				//右
+				fish.left=W+20;
+				fish.top=Math.random()*H;
+				fish.rotate=180-Math.random()*40-20;
+			}
+			
+			fish.frame=0;
+			fish.MAX_FRAME=4;
+			fish.speed_x=Math.cos(d2a(fish.rotate))*FISH_SPEED;
+			fish.speed_y=Math.sin(d2a(fish.rotate))*FISH_SPEED;
+			
+			//fish.speed_x=FISH_SPEED*Math.sin(d2a(fish.rotate));
+			//fish.speed_y=FISH_SPEED*Math.cos(d2a(fish.rotate));
+			
+			fishs.push(fish);
+		}
+		
+		//金币运动
+		for(var i=0;i<coins.length;i++)
+		{
+			coins[i].frame+=20;
+			if(coins[i].frame==coins[i].MAX_FRAME)
+			{
+				coins[i].frame=0;
+			}
+		}
+	}, 1000/FPS);
+	
+	//重绘定时器
+	setInterval(function (){
+		gd.clearRect(0,0,W,H);
+		
+		//金币
+		for(var i=0;i<coins.length;i++)
+		{
+			coins[i].sy=Math.floor(coins[i].frame/100)*60;
+			coins[i].draw();
+		}
+		
+		//台子
+		bg.draw();
+		
+		//绘制分数
+		var s=toSix(score);
+		
+		for(var i=0;i<6;i++)
+		{
+			scores[i].sy=(9-parseInt(s.charAt(i)))*24;
+			scores[i].draw();
+		}
+		
+		//炮弹
+		for(var i=0;i<bulls.length;i++)
+		{
+			bulls[i].draw();
+		}
+		
+		//鱼
+		for(var i=0;i<fishs.length;i++)
+		{
+			fishs[i].sy=37*Math.floor(fishs[i].frame);
+			fishs[i].draw();
+		}
+		
+		//炮
+		gun.draw();
+		
+	}, 1000/FPS);
+};
+</script>
+</head>
+
+<body>
+<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>

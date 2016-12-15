@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	var oSpan=document.getElementsByTagName('span')[0];
+	oBtn.onclick=function()
+	{
+		var timer=setInterval(function(){
+			
+				var arr=[];
+				while(arr.length<6)
+				{
+					var num=ran(1,32)
+					if(!findarr(num,arr))
+					{
+						arr[arr.length]=toZero(num);
+					}
+					
+				}
+				oBox.innerHTML=arr;
+				oSpan.innerHTML=toZero(ran(1,16));
+			},30)
+		setTimeout(function(){
+			
+			clearInterval(timer);
+			},300);
+	}
+	
+	function toZero(n)
+	{
+		return n<10?'0'+n:n;
+	}
+	
+	function ran(n,m)
+	{
+		return parseInt(Math.random()*(m-n+1)+n);
+	}
+	
+	function findarr(n,arr)
+	{
+		for(var i=0; i<arr.length; i++)
+		{
+			if(arr[i]==n)
+			{
+				return true;
+			}
+		}
+		return false;		
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box" style="height:20px">
+	
+</div><span style="color:#00C; display:block;"></span>
+<input type="button" value="机选一注" id="btn">
+</body>
+</html>

@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+li{ list-style:none}
+.bigBox{height:440px; overflow:hidden;}
+.bigBox .nav{ overflow:hidden;height:50px; background:#CCC;}
+.bigBox .nav input{width:100px;height:40px; float:left;margin:0 10px;}
+.bigBox .tabBox{height:360px; overflow:hidden; display:none;}
+.bigBox .tabBox h1{padding:20px;height:40px;}
+.bigBox .tabBox div{height:300px; }
+.bigBox .tabBox div ul{ float:left;width:220px;margin:10px 10px 0 10px;border:4px solid #000; position:relative;}
+.bigBox .tabBox div ul li.one{height:40px; line-height:40px; font-size:20px; cursor:pointer;}
+.bigBox .tabBox div ul li.three{ position:absolute;width:20px;height:20px; background:#63C;right:0;bottom:0; cursor:pointer;} 
+.bigBox .tabBox div ul li.two{ overflow:hidden;}
+.bigBox .tabBox div ul li.two p{ float:left;width:100px;height:100px;margin:2px; background:#F0F; cursor:pointer;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBigBox=document.getElementById('bigBox');
+	var aNavBtn=oBigBox.children[0].children;
+	var aTagBox=oBigBox.children[1].children;
+	
+	
+	for(var i=0;i<aNavBtn.length;i++)
+	{
+		aNavBtn[i].index=i;
+		aNavBtn[i].onmouseover=function()
+		{
+			for(var i=0;i<aNavBtn.length;i++)
+			{
+				aNavBtn[i].style.background='';
+				aTagBox[i].style.display='none';
+			};
+			this.style.background='#0f0';
+			aTagBox[this.index].style.display='block';
+		};
+		checkFn(aTagBox[i]);
+	};
+	
+	function checkFn(obj)
+	{
+		var aLLcheck=obj.getElementsByTagName('input')[0];
+		var aP=obj.getElementsByTagName('p');
+		var oSpan=obj.getElementsByTagName('span')[0];
+		var aUl=obj.getElementsByTagName('ul');
+		aLLcheck.onclick=function()//点全选
+		{
+			if(this.checked)  //全选
+			{
+				for(var i=0;i<aP.length;i++)
+				{
+					aP[i].style.background='#342';
+					aP[i].b=true;	
+				};
+				
+				for(var i=0;i<aUl.length;i++)
+				{
+					aUl[i].b=true;
+					aUl[i].n=4;
+					aUl[i].style.border="4px solid red";	
+				};
+				oSpan.innerHTML='已选择'+aP.length+'款';
+			}
+			else
+			{
+				for(var i=0;i<aP.length;i++)
+				{
+					aP[i].style.background='#F0F';	
+					aP[i].b=false;
+				};
+				
+				for(var i=0;i<aUl.length;i++)
+				{
+					aUl[i].b=false;
+					aUl[i].n=0;
+					aUl[i].style.border="4px solid #000";	
+				};
+				oSpan.innerHTML='已选择0款';
+			}
+				
+		};
+		
+		for(var i=0;i<aUl.length;i++)
+		{
+			  aUl[i].b=false;
+			  aUl[i].n=0;
+			  ulFn(aUl[i]);
+		};
+		
+		function spanInner()
+			{
+				var number=0;
+				for(var i=0;i<aUl.length;i++)
+				{
+	
+					  number+=aUl[i].n;
+				};
+				oSpan.innerHTML='已选择'+number+'款';	
+			};
+		
+		function ulFn(oUl)
+		{
+			var one=oUl.children[0];
+			var three=oUl.children[2];
+			var ul_aP=oUl.getElementsByTagName('p');
+			
+			for(var i=0;i<ul_aP.length;i++)
+			{
+				ul_aP[i].b=false;
+				ul_aP[i].onclick=function()
+				{
+					
+					if(this.b)
+					{
+						this.style.background='#F0F';	
+						this.b=false;
+						oUl.n-=1;
+					
+					}	
+					else
+					{
+						this.style.background='#342';
+						this.b=true;
+						oUl.n+=1;	
+					};
+					
+					if(oUl.n==4)
+					{
+						oUl.b=true;
+						oUl.style.border="4px solid red";	
+					}
+					else
+					{
+						oUl.b=false;
+						oUl.style.border="4px solid #000";
+					}
+					
+					  spanInner();
+				};
+			};
+			
+			
+			
+			one.onclick=three.onclick=function()
+			{
+				if(!oUl.b)
+				{
+					//需要打开UL
+					oUl.b=true;
+					oUl.n=4;
+					oUl.style.border="4px solid red";
+					for(var i=0;i<ul_aP.length;i++)
+					{
+						ul_aP[i].b=true;
+						ul_aP[i].style.background='#342';
+							
+					}
+					
+				}
+				else
+				{
+					oUl.b=false;
+					oUl.n=0;
+					oUl.style.border="4px solid #000";
+					for(var i=0;i<ul_aP.length;i++)
+					{
+						ul_aP[i].b=false;
+						ul_aP[i].style.background='#F0F';		
+					}
+				}	
+				spanInner();
+			};
+		};	
+			
+	};	
+	
+	
+	
+	
+	
+};
+</script>
+</head>
+
+<body>
+<div class="bigBox" id="bigBox">
+	<div class="nav">
+    	<input type="button" style=" background:#0f0" value="最常用">
+    	<input type="button" value="给老妈">
+    	<input type="button" value="给老爸">
+    </div>
+    <div style=" overflow:hidden">
+        <div class="tabBox" style="display:block;">
+            <h1>
+                <input type="checkbox"><span>已选择0款</span>
+            </h1>
+            <div>
+                <ul>
+                    <li class="one">实用工具1111</li>
+                    <li class="two">
+                        <p>1111</p>
+                        <p>2222</p>
+                        <p>3333</p>
+                        <p>4444</p>
+                    </li>
+                    <li class="three">√</li>
+                </ul>
+                
+                <ul>
+                    <li class="one">好好学习111</li>
+                    <li class="two">
+                        <p>1111</p>
+                        <p>2222</p>
+                        <p>3333</p>
+                        <p>4444</p>
+                    </li>
+                    <li class="three">√</li>
+                </ul>
+                
+                <ul>
+                    <li class="one">休闲111</li>
+                    <li class="two">
+                        <p>1111</p>
+                        <p>2222</p>
+                        <p>3333</p>
+                        <p>4444</p>
+                    </li>
+                    <li class="three">√</li>
+                </ul>
+                
+                <ul>
+                    <li class="one">游戏1111</li>
+                    <li class="two">
+                        <p>1111</p>
+                        <p>2222</p>
+                        <p>3333</p>
+                        <p>4444</p>
+                    </li>
+                    <li class="three">√</li>
+                </ul>
+            </div>
+            
+        </div>
+    <div class="tabBox">
+    	<h1>
+        	<p><input type="checkbox"><span>已选择0款</span></p>
+        </h1>
+        <div>
+        	<ul>
+            	<li class="one">实用工具222</li>
+            	<li class="two">
+                	<p>1111</p>
+                	<p>2222</p>
+                	<p>3333</p>
+                	<p>4444</p>
+                </li>
+            	<li class="three">√</li>
+            </ul>
+            
+            <ul>
+            	<li class="one">好好学习222</li>
+            	<li class="two">
+                	<p>1111</p>
+                	<p>2222</p>
+                	<p>3333</p>
+                	<p>4444</p>
+                </li>
+            	<li class="three">√</li>
+            </ul>
+            
+            <ul>
+            	<li class="one">休闲222</li>
+            	<li class="two">
+                	<p>1111</p>
+                	<p>2222</p>
+                	<p>3333</p>
+                	<p>4444</p>
+                </li>
+            	<li class="three">√</li>
+            </ul>
+            
+            <ul>
+            	<li class="one">游戏2222</li>
+            	<li class="two">
+                	<p>1111</p>
+                	<p>2222</p>
+                	<p>3333</p>
+                	<p>4444</p>
+                </li>
+            	<li class="three">√</li>
+            </ul>
+        </div>
+        
+    </div>
+    <div class="tabBox">
+    	<h1>
+        	<p><input type="checkbox"><span>已选择0款</span></p>
+        </h1>
+        <div>
+        	<ul>
+            	<li class="one">实用工具3333</li>
+            	<li class="two">
+                	<p>1111</p>
+                	<p>2222</p>
+                	<p>3333</p>
+                	<p>4444</p>
+                </li>
+            	<li class="three">√</li>
+            </ul>
+            
+            <ul>
+            	<li class="one">好好学习333</li>
+            	<li class="two">
+                	<p>1111</p>
+                	<p>2222</p>
+                	<p>3333</p>
+                	<p>4444</p>
+                </li>
+            	<li class="three">√</li>
+            </ul>
+            
+            <ul>
+            	<li class="one">休闲333</li>
+            	<li class="two">
+                	<p>1111</p>
+                	<p>2222</p>
+                	<p>3333</p>
+                	<p>4444</p>
+                </li>
+            	<li class="three">√</li>
+            </ul>
+            
+            <ul>
+            	<li class="one">游戏3333</li>
+            	<li class="two">
+                	<p>1111</p>
+                	<p>2222</p>
+                	<p>3333</p>
+                	<p>4444</p>
+                </li>
+            	<li class="three">√</li>
+            </ul>
+        </div>
+        
+       </div>
+    </div>
+</div>
+</body>
+</html>

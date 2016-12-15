@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#box1{width:400px;height:400px; background:red}
+#box2{width:300px;height:300px; background:blue}
+#box3{width:200px;height:200px; background:yellow}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox1=document.getElementById('box1');
+	var oBox2=document.getElementById('box2');
+	var oBox3=document.getElementById('box3');
+	
+	//oBox1.attachEvent('onclick',fn);
+	oBox1.addEventListener('click',function()
+	{
+		alert(1);	
+	},true);
+	// false 冒泡
+	oBox2.addEventListener('click',function()
+	{
+		alert(2);	
+	},true);
+	
+	oBox3.addEventListener('click',function()
+	{
+		alert(3);	
+	},true);
+	
+    document.addEventListener('click',function()
+	{
+		alert(0);	
+	},true);
+	
+};
+</script>
+</head>
+
+<body>
+<div id="box1">
+	<div id="box2">
+    	<div id="box3"></div>
+    </div>
+</div>
+</body>
+</html>

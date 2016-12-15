@@ -1,0 +1,52 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能课堂 —— 微博ajax接口测试 - www.zhinengshe.com</title>
+<link href="style/weibo.css" rel="stylesheet" type="text/css" />
+<script src="js/sea.js"></script>
+<script>
+window.onload=function ()
+{
+	seajs.use('weibo.js', function (weibo){
+		weibo.createAdd();
+	});
+};
+</script>
+</head>
+
+<body>
+<div class="znsArea">
+<!--留言-->
+     <div class="takeComment">
+        <textarea name="textarea" class="takeTextField" id="tijiaoText"></textarea>
+        <div class="takeSbmComment">
+            <input type="button" class="inputs" value="" id="btn_snd" />
+            <span>(可按 Enter 回复)</span>
+        </div>
+    </div>
+<!--已留-->
+    <div class="commentOn">
+        <div class="noContent">暂无留言</div>
+        <div class="messList">
+        	<div class="reply" id="tmp_reply">
+                <p class="replyContent">{$content}</p>
+                <p class="operation">
+                    <span class="replyTime">{$time}</span>
+                    <span class="handle">
+                    	<a href="javascript:;" class="top">{$acc}</a>
+                        <a href="javascript:;" class="down_icon">{$ref}</a>
+                        <a href="javascript:;" class="cut">删除</a>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="page">
+        	<a href="javascript:;" class="active">1</a>
+        	<a href="javascript:;">2</a>
+        	<a href="javascript:;">3</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red; display:none}
+</style>
+<script>
+window.onload=function()
+{
+	var aBtn=document.getElementsByTagName('input');
+	var aBox=document.getElementsByTagName('div');
+	
+	for(var i=0,m=aBtn.length;i<m;i++)
+	{
+		(function(index){
+			aBtn[index].onclick=function()
+			{
+				//alert(this.index);
+				alert(index);
+			};	
+		})(i);
+		
+	}
+};
+
+function aa(n)
+{
+
+};
+
+</script>
+</head>
+
+<body>
+<input type="button" value="aa">
+<input type="button" value="bb">
+<input type="button" value="cc">
+<div style="display:block">111</div>
+<div>222</div>
+<div>333</div>
+</body>
+</html>

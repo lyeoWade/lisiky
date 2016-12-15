@@ -1,0 +1,23 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:40px;height:30px; line-height:30px; border:1px solid #000; text-align:center;}
+p{ background:red; width:300px;height:300px; display:none}
+</style>
+<script>
+function toShow()
+{
+	var oP=document.getElementById('p1');
+	oP.style.display='block';	
+}
+</script>
+</head>
+
+<body>
+<div onmouseover="toShow()">按钮</div>
+<p id="p1">我是一段文字</p>
+</body>
+</html>

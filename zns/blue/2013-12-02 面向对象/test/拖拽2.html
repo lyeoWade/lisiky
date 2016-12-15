@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+body{ margin:0; padding:0; }
+#div1{ width:100px; height:100px; background:red; position:absolute; }
+#div2{ width:100px; height:100px; background:green; position:absolute; }
+</style>
+<script src="Drag.js"></script>
+<script src="addDrag2.js"></script>
+<script src="extend.js"></script>
+<script>
+window.onload=function()
+{
+	var a=new Drag('div1');
+	var b=new addDrag('div2');
+}
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+<div id="div2"></div>
+</body>
+</html>

@@ -1,0 +1,172 @@
+src  不要去if比较
+
+如  if(oImg.src=='0.jpg')
+{
+			//这是错的
+}
+
+
+
+随机  Math.random()  取随机数
+
+
+alert(Math.random());
+0-1  之间的随机数   0可能出现  1不会出现
+
+Math.random()            0-1
+
+Math.random()*100   0-100
+
+Math.random()+10    10-11
+
+Math.random()*100+10  10-110
+
+
+Math.random()*60+30     30-90
+
+
+
+
+
+Math.random()*(大-小)+小
+
+
+
+parseInt(Math.random()*81+10)     10-90
+
+
+
+
+var m=10;
+var n=1;
+parseInt(Math.random() *(m-n)+n)
+// 1-9
+
+
+-------------------------------
+
+innerHTML  覆盖
+
+
+document.write()
+
+
+
+
+
+
+
+
+
+-----------------------------------------
+
+
+
+
+style    只能去行间
+
+
+
+
+
+currentStyle   // IE                                 
+
+getComputedstyle(obj,false)[attr]  //标准                       
+
+
+
+兼容判断  真假判断
+
+
+
+if(obj.currentstyle)
+{
+	alert(obj.currentStyle.width);
+}else
+{
+	alert(getComputedStyle(obj,false).width);
+}
+alert(getComputedStyle(obj,false).width);  //如果不写false  那么低版本的ff不兼容
+
+兼容之后  只要有样式就能获取
+
+
+
+标准  没有宽的时候会继承
+IE    auto
+
+
+
+继承的样式也能获取
+取组合样式不兼容   可以分开取
+
+
+默认字体大小
+
+
+
+
+
+
+css  :   margin-top
+js    :   marginTop     遇到横杠就把横杠去点后面的第一个字母大写
+
+
+封装
+
+
+
+
+
+
+
+ function getStyle(obj,attr)
+	 {
+		 if(obj.currentStyle)
+		 {
+			 return obj.currentStyle[attr];
+		 }else
+		 {
+			 return getComputedStyle(obj,false)[attr];
+		 }
+	 }
+
+
+
+---------------------------------------------
+
+
+return    返回值
+
+
+
+返回值   传参
+
+
+可以返回任何类型的东西
+
+
+return 之后函数停止
+
+
+------------------------------------------------------------
+this  在定时器里不能直接用
+
+
+disabled      被禁用的 input 元素既不可用，也不可点击。可以设置 disabled 属性，直到满足某些其他的条件为止（比如选择了一个复选框等等）。然后，就需要通过 JavaScript 来删除 disabled 值，将 input 元素的值切换为可用。
+
+
+
+
+disabled 
+
+
+
+
+
+
+
+
+
+
+

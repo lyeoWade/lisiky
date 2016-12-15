@@ -1,0 +1,38 @@
+1.下面那个浏览器不支持overflow-y属性：
+A IE7
+B Firefox3.1
+C open 9.5
+D Safari3.1
+
+2.HTML <p style="font-size:12px">这是文本 </p>
+Body p {font-size:15px;}
+请问p元素内的文本内容最后显示的字体大小是：
+A 12px
+B 13px
+C 14px
+D 15px
+
+3.在不添加无语义标签的情况下，如何用CSS实现清除浮动？
+
+4.使用纯CSS实现未知尺寸的图片(高宽都小于200px)在200px的正方形容器中同时水平和垂直居中。
+
+5.在不使用 border 样式的情况下，画出一条高为1px的横线，在不同浏览器的Quirksmode和CSSCompat模式下都持同一效果。
+
+5.“Quirksmode和CSSCompat模式”是什么意思？
+
+6.form中的input有哪些类型？各是做什么处理使用的？
+
+7.table标签中border,cellpadding td标签中colspan,rowspan分别起什么作用？
+
+8.form中的input可以设置readonly和disable，请问这两项属性有什么区别？
+
+9.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red;}
+</style>
+<script>
+window.onload=function()
+{
+  var s='';
+  for(var i=0x4e00;i<0x9fa5;i++)
+  {
+	 s+=String.fromCharCode(i);  
+  }
+  document.body.innerHTML=s;
+  document.title=s.length;
+};
+
+
+
+
+
+
+</script>
+</head>
+
+<body>
+<input type="button" value="aaa" id="btn">
+<div id="box">234234</div>
+</body>
+</html>

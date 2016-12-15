@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+div{ background:red;
+width:100px; height:100px; position:absolute; top:100px; }
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oDiv=document.getElementById('box');
+	oBtn.onclick=aaa;
+	
+	
+	function aaa()
+	{
+		oDiv.style.background='#0f0';
+		
+	};
+	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<input type="button" value="点击" id="btn" >
+<div id="box"></div>
+</body>
+</html>

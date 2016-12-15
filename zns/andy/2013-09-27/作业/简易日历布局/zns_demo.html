@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>JavaScript简易日历 - 智能课堂 - www.zhinengshe.com</title>
+<link href="zns_style.css" rel="stylesheet" type="text/css" />
+<script>
+var aDatas=[
+	"快过年了，大家可以商量着去哪玩吧～",
+	"精通JavaScript开发课程 - 结课标准 - 有十条标准可让大家修练成JS高手……",
+	"HTML5开发课程，让你熟练掌握移动应用开发技术",
+	"精通各种DOM类应用，熟练掌握面向对象编程思想（OOP）、熟悉JS面向对象开发方式 - 智能课堂 - www.zhinengshe.com",
+	"熟练掌握AJAX技术及相关应用（例如：新浪微博级应用） - 智能课堂 - www.zhinengshe.com",
+	"可以独立写出类似jQuery的小型库（支持各类选择符、事件类、DOM、自定义动画animate、AJAX……） - 智能课堂 - www.zhinengshe.com",
+	"精通JS运动特效技术，能完整实现各类网站所有动画特效，如 智能课堂 官网 - 智能课堂 - www.zhinengshe.com",
+	"掌握JS调试及优化技术、能兼容所有浏览器 - 智能课堂 - www.zhinengshe.com",
+	"精通JS事件对象及事件的工作机制，并能完成各类跨平台应用模块的开发 - 智能课堂 - www.zhinengshe.com",
+	"能独立开发表现和性能都很优秀的RIA应用 - 智能课堂 - www.zhinengshe.com",
+	"了解后台编程的相关知识，能够和后台工程师配合完成大型交互应用 - 智能课堂 - www.zhinengshe.com",
+	"熟悉正则表达式的编写、应用及高级表单验证技术 - 智能课堂 - www.zhinengshe.com"
+];
+
+window.onload=function()
+{
+	var oTab=document.getElementById('tab');
+	var aLi=oTab.getElementsByTagName('li');
+	var oText=oTab.children[1];
+//	alert(oText.className);
+	for(var i=0; i<aLi.length; i++)
+	{
+		aLi[i].index=i;
+		aLi[i].onmouseover=function()
+		{
+			for(var i=0; i<aLi.length; i++)
+			{
+				aLi[i].className='';
+			}
+			this.className='active';
+			oText.innerHTML='<h2>'+(this.index+1)+'月活动</h2><p>'+aDatas[this.index]+'</p>';
+		}
+		
+	}
+	
+}
+
+
+
+</script>
+</head>
+
+<body>
+
+<div id="tab" class="calendar">
+
+    <ul>
+        <li class="active"><h2>1</h2><p>JAN</p></li>
+        <li><h2>2</h2><p>FER</p></li>
+        <li><h2>3</h2><p>MAR</p></li>
+        <li><h2>4</h2><p>APR</p></li>
+        <li><h2>5</h2><p>MAY</p></li>
+        <li><h2>6</h2><p>JUN</p></li>
+        <li><h2>7</h2><p>JUL</p></li>
+        <li><h2>8</h2><p>AUG</p></li>
+        <li><h2>9</h2><p>SEP</p></li>
+        <li><h2>10</h2><p>OCT</p></li>
+        <li><h2>11</h2><p>NOV</p></li>
+        <li><h2>12</h2><p>DEC</p></li>
+    </ul>
+    
+    <div class="text">
+        <h2>1月活动</h2>
+        <p>快过年了，大家可以商量着去哪玩吧～</p>
+    </div>
+
+</div>
+
+</body>
+</html>

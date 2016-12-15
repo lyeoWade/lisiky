@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+  // 1： 1－32    2：  6位  3：不重复
+  var oTex1=document.getElementById('tex1');
+  var oBtn=document.getElementById('btn');   	
+  oBtn.onclick=function()
+  {
+	 var arr=[];
+	 for(var i=0;i<6;i++)
+	 {
+		arr[arr.length]=rnd(1,32);
+	 };
+	 
+	 oTex1.value=arr; 	 
+  };
+   
+  function rnd(n,m)
+  {
+	return parseInt(Math.random()*(m-n+1)+n);  
+  }; 
+   	
+};
+</script>
+</head>
+
+<body>
+<input type="text" id="tex1" value="1,2,3,4,5,6">
+<input type="button" id="btn" value="开始">
+</body>
+</html>

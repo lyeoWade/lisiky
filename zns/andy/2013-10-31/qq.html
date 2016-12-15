@@ -1,0 +1,274 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0;}
+#dlbox{ float:left}
+#list{ float:left}
+#texUl{ overflow:hidden}
+#texUl li{ float:left; list-style:none;}
+#texUl li.texLi{height:300px;width:300px; overflow:scroll;border:1px solid #000;}
+.textDiv{border-bottom:1px solid red;padding:5px 0;}
+</style>
+<script>
+function json2url(json)
+{
+	json.t=Math.random();
+	var arr=[];
+	for(var i in json)
+	{
+		arr.push(i+'='+encodeURIComponent(json[i]));	
+	};
+	return arr.join('&'); 
+};
+window.onload=function()
+{
+	//http://zhinengshe.com/exercise/im/api.php
+	//登录
+	/*
+		?a=lgn&user=用户名&pass=密码&cb=xxx
+		{err: 0, msg: "登录成功", face: 头像ID, login_time: 上次登录时间}
+	*/
+	var oDl=document.getElementById('dl');
+	var aDlInput=oDl.getElementsByTagName('input');
+	aDlInput[2].onclick=function()
+	{
+		var userName=aDlInput[0].value;
+		var paddWord=aDlInput[1].value;
+		var url='http://zhinengshe.com/exercise/im/api.php?'+json2url({
+			user:userName,
+			pass:paddWord,
+			cb:'dlfn',
+			a:'lgn'
+		});
+		//
+		createJs(url);
+		
+	};
+	
+	function createJs(url)
+	{
+		var oS=document.createElement('script');
+		oS.src=url;
+		oS.id='os';
+		document.getElementsByTagName('head')[0].appendChild(oS);	
+	};
+	
+	function removeJs()
+	{
+		var oS=document.getElementById('os');
+		if(oS)
+		{
+			document.getElementsByTagName('head')[0].removeChild(oS);	
+		}	
+	};
+	
+	window.dlfn=function(json)
+	{
+		if(json.err)
+		{
+			alert(json.msg);
+		}
+		else
+		{
+			alert(json.msg+' 您现在可以发言了');
+			//成功了干什么
+			getUserList();
+		}
+		removeJs();
+		getUsersTalk();
+	};
+	
+	////注册
+	/*
+		?a=reg&user=用户名&pass=密码&face=头像ID&cb=xxx
+		{err: 0, msg: "注册成功"}
+	*/
+	
+	var oZc=document.getElementById('zc');
+	var aZcInput=oZc.getElementsByTagName('input');
+	aZcInput[3].onclick=function()
+	{
+		var userName=aZcInput[0].value;
+		var paddWord=aZcInput[1].value;
+		var imgId=aZcInput[2].value;
+		
+		var url='http://zhinengshe.com/exercise/im/api.php?'+json2url({
+			user:userName,
+			pass:paddWord,
+			cb:'zcFn',
+			face:imgId,
+			a:'reg'
+		});
+		//
+		createJs(url);
+	};
+
+	window.zcFn=function(json)
+	{
+		if(json.err)
+		{
+			alert(json.msg);	
+		}
+		else
+		{
+			//成功
+			alert(json.msg+' 您现在可以发言了');
+			//成功了干什么	
+			getUserList();
+			getUsersTalk();
+		};
+		
+		removeJs();
+	};
+	
+	
+	////获取用户列表
+	/*
+		?a=get_user_list&cb=xxx
+		{err: 0, data: [{ID: 用户ID,username: 用户名,face: 用户头像}]}
+    */
+	function getUserList()
+	{
+		var url='http://zhinengshe.com/exercise/im/api.php?'+json2url({
+			a:'get_user_list',
+			cb:'UserList'
+		});
+		createJs(url);	
+	};
+	
+	window.UserList=function(json)
+	{
+		if(json.err)
+		{
+			alert('获取用户列表失败');	
+		}	
+		else
+		{
+			var date=json.data;
+			var oList=document.getElementById('list').getElementsByTagName('ul')[0];
+			//{err: 0, data: [{ID: 用户ID,username: 用户名,face: 用户头像}]}
+			for(var i=0;i<date.length;i++)
+			{
+				var oListLi=document.createElement('li');
+				oListLi.id=	date[i].ID;
+				oListLi.innerHTML='用户名：<span>'+date[i].username+'</span>   头像:<span>'+date[i].face+'</span>';
+				oList.appendChild(oListLi);
+			}
+			
+		}
+		removeJs();
+	};
+	
+	
+	///获取发言
+	
+	function getUsersTalk()
+	{
+		var url='http://zhinengshe.com/exercise/im/api.php?'+json2url({
+			a:'get_msg',
+			cb:'UsersTalk'
+		});
+		createJs(url);		
+	};
+
+	window.UsersTalk=function(json)
+	{
+		if(json.err)
+		{
+			alert('获取发言失败');	
+		}
+		else
+		{
+		   	var data=json.data;
+			var oBox=document.getElementById('box');
+			for(var i=0;i<data.length;i++)
+			{
+					/*
+		?a=get_msg&cb=xxx
+		{err: 0, data: [{ID: 消息ID, post_time: 消息时间,content: 消息内容,username: 发言用户},...]}
+	*/
+				var oNewDiv=document.createElement('div');
+				oNewDiv.className='textDiv';
+				oNewDiv.id=data[i].ID;
+				
+				oNewDiv.innerHTML=' 用户名：<span>'+data[i].username+'</span>时间：<span>'+data[i].post_time+'</span><p>'+data[i].content+'</p>';
+				oBox.appendChild(oNewDiv);
+			}
+		}	
+		removeJs();
+	};
+	
+	
+	///发言
+	var oTextarea=document.getElementById('textarea');
+	var oTextareaBtn=document.getElementById('textareaBtn');
+	oTextareaBtn.onclick=function()
+	{
+		/*
+		?a=snd_msg&content=内容&cb=xxx
+		{err: 0, time: 发布时间, ID: 消息ID}
+		*/
+		var value=oTextarea.value;
+		var url='http://zhinengshe.com/exercise/im/api.php?'+json2url({
+			a:'snd_msg',
+			content:value,
+			cb:'textareaFn'
+		});
+		alert(url);
+		createJs(url);	
+	};
+	
+	window.textareaFn=function(json){
+		//alert(json.err);
+		var oBox=document.getElementById('box');
+		//alert('oBox.scrollTop'+oBox.scrollTop)
+		oBox.scrollTop=100;
+	};
+};
+
+
+</script>
+</head>
+
+<body>
+<div style="overflow:hidden">
+    <div id="dlbox">
+        <div id="dl">
+            登录用户名：<input type="text"><br />
+            登录密码：<input type="text"><br />
+            <input type="button" value="登录">
+        </div>
+        <div id="zc">
+            注册用户名：<input type="text"><br />
+            注册密码：<input type="text"><br />
+            注册头像：<input type="text"><br />
+            <input type="button" value="注册">
+        </div>
+    </div>
+    <div id="list">
+    用户列表：
+     <ul>
+     
+     </ul>
+    </div>
+</div>
+<ul id="texUl">
+  <li>
+    <textarea id="textarea"></textarea>
+    <input id="textareaBtn" type="button" value="发言">
+   </li>
+   <li class="texLi">
+      <div id="box">
+          <!--<div class="textDiv">
+            用户名：<span></span>时间：<span></span>
+            <p>sdfdfdfsdfsdf</p>
+          </div>-->
+       
+      </div>
+   </li>
+</ul>
+</body>
+</html>

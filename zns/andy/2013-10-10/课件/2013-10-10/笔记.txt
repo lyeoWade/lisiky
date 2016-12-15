@@ -1,0 +1,101 @@
+浏览器会有一系列的默认行为
+包括A链接
+
+取消默认行为：  return false; 
+右键事件：  document.oncontextmenu
+
+EcmaScript
+DOM   一部份不兼容  可以写兼容
+BOM  基本不兼容
+
+
+
+window.navigator.userAgent  
+浏览器的信息
+
+
+charAt(i)
+substring(开始，结束)
+indexOf   查看字符串有没有相应的字符
+
+
+get 方式传输
+后台通过name 提交付输
+
+数组：存东西
+
+arr=[ [百度],[谷歌],[360]  ]；
+arr=[  
+       [
+	[http://www.baidu.com/s]，
+	[wd],
+        [百度搜索]
+       ],
+      [谷歌],
+      [360]  
+     ]；
+
+百度：
+arr[0][0]  提交地址
+
+
+
+
+－－－－－－－－－－－
+
+json：就是将数据打了个包
+
+json什么类型都可以放进去。
+
+
+json  没有length   只能用forin 
+arr    有           
+
+
+循环 ：for  while    3: for in
+
+
+
+
+select.selectedIndex  下拉菜单选择第几个
+
+
+事件冒泡：
+往上级标签找，触发父级相同的事件
+从里往外冒泡
+
+阻止冒泡：
+event.cancelBubble=true;   
+
+event 对象  用来存储事件的信息  不兼容FF
+ev.cancelBubble=true;     FF
+
+
+var a=true||true;
+如果或左边的值为真，取左边的
+要不然就取右边的
+
+
+oEvent.clientX  鼠标X座标
+oEvent.clientY  鼠标Y座标
+
+
+onmousemove  当鼠标移动的时候
+
+
+//
+作业：
+自定义右键菜单
+360 判断浏览器 在新页中锚点
+音乐的运动
+form 提交
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社 - www.zhinengshe.com</title>
+<meta name="author" content="智能社 - zhinengshe.com">
+<meta name="copyright" content="智能社 - zhinengshe.com">
+<link type="text/css" rel="stylesheet" href="style/zns_ui.css">
+<link type="text/css" rel="stylesheet" href="style/common.css">
+
+
+<link id="link1" type="text/css" rel="stylesheet" href="style/default.css">
+
+<script>
+/**/
+
+window.onload=function()
+{
+	var oBtna=document.getElementById('btn_a');
+	var oWeather=document.getElementById('weather');
+	var oSkina=document.getElementById('skina');
+	var oSkin=document.getElementById('skin');
+	var oClose=document.getElementById('close2')
+	var oSmeun=document.getElementById('s_menu')
+	var oCloseX=document.getElementById('closeX');
+	function show(obj1,obj2,value)
+		{
+			obj1.onclick=function()
+			{
+				obj2.style.display=value;
+			}
+			
+		}
+	
+	show(oBtna,oWeather,'none')
+	show(oClose,oSmeun,'none')
+	show(oSkina,oSkin,'block')
+	show(oCloseX,oSkin,'none')
+
+	var oLi=document.getElementById('li');
+	var oLink=document.getElementById('link1');
+	oLi.onclick=function()
+	{
+		oLink.href='style/skin2.css';
+	}
+	
+	var oNobg=document.getElementById('nobg');
+	oNobg.onclick=function()
+	{
+		oLink.href='style/default.css';
+	}
+	
+	var oLong=document.getElementById('long')
+	var olyoer=document.getElementById('layer');
+	var aaa=document.getElementById('login')
+	var oCloseee=document.getElementById('closeee');
+	oLong.onclick=function()
+	{
+		olyoer.style.display='block';
+		aaa.style.display='block';
+	}
+	oCloseee.onclick=function()
+	{
+		olyoer.style.display='none';
+		aaa.style.display='none';	
+	}
+	
+	var oChange=document.getElementById('change');
+	oChange.onclick=function()
+	{
+		if(oW.style.display=='none')
+		{
+			oW.style.display='block';
+		}
+		else
+		{
+			oW.style.display='none';
+		}
+		
+	}
+	
+	var oAddlist=document.getElementById('addList')
+	var aDd=document.getElementById('add');
+	oAddlist.onclick=function()
+	{
+		if(aDd.style.display=='none')
+		{
+			olyoer.style.display='block';
+			aDd.style.display='block'
+		}else
+		{
+			olyoer.style.display='none';
+			aDd.style.display='none'
+		}
+	}
+	var oMore=document.getElementById('more');
+	var oList=document.getElementById('list');
+	
+	oMore.onmouseover=function()
+	{
+		oList.style.display='block';
+	}
+	oMore.onmouseout=function()
+	{
+		oList.style.display='none';
+	}
+	
+	
+	var oW=document.getElementById('wwwww')
+	var oA=document.getElementById('aaa')
+	oW.onmouseover=function()
+	{
+		oA.style.display='block'
+	}
+	oW.onmouseout=function()
+	{
+		oA.style.display='none'
+	}
+	
+}
+
+</script>
+
+</head>
+<body>
+<div class="skin_opa abs"></div>
+<div class="skin_img abs"></div>
+<div class="headerBar ui_gb_solid ui_gb_b">
+	<div id="wwwww" class="weather fl" >
+		<span>北京：</span><img src="img/a3.png" class="img" alt=""><span>26-17℃</span><span class="line">|</span><span>空气质量：</span><span class="wr">中度污染</span>
+		
+        <div class="weather_show abs ui_gb_solid shadow" id="aaa">
+			<img src="img/weather_img.png" alt="">
+		</div>
+	</div>
+    
+    <div class="weather_alert abs" id="weather">
+			<a href="javascript:;" class="close"  id="btn_a" ></a>
+	</div>
+    <div class="menu fr">
+        <a href="javascript:;" class="fl" id="long">登陆</a>
+        <div class="ui_toolbar fl" id="more">
+            <div class="fl more_cp">
+				<a href="javascript:;" class="more">更多产品</a> <div class="ui_toggle"></div>
+			</div>
+            <div class="ui_tool_edit abs ui_gb_solid txtCen hide" id="list">
+				<a href="javascript:;" class="ui_tool_item">百度影音</a>
+				<a href="javascript:;" class="ui_tool_item">百度网盘</a>
+				<a href="javascript:;" class="ui_tool_item">百度输入</a>
+				<a href="javascript:;" class="ui_tool_item">百度一下</a>
+			</div>
+        </div>
+		<a href="javascript:;" class="fl">搜索设置</a>
+    </div>
+</div>
+<div class="main">
+	<div class="logo">
+		<a href="javascript:;"></a>
+	</div>
+	<ul class="tab clearfix">
+		<li class="active"><a href="javascript:;">网页</a></li>
+		<li><a href="javascript:;">新闻</a></li>
+		<li><a href="javascript:;">图片</a></li>
+		<li><a href="javascript:;">音乐</a></li>
+		<li><a href="javascript:;">微博</a></li>
+		<li><a href="javascript:;">地图</a></li>
+		<li><a href="javascript:;">问答</a></li>
+		<li><a href="javascript:;">机票</a></li>
+		<li><a href="javascript:;">汽车</a></li>
+		<li><a href="javascript:;">更多&gt;&gt;</a></li>
+	</ul>
+	<div class="search">
+		<div class="search_input ui_search_box">
+			<input type="text" class="search_sr">
+			<div class="ui_search_bd">
+				<div class="suggest_nc">
+					<a href="javascript:;">测试内容啊 啊啊啊啊啊</a>
+					<a href="javascript:;">测试内容啊容啊啊啊啊啊啊</a>
+					<a href="javascript:;">测试内容啊容啊容啊啊啊啊啊啊</a>
+					<a href="javascript:;">测试内容啊 啊啊啊啊啊</a>
+					<a href="javascript:;">测试内容啊 啊啊啊啊啊</a>
+				</div>
+			</div>
+		</div>
+		<input class="search_btn" type="submit" value="百度一下">
+	</div>
+</div>
+<div class="bottom abs txtCen">
+	<p><a href="http://www.zhinengshe.com/">把智能社设为主页</a></p>
+	<p><a href="javascript:;">加入百度推广</a><a href="javascript:;"><span> | </span>搜索风云榜</a><a href="javascript:;"><span> | </span>关于百度</a><a href="javascript:;"><span> | </span>About zhinengshe</a><span> | </span><a href="javascript:;">加入开放首页</a></p>
+	<p>©2013 Baidu 使用百度前必读 京ICP证030173号</p>
+</div>
+
+<a href="javascript:;" class="skin_a" id="skina"></a>
+
+<div class="skin_box abs hide" id="skin">
+	<div class="s_close abs" id="closeX"></div>
+	<div class="skin_title">轻松换肤，你的首页最出“色”</div>
+	<div class="s_select">
+		<!--<div class="s_bg_left"></div>
+		<div class="s_bg_right"></div>-->
+		<a href="javascript:;" class="s_noBg" id="nobg"></a>
+		<div class="s_bg_img fl">
+			<ul class="s_bg_list">
+            	<!--<i></i>-->
+				<li id="li"><a href="javascript:;"><img src="img/skin/city.jpg"><span>皮肤1</span></a></li>
+				<li><a href="javascript:;"><img src="img/skin/mao.jpg"><span>皮肤2</span></a></li>
+				<li><a href="javascript:;"><img src="img/skin/nvhai.jpg"><span>皮肤3</span></a></li>
+				<li><a href="javascript:;"><img src="img/skin/pugongying.jpg"><span>皮肤4</span></a></li>
+				<li><a href="javascript:;"><img src="img/skin/qingxin.jpg"><span>皮肤5</span></a></li>
+				<li><a href="javascript:;"><img src="img/skin/qiu.jpg"><span>皮肤6</span></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div class="s_menu abs" >
+	<a href="javascript:;" class="add" id="addList" ></a>
+	<a href="javascript:;" class="mess"></a>
+    <div class="s_menu_tip abs" id="s_menu">
+    	<a href="javascript:;" class="close" id="close2"></a>
+    </div>
+	<div class="s_menu_show abs hide" id="add" style="display:none">
+		<ul>
+			<li>
+				<div class="s_cont">
+					<div class="s_c_tit">推荐添加</div>
+					<div class="s_c_link clearfix">
+						<a href="javascript:;">我的导航</a>
+						<a href="javascript:;" id="change">城市天气</a>
+						<a href="javascript:;">我的新闻</a>
+						<a href="javascript:;">音乐</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="s_cont">
+					<div class="s_c_tit">体育</div>
+					<div class="s_c_link clearfix">
+						<a href="javascript:;">中超</a>
+						<a href="javascript:;">意甲</a>
+						<a href="javascript:;">西甲</a>
+						<a href="javascript:;">德甲</a>
+						<a href="javascript:;">NBA</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="s_cont">
+					<div class="s_c_tit">彩票</div>
+					<div class="s_c_link clearfix">
+						<a href="javascript:;">双色球</a>
+						<a href="javascript:;">大乐透</a>
+						<a href="javascript:;">排列3</a>
+						<a href="javascript:;">排列5</a>
+						<a href="javascript:;">福彩3D</a>
+						<a href="javascript:;">七乐彩</a>
+					</div>
+				</div>
+			</li>
+			<li>
+				<div class="s_cont">
+					<div class="s_c_tit">星座</div>
+					<div class="s_c_link clearfix">
+						<a href="javascript:;">水瓶座</a>
+						<a href="javascript:;">天秤座</a>
+						<a href="javascript:;">狮子座</a>
+						<a href="javascript:;">射手座</a>
+						<a href="javascript:;">狮子座</a>
+						<a href="javascript:;">射手座</a>
+						<a href="javascript:;">狮子座</a>
+						<a href="javascript:;">射手座</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="layer abs hide" id="layer" ></div>
+<div class="login_box abs hide" id="login">
+	<div class="login_header clearfix">
+		<div class="login_title fl">登陆</div>
+		<a href="#" class="login_close fr" id="closeee"></a>
+	</div>
+	<div class="login_cont">
+		<ul class="login_list">
+			<li><span class="login_txt">用户名</span><input type="text" class="login_input_b"></li>
+			<li><span class="login_txt">密码</span><input type="text" class="login_input_b"></li>
+			<li><span class="login_txt">&nbsp;</span><label for="login_zt"><input type="checkbox" id="login_zt"><span>记住我的状态</span></label></li>
+			<li><span class="login_txt">&nbsp;</span><input type="button" class="login_btn" value="登陆"></li>
+		</ul>
+	</div>
+</div>
+</body>
+</html>

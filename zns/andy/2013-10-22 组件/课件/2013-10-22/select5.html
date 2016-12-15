@@ -1,0 +1,77 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.selectDiv{margin:0;padding:0;width:200px;height:30px; position:relative; display:inline-block; border:1px solid #ccc;}
+.selectDiv span{margin:0;padding:0; display:block;width:100%;height:100%;}
+.selectDiv ul{ display:none;margin:0;padding:0;width:200px; overflow:hidden; position:absolute;top:31px;left:0;}
+.selectDiv ul li{margin:0;padding:0;list-style:none;width:198px;height:30px; border:1px solid red;}
+</style>
+<script>
+window.onload=function()
+{
+	var oSe=document.getElementById('s1');
+	var oBox=document.getElementById('box');
+	var oSpan=oBox.children[0];
+	var oUl=oBox.children[1];
+	var aLi=oUl.children;
+	var b=true;
+	oSpan.onclick=function()
+	{
+		if(b)
+		{
+			oUl.style.display='block';
+			b=false;
+		}	
+		else
+		{
+			oUl.style.display='none';
+			b=true;
+		};
+		
+		return false;
+	};
+	
+	oSpan.onmousedown=function()
+	{
+		return false;
+	};
+	
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].index=i;
+		aLi[i].onclick=function()
+		{
+			oSpan.innerHTML=this.innerHTML;
+			oUl.style.display='none';
+			b=true;
+			oSe.selectedIndex=this.index;
+		};	
+	}
+};
+</script>
+</head>
+
+<body>
+<form action="http://www.zhinengshe.com">
+   <div id="box" class="selectDiv">
+   		<span>北京</span>
+		<ul>
+        	<li>北京</li>
+        	<li>上海</li>
+        	<li>广州</li>
+        	<li>深圳</li>
+        </ul>
+   </div>
+    <select name="s1" id="s1">
+        <option value="bj">北京</option>
+        <option value="sh">上海</option>
+        <option value="gz">广州</option>
+        <option value="sz">深圳</option>
+    </select>
+    <input type="submit" value="aa" id="btn">
+</form>
+</body>
+</html>

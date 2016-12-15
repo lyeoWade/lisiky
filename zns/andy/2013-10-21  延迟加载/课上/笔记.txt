@@ -1,0 +1,57 @@
+window.open('url','打开的类型','width/height/top/left.......','')  //打开新窗口
+打开的类型  _blank, _selef..........................
+
+不写第二个参数 默认就是 _blank
+
+
+document.write();   //  在window.onload下会替换原有的文字  不会替换自己
+
+		不加window.onload是在同一文档流
+
+
+
+
+window.close();     //关闭自己窗口
+//但是可以关闭open()出来的窗口
+
+window.location  // 路径  网址   能读能写
+
+window.location='url';
+
+
+滚动事件   onscroll  onresize
+
+
+offsetHeight                display 0  当隐藏掉的时候就为0
+
+offsetLeft  // 找有定位的父级
+
+
+parentNode  结构上的父级
+offsetParent  定位的父级
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

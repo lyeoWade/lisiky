@@ -1,0 +1,184 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; list-style:none; }
+#ul1{ width:486px; margin:0 auto; }
+#ul1 li{ width:140px; height:140px; margin:10px;  border:1px solid #999; background:#CCC; float:left;   }
+</style>
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	var zIndexM=2;
+	var aPos=[];
+	for(var i=0; i<aLi.length; i++)
+	{
+		aLi[i].style.left=aLi[i].offsetLeft+'px';
+		aLi[i].style.top=aLi[i].offsetTop+'px';
+		aPos[i]={ left:aLi[i].offsetLeft,top:aLi[i].offsetTop }
+	}
+	
+	for(var i=0; i<aLi.length; i++)
+	{
+		aLi[i].style.margin='0';
+		aLi[i].style.position='absolute';
+	}
+	
+	for(var i=0; i<aLi.length; i++)
+	{
+		aLi[i].index=i;
+		aLi[i].onmouseover=function()
+		{
+			this.style.zIndex=zIndexM++;
+			startMove(this,{
+			width:300,
+			height:300,
+			left:aPos[this.index].left-(300-140)/2,
+			top:aPos[this.index].top-(300-140)/2 
+			
+			})
+		}
+		aLi[i].onmouseout=function()
+		{
+			startMove(this,{
+			width:140,
+			height:140,
+			left:aPos[this.index].left,
+			top:aPos[this.index].top
+			})
+		}
+	}
+	
+}
+
+
+function getStyle(obj,attr){return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr] }
+function getCur(obj,name)
+{
+	var cur;
+		
+		if(name=='opacity')
+		{
+			cur=Math.round(parseFloat(getStyle(obj,name))*100);
+		}else
+		{
+			cur=parseInt(getStyle(obj,name));
+		}
+		
+		if(isNaN(cur))
+		{
+			switch(name)
+			{
+				case 'left':
+					return obj.offsetLeft;
+				case 'top':
+					return obj.offsetTop;
+				case 'width':
+					return obj.offsetWidth;
+				case 'height':
+					return obj.offsetHeight;
+			}
+		}
+		
+	return cur;
+}
+
+function startMove(obj,json,options)
+{
+	
+	var timers={
+		
+		fast:300,
+		fast2:500,
+		normal:1800,
+		slow:5000
+		}
+	
+	options=options||{};
+	options.time=options.time||500;
+	options.type=options.type||'buffer';
+	
+	if(typeof options.time=='string')
+	{
+		if(timers[options.time])
+		{
+			options.time=timers[options.time];
+		}else
+		{
+			options.time=500;
+		}
+	}
+	
+	clearInterval(obj.timer);
+	
+	var first={};
+	var dis={};
+	var count=parseInt(options.time/30);
+	for(var i in json)
+	{
+		first[i]=getCur(obj,i);
+		dis[i]=json[i]-first[i];
+	}
+	var n=0;
+	
+	obj.timer=setInterval(function(){
+		
+		n++;
+		var wade=0;
+		for(var i in json)
+		{
+			switch(options.type)
+			{
+				case 'linear':
+					wade=first[i]+n*dis[i]/count;
+				break;
+				case 'buffer':
+					var a=1-n/count;
+					wade=first[i]+dis[i]*(1-a*a*a);
+				break;
+				case 'StoF':
+					var a=n/count;
+					wade=first[i]+dis[i]*a*a*a;
+			}
+			if(i=='opacity')
+			{
+				obj.style.opacity=wade/100;
+				obj.style.filter='alpha(opacity='+wade+')';
+			}else
+			{
+				obj.style[i]=wade+'px'
+			}
+		}
+		
+		if(n==count)
+		{
+			clearInterval(obj.timer);
+			options.fn&&options.fn();
+		}
+		},30)
+}
+</script>
+</head>
+
+<body>
+
+
+		<ul id="ul1">
+        		<li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+                <li></li>
+        </ul>
+
+
+</body>
+</html>

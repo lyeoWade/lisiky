@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+#box{width:200px;height:200px; background:red; position:absolute;top:0;left:0;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('box');
+	document.onkeydown=function(ev)
+	{
+		var oEvent=ev||event;
+		if(oEvent.keyCode=='37')
+		{
+			//左	
+			var l=oDiv.offsetLeft-10; 
+			if(l<0)l=0;
+			oDiv.style.left=l+'px'; 
+		}
+		
+		if(oEvent.keyCode=='38')
+		{
+			//s
+			var t=oDiv.offsetTop-10;
+			if(t<0)t=0;
+			oDiv.style.top=t+'px';
+		};
+		if(oEvent.keyCode=='39')
+		{
+			//r
+			var r=oDiv.offsetLeft+10;
+			if(r>document.documentElement.clientWidth-oDiv.offsetWidth)r=document.documentElement.clientWidth-oDiv.offsetWidth;
+			oDiv.style.left=r+'px';
+		}
+		
+		if(oEvent.keyCode=='40')
+		{
+			//xia
+			var b=oDiv.offsetTop+10;
+			if(b>document.documentElement.clientHeight-oDiv.offsetHeight)b=document.documentElement.clientHeight-oDiv.offsetHeight;
+			oDiv.style.top=b+'px';
+		}
+	};	
+	
+};
+</script>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>

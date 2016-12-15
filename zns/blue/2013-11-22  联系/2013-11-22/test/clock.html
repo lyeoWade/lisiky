@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>表</title>
+	<style type="text/css">
+		*{ margin: 0; padding: 0;  }
+		#div1{ width: 300px; height: 300px; border-radius: 50%; position: relative; border: 1px solid #000; background: #9cf; margin: 50px auto; }
+		#div1 .hours{ width: 6px; height: 80px; background: #000; position: absolute; left: 50%; top: 70px; margin-left: -3px; 
+			
+			transform-origin:0 0;
+			transition:1s all ease;
+		 }
+		 #div1:hover .hours{ transform-rotate:(30deg); }
+
+	</style>
+</head>
+<body>
+	<div id="div1">
+		<span class="hours"></span>
+	</div>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0;}
+#div1{ width:312px; margin:50px auto; position:relative;}
+.small{ width:310px; height:310px; border:1px solid #cdcdcd; overflow:hidden; left:0; top:0; position:absolute;}
+.mark{ position:absolute; width:100%; height:100%; background:#ff0000; filter:alpha(opacity:0); opacity:0; z-index:2;cursor:move;}
+.float1 { width:100px; height:100px; background:#fede4f; border:1px solid #aaa; filter:alpha(opacity:50);opacity:0.5; position:absolute;  display:none;}
+.big{ width:310px; height:310px; border:1px solid #cdcdcd; overflow:hidden; position:absolute; left:320px; top:0; display:none;}
+.big img{ position:absolute; left:0; top:0;}
+#list{ width:288px; height:46px; overflow:hidden; position:absolute; left:10px; top:320px;}
+#list ul{ position:absolute; left:0;}
+#list li{ list-style:none; float:left; padding:4px; overflow:hidden; width:40px; height:40px;}
+#list li img{ border:1px solid #cdcdcd;}
+#list .active img{  border:1px solid #ff0000;}
+#left{ width:10px; height:45px; display:block; background:url(images/left.gif) no-repeat; position:absolute; top:322px; left:0; cursor:pointer;}
+#right{ width:10px; height:45px; display:block; background:url(images/right.gif) no-repeat; position:absolute; top:322px; left:300px; cursor:pointer;}
+</style>
+<script>
+function getByClass(oParent,sClass){
+	if(oParent.getElementsByClassName){
+		return oParent.getElementsByClassName(sClass);
+	}else{
+		var arr=[];
+		var aEle=oParent.getElementsByTagName('*');
+		
+		for(var i=0; i<aEle.length; i++){
+			if(aEle[i].className==sClass){
+				arr.push(aEle[i]);	
+			}
+		}
+		return arr;
+	}
+}
+window.onload=function(){
+	var oBox=document.getElementById('div1');
+	var oSmall=getByClass(oBox,'small')[0];
+	var oFloat=getByClass(oSmall,'float1')[0];
+	
+	var oBig=getByClass(oBox,'big')[0];
+	var oImg=oBig.getElementsByTagName('img')[0];
+	
+	oSmall.onmouseover=function(){
+		oFloat.style.display='block';
+		oBig.style.display='block';	
+	}
+	oSmall.onmouseout=function(){
+		oFloat.style.display='none';
+		oBig.style.display='none';	
+	}
+	
+	
+	oSmall.onmousemove=function(ev){
+		var oEvent=ev || event;
+		var l=oEvent.clientX-oBox.offsetLeft-oFloat.offsetWidth/2;
+		var t=oEvent.clientY-oBox.offsetTop-oFloat.offsetHeight/2;
+		
+		if(l<0){
+			l=0;	
+		}
+		
+		if(l>oSmall.offsetWidth-oFloat.offsetWidth){
+			l=oSmall.offsetWidth-oFloat.offsetWidth;	
+		}
+		
+		if(t<0){
+			t=0;	
+		}
+		
+		if(t>oSmall.offsetHeight-oFloat.offsetHeight){
+			t=oSmall.offsetHeight-oFloat.offsetHeight;	
+		}
+		oFloat.style.left=l+'px';
+		oFloat.style.top=t+'px';
+		
+		
+		//小图：l/(oSmall.offsetWidth-oFloat.offsetWidth);
+		
+		
+		oImg.style.left=-l*(oImg.offsetWidth-oBig.offsetWidth)/(oSmall.offsetWidth-oFloat.offsetWidth)+'px';
+		
+		oImg.style.top=-t*(oImg.offsetHeight-oBig.offsetHeight)/(oSmall.offsetHeight-oFloat.offsetHeight)+'px';
+		document.title=l/(oSmall.offsetWidth-oFloat.offsetWidth);
+	}
+	
+	
+	//下面那一坨
+	var oList=document.getElementById('list');
+	var aLi=oList.getElementsByTagName('li');
+	var oSmallImg=oSmall.getElementsByTagName('img')[0];
+	var oLeft=document.getElementById('left');
+	var oRight=document.getElementById('right');
+	var oUl=oList.children[0];
+	
+	for(var i=0; i<aLi.length; i++){
+		(function(index){
+			aLi[i].onmouseover=function(){
+				for(var i=0; i<aLi.length; i++){
+					aLi[i].className='';
+				}
+				this.className='active';
+				//换图
+				oSmallImg.src='images/m'+(index+1)+'.jpg';
+				oImg.src='images/b'+(index+1)+'.jpg';	
+			}
+		})(i);
+	}
+	
+	var iNow=0;
+	var oneWidth=aLi[0].offsetWidth;
+	oLeft.onclick=function(){
+		iNow--;
+		if(iNow==-1){
+			iNow=0;	
+		}
+		oUl.style.left=-iNow*oneWidth+'px';	
+	}
+	
+	oRight.onclick=function(){
+		iNow++;
+		if(iNow>4){
+			iNow=4;	
+		}
+		oUl.style.left=-iNow*oneWidth+'px';
+		
+		document.title=iNow;
+	}
+		
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<div class="small">
+    	<div class="float1"></div>
+    	<div class="mark"></div>
+        <img src="images/m1.jpg" width="310" height="310" />
+    </div>
+    <div class="big">
+    	<img src="images/b1.jpg" />
+    </div>
+    <span id="left"></span>
+    <span id="right"></span>
+    <div id="list">
+    	<ul>
+        	<li class="active"><img src="images/s1.jpg" /></li>
+        	<li><img src="images/s2.jpg" /></li>
+        	<li><img src="images/s3.jpg" /></li>
+            <li><img src="images/s4.jpg" /></li>
+        	<li><img src="images/s5.jpg" /></li>
+            <li><img src="images/s6.jpg" /></li>
+            <li><img src="images/s7.jpg" /></li>
+            <li><img src="images/s8.jpg" /></li>
+        	<li><img src="images/s9.jpg" /></li>
+            <li><img src="images/s10.jpg" /></li>
+        </ul>
+    </div>
+</div> 
+</body>
+</html>

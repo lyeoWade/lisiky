@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0; }
+#div1{ width:100px; background:#333; height:100px; position:absolute; top:100px; left:100px;  }
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	
+	
+	oDiv.onclick=function()
+	{
+		stratMove(oDiv,'left',500,1000);
+	}
+}
+
+function getStyle(obj,name){ return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj,false)[name]}
+function stratMove(obj,name,iTarget,iTime)
+{
+	var count=parseInt(iTime/30);
+	var first=parseInt(getStyle(obj,name));
+	var dis=iTarget-first;
+	
+	var n=0;
+	
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+		
+		n++;
+		var a=1-n/count; 
+		// a 的值在不断减小     -----> 由远到近  
+		obj.style[name]=first+(1-a*a*a)*dis +'px';  // a*a*a 递增 ------ (1-a*a*a) 递减  形成减速
+		// 缓冲
+		if(n==count)
+		{
+			clearInterval(obj.timer)
+		}
+		},30);
+	
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

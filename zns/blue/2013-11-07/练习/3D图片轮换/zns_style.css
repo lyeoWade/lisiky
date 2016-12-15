@@ -1,0 +1,29 @@
+/*
+智能社© - http://www.zhinengshe.com/
+
+微博：@北京智能社
+微信：zhi_neng_she
+
+最具深度的前端开发培训机构 HTML+CSS/JS/HTML5
+*/
+
+
+* { padding: 0; margin: 0; }
+li { list-style: none; }
+body { background: #444; }
+img { border: none; }
+#znsRotatePic { width: 900px; height: 380px; margin: 80px auto 0; position: relative; background: #000 url(images/bg.jpg); overflow: hidden; }
+#znsRotatePic li { width: 250px; height: 340px; position: absolute; text-align: center; }
+#znsRotatePic li span { width: 212px; height: 90px; overflow: hidden; position: absolute; bottom: 0; left: 20px;
+	background:url('images/shade.png') !important;
+	background:none;
+	filter:none!important;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='images/shade.png',sizingMethod='images');
+}
+#znsRotatePic img { position: relative; }
+#znsRotatePic .pic1 { top: 20px; left: 77px; }
+#znsRotatePic .pic1 img {top:20px;}
+#znsRotatePic .pic2 { top: 55px; left: 336px; }
+#znsRotatePic .pic3 { top: 20px; left: 595px; }
+#znsRotatePic .pic3 img {top:20px;}
+#znsRotatePic .unactive {filter: alpha(opacity=20); opacity: 0.2;}

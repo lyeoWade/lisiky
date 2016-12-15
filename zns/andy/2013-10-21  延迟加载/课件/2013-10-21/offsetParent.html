@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+#box{margin:100px;width:500px; background:#ccc;height:500px;padding:100px; position:relative; display:block;}
+#box div{width:300px;height:300px; background:red;}
+</style>
+<script>
+
+window.onload=function()
+{
+   alert(document.getElementById('div1').offsetParent);
+};
+
+</script>
+</head>
+
+<body>
+<span id="box">
+	<div id="div1">
+    	<div style="background:blue;width:100px;height:100px;margin:10px;"></div>
+    </div>
+</span>
+</body>
+</html>

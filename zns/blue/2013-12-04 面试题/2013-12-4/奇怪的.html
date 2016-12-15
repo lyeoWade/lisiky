@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+var a = function(){
+	alert("a");
+}
+var b = function(){
+	alert("b");
+}
+var c = function(){
+	var x = 1;
+	alert(x);
+	function d(){
+		alert(++x);
+		alert("d");
+	}
+	return d;
+}
+
+var e = c();		//1
+e();				//2 d
+e();				//3 d
+c();				//1
+e();				//4 d
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<html>
+<head>
+<title>无
+</title>
+<script>
+window.onload=function(){
+var oBtn=document.getElementById('btn1');
+var oBtn2=document.getElementById('btn2');
+var timer=null;
+oBtn.onclick=function(){
+timer=setInterval(popBox,1000);
+}
+		oBtn2.onclick=function(){
+		clearInterval(timer);
+		}
+function popBox(){
+alert("哈哈");
+}		
+}
+
+</script>
+</head>
+<body>
+<input id="btn1" type="button" value="开始"/>
+<input id="btn2" type="button" value="停止"/>
+</body>
+</html>

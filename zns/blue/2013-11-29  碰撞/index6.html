@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#div1 {width:200px; height:200px; position:absolute; left:50%; margin-left:-100px; top:400px;}
+#div1 div {background:rgba(0,0,0,1); opacity:0.7; box-shadow:0px 0px 0px black; width:20px; height:20px; float:left;}
+body {overflow:hidden;}
+</style>
+<script>
+window.onload=function ()
+{
+	var R=8;
+	var C=8;
+	var oDiv=document.getElementById('div1');
+	var aDiv=oDiv.children;
+	
+	for(var i=0;i<R*C;i++)
+	{
+		var o=document.createElement('div');
+		
+		oDiv.appendChild(o);
+		
+		o.style.cssText='position:absolute; left:'+(20*(i%C))+'px; top:'+20*parseInt(i/R)+'px';
+		
+		var x=i%C;
+		
+		o.zns={
+			speedY:	-Math.random()*40,
+			speedX: (x-C/2)*Math.random()*10,
+			r: 0,
+			speedR: Math.random()*10-5,
+			shadow: 0,
+			opacity: 0.7,
+			started:true
+		};
+	}
+	
+	oDiv.onclick=function ()
+	{
+		var tt=0;
+	
+		setInterval(function (){
+			if(tt++<100)
+			{
+				oDiv.style.marginLeft=-96+Math.random()*-8+'px';
+			}
+			else
+			{
+				for(var i=0;i<aDiv.length;i++)
+				{
+					if(!aDiv[i].zns.started)continue;
+					//计算
+					t=aDiv[i].offsetTop+aDiv[i].zns.speedY;
+					l=aDiv[i].offsetLeft+aDiv[i].zns.speedX;
+					if(t>=document.documentElement.clientHeight || l<=-oDiv.offsetLeft || l>=document.documentElement.clientWidth)
+					{
+						oDiv.removeChild(aDiv[i]);
+						i--;
+						continue;
+					}
+					
+					aDiv[i].zns.speedY+=0.5;
+					aDiv[i].zns.r+=aDiv[i].zns.speedR;
+					aDiv[i].zns.opacity-=0.01;
+					aDiv[i].zns.shadow+=0.5;
+					
+					//赋值
+					aDiv[i].style.top=t+'px';
+					aDiv[i].style.left=l+'px';
+					aDiv[i].style.boxShadow='0 0 '+aDiv[i].zns.shadow+'px 2px black';
+					aDiv[i].style.opacity=aDiv[i].zns.opacity;
+					aDiv[i].style.WebkitTransform='rotate('+aDiv[i].zns.r+'deg)';
+				}
+			}
+		}, 1000/60);
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+</div>
+</body>
+</html>

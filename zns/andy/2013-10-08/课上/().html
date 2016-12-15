@@ -1,0 +1,178 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+/*
+function a()
+{
+	alert(123)
+}*/
+
+/*
+function a()
+{
+	return 123;
+}
+
+alert(a());
+*/
+/*
+
+var a=123;
+function aaaa(b)
+{
+	return function ()
+	{
+		alert(b);
+	};
+}
+
+aaaa(a)();
+
+
+*/
+
+
+
+/*var a=12;
+
+function aa(b){
+		
+		return function(){
+			alert(b);
+		}
+		
+	}
+
+setTimeout(aa(a),2000);
+
+
+var a=12;
+
+function aa(b){
+		
+		return function(){
+			alert(b);
+		}
+		
+	}
+
+setTimeout(aa(a),2000);
+
+
+
+var a=123;
+var b=(function aaaa(b)
+{
+	return function ()
+	{
+		alert(b);
+	};
+})(a)
+
+b();
+*/
+
+/*var a=123;
+(function (b)
+{
+	return function ()
+	{
+		alert(b);
+	};
+})(a)()
+;
+//aaaa(a)();
+
+
+var a=123;
+(function (b)
+{
+		alert(b);
+})(a)
+;*/
+/*var a=12;
+
+function aa(b){
+		
+		return function(){
+			alert(b);
+		}
+		
+	}
+
+setTimeout(aa(),2000);
+
+
+window.onload=function()
+{
+	var aBtn=document.getElementsByTagName('input')[0];
+	aBtn.onclick=function()
+	{
+		setTimeout(function(){
+			
+			alert(this.className);
+			},1000)
+		
+	}
+}
+window.onload=function()
+{
+	var aBtn=document.getElementsByTagName('input')[0];
+	aBtn.onclick=function()
+	{
+		var _this=this;
+		setTimeout(function(){
+			
+			alert(_this.className);
+			},1000)
+		
+	}
+}
+
+window.onload=function()
+{
+	var aBtn=document.getElementsByTagName('input')[0];
+	aBtn.onclick=function()
+	{
+		setTimeout(aaa(this),1000)
+		
+	}
+}
+
+function aaa(This)
+	{
+		return function(){
+			alert(This.className);
+		}
+	    
+	}
+*/	
+
+
+window.onload=function()
+{
+	var aBtn=document.getElementsByTagName('input')[0];
+	aBtn.onclick=function()
+	{
+		setTimeout(aaa(this),1000)
+		
+	}
+}
+
+function aaa(This)
+	{
+		return function(){
+			alert(This.className);
+		}
+	    
+	}
+</script>
+</head>
+
+<body>
+<input type="button" class="aaaa"  value="aaaaaaaaaaaaaaa" >
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:100px; height:100px; background:red; position:absolute; left:0; top:0;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	var speedX=12;
+	var speedY=0;
+	
+	setInterval(function (){
+		speedY+=3;
+		
+		var l=oDiv.offsetLeft+speedX; //  
+		var t=oDiv.offsetTop+speedY;  // Y轴的速度
+		
+		if(t>=document.documentElement.clientHeight-oDiv.offsetHeight)
+		{
+			speedY*=-0.8; // 给y轴一个反向的摩擦力   可以弹起来
+			speedX*=0.8;  // X的速度一直匀速 没有改变  给正向的 摩擦力 减速 至停止
+			t=document.documentElement.clientHeight-oDiv.offsetHeight;
+		}
+		else if(t<=0)
+		{
+			speedY*=-0.8;
+			speedX*=0.8;
+			t=0;
+		}
+		
+		if(l>=document.documentElement.clientWidth-oDiv.offsetWidth)
+		{
+			speedX*=-0.8;
+			speedY*=0.8;
+			l=document.documentElement.clientWidth-oDiv.offsetWidth;
+		}
+		else if(l<=0)
+		{
+			speedX*=-0.8;
+			speedY*=0.8;
+			l=0;
+		}
+		
+		oDiv.style.left=l+'px';
+		oDiv.style.top=t+'px';
+	}, 30);
+};
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

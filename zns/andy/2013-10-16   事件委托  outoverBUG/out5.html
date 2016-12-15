@@ -1,0 +1,49 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{ background:#ccc;width:400px;height:400px;}
+h1{height:50px; background:yellow}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	oBox.onmouseout=function(ev)
+	{
+		var oEvent=ev||event;
+		// 看看目的地
+		//alert(oEvent.relatedTarget); //FF
+		var toElement=oEvent.toElement||oEvent.relatedTarget;
+		// 如果toElement是子级，我就不让你动
+		//isChild(oBox,toElement)
+	};
+};
+
+function isChild(oParent,obj)
+{
+	while(obj)
+	{
+		if(obj==oParent)
+		{
+			//是我的子级
+			return true;
+		}
+		
+		obj=obj.parentNode;	
+	}	
+	
+	// 不是我的子级
+	return false;
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+	<h1>sdfsfdafasdf</h1>
+</div>
+</body>
+</html>

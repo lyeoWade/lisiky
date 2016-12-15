@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red;}
+li{height:30px;border:1px solid #000;margin:5px 0; background:#FF00FF;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oUl1=document.getElementById('ul1');
+	var aLi=oUl1.getElementsByTagName('li');
+	var n=0;
+	oBtn.onclick=function()
+	{
+		var oNewLi=document.createElement('li');
+		n++;
+		oNewLi.innerHTML='我是新创建出来的'+n;
+		if(!aLi[0])
+		{
+			oUl1.appendChild(oNewLi);	
+		}
+		else
+		{
+			oUl1.insertBefore(oNewLi,aLi[0]);	
+		}
+	};
+	
+		
+};
+
+</script>
+
+</head>
+
+<body>
+<input type="button" value="点击创建" id="btn">
+<ul id="ul1">
+</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

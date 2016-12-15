@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+ul{margin:100px auto;width:135px;height:28px;}
+li{width:27px;height:28px; float:left; background:url(star.gif) no-repeat 0 0; list-style:none;}
+</style>
+<script>
+window.onload=function()
+{
+	var aLi=document.getElementsByTagName('li');
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].index=i;
+		aLi[i].onmouseover=function()
+		{
+			for(var i=0;i<aLi.length;i++)
+			{
+				if(i<=this.index)   // 不要忘了自己
+				{
+					aLi[i].style.background='url(star.gif) no-repeat 0 -28px';	
+				}
+				else
+				{
+					aLi[i].style.background='url(star.gif) no-repeat 0 0';	
+				}
+					
+			}
+			
+		};	
+	}	
+};
+</script>
+</head>
+
+<body>
+<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</body>
+</html>

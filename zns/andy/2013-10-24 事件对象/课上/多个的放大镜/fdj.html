@@ -1,0 +1,185 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style type="text/css">
+*{ margin:0; padding:0;}
+#div1{ width:312px; margin:50px auto; position:relative;}
+.small{ width:310px; height:310px; border:1px solid #cdcdcd; overflow:hidden; left:0; top:0; position:absolute;}
+.small .mark{ position:absolute; width:100%; height:100%; background:#ff0000; filter:alpha(opacity:0); opacity:0; z-index:2;cursor:move;}
+.small .float1 { width:100px; height:100px; background:#fede4f; border:1px solid #aaa; filter:alpha(opacity:50);opacity:0.5; position:absolute;  display:none;}
+.big{ width:310px; height:310px; border:1px solid #cdcdcd; overflow:hidden; position:absolute; left:320px; top:0; display:none;}
+.big img{ position:absolute; left:0; top:0;}
+.list{ width:288px; height:46px; overflow:hidden; position:absolute; left:10px; top:320px;}
+.list ul{ position:absolute; left:0;}
+.list li{ list-style:none; float:left; padding:4px; overflow:hidden; width:40px; height:40px;}
+.list li img{ border:1px solid #cdcdcd;}
+.list .active img{  border:1px solid #ff0000;}
+.left{ width:10px; height:45px; display:block; background:url(images/left.gif) no-repeat; position:absolute; top:322px; left:0; cursor:pointer;}
+.right{ width:10px; height:45px; display:block; background:url(images/right.gif) no-repeat; position:absolute; top:322px; left:300px; cursor:pointer;}
+</style>
+<script>
+function getByClass(oParent,sClass){
+	if(oParent.getElementsByClassName){
+		return oParent.getElementsByClassName(sClass);
+	}else{
+		var arr=[];
+		var aEle=oParent.getElementsByTagName('*');
+		var re=new RegExp('\\b'+sClass+'\\b');
+		for(var i=0; i<aEle.length; i++){
+			if(re.test(aEle[i].className)){
+				arr.push(aEle[i]);	
+			}
+		}
+		return arr;
+	}
+}
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oSmall=getByClass(oDiv,'small')[0];	
+	var SmallImg=oSmall.getElementsByTagName('img')[0];
+	var oFloat=getByClass(oSmall,'float1')[0];	
+	var oMark=getByClass(oSmall,'mark')[0];	
+	var oBig=getByClass(oDiv,'big')[0];	
+	var oImg=oBig.children[0];
+	var oLeft=getByClass(oDiv,'left')[0];	
+	var oRight=getByClass(oDiv,'right')[0];	
+	var oList=getByClass(oDiv,'list')[0];
+	var oUl=oList.getElementsByTagName('ul')[0];
+	var aLi=oList.getElementsByTagName('li');
+	var iNow=0;
+	var len=aLi.length;
+	
+	oMark.onmouseover=function()
+	{
+		oFloat.style.display='block';
+		oBig.style.display='block';
+	}
+	oMark.onmouseout=function()
+	{
+		oFloat.style.display='none';
+		oBig.style.display='none';
+	}
+	
+	oMark.onmousemove=function(ev)
+	{
+		var oEvent=ev||event;
+		var l=oEvent.clientX-oDiv.offsetLeft-oFloat.offsetWidth/2;
+		var t=oEvent.clientY-oDiv.offsetTop-oFloat.offsetHeight/2;
+		if(l<0)
+		{
+			l=0;
+		}else if(l>oMark.offsetWidth-oFloat.offsetWidth)
+		{
+			l=oMark.offsetWidth-oFloat.offsetWidth;
+		}
+		
+		if(t<0)
+		{
+			t=0;
+		}else if(t>oMark.offsetHeight-oFloat.offsetHeight)
+		{
+			t=oMark.offsetHeight-oFloat.offsetHeight;
+		}
+		
+		
+		
+		oFloat.style.left=l+'px';
+		oFloat.style.top=t+'px';
+		
+		
+		var sCanleX=l/(oMark.offsetWidth-oFloat.offsetWidth);
+		var sCanleY=t/(oMark.offsetHeight-oFloat.offsetHeight);
+		oImg.style.left=-sCanleX*(oImg.offsetWidth-oBig.offsetWidth)+'px';
+		oImg.style.top=-sCanleY*(oImg.offsetHeight-oBig.offsetHeight)+'px';
+	}
+	
+	
+	
+	for(var i=0; i<len; i++)
+	{
+		(function(ind,len){
+			aLi[ind].onclick=function()
+			{
+				for(var i=0; i<len; i++)
+				{
+					aLi[i].className='';
+				}
+				this.className='active';
+				SmallImg.src='images/m'+(ind+1)+'.jpg';
+				oImg.src='images/b'+(ind+1)+'.jpg';
+			}
+			})(i,len)
+		
+	/*	aLi[i].index=i;
+		aLi[i].onclick=function()
+		{
+			for(var i=0; i<aLi.length; i++)
+			{
+				aLi[i].className='';
+			}
+			this.className='active';
+			SmallImg.src='images/m'+(this.index+1)+'.jpg';
+		}*/
+	}
+	oLeft.onclick=function()
+	{
+		if(iNow==0)
+		{
+			iNow=aLi.length-6;
+		}else
+		{
+			iNow--
+		}
+		oUl.style.left=-aLi[0].offsetWidth*iNow +'px';
+	}
+	oRight.onclick=function()
+	{
+		if(iNow==aLi.length-6)
+		{
+			iNow=0;
+		}else
+		{
+			iNow++
+		}
+		oUl.style.left=-aLi[0].offsetWidth*iNow +'px';
+	}
+		
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+	
+    <div class="small">
+    	<div class="float1"></div>
+    	<div class="mark"></div>
+        <img src="images/m1.jpg" width="310" height="310" />
+    </div>
+    <div class="big">
+    	<img src="images/b1.jpg" />
+    </div>
+    
+    <span class="left"></span>
+    <span class="right"></span>
+    
+    <div class="list">
+    	<ul>
+        	<li class="active"><img src="images/s1.jpg" /></li>
+        	<li><img src="images/s2.jpg" /></li>
+        	<li><img src="images/s3.jpg" /></li>
+            <li><img src="images/s4.jpg" /></li>
+        	<li><img src="images/s5.jpg" /></li>
+            <li><img src="images/s6.jpg" /></li>
+            <li><img src="images/s7.jpg" /></li>
+            <li><img src="images/s8.jpg" /></li>
+        	<li><img src="images/s9.jpg" /></li>
+            <li><img src="images/s10.jpg" /></li>
+        </ul>
+    </div>
+</div> 
+</body>
+</html>

@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTex=document.getElementsByTagName('input')[0];
+
+	oTex.onfocus=function()
+	{
+		if(oTex.value=='请输入文字')
+		{
+			oTex.value='';		
+		}
+	};	
+	
+	oTex.onblur=function()
+	{
+		if(oTex.value=='')
+		{
+			oTex.value='请输入文字';		
+		}
+	};	
+	
+};
+
+</script>
+</head>
+
+<body>
+<input type="text" value="请输入文字" /><br />
+</body>
+</html>

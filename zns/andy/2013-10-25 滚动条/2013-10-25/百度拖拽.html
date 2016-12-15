@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+div{width:200px;height:200px; background:red; position:absolute;top:0;left:0}
+span{height:30px; background:#ccc;width:200px; display:block;}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementsByTagName('div')[0];
+	var oSpan=oDiv.children[0];
+	drag(oSpan,oDiv);
+
+};
+function drag(oDiv,oParent)
+{
+	oDiv.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var disX=oEvent.clientX-oParent.offsetLeft;
+		var disY=oEvent.clientY-oParent.offsetTop;
+		
+		
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			oParent.style.top=oEvent.clientY-disY+'px';
+			oParent.style.left=oEvent.clientX-disX+'px';
+				
+		};
+		
+		document.onmouseup=function()
+		{
+			document.onmousemove=document.onmouseup=null;
+			if(oDiv.releaseCapture)
+			{
+				oDiv.releaseCapture();//取消获捕
+			};
+		};
+		
+		if(oDiv.setCapture)
+		{
+			oDiv.setCapture();
+		}
+		
+		
+		return false;
+			
+	};
+		
+};
+</script>
+</head>
+
+<body>
+<div>
+<span>hgfgjhgjh</span>
+</div>
+</body>
+</html>

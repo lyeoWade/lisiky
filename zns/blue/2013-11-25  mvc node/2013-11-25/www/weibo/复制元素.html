@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function dupEle(obj)
+{
+	var oTmp=document.createElement('div');
+	
+	//alert(obj.innerHTML);
+	//alert(obj.outerHTML);	//极老的浏览器
+	
+	oTmp.innerHTML=obj.outerHTML;
+	
+	return oTmp.children[0];
+}
+
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var oBtn=document.getElementById('btn1');
+	
+	oBtn.onclick=function ()
+	{
+		var oNewDiv=dupEle(oDiv);
+		
+		document.body.appendChild(oNewDiv);
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div1" style="background:#CCC; width:100px; height:100px;" aaa="12">
+	adfaewr<input type="button" value="aaa" />
+</div>
+<input type="button" value="复制" id="btn1" />
+</body>
+</html>

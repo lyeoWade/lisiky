@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+ul{ display:none}
+ li{height:30px; background:red; color:#fff;margin-top:5px; list-style:none;}
+</style>
+<script>
+function fn()
+{
+  var oUl=document.getElementById('ul1');
+  //oUl.style.display='none';
+  if(oUl.style.display=='none') // 如果行间没有写这个样式，就不会成立
+  {  
+	  oUl.style.display='block';
+  }
+  else
+  {
+	  //条件不成立
+	  oUl.style.display='none';
+  }
+  
+  
+  /// 自己解决点两下的问题
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="点击" onclick="fn()">
+<ul id="ul1">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+	<li>5</li>
+</ul>
+</body>
+</html>

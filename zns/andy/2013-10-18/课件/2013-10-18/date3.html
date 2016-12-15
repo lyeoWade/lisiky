@@ -1,0 +1,31 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oDate=new Date();
+    
+	//下个月1号
+
+	oDate.setDate(32);
+	
+	var s='我们设置的时间是'+oDate.getFullYear()+'年'+(oDate.getMonth()+1)+'月';
+	    s+=oDate.getDate()+'日';
+	alert(s);
+	
+};
+</script>
+</head>
+
+<body>
+<select id="oS1">
+	<option value="a">1111</option>
+	<option value="b">2222</option>
+	<option value="c">3333</option>
+	<option value="d">4444</option>
+</select>
+</body>
+</html>

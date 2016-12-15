@@ -1,0 +1,18 @@
+
+
+///  事件  
+
+document  无限大
+
+
+事件Event事件
+
+事件源  时间委托 事件源  
+             oEvent.srcElement; IE..
+             oEvent.target // FF
+
+
+
+
+
+

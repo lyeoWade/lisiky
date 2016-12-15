@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#div{ width:100px; height:100px; background:#CCC; position:absolute; border:1px solid #666; }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div');
+	oDiv.onclick=function()
+	{
+		startMove(oDiv,{height:500,width:500},{ time:'fast',type:'StoF' });
+	}
+}
+
+function getStyle(obj,attr){return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr]}
+
+function getCur(obj,name)
+{
+	var cur;
+	if(name=='opacity')
+	{
+		cur=Math.round(parseFloat(getStyle(obj,name)));
+	}else
+	{
+		cur=parseInt(getStyle(obj,name));
+	}
+	if(isNaN(cur))
+	{
+		switch(name)
+		{
+			case 'left':
+				return obj.offsetLeft;
+			case 'top':
+				return obj.offsetTop;
+			case 'width':
+				return obj.offsetWidth;
+			case 'height':
+				return obj.offsetHeight;
+		}
+	}
+	return cur;
+}
+
+function startMove(obj,json,options)
+{
+	
+	var timers={
+		fast:300,
+		normal:1500,
+		solw:3000
+		}
+		
+	if(typeof options.time=='string')
+	{
+		if(timers[options.time])
+		{
+			options.time=timers[options.time];
+		}else
+		{
+			options.time=1000;
+		}
+	}
+	options=options||{};
+	options.time=options.time||1000;
+	options.type=options.type||'buffer';
+	
+	
+	var count=parseInt(options.time/30);
+	var first={};//getCur(obj,name)
+	var dis={};//iTarget-first;
+	for(var i in json)
+	{
+		first[i]=getCur(obj,i);
+		dis[i]=json[i]-first[i];
+	}
+	
+	var n=0;
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+		n++;
+		var wade;
+		for(var i in json)
+		{
+			switch (options.type)
+			{
+				case 'linear':
+					wade=first[i]+n*dis[i]/count;
+					break;
+				case 'buffer':
+					var a=1-n/count;
+					wade=first[i]+dis[i]*(1-a*a*a);
+					break;
+				case 'StoF':
+					var a=n/count;
+					wade=first[i]+dis[i]*a*a*a;
+					break;
+				default:
+			}
+			if(i=='opacity')
+			{
+				obj.style.opacity=wade/100;
+				obj.style.filter='alpha(opacity='+wade+')';
+			}else
+			{
+				obj.style[i]=wade+'px';
+			}	
+		}
+		if(n==count)
+		{
+			clearInterval(obj.timer);
+		}
+		},30);
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="div"></div>
+</body>
+</html>

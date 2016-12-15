@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#box{ width:100px; height:100px; background:red; position:absolute; left:0; top:50px; }
+</style>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	var timer=null;
+	
+	var n=0;
+	oBtn.onclick=function()
+	{
+		clearInterval(timer);
+		timer=setInterval(function(){
+			
+			n+=5;
+			
+			if(n>=300)
+			{
+				clearInterval(timer);
+			}else
+			{
+				oBox.style.left=n+'px';
+			}
+			
+			
+			},20);
+	}
+	
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="开始运动" id="btn">
+<div id="box"></div>
+
+</body>
+</html>

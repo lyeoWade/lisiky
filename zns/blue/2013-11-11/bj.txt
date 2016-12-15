@@ -1,0 +1,87 @@
+
+布局转换  ----
+
+offset---> 包含  border - margin  - padding  
+
+jquery   --->1.10不兼容低版本浏览器
+
+
+$(function(){alert('a')})
+
+选元素
+$('#btn')
+$('.btn')
+$('input')
+
+.css()  // 一个参数 获取  --->  两个参数 设置
+
+.hover (fn,fn); // 第一个函数移入            第二个函数移出
+
+.toggle(fn,fn) ; 第一次点击 运行第一个   第二次点击运行第二个 第三次运行第一个函数 
+.show() //显示
+.hide()//隐藏
+
+slideDown // 向下划出
+slideUp      // 下上划出
+
+
+fadeOut()//淡出
+fadeIn()    //淡入
+
+.animate({ width :200 }); // 自定义动画 
+
+
+
+.stop().animate()
+
+.stop().运动
+.stop()  // 先关掉原来的运动  接下来在执行  .animate()
+
+
+
+属性选择器
+input[value=aaa]
+
+伪类 
+
+:first  // 第一个
+
+:last  // 最后一个
+
+:eq(3) // 第三个
+
+
+:even  //单数
+
+:has(input[type=buttom])
+
+:contains   //选择带有文字的项   选取包含指定字符串的元素。
+
+
+
+.html() // 不给参数    获取
+                 给了参数  就是修改
+-------------------
+
+
+$(document).ready(function(){});
+
+out/over
+
+.moveleave()   // 解决了out  bug 
+.moveenter()   // 
+
+
+.removeClass()
+.addClass()
+
+-------------------------------------------
+.eq($(this).index())
+
+
+
+
+
+
+
+

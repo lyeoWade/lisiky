@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+
+</style>
+<script>
+window.onload=function ()
+{
+	var oS=document.getElementById('s1');
+	
+	oS.onchange=function ()
+	{
+		alert(oS.options[oS.selectedIndex].text);
+	};
+};
+</script>
+</head>
+
+<body>
+<select id="s1">
+	<option value="0">北京</option>
+	<option value="1">天津</option>
+	<option value="2">武汉</option>
+</select>
+</body>
+</html>

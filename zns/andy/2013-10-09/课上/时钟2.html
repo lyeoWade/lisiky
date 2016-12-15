@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+//补0
+function tozero(n){return n<10?'0'+n:n} 
+window.onload=function()
+{
+	setInterval(colck,1);
+	function colck()
+	{
+		var oDate=new Date();
+		var oYear=oDate.getFullYear();
+		var oMonth=oDate.getMonth()+1;
+		var oDay=tozero(oDate.getDate());
+		var oHour=tozero(oDate.getHours());
+		var oMinuts=tozero(oDate.getMinutes());
+		var oSeconds=tozero(oDate.getSeconds());
+		var haomiao=oDate.getMilliseconds();
+		var oDay=oDate.getDay();
+		document.body.innerHTML=oYear+'-'+oMonth+'-'+oDay+'-'+oHour+'-'+oMinuts+'-'+oSeconds+'-'+haomiao+'<br/><br/>星期'+oDay;
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>

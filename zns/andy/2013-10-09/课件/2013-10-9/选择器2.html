@@ -1,0 +1,75 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+li{height:20px; background:red;margin-top:4px;}
+</style>
+<script>
+window.onload=function()
+{
+   // $('#box')  $('.box')	$('div')
+	
+   
+  // $('#box').style.background='blue';
+   //$('.show')[1].style.background='blue';
+   
+   var aLi=$('li');
+   for(var i=0;i<aLi.length;i++)
+   {
+	 aLi[i].style.background='yellow';   
+    }
+   
+   function $(str)
+   {
+	 var sOne=str.charAt(0);
+	
+	 switch(sOne)
+	 {
+		case '#':
+		  return document.getElementById(str.substring(1));
+		  break; 
+		case '.':
+		  return getByClass(document.body,str.substring(1));
+		  break
+		default:
+		  return document.getElementsByTagName(str);	 
+	 }
+	 
+	 
+   };
+		
+};
+
+
+function getByClass(oParent,iClass)
+	{
+		var arr=[]; 
+		var aEl=oParent.getElementsByTagName('*');
+		for(var i=0;i<aEl.length;i++)
+		{
+			if(aEl[i].className==iClass)
+			{
+				arr[arr.length]=aEl[i];
+			}	
+		}
+		return arr;
+	};
+
+</script>
+
+</head>
+
+<body>
+
+<ul>
+	<li>1</li>
+	<li id="box">2</li>
+	<li>3</li>
+	<li class="show">4</li>
+	<li class="show">5</li>
+</ul>
+
+</body>
+</html>

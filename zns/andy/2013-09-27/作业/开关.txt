@@ -1,0 +1,15 @@
+
+
+开关
+
+var bKg=true;
+
+if( bKg==false  )
+{
+	不执行！
+	bKg=true;
+}else
+{
+	执行！
+	bKg=false;
+}

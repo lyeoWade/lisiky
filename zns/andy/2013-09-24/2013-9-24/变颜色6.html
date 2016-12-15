@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{margin:5px; float:left; background:red;width:100px;height:100px; border-radius:50%;}
+</style>
+<script>
+window.onload=function()
+{
+	var aDiv=document.getElementsByTagName('div');	//一组
+
+	//aDiv.style.background='blue';
+    //错误，一组是不能直接操作
+
+	aDiv[0].style.background='blue'; 
+	aDiv[1].style.background='blue'; 
+	aDiv[2].style.background='blue'; 
+	aDiv[3].style.background='blue'; 
+	aDiv[4].style.background='blue'; 
+	aDiv[5].style.background='blue'; 
+};
+
+</script>
+</head>
+
+<body>
+<div>1</div>
+<div>2</div>
+<div>3</div>
+<div>4</div>
+<div>5</div>
+<div>6</div>
+</body>
+</html>

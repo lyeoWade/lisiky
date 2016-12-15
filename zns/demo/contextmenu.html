@@ -1,0 +1,225 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{
+	margin:0;
+	padding:0;
+}
+#yj{
+	display:none;
+	border:1px solid #F7F7F7;
+	background:#F9F9F9;
+	box-shadow:1px 0 3px #666;
+	padding:6px 0;
+	position:absolute;
+}
+#yj ul{
+	list-style:none;
+	
+	}
+#yj ul li{
+	color:#444;
+	padding:8px 16px;
+	font-size:14px;
+	transition:.4s;
+	-o-transition:.4s;
+	-ms-transition:.4s;
+	-moz-transition:.4s;
+	-webkit-transition:.4s;
+	cursor:pointer;
+	text-align:left;
+	position:relative;
+	}
+#yj .second_list{
+	display:none;
+	position:absolute;
+	right:-110px;
+	top:0px;
+	width:110px;
+	background:#F9F9F9;
+	box-shadow:1px 0 3px #666;
+	text-align:left;
+	}
+.second_list ul{
+	
+}
+.second_list ul li{
+	padding:8px 16px;
+}
+.second_list ul li:hover{
+	background:#FFC78E;
+	color:#fff;
+}
+#yj ul li.active{
+	background:#FFC78E;
+}
+#yj ul li.active a{
+	color:#699;
+	font-weight:bold;
+	}
+#yj ul li a{
+	color:#555;
+	text-decoration:none;
+	}
+#yj .dashed{
+	border-bottom:1px dashed #D9D9D9;
+	margin-bottom:5px;
+	}
+#yj .gray{
+	cursor:text;
+	}
+#yj .gray a{
+	color:#ccc;
+	cursor:text;
+	}
+</style>
+
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="yj">
+	<ul>
+    	<li><a href="#" target="_blank">返回首页</a></li>
+        <li class="dashed gray"><a href="#" target="_blank">进入热购</a></li>
+        <li>
+        	<a href="#" target="_blank">二级页面</a>
+        	<div class="second_list">
+            	<ul>
+                		<li><a href="#" target="_blank">aaaaaa</a></li>
+                        <li><a href="#" target="_blank">cccccc</a></li>
+                        <li><a href="#" target="_blank">vvvvvv</a></li>
+                        <li><a href="#" target="_blank">bbbbbb</a></li>
+                </ul>
+            </div>
+        </li>
+        <li><a href="#" target="_blank">二级页面</a></li>
+        <li><a href="#" target="_blank">二级页面</a></li>
+        <li><a href="#" target="_blank">二级页面</a></li>
+        <li><a href="#" target="_blank">二级页面</a></li>
+        <li><a href="#" target="_blank">二级页面二级页面二级页面</a></li>
+        <li><a href="#" target="_blank">二级页面</a></li>
+        <li><a href="#" target="_blank">二级页面</a></li>
+        <li><a href="#" target="_blank">二级页面</a></li>
+    </ul>
+</div>
+</body>
+<script>
+
+document.oncontextmenu=function(ev){
+	var oEvent=ev||event;
+	var oBox=document.getElementById('yj');
+	var aLi=oBox.children[0].children;
+	//var allWidth=window.screen.width; 荧幕的宽度
+	//var allHeight=window.screen.height; 荧幕的高度
+	var allWidth=document.documentElement.clientWidth||document.body.clientWidth;
+	var allHeight=document.documentElement.clientHeight||document.body.clientHeight;
+	
+	oBox.style.display='block'; //放在前边 解决在第一次点击的时候oBox.offsetWidth 为0
+	var oH=oBox.offsetHeight;
+	var oW=oBox.offsetWidth;
+	if(allWidth<oW+100 || allHeight<oH+100){ 
+		oBox.style.display='none' ;
+	}else{
+		if((allWidth-oW)<oEvent.clientX && (allHeight-oH)<oEvent.clientY){
+			oBox.style.left=oEvent.clientX-oW+'px';
+			oBox.style.top=oEvent.clientY-oH+'px';
+		}else if((allWidth-oW)<oEvent.clientX){
+			//oBox.style.left=allWidth-(allWidth-oEvent.clientX+oBox.offsetWidth)+'px';
+			oBox.style.left=oEvent.clientX-oW+'px';
+			oBox.style.top=oEvent.clientY+'px';
+			
+		}else if((allHeight-oH)<oEvent.clientY){
+			
+			oBox.style.top=oEvent.clientY-oH+'px';
+			oBox.style.left=oEvent.clientX+'px';
+			
+		}else{
+			oBox.style.left=oEvent.clientX+'px';
+			oBox.style.top=oEvent.clientY+'px';
+		}
+	};
+	
+	document.onclick=function(ev){
+		var oEvent=ev||event;
+		oEvent.cancelBubble=true;
+		oBox.style.display='none';	
+	}
+	for(var i=0; i<aLi.length; i++){
+		(function(ind){
+			aLi[ind].onmouseover=function(){
+				if(!ckeck(aLi[ind],'gray')){
+					addClass(aLi[ind],'active');
+				}
+				var oDiv=this.getElementsByTagName('div')[0];
+				if(oDiv){
+					oDiv.style.display='block';	
+					if((allWidth-oW)<oEvent.clientX){
+						oDiv.style.left='-110px';
+					}
+					else{
+						oDiv.style.right='-110px';
+					}
+				}
+				
+			}
+			aLi[ind].onmouseout=function(){
+				removeClass(aLi[ind],'active');	
+				var oDiv=this.getElementsByTagName('div')[0];
+				if(oDiv){
+					oDiv.style.display='none';
+					oDiv.style.left='';	
+				}
+			}
+		})(i)
+	}
+	
+	return false;
+}	
+
+function ckeck(obj,sClass){
+	if(obj.className=='')return false;
+	var arr=obj.className.split(' ');
+	for(var i=0; i<arr.length; i++){
+		if(arr[i]==sClass){
+			return true;	
+		}
+	}
+	return false;
+}
+
+function removeClass(obj,sClass){
+	
+	if(obj.className){
+		var arr=obj.className.split(' ');
+		for(var i=0; i<arr.length; i++){
+			if(arr[i]==sClass){
+				arr.splice(i,1);
+				obj.className=arr.join(' ');
+				return;
+			}
+		}
+	}	
+}
+function addClass(obj,sClass){
+	
+	if(obj.className==''){
+		obj.className=sClass;
+		return ;	
+	}
+	else{
+		var arr=obj.className.split(' '); // 转数组
+		for(var i=0; i<arr.length; i++){
+			if(arr[i]!=sClass){
+				arr.push(sClass);
+				obj.className=arr.join(' ');
+				return;	
+			}
+		}	
+	}
+}
+
+</script>
+</html>

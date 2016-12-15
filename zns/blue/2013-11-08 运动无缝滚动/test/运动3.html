@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#div{ width:100px; height:100px; background:#CCC; position:absolute; border:1px solid #666; }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div');
+	oDiv.onclick=function()
+	{
+		startMove(oDiv,{width:500},{time:'fast', end:function(){
+			
+			startMove(oDiv,{height:500},{time:111})
+			
+			} });
+	}
+}
+
+function getStyle(obj,attr){return obj.currentStyle?obj.currentStyle[atrt]:getComputedStyle(obj,false)[attr]}
+
+function getCur(obj,attr)
+{
+	var cur;
+	if(attr=='opacity')
+	{
+		cur=Math.round(parseFloat(getStyle(obj,attr)));
+	}else
+	{
+		cur = parseInt(getStyle(obj,attr));
+	}
+	
+	if(isNaN(cur))
+	{
+		switch(attr)
+		{
+			case 'top':
+				return obj.offsetTop;
+			case 'left':
+				return obj.offsetLeft;
+			case 'width':
+				return obj.offsetWidth;
+			case 'height':
+				return obj.offsetHeight;	
+		}	
+	}
+	return cur;
+}
+
+function startMove(obj,json,options)
+{
+	clearInterval(obj.timer);
+	var timers={
+		
+		fast:300,
+		normal:1500,
+		slow:4000
+		}
+	if(typeof options.time=='string')
+	{
+		if(timers[options.time])
+		{
+			options.time=timers[options.time];
+		}else
+		{
+			options.time=1500;
+		}
+	}
+	options=options||{};
+	options.time=options.time||700;
+	options.type=options.type||'StoF';
+	
+	
+	var count=parseInt(options.time/30);
+	var first={}
+	var dis={};
+	
+	for(var i in json)
+	{
+		first[i]=getCur(obj,i);
+		dis[i]=json[i]-first[i];
+	}
+	
+	
+	var n=0;
+	obj.timer=setInterval(function(){
+		
+		n++;
+		var cur;
+		for( i in json){
+			switch (options.type)
+			{
+				case 'linear':
+					cur=first[i]+n*dis[i]/count;
+					break;
+				case 'buffer':
+					var a=(1-n/count);
+					cur=first[i]+dis[i]*(1-a*a*a);
+					break;
+				case 'StoF':
+					var a=n/count;
+					cur=first[i]+dis[i]*a*a*a;
+					break;
+				default:
+			}	
+			if(i=='opacity')
+			{
+				obj.style.opacity=cur/100;
+				obj.style.filter='alpha(opacity='+cur+')';
+			}
+			else
+			{
+				obj.style[i]=cur+'px'	
+			}
+		}		
+		if(n==count)
+		{
+			clearInterval(obj.timer)
+			options.end&&options.end();
+		}
+		},30);
+		
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="div"></div>
+</body>
+</html>

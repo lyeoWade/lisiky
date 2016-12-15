@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oText=document.getElementById('text');
+	oBtn.onclick=function()
+	{
+		var arr=[];
+		for(var i=0; i<6; i++)
+		{
+			if(arr.length<6)
+			{
+				arr[arr.length]=toZero(ran(1,32));	
+			}
+		}
+		
+		oText.value=arr;
+	}
+	function ran(n,m)
+	{
+		return parseInt(Math.random()*(m-n+1)+n);
+	}
+	
+	function toZero(attr)
+	{
+		if(attr<10)
+		{
+			return '0'+attr;
+		}else
+		{
+			return attr;
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<input type="button" value="开始" id="btn" >
+<input type="text" id="text" >
+</body>
+</html>

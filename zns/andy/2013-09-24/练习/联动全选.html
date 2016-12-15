@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>联动全选</title>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var aInput=oDiv.children;
+	var oBtn=document.getElementById('btn');
+	var n=0;
+	for(var i=0; i<aInput.length; i++)
+	{
+		aInput[i].onclick=function()
+		{
+			//n++;
+			
+			if(this.checked==true)
+			{
+				n++;
+			}else
+			{
+				n--;
+			}
+			
+			if(n==i)
+			{
+				oBtn.checked=true;
+			}else
+			{
+				oBtn.checked=false;
+			}
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+
+<input type="checkbox" id="btn">全选<br>
+<div id="div1">
+<input type="checkbox"  >
+<input type="checkbox" >
+<input type="checkbox" >
+</div>
+</body>
+</html>

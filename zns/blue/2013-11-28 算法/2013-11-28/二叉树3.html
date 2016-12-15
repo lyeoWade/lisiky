@@ -1,0 +1,117 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+/*
+节点
+{
+	value:	值,
+	l:		左子节点,
+	r:		右子节点
+}
+*/
+
+var root=null;	//根
+
+function bst_add(node, n)
+{
+	if(root==null)
+	{
+		//空的->创建
+		root={value: n, l: null, r: null};
+	}
+	else
+	{
+		if(node.value==n)	//重复了
+		{
+			return;
+		}
+		else if(node.value<n)
+		{
+			//右边
+			if(node.r)
+			{
+				bst_add(node.r, n);
+			}
+			else
+			{
+				//右边——空的
+				node.r={value: n, l: null, r: null};
+			}
+		}
+		else
+		{
+			//左边
+			if(node.l)
+			{
+				bst_add(node.l, n);
+			}
+			else
+			{
+				//左边——空的
+				node.l={value: n, l: null, r: null};
+			}
+		}
+	}
+}
+
+function bst_find(node, n)
+{
+	if(root==null)
+	{
+		return false;
+	}
+	else
+	{
+		if(node.value==n)
+		{
+			return true;
+		}
+		else if(node.value<n)
+		{
+			if(!node.r)
+			{
+				return false;
+			}
+			else
+			{
+				return bst_find(node.r, n);
+			}
+		}
+		else
+		{
+			if(!node.l)
+			{
+				return false;
+			}
+			else
+			{
+				return bst_find(node.l, n);
+			}
+		}
+	}
+}
+
+bst_add(root, 19);
+bst_add(root, 21);
+bst_add(root, 45);
+bst_add(root, 3);
+bst_add(root, 16);
+bst_add(root, 9);
+bst_add(root, 5);
+bst_add(root, 13);
+
+alert(bst_find(root, 4));
+
+//alert(JSON.stringify(root));
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+复习：
+
+onfocus 焦点事件
+onblur  失焦
+
+oDiv.innerHTML 读写 读出字符串
+会覆盖
+
+加载完成后，onload
+
+选项卡  传参重用
+
+
+－－－－－－－－－－－－－－
+
+li->div->ul>li>div->ul->li->div
+
+
+var arr=[1,2,3,4]  数组  用一个变量存很多东西。多类型都可以存  
+var arr=['abc',12,oDiv,函数,数组]
+arr.length;
+arr[0] 下标
+
+
+
+字符串相加  
+
+'abc'+'efg'='abcefg'
+
+'宝贝1'+数据
+
+字符串相加是从左向右
+
+'abc'+1＝ 'abc1'
+
+'abc'+1+1='abc1'+1
+
+
+()括号 优先运算
+
+－－－－－－－－－－
+
+setTimeout  执行一次
+clearTimeout  关
+
+setInterval(函数，时间)  执行N次
+clearInterval(定时器名称); 关
+
+每次用之前先清一个空的
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<link id="link1" href="skin1.css" type="text/css" rel="stylesheet">
+<script>
+function skin1()
+{
+	var oLink=document.getElementById('link1');
+	oLink.href='skin1.css';
+};
+
+function skin2()
+{
+	var oLink=document.getElementById('link1');
+	oLink.href='skin2.css';
+};
+</script>
+</head>
+
+<body>
+
+<div onclick="skin1()">
+	DIV1
+</div>
+
+<div onclick="skin2()">
+	DIV2
+</div>
+</body>
+</html>

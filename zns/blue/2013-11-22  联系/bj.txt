@@ -1,0 +1,108 @@
+
+
+border-radius           最大50%
+
+
+box-shadow           给元素加、盒子阴影   
+
+text-shadow   文字阴影     
+
+
+
+媒体查询   --  自动的适应各种屏幕(大、中、小---pc、pad、小手机)
+
+transform
+
+1、旋转  rotate(90deg)  正负值都行   
+
+2、缩放 scale( 倍数 )       里面的东西同步缩放  计算机内部物体没有发生任何变化  改变的这个给人看的
+
+3、位移  平移  ---  translate(left、top) 
+
+4、skew(角度，角度)
+
+
+transform-origin(横向，纵向)
+
+所有css3的样式，都不会改变盒模型尺寸
+
+
+
+
+Ms  -  Ie 在js里面是小写 ms
+
+
+
+
+秒针--transition  
+
+
+
+
+
+box-shadow:( insert  )  内阴影
+ 
+
+
+font-style：normal;  字体不倾斜
+
+
+
+
+
+
+--------------------
+
+mvc 
+sea  ---   自动引入js文件
+
+解决
+1、一堆script标签(乱、慢)  
+
+2、依赖  ( 函数调用函数的依赖 ) 
+
+
+
+seaJs里面的函数 define( require , exports , module ) 回调函数 ---------- 定义
+
+
+
+['a.js','b.js','c.js']    function(a,b,c){}
+
+sea.use('a.js',function(){
+	
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

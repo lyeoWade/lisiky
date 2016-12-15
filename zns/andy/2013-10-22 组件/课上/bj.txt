@@ -1,0 +1,21 @@
+//打乱数组
+
+var  arr=[1,2,3,4,5,6,7,8]
+
+arr.sort(function(n1,n2){
+	return Math.random()*2-1;  随机正负数; 
+});
+
+
+//瀑布流第二种方法
+
+数组排序，找arr[0]  // arr[0]就是最小的那个
+
+
+
+tBodies   
+
+tHead       
+
+tFoot  
+

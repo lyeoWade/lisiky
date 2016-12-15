@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	document.onclick=function()
+	{
+		//1-19
+		console.log(to0(parseInt(Math.random()*10+1)));
+	}
+}
+
+function to0(str)
+{
+	if(str<10)
+	{
+		return '0'+str;
+	}else
+	{
+		return str;
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>
