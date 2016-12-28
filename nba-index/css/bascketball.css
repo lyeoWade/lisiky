@@ -1,0 +1,391 @@
+@charset "utf-8";
+/* LESS Document */
+/* bg----; */
+/*过渡  */
+.slh {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#typeid {
+  display: none;
+}
+.transition {
+  -webkit-transition: ease-in 0.5s all;
+  -moz-transition: ease-in 0.5s all;
+  -ms-transition: ease-in 0.5s all;
+  -o-transition: ease-in 0.5s all;
+  transition: ease-in 0.5s all;
+}
+.h2 {
+  line-height: 40px;
+  padding-left: 20px;
+  color: #ffffff;
+}
+.after {
+  content: "";
+  display: block;
+  position: absolute;
+}
+body {
+  background: #ffffff !important;
+}
+/* 参数 */
+.h30 {
+  width: 100%;
+  height: 30px;
+  overflow: hidden;
+}
+pre {
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  padding: 8px !important;
+  background: #ffffff !important;
+  -webkit-transition: ease-in 0.5s all;
+  -moz-transition: ease-in 0.5s all;
+  -ms-transition: ease-in 0.5s all;
+  -o-transition: ease-in 0.5s all;
+  transition: ease-in 0.5s all;
+}
+.atuo {
+  margin: 0 auto;
+}
+.w60 {
+  width: 60px;
+}
+.w70 {
+  width: 70px;
+}
+.w75 {
+  width: 75px;
+}
+.w78 {
+  width: 78px;
+}
+.w80 {
+  width: 80px;
+}
+.w85 {
+  width: 85px;
+}
+.w125 {
+  width: 145px;
+}
+.w130 {
+  width: 130px;
+}
+.w260 {
+  width: 260px;
+}
+.w200 {
+  width: 200px;
+}
+.w230 {
+  width: 230px;
+}
+.w480 {
+  width: 480px;
+}
+.w580 {
+  width: 580px;
+}
+/* 导航条 */
+header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #1fb5ad;
+  z-index: 99999;
+}
+header .nav-main {
+  width: 1000px;
+  margin: 0 auto;
+}
+header .nav-main ul {
+  height: 54px;
+  text-align: center;
+  font-size: 0;
+}
+header .nav-main ul .logo a {
+  padding-right: 50px;
+  text-indent: -99999px;
+  background: url(../img/logo.png) no-repeat 20px center;
+}
+header .nav-main ul .logo a:hover {
+  background: url(../img/logo.png) no-repeat 30px center;
+}
+header .nav-main ul li {
+  height: 54px;
+  display: inline-block;
+  font-size: 14px;
+}
+header .nav-main ul li a {
+  color: #ffffff;
+  padding: 20px;
+  display: block;
+  text-transform: capitalize;
+  -webkit-transition: ease-in 0.5s all;
+  -moz-transition: ease-in 0.5s all;
+  -ms-transition: ease-in 0.5s all;
+  -o-transition: ease-in 0.5s all;
+  transition: ease-in 0.5s all;
+  font-weight: bold;
+}
+header .nav-main ul li a:hover {
+  background: #32d6cd;
+  color: #fff;
+}
+header .nav-main ul li a.active {
+  background: #32d6cd;
+  color: #fff;
+}
+header .nav-main .login {
+  float: right;
+}
+header .nav-main .login a {
+  font-weight: normal;
+}
+/* fast module */
+.fastnav {
+  margin-top: 20px;
+  width: 1000px;
+    margin: 30px auto 0;
+    font-size: 14px;
+}
+.fastnav ul {
+  margin-right: -100px;
+}
+.fastnav li {
+  background: #1fb5ad;
+  width: 240px;
+  height: 100px;
+  margin-right: 13px;
+  border-radius: 4px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+}
+.fastnav li a {
+  display: block;
+  height: 100px;
+}
+.fastnav li.tuijian {
+  background: #9466b5;
+}
+.fastnav li.jixian {
+  background: #a9d86e;
+}
+.fastnav li .icon {
+  height: 100px;
+  float: left;
+  width: 39%;
+  text-align: center;
+  line-height: 120px;
+}
+.fastnav li .icon i {
+  font-size: 50px;
+  color: #ffffff;
+}
+.fastnav li .title {
+  height: 100%;
+  width: 60%;
+  background-color: rgba(225, 225, 225, 0.3);
+}
+.fastnav li .title h2 {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 24px;
+  color: #ffffff;
+  font-family: arial, verdana, Microsoft YaHei, Tahoma, Simsun, sans-serif;
+}
+.fastnav li .title span {
+  display: block;
+  text-align: right;
+  padding-right: 8px;
+  font-size: 12px;
+  margin-top: 30px;
+  color: #ffffff;
+  opacity: 0.7;
+}
+/*列表*/
+.gamelist {
+  margin-top: 30px;
+  width: 1000px;
+    margin: 30px auto 0;
+    font-size: 14px;
+}
+.gamelist .game-head {
+  width: 960px;
+  height: 60px;
+  overflow: hidden;
+  border: 1px solid #eff2f7;
+  padding: 10px 20px;
+  position: relative;
+}
+.gamelist .game-head .next,
+.gamelist .game-head .prev {
+  position: absolute;
+  top: 0;
+  width: 20px;
+  height: 82px;
+}
+.gamelist .game-head .next {
+  right: 0;
+  background: #ffffff url(../img/nextday.png) no-repeat -20px 0;
+}
+.gamelist .game-head .prev {
+  left: 0;
+  background: #ffffff url(../img/nextday.png) no-repeat 0 0;
+}
+.gamelist .game-head .gameul {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+}
+.gamelist .game-head li {
+  margin: 0 9px 0 8px;
+  float: left;
+  width: 120px;
+  height: 60px;
+  cursor: pointer;
+  -webkit-transition: ease-in 0.5s all;
+  -moz-transition: ease-in 0.5s all;
+  -ms-transition: ease-in 0.5s all;
+  -o-transition: ease-in 0.5s all;
+  transition: ease-in 0.5s all;
+  text-align: center;
+  color: #3c0203;
+  font-family: 'Microsoft YaHei', Arial, SimSun;
+}
+.gamelist .game-head li:hover {
+  background: #1fb5ad;
+  color: #ffffff;
+}
+.gamelist .game-head li.active {
+  background: #1fb5ad;
+  color: #ffffff;
+}
+.gamelist .game-head li span,
+.gamelist .game-head li strong {
+  display: block;
+}
+.gamelist .game-head li span {
+  line-height: 30px;
+}
+.gamelist .game-head li strong {
+  line-height: 24px;
+  font-weight: normal;
+}
+.gamelist .gamelist-warp {
+  margin: 10px 0;
+}
+.gamelist .gamelist-warp h3 {
+  line-height: 40px;
+  font-size: 16px;
+  font-family: 'Microsoft YaHei', Arial, SimSun;
+}
+.gamelist .gamelist-warp .listul {
+  background: #FDFDFD;
+  border: 1px solid #eff2f7;
+  border-bottom: none;
+  min-height: 80px;
+  line-height: 80px;
+  text-align: center;
+}
+.gamelist .gamelist-warp li {
+  border-bottom: 1px solid #eff2f7;
+  -webkit-transition: ease-in 0.5s all;
+  -moz-transition: ease-in 0.5s all;
+  -ms-transition: ease-in 0.5s all;
+  -o-transition: ease-in 0.5s all;
+  transition: ease-in 0.5s all;
+}
+.gamelist .gamelist-warp li:hover {
+  background: #ffffff;
+}
+.gamelist .gamelist-warp li .gamewarp {
+  height: 80px;
+}
+.gamelist .gamelist-warp li a {
+  display: block;
+  float: left;
+  line-height: 80px;
+  text-align: center;
+  color: #444444;
+  font-family: 'Microsoft YaHei', Arial, SimSun;
+}
+.gamelist .gamelist-warp li a img {
+  width: 50px;
+  height: 50px;
+  vertical-align: middle;
+  margin-top: -3px;
+}
+.gamelist .gamelist-warp li a.handicap {
+  padding: 20px 0;
+  line-height: 20px;
+}
+.gamelist .gamelist-warp li a.home {
+  font-size: 16px;
+}
+.gamelist .gamelist-warp li a.home img {
+  margin-right: 5px;
+}
+.gamelist .gamelist-warp li a.home:hover {
+  color: #1fb5ad;
+}
+.gamelist .gamelist-warp li a.guest {
+  font-size: 16px;
+}
+.gamelist .gamelist-warp li a.guest img {
+  margin-left: 5px;
+}
+.gamelist .gamelist-warp li a.guest:hover {
+  color: #1fb5ad;
+}
+.gamelist .gamelist-warp li a.socre {
+  font: 20px/80px 'Microsoft YaHei', Arial, SimSun;
+  position: relative;
+}
+.gamelist .gamelist-warp li a.socre s{
+  display: none;
+  width: 100%;
+  height: 100%;
+  background-color:rgba(31,181,173,0.9);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-style: normal;
+  color: #fff;
+  text-decoration: none;
+}
+
+.gamelist .gamelist-warp li a.socre span {
+  background: #1fb5ad;
+  color: #ffffff;
+  padding: 4px 8px;
+}
+.gamelist .gamelist-warp li a.analysis {
+  color: #ffbb33;
+  font-weight: bold;
+}
+.gamelist .gamelist-warp li a.analysis:hover {
+  background: #ffbb33;
+  color: #ffffff;
+}
+.gamelist .gamelist-warp li a.analysis.active {
+  background: #ffbb33;
+  color: #ffffff;
+}
+.gamelist .AnalysisDropdown {
+  display: none;
+  min-height: 50px;
+  border-top: 1px solid #eff2f7;
+  background: #ffffff;
+  line-height: 24px;
+  text-align: left;
+  padding: 16px;
+}
+.gamelist .AnalysisDropdown li {
+  border: none;
+}

@@ -2,6 +2,10 @@
 var app=angular.module('hzl',[]);
 app.controller('hzlWrap',function($scope,$http,$timeout){
 
+
+	//
+
+
 	$scope.classNum=[];
 	$scope.dataList=[];
 	//$scope.num=0;
@@ -10,10 +14,19 @@ app.controller('hzlWrap',function($scope,$http,$timeout){
 	$scope.loading=false;
 	$scope.imagesArrTmp=[];
 	$scope.selected=[];
-	$http.get('js/data.php',{
 
-	}).success(function(info){
+	var transform = function(data){
+        return $.param(data);
+    }
 
+	$http.post('js/data.php',{
+		"type":"getData"
+	},{
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+        transformRequest: transform
+    }).success(function(info){
+		
+		console.log(info);
 
 		$scope.dataList=info;
 		$scope.dataList.forEach(function(data,index){
@@ -59,7 +72,6 @@ app.controller('hzlWrap',function($scope,$http,$timeout){
 			var init=false;
 
 			
-
 			$scope.dataList.forEach(function(data,index){
 				//限制鸡和猪肉
 
@@ -118,6 +130,8 @@ app.controller('hzlWrap',function($scope,$http,$timeout){
 
 		$scope.showImageArr=function(id){
 			///alert(id);
+
+
 			angular.forEach(info,function(info , index ){
 				if(info.id===id){
 					//console.log(info);
@@ -136,10 +150,49 @@ app.controller('hzlWrap',function($scope,$http,$timeout){
 			}, 1500);
 		}
 
+
+
 	}).error(function(){
 
 	});
 	
+
+
+
+	$scope.AllData=function(){
+		/*
+			type:ShopData,
+			data:'"openId":"openId","shopAttr":"'+$scope.selected+'"'
+		*/
+
+		//var Shopdata=$scope.selected;
+
+
+		// for(var i=0; i<$scope.selected.length; i++){
+			
+		// 	for(var k in $scope.selected[i]){
+		// 		if(k=='imageList' || k=='unit' || k=='coverpic' || k=='$$hashKey'){
+		// 			delete $scope.selected[i][k]; 
+		// 		}
+		// 	}
+		// };
+
+		//console.log($scope.selected)
+		var sShopAttr=JSON.stringify($scope.selected);
+
+		$http.post('js/data.php',{
+			'type':'ShopData',
+			'openId':getCookie('openId'),
+			'shopAttr':sShopAttr
+		},{
+	        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+	        transformRequest: transform
+	    }).success(function(info){
+			console.log(info)
+		}).error();
+	};
+
+
 	$scope.showShop=false;
 
 	$scope.imagesArrBys=false;
@@ -172,9 +225,6 @@ app.directive('imagesarr',function(){
 		replace:true
 	}
 });
-
-
-
 
 
 
@@ -249,28 +299,27 @@ function view() {
 
 
 
+function setCookie(name, value, iDay) {
+	var oDate = new Date();
+	oDate.setDate(oDate.getDate() + iDay);
 
+	document.cookie = name + '=' + value + ';expires=' + oDate;
+}
 
+function getCookie(name) {
+	var arr = document.cookie.split('; ');
 
+	var re = new RegExp('\\b' + name + '=\\w+');
 
+	var res = document.cookie.match(re);
 
+	if (res) {
+		return res[0].split('=')[1];
+	} else {
+		return '';
+	}
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+function removeCookie(name) {
+	setCookie(name, '1', -1);
+}

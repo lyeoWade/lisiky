@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{ margin:0; padding: 0;  }
+		#wrap{ list-style: none; border:1px solid #fff; border-bottom: none; border-right: none; margin: 30px auto; background:url(bg.jpg); }
+		#wrap li{ float: left; border:1px solid #fff; border-top:none; border-left: none; text-align: center; line-height: 50px;  background-size:cover; color: #fff;}
+		#wrap li.active{  animation: 0.5s linear infinite flash; }
+		@keyframes flash{
+			0%{ opacity: 0.1;  }
+			50%{ opacity: 0.9  }
+			100%{ opacity: 0.1  }
+		}
+	</style>
+</head>
+<body>
+	
+	<ul id="wrap">
+		
+	</ul>
+	<script type="text/javascript">
+		window.onload=function(){
+			var oWrap=document.getElementById('wrap');
+
+			var size=12;
+			var sizeWidth=50;
+			var len=size * size ;
+			oWrap.style.width=size * (sizeWidth+1) +'px';
+			oWrap.style.height=size * (sizeWidth+1) +'px'
+			//创建li
+			for(var i=0; i<len; i++){
+				var aLi=document.createElement('li');
+				aLi.style.width=sizeWidth+'px';
+				aLi.style.height=sizeWidth+'px';
+				oWrap.appendChild(aLi);
+			}
+
+
+			//计算螺旋路线
+
+			var rows=0;
+			var cols=0;
+			var nMin=0;
+			var nMax=size -1;
+			var oLi=oWrap.children;
+
+			/*
+			 1, 2, 3, 4,5,
+			16,17,18,19,6,
+			15,24,25,20,7,
+			14,23,22,21,8,
+			13,12,11,10,9
+			*/
+
+			var ArrData=[];
+			for(var i=0; i<oLi.length; i++){
+				//oLi[rows*size + cols].innerHTML=i;
+				ArrData.push(oLi[rows*size + cols]);
+				//寻找拐点
+				if(nMin==rows && cols<nMax){
+					cols = cols + 1;
+				}else if(cols == nMax && rows < nMax){
+					rows = rows + 1;
+				}else if(rows == nMax && cols > nMin){
+					cols = cols -1;
+				}else if(rows > nMin && cols == nMin){
+					rows = rows - 1;
+				}
+
+				// 缩短环数
+				//到了16
+				if(cols==nMin && rows-1 == nMin){
+					nMin=nMin+1;
+					nMax=nMax-1;
+				}
+			}
+
+
+			//
+
+			//var iNow=0;
+
+			// setInterval(function(){
+
+			// 	for(var i=0; i<oLi.length; i++){
+			// 		oLi[i].style.backgroundImage='';
+			// 	}
+
+			// 	ArrData[iNow].style.backgroundImage='url(3.jpg)';
+			// 	iNow++
+			// },200);
+
+			var bgDaata=[];
+			for(var i=0; i<oLi.length; i++){
+				if(i%5==0){
+					var bgImg='url('+Math.floor(Math.random()*11+1)+'.jpg)';
+					ArrData[i].style.backgroundImage=bgImg;
+					bgDaata.push([i,bgImg]);
+					//ArrData[i].className='active';
+				}
+			}
+
+			//console.log(bgDaata)
+
+			run();
+
+
+			setInterval(run,1000);
+
+
+			function run(){
+
+				for(var i=0; i<oLi.length; i++){
+					oLi[i].style.backgroundImage='';
+					oLi[i].className='';
+				}
+
+				for(var i=0; i<bgDaata.length; i++){
+
+					bgDaata[i][0]=bgDaata[i][0]+1;
+
+					if(ArrData[ bgDaata[i][0] ]){
+						ArrData[bgDaata[i][0]].style.backgroundImage=bgDaata[i][1];
+						ArrData[ bgDaata[i][0] ].className='active';
+						ArrData[ bgDaata[i][0] ].style.animationDelay=-Math.random()*2 + 's';
+						
+					}else{
+						bgDaata.pop();
+						var bgImg='url('+Math.floor(Math.random()*11+1)+'.jpg)';
+						bgDaata.unshift( [0,bgImg] )
+					}
+				}
+
+			}
+		}
+
+
+
+
+
+
+
+
+	</script>
+</body>
+</html>

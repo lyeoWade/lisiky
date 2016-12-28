@@ -1,0 +1,154 @@
+/* LESS Document */
+
+@import "com.less";
+
+
+#int-content{
+	width:	@cw;
+	.atuo;
+	
+	.int-tab{
+		height:50px;
+		line-height:50px;
+		background:@hoverred;
+		padding:0 30px;
+		font-size:0;
+		a{
+			font-size:16px;
+			display:inline-block;
+			width:10%;
+			line-height:50px;
+			text-align:center;
+			color:#fff;
+			.transition;
+			position:@rel;
+			
+			
+			&:nth-last-of-type(1):after{
+				display:none;
+			}
+			&:after{
+				display:block;
+				content:'';
+				width:1px;
+				height:20px;
+				background:#FF9595;
+				position:@abs;
+				right:-1px;
+				top:15px;	
+			}
+			&.active{background:@red;}
+			&:hover{
+				background:@red;
+				
+			}
+		}	
+	}
+	
+	
+	.select-warp{
+		
+		select{
+			border:1px solid @red;
+			height:24px;
+			
+			option{
+				font-size:12px;
+				color:@red;	
+			}	
+		}
+			
+	}
+	
+	.int-warp{
+		margin:30px 0;
+		.int-head{
+			height:24px;
+			line-height:24px;
+			h2{
+				border-left:5px solid @hoverred;
+				padding-left:13px;
+				font-size:24px;
+				color:@hoverred
+			}	
+		}
+		
+		.jfb{
+			margin:20px 0;
+			
+			.bg{
+				background:#F3D6D3;	
+			}
+			
+			.red{
+				border-left-color: #b03700;	
+			}
+			.yellow {
+				border-left-color: #f7941d;
+			}
+			 .green {
+				border-left-color: #39b54a;
+			}
+			 .bg-eee {
+				background-color: #eee;
+			}
+			.alignLeft {
+				text-align: left;
+			}
+			.ml35 {
+				margin-left: 35px;
+			}
+			.link-333333 {
+				color: #333;
+				line-height:20px;
+				display:block;
+			}
+			img {
+				vertical-align: middle;
+			}
+			 em {
+					height: 26px;
+					line-height: 26px;
+					font-style: normal;
+					margin-left: 1px;
+					display: block;
+					border-left: 3px solid #fff;
+				}
+			table{
+				text-align:center;
+				th{
+					line-height:38px;
+					border: 1px solid #A5342E;
+    				padding: 0;
+					span{
+						color:#A5342E;	
+					}	
+				}
+				td{
+					border: 1px solid #A5342E;
+    				padding:4px 0;
+					background:#fff;
+					
+				}
+				tr{
+					height:38px;	
+				}	
+			}
+				
+		}
+		
+		.footer0 {
+		font-size: 14px;
+		padding: 10px;
+		color:#973735;
+		line-height:20px;
+		background: #FF9595;
+		border: 1px solid #A5342E;
+		margin-bottom:30px;
+		}
+	}//int-warp
+	
+}
+
+
+
