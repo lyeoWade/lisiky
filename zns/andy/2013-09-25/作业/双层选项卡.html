@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0;}
+#box{ width:400px; height:200px;  margin:100px auto; }
+#box .top{ width:100%; height:36px; background:#CCC; line-height:36px; border-bottom:4px solid #333; }
+.top a{ text-decoration:none; margin:0 10px; text-align:center; color:#999; 
+ width:100px; height:40px; display:block; float:left; }
+.top .active{ background:#F0F0F0; height:36px; border-bottom:4px solid #F90; }
+.ul_box{ width:100%; background:#ccc; height:160px;  }
+.ul_box li{list-style:none; width:100%; height:160px; background:#099; display:none; position:relative; }
+.ul_box .show{ display:block;}
+.nr{ width:100%; line-height:22px; height:26px; border-top:4px solid #039; background:#0CC; position:absolute; left:0; bottom:0; }
+.nr a{  text-align:center; display:block;  float:left; width:100px; margin-left:10px; }
+.nr .aaaa{ background:#F0F0F0; height:22px; border-bottom:4px solid #F90;  }
+.div_box{ width:400px; height:100px; background:#99F; position:absolute; bottom:30px;  }
+.div_box div{ width:400px; height:100px; background:#99F; display:none; }
+.div_box .showw{ display:block;}
+</style>
+<script>
+window.onload=function()
+{
+	tab('box','active','show')
+	tab('secend','aaaa','showw')
+}
+
+function tab(id,sClass,showClass)
+{
+	var osecond=document.getElementById(id);
+	var aBtn=osecond.children[0].children;
+	var aDiv=osecond.children[1].children;
+	for(var i=0; i<aBtn.length;i++)
+	{
+		aBtn[i].index=i;
+		aBtn[i].onclick=function()
+		{
+			for(var i=0; i<aBtn.length;i++)
+			{
+				aDiv[i].className='';
+				aBtn[i].className='';
+			}
+			this.className=sClass
+			aDiv[this.index].className=showClass;
+		}
+	}
+}
+</script>
+<meta charset="utf-8">
+<title>双层选项卡</title>
+</head>
+
+<body>
+
+<div id="box">
+	<div class="top">
+    		<a href="javascript:;" class="active">新闻</a>
+            <a href="javascript:;">NBA$西甲</a>
+            <a href="javascript:;">娱乐</a>
+    </div>
+    <ul class="ul_box">
+    		<li class="show" id="secend">
+            			
+                        aaaaaaaaaaaaaaaa
+                    <div class="nr">
+                        <a href="javascript:;"  class="aaaa">新闻</a>
+                        <a href="javascript:;">NBA$西甲</a>
+                        <a href="javascript:;">娱乐</a>
+                    </div>
+                    <div class="div_box">
+                            <div class="showw">
+                                1111111111111    
+                            </div>
+                            <div>
+                                 2222222222222   
+                            </div>
+                            <div>
+                                  333333333333  
+                            </div>
+                    </div>	
+            </li>
+            <li>
+            	222222222222222	
+            </li>
+            <li>
+            	333333333333333333333333	
+            </li>
+    </ul>
+</div>
+
+</body>
+</html>

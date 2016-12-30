@@ -1,0 +1,153 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+.div1{width:600px;height:30px;margin:100px auto; background:#ccc; position:relative;}
+.div1 span{width:100px;height:30px; background:red; position:absolute;top:0;left:0;}
+
+.div2{width:300px;height:300px; background:green; position:relative; overflow:hidden}
+.div2 p{width:300px;height:800px; overflow:hidden; position:absolute;top:0;left:0}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementsByTagName('div')[0];
+	var oSpan=oBox.children[0];
+	var oBox2=document.getElementsByTagName('div')[1]
+	var oP=oBox2.children[0];
+	
+	oSpan.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var disX=oEvent.clientX-oSpan.offsetLeft;
+		
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			var l=oEvent.clientX-disX;
+			if(l<0)l=0;
+			if(l>oBox.offsetWidth-oSpan.offsetWidth)l=oBox.offsetWidth-oSpan.offsetWidth;
+			oSpan.style.left=l+'px';
+			
+			
+			var b=l/(oBox.offsetWidth-oSpan.offsetWidth);
+			
+			oP.style.top=-(oP.offsetHeight-oBox2.offsetHeight)*b+'px';
+			
+		};
+		
+		document.onmouseup=function()
+		{
+			document.onmousemove=document.onmouseup=null;
+			
+		};
+	
+		return false;
+			
+	};
+	
+	wheel(oBox2);
+	
+};
+
+
+
+function wheel(obj)
+{
+	if(window.navigator.userAgent.indexOf('Firefox')!=-1)
+	{	
+		obj.addEventListener('DOMMouseScroll',wheelFn,false);
+	}
+	else
+	{
+		obj.onmousewheel=wheelFn;
+	};
+	
+	function wheelFn(ev)
+	{
+		var oEvent=ev||event;
+        var down=oEvent.wheelDelta?oEvent.wheelDelta<0:oEvent.detail>0;
+		alert(down);
+		
+		ev&&ev.preventDefault(); 
+		return false;
+		
+	};
+};
+</script>
+</head>
+
+<body style="height:2000px">
+
+<div class="div1">
+	<span></span>
+</div>
+
+<div class="div2">
+	<p>-公认最好的JavaScript视频教程，此视频成为JS爱好者必备的最佳JS入门学习视频，如果你还没有看过，机会来了 :) >>点击进入视频列表
+
+-公认最好的JavaScript讲师，课程讲解通俗易懂，开放而兼具互动，堪称JS最佳学习体验之旅，想来试试吗 >>点击报名免费试听 注意！是免费的哦
+
+-我就是Blue，我在智能社——前淘宝核心开发工程师，先后亲历多次大型项目开发，涉足前端交互、用户体验、数据挖掘等多个领域，具备极其深厚的程序功底，拥有近10年程序开发经验，喜好钻研技术问题，离开淘宝后转战教育事业，现成立智能社，力求传播先进技术，解决人才鸿沟，为JS培训行业做些贡献
+
+来智能社享受一流的课程体验
+4
+思想- 你想成为JS高手吗，方法在这里
+
+-是否觉得写程序时不知如何入手？对于一个问题觉得明白了，但一写东西就不知道怎么办了？是否想要成为JS高手，又不知如何做到？这些问题，其实都是缺少程序思想。
+
+-思想是关键，真正的高手，遇到任何问题都知道如何解决；真正的高手，在写出代码之前，程序的大体结构已经心中有数，绝非写一点想一点；能够做到这些，都因为思想，当然，这种东西也有别的叫法——“思路”、“算法”、“经验”、“方法”......
+
+-思想这东西书本上没有，书本里只有一个个函数，一个个知识点。这些思想全部来源于实际工作中遇到的问题，被智能社的讲师提炼出来，贯穿于整个课程之中，让大家快速吸收，高速成长。
+
+-智能社的JS课程，在讲解知识的同时，还会帮助大家掌握思考问题的方法，这才是重点，让大家真正明白问题是要怎么去思考，如何去解决的。
+思想决定水平高低，在智能社，提升自己
+5
+实战- 从 上课听懂 到 彻底掌握
+
+-就算是个练武奇才，各种骨骼惊奇，给他几本武林宝典，看个三年，但是完全不动手练习，估计下山就被几个山贼放倒了，而学习JS也是一个道理，没有什么比练习更能帮助大家提高了。
+
+-智能社帮你准备了大量实战练习，从最基础的知识点练习开始，逐步提升，此外智能社还精选了多个来自公司的真实项目（涉及到公司内部细节的部分有修改），帮助大家真正掌握JS，而非纸上谈兵。
+
+-单个的小东西学过几天都会做，但是真正在项目里写东西，又是另一种情况了，智能社准备的每个实战项目，都有不同的侧重，有的重点训练大家的后台交互，有的重点练习代码整合和重用，帮你完全打通JS的每个环节。
+
+来智能社，学真东西
+常见问题
+零基础是否能学会
+可以，零基础的学员，也可以顺利掌握智能社的JavaScript课程内容。
+到目前为止，已经毕业的几百名学员中，大部分都是零基础（应届生或转行前端）的朋友，所以智能社有信心让没有基础的朋友也能掌握课程知识。
+当然，有其他程序经验的朋友，学习起来确实会轻松顺畅一些，这也是客观规律。不过智能社相信，只要你肯努力，勤思考、多做练习，没有基础也能掌握JS，只是需要付出更多努力罢了。
+另外，在你开始学习JS之前，需要先具备HTML/CSS方面的知识，如果是目前没有此基础，可先从HTML/CSS开始学起，然后再进行JS课程的学习。
+可以分期付款吗
+可以，智能社一直坚信“学习，是一种投资”，能够分期买房买车，学习为什么不行 ^_^
+至于具体的分期付款方式，我们也在随时调整，所以请直接>>与我们联系，了解详情
+上课时间、需要多久学完
+要看选择哪种班型了，智能社的上课时间分为周末班和全日制班两种。
+周末班适合在上班的朋友，没法辞职全天来学习；
+全日制班适合想要用一段时间，专心学习，全天上课的朋友。
+这两种班型的时间分别是：
+全日制班　　周一~周五上课，学完大约需要3个月左右
+周末班　　　周六、周日上课，学完大约需要5-6个月左右
+这两种班型，上课内容完全一样，只是上课时间不同，大家可根据自己的需求，自由选择。
+学完包就业吗
+不需要包就业，智能社的学员毕业从来不愁就业，倒是有很多公司找智能社要人，一般都要不到，因为大家毕业就都找到好工作了。
+如果哪个培训机构的学员，毕业后连工作都找不到，那这个机构实在太失败了。
+当然，因为智能社毕业的学员很多都在国内一流互联网公司任职，所以如果需要，我们也会帮忙推荐，既是帮助学员找到更好的工作，也是帮助完成老学员招聘工作。
+我要提问
+智能社乐于倾听，如有问题，欢迎与我们联系
+JavaScript课程 HTML5课程 HTML+CSS课程 视频教程 课程案例 联系方式 版权所有 京ICP备12022017号-1
+QQ在线咨询
+
+免费试学申请
+官网论坛
+视频教程
+官方
+微信
+</p>
+</div>
+
+</body>
+</html>

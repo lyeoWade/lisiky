@@ -1,0 +1,29 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+div{ background:red;width:200px; margin:5px; float:left;}
+</style>
+<script>
+window.onload=function()
+{
+	var aDiv=document.getElementsByTagName('div');
+	for(var i=0,m=aDiv.length;i<m;i++)
+	{
+		aDiv[i].style.height=parseInt(Math.random()*400+100)+'px';	
+	}	
+};
+</script>
+</head>
+
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{height:50px; line-height:50px; margin:10px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	if(oBox.currentStyle)  //第一个兼容
+	{
+		alert(oBox.currentStyle.marginTop);	
+	}
+	else
+	{
+		//alert(getComputedStyle(oBox,false).margin-top);
+		alert(getComputedStyle(oBox,false).marginTop);	
+	}  
+};
+
+</script>
+</head>
+
+<body>
+<div id="box">
+dfdsfsd
+</div>
+</body>
+</html>

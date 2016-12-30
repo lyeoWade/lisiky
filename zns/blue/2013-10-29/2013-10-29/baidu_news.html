@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+li {padding:6px;}
+li h2 a {font-size:28px; color:#900; text-decoration:none;}
+li a {color:#333; text-decoration:none; margin:0 10px;}
+</style>
+<script src="ajax.js"></script>
+<script>
+window.onload=function ()
+{
+	var oUl=document.getElementById('ul1');
+	
+	ajax('data.txt?t='+Math.random(), function (str){
+		var arr=eval('('+str+')');
+		
+		for(var i=0;i<arr.length;i++)
+		{
+			var oLi=document.createElement('li');
+			
+			var oH2=document.createElement('h2');
+			oH2.innerHTML='<a href="'+arr[i].href+'">'+arr[i].title+'</a>';
+			
+			oLi.appendChild(oH2);
+			
+			//a
+			for(var j=0;j<arr[i].child.length;j++)
+			{
+				var oA=document.createElement('a');
+				
+				oA.href='javascript:;';
+				oA.innerHTML='['+arr[i].child[j].title+']';
+				
+				oLi.appendChild(oA);
+			}
+			
+			oUl.appendChild(oLi);
+		}
+	}, function (){
+		alert('新闻读取失败');
+	});
+};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<!--<li>
+    	<h2><a href="javascript:;">什么什么什么什么什么</a></h2>
+        <a href="javascript:;">[xxx]</a>
+        <a href="javascript:;">[xxx]</a>
+    </li>-->
+</ul>
+</body>
+</html>

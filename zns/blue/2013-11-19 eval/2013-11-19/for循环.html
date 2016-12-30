@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:300px; height:300px; background:#CCC;}
+</style>
+<script>
+window.onload=function ()
+{
+	var arr=[];
+	for(var i=0;i<100000;i++)
+	{
+		arr[i]=i;
+	}
+	
+	var start=new Date().getTime();
+	
+	for(var i=0;i<100;i++)
+	{
+		/*for(var j=0;j<arr.length;j++)	//2600
+		{
+			arr[j]++;
+		}*/
+		
+		for(var j in arr)				//63060
+		{
+			arr[j]++;
+		}
+	}
+	
+	alert(new Date().getTime()-start);
+};
+</script>
+</head>
+
+<body>
+</body>
+</html>

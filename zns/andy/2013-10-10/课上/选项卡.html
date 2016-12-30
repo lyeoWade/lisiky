@@ -1,0 +1,86 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0;  }
+#box{ width:200px; height:200px; margin:50px auto; position:relative;}
+#box a{ display:block; float:left; margin:0 10px; height:20px; line-height:20px; }
+#box div{ display:none; width:200px; height:160px; background:#CCC; position:absolute; left:0; bottom:0; }
+#box .active{ background:#0C9; }
+#box .show{ display:block; }
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var aBtn=oBox.getElementsByTagName('a');
+	var oDiv=oBox.getElementsByTagName('div');
+	var leg=aBtn.length;
+	var iNow=0;
+	var timer=null;
+	for(var i=0; i<leg; i++)
+	{
+		aBtn[i].index=i;
+		aBtn[i].onclick=function()
+		{
+			this.index=iNow;
+			show();
+		}
+	}
+	timer=setInterval(move,1000);
+	
+	function move()
+	{
+		if(iNow==aBtn.length-1)
+		{
+			iNow=0;
+		}else
+		{
+			iNow++;
+		}
+		
+		show();
+	}
+	
+	oBox.onmouseover=function()
+	{
+		clearInterval(timer);
+	}
+	oBox.onmouseout=function()
+	{
+		timer=setInterval(move,1000);
+	}
+	function show()
+	{
+		if(this.className!='active')
+			{
+				for(var i=0; i<leg; i++)
+				{
+					oDiv[i].className='';
+					aBtn[i].className=''
+				}
+				aBtn[iNow].className='active'
+				oDiv[iNow].className='show';
+				
+				return false;
+			}
+	}
+	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="box">
+		<a href="http://www.baidu.com" class="active">百度</a>
+        <a href="http://www.sina.com">新浪</a>
+        <a href="http://www.163.com">163</a>
+        <div class="show">1111111111111</div>
+        <div>2222222222222</div>
+        <div>3333333333333</div>
+</div>
+</body>
+</html>

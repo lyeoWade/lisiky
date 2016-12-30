@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link id="link1" href="skin1.css" rel="stylesheet" type="text/css">
+<title>无标题文档</title>
+<script>
+function skin1()
+{
+	var oLink=document.getElementById('link1');
+	oLink.href='skin2.css';
+}
+
+function skin2()
+{
+	var oLink=document.getElementById('link1');
+	oLink.href='skin1.css';
+}
+</script>
+</head>
+
+<body>
+
+<div onclick="skin1()">换第一套皮肤</div>
+<div onclick="skin2()">换第二套皮肤</div>
+</body>
+</html>

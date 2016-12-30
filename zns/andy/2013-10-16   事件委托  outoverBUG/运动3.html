@@ -1,0 +1,110 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+ul{height:32px;margin-left:40px;}
+li{ float:left;height:60px; position:relative;width:150px;border:1px solid #000; list-style:none}
+span{ position: absolute;top:60px;left:0;width:100%;height:60px; background:red;}
+p{ position: absolute;top:0;left:0;width:100%;height:60px;  text-align:center; line-height:30px;}
+</style>
+<script>
+window.onload=function()
+{
+	var aLi=document.getElementById('ul1').getElementsByTagName('li');
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].top=false;
+		aLi[i].onmouseover=function(ev)
+		{
+			var oEvent=ev||event;
+		    var from=oEvent.fromElement||oEvent.relatedTarget;
+			if(isChild(this, from))return;
+			//alert(1);
+			var oSpan=this.getElementsByTagName('span')[0];
+			clearInterval(this.timer);
+			var This=this;
+			this.timer=setInterval(function(){
+				oSpan.style.top=oSpan.offsetTop-4+'px';
+				if(oSpan.offsetTop<=0)
+				{
+				   clearInterval(This.timer);
+				   oSpan.style.top='0px';
+				   This.top=true;
+				}
+					
+			},60);	
+		};	
+		
+		aLi[i].onmouseout=function(ev)
+		{
+			var oEvent=ev||event;
+			var to=oEvent.toElement||oEvent.relatedTarget;
+			if(isChild(this,to))return;
+			
+			//alert(2);
+			document.title=this.top;
+			
+			var iSpeed;
+			
+			if(this.top==false)
+			{
+				iSpeed=-4;
+			}
+			else
+			{
+				iSpeed=4;
+			}
+			
+			var oSpan=this.getElementsByTagName('span')[0];
+			clearInterval(this.timer);
+			var This=this;
+			this.timer=setInterval(function(){
+				oSpan.style.top=oSpan.offsetTop+iSpeed+'px';
+				if(oSpan.offsetTop>=60)
+				{
+				   clearInterval(This.timer);
+				   oSpan.style.top='60px';
+				    This.top=false;
+				};
+				
+				if(oSpan.offsetTop<=0)
+				{
+				   //clearInterval(This.timer);
+				   oSpan.style.top='0px';
+				  iSpeed=4;
+				};
+					
+			},60);	
+		};	
+	}	
+};
+
+
+function isChild(oParent, obj)
+{
+	while(obj)
+	{
+		if(obj==oParent)return true;
+		
+		obj=obj.parentNode;
+	}
+	
+	return false;
+}
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li><span></span><p>1111</p></li>
+	<li><span></span><p>2222</p></li>
+	<li><span></span><p>3333</p></li>
+	<li><span></span><p>4444</p></li>
+	<li><span></span><p>5555</p></li>
+	<li><span></span><p>6666</p></li>
+</ul>
+</body>
+</html>

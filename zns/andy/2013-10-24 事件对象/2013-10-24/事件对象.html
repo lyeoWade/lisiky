@@ -1,0 +1,24 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	document.onclick=function(ev)
+	{
+		var oEvent=ev||event;
+		console.log(oEvent)
+		/*
+			altKey: falsebubbles: truebutton: 0cancelBubble: falsecancelable: truecharCode: 0clientX: 318clientY: 56clipboardData: undefinedctrlKey: falsecurrentTarget: nulldataTransfer: nulldefaultPrevented: falsedetail: 1eventPhase: 0fromElement: nullkeyCode: 0layerX: 318layerY: 56metaKey: falsemovementX: 0movementY: 0offsetX: 318offsetY: 56pageX: 318pageY: 56path: NodeList[0]relatedTarget: nullreturnValue: truescreenX: 318screenY: 141shiftKey: falsesrcElement: htmltarget: htmltimeStamp: 1412837572254toElement: htmltype: "click"view: WindowwebkitMovementX: 0webkitMovementY: 0which: 1x: 318y: 56
+		*/
+		console.log(oEvent.x+'-'+oEvent.clientX+'-'+oEvent.pageX); 
+	};	
+};
+</script>
+</head>
+
+<body>
+</body>
+</html>

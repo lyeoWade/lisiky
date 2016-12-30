@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0;  }
+#div1{ width:400px; height:500px; background:red; }
+
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	//oDiv.onmousewheel=wheel;
+	//oDiv.attachEvent('onmousewheel',wheel);
+	MyEvent(oDiv,'mousewheel',wheel)
+	MyEvent(oDiv,'DOMMouseScroll',wheel,false)
+	// 滚轮 IE chrome 用onmousewheel 事件。 而ff走绑定  DOMMouseScroll事件 
+	// 阻止默认事件  , IE chrome 直接return false; ff , 走事件  ev.preventDefault();
+	// 判断滚轮上下  // oEvent.wheelDelta            IE chrome
+				   // oEvent.detail    ff 
+	function wheel(ev)
+	{
+		var oEvent=ev||event;
+		
+		var down;
+		
+		if(oEvent.wheelDelta)
+		{
+			if(oEvent.wheelDelta<0)
+			{
+				down=true; // 向下
+			}else
+			{
+				down=false; // 向上
+			}/**/
+		}else
+		{
+			if(oEvent.detail>0)
+			{
+				down=true; // 向下
+			}else
+			{
+				down=false; // 向上
+			}
+		}
+		
+		
+		alert(down);
+		
+		//alert(oEvent.detail);
+		//alert(oEvent.wheelDelta); // 不是阻止了浏览器滚动条了么？
+		
+		
+		
+	/*	if(ev)
+		{
+			ev.preventDefault();
+		}*/
+		
+		ev&&ev.preventDefault();
+		return false; // IE  chrome 
+	}
+}
+
+
+
+function MyEvent(obj,events,fn)
+{
+	if(obj.attachEvent)
+	{
+		obj.attachEvent('on'+events,fn);
+	}else
+	{
+		obj.addEventListener(events,fn,false);
+	}
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body style="height:2000px;">
+<div id="div1"></div>
+</body>
+</html>

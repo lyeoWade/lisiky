@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="ajax.js"></script>
+<script>
+function define(fnMod)
+{
+	function require(){};
+	var mod={exports: {}};
+	
+	fnMod(require, mod.exports, mod);
+	
+	return mod.exports;
+}
+
+var seajs={};
+
+seajs.use=function (str, cb)
+{
+	ajax(str, function (s){
+		var mod=eval(s);
+		
+		cb(mod);
+	});
+};
+
+seajs.use('a.js', function (modA){
+	modA.show();
+});
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

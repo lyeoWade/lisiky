@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+var str='xcv 342 2 rsa2134 faas111 312312321312';
+
+//正则特性：
+/*
+1.懒		默认只找一个东西——>g
+2.傻		
+3.贪婪	越长越好
+*/
+
+var re=/\d+/g;	//g	global	全局匹配（找到所有的）
+
+/*
+g		所有的组
++		每一组尽可能的长
+*/
+
+alert(str.match(re));
+</script>
+</head>
+
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+

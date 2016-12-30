@@ -1,0 +1,99 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+div{ float:left;width:200px;height:30px; position:relative}
+div span{width:198px; display:block;height:28px;border:1px solid #000; cursor:pointer;}
+div ul{width:198px; position:absolute;top:30px;left:0; overflow:hidden; display:none;}
+div ul li{height:28px; line-height:28px;border:1px solid blue;}
+div ul li.active{ color:#fff; background:#ccc;}
+img{ float:left;margin:0 5px;}
+p{ float:left;border:1px solid #000;width:100px;height:100px; display:none;}
+p.show{ display:block}
+</style>
+<script>
+window.onload=function()
+{
+	var oSpan=document.getElementById('span1');
+	var oUl=document.getElementById('ul1');
+	var b=true;  //一开始是关的情况
+	
+	oSpan.onclick=function()
+	{
+		if(b==true)
+		{
+			oUl.style.display='block';	
+			b=false;
+		}	
+		else
+		{
+			oUl.style.display='none';	
+			b=true;
+		}
+	};	
+	
+	
+	var aLi=document.getElementsByTagName('li');
+	var oImg=document.getElementById('img1');
+	var aP=document.getElementsByTagName('p');
+	
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].index=i;
+		aLi[i].onmouseover=function()
+		{
+			this.className='active';	
+			oImg.src='img/'+this.index+'.jpg';
+			oSpan.innerHTML=this.innerHTML;
+			
+			for(var i=0;i<aP.length;i++)
+			{
+				aP[i].className='';	
+			}
+			aP[this.index].className='show';
+		};	
+		
+		aLi[i].onmouseout=function()
+		{
+			this.className='';	
+		};
+		
+		aLi[i].onclick=function()
+		{
+			oImg.src='img/'+this.index+'.jpg';
+			oSpan.innerHTML=this.innerHTML;
+			
+			for(var i=0;i<aP.length;i++)
+			{
+				aP[i].className='';	
+			}
+			aP[this.index].className='show';
+			
+			oUl.style.display='none';	
+			b=true;
+		};	
+	}
+};
+
+</script>
+</head>
+
+<body>
+<div>
+	<span id="span1">标题一</span>
+    <ul id="ul1">
+        <li>标题一</li>
+        <li>标题二</li>
+        <li>标题三</li>
+    </ul>
+</div>
+<img id="img1" src="img/0.jpg" width="300" height="130" >
+<p class="show">内容一</p>
+<p>内容二</p>
+<p>内容三</p>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+#ul1{ width:800px;line-height:18px; height:18px; margin:0 auto;  }
+#ul1 li{ float:left;  width:18px; height:18px; background:url(radio.gif) no-repeat 0 0; margin-right:10px;  list-style:none;  }
+#ul1 .active{ background:url(radio.gif) no-repeat 0 -18px; }
+</style>
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	
+	for(var i=0; i<aLi.length; i++)
+	{
+		aLi[i].onclick=function()
+		{
+			for(var i=0; i<aLi.length; i++)
+			{
+				aLi[i].className='';
+			}
+			this.className='active';
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+		<li class="active"></li>
+        <li></li>
+      	<li></li>
+        <li></li>
+        <li></li>
+      	<li></li>
+        <li></li>
+        <li></li>
+      	<li></li>
+        <li></li>
+        <li></li>
+      	<li></li>
+        <!--选项三
+        <li></li>选项四
+        <li></li>选项五
+        <li></li>选项六
+        <li></li>选项七
+        <li></li>选项八        
+        <li></li>选项九
+        <li></li>选项十-->
+</ul>
+</body>
+</html>

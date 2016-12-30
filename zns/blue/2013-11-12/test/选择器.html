@@ -1,0 +1,131 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+
+</style>
+<script>
+function getByClass(oParent, sClass)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(sClass);
+	}
+	
+	var aEle=oParent.getElementsByTagName('*');
+	var re=new RegExp('(^|\\s)'+sClass+'($|\\s)');
+	var result=[];
+	
+	for(var i=0;i<aEle.length;i++)
+	{
+		if(re.test(aEle[i].className))
+		{
+			result.push(aEle[i]);
+		}
+	}
+	
+	return result;
+}
+
+function _getByStr(aParent, str)
+{
+	var aChild=[];
+	
+	for(var i=0;i<aParent.length;i++)
+	{
+		switch(str.charAt(0))
+		{
+			case '#':		//ID
+				var obj=aParent[i].getElementById(str.substring(1));
+				aChild.push(obj);
+				break;
+			case '.':		//class
+				var arr=getByClass(aParent[i], str.substring(1));
+				
+				for(var j=0;j<arr.length;j++)  // arr 不一定是数组  所以的循环 
+				{
+					aChild.push(arr[j]);
+				}
+				break;
+			default:		//标签
+			
+				// 第一个字母是个字母  的情况全在里面   (li:has(.box)    li.box )  不能用indexOf('.')
+				
+				var arr=aParent[i].getElementsByTagName(str);
+				
+				for(var j=0;j<arr.length;j++)
+				{
+					aChild.push(arr[j]);
+				}
+				break;
+		}
+	}
+	
+	return aChild;
+}
+
+function getEle(str)
+{
+	//整理
+	var arr=str.replace(/^\s+|\s+$/g, '').split(/\s+/g);
+	
+	//核心
+	var aParent=[document]; // 起点是document
+	
+	var aChild=[];
+	
+	for(var i=0;i<arr.length;i++)
+	{
+		//aParent+arr[i]->aChild
+		aChild=_getByStr(aParent, arr[i]); // 
+		
+		//这一次的结果，就是下一次的父级
+		aParent=aChild;
+	}
+	
+	return aChild;
+}
+
+window.onload=function ()
+{
+	var aBox=getEle('     #div1    ul	.box input    ');
+	
+	for(var i=0;i<aBox.length;i++)
+	{
+		aBox[i].style.border='1px solid red';
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<ul>
+    	<li class="box active"><input type="button" value="aaa" /></li>
+    	<li><input type="text" value="aaa" /></li>
+    	<li class="box"></li>
+    </ul>
+	<ol>
+    	<li class="box active"><input type="button" value="aaa" /></li>
+    	<li><input type="text" value="aaa" /></li>
+    	<li class="box"></li>
+    </ol>
+</div>
+<div id="div2">
+	<ul>
+    	<li class="box active"><input type="button" value="aaa" /></li>
+    	<li><input type="text" value="aaa" /></li>
+    	<li class="box"></li>
+    </ul>
+	<ol>
+    	<li class="box active"><input type="button" value="aaa" /></li>
+    	<li><input type="text" value="aaa" /></li>
+    	<li class="box"></li>
+    </ol>
+</div>
+</body>
+</html>

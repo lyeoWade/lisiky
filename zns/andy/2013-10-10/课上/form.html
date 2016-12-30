@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>type</title>
+<script>
+
+
+
+window.onload=function()
+{
+	var date=[
+				{
+					action:'http://www.baidu.com/s?',
+					name:'wd',
+					btnName:'百度搜索'
+				},
+				{
+					action:'http://www.google.com.hk/s?',
+					name:'q',
+					btnName:'谷歌搜索'
+				},
+				{
+					action:'http://www.so.com/s?',
+					name:'q',
+					btnName:'360搜索'	
+						
+				}
+		];
+	var oSel=document.getElementsByTagName('select')[0];
+	var oF=document.getElementsByTagName('form')[0];
+	var oTxt=document.getElementById('text');
+	var oBtn=document.getElementById('btn');
+
+	oSel.onchange=function()
+	{
+		oF.action=date[this.selectedIndex].action;
+		oTxt.name=date[this.selectedIndex].name;
+		oBtn.value=date[this.selectedIndex].btnName;
+	}
+}
+</script>
+</head>
+
+<body>
+<select>
+	<option>百度搜索</option>
+    <option>谷歌搜索</option>
+    <option>360搜索</option>
+</select>
+
+<form action="http://www.baidu.com/s?" >
+		<input type="text" name="wd" id="text" >
+        <input type="submit" value="百度搜索" id="btn">
+</form>
+
+</body>
+</html>

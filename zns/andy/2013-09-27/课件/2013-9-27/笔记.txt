@@ -1,0 +1,205 @@
+要求大写onload
+
+script标签，想放哪里都可以
+
+报错：
+chrome  F12 开发者调试工具
+FF      ctrl + shift + j  错误控制台    fireBug
+IE      F12->脚本     选项－〉高级- 禁用脚本调试取消
+IE7、8  左下角黄框
+
+
+alert           会弹窗
+console.log();  不弹窗
+
+
+document.body   ==  获取body
+
+--------------
+
+JS组成
+
+
+
+ECMAScript   翻译   for if  var 
+             基本上兼容
+
+
+dom          dom树  操作节点
+             byID  BYtagName  child
+             删除节点  创建
+document  object  model  文档对象模型
+             大部分兼容，如果有不兼容的我们可以写兼容
+
+
+bom         浏览器方面的操作
+            基本不兼容
+
+browser   object model
+
+-----------------
+
+typeof  查看变量类型
+
+常见类型：
+
+number、string、boolean、function、object、undefined
+
+对象object  复合类型    
+非对象      基本类型   3243  'asdf'
+           
+
+----------------
+
+value  取出来是字符串
+
+parseInt(字符串或变量)  转换字符串为数字
+
+NaN -〉 not a number 非数字
+
+强制转换
+parseInt:    字母在前面都不能转   不能转小数
+parseFloat:  字母在前面都不能转   可以带小数位
+number       可以转小数  不能转带字母字符
+
+隐性转换
+-字符串与数字相减   相乘 相除  
+lert('10'>9);
+==
+
+
+===  即要比较类型，也要比较值
+
+全局变量：到处都可以用
+局部变量：只能在函数中使用
+
+
+闭包：
+子函数可以使用父函数中的局部变量，这种行为就叫做闭包！
+
+局部变量，会屏蔽同名的全局变量
+
+
+－－－－－－－
+
+约定成俗
+
+getElementById   
+
+
+
+匈牙利命名法
+类型前缀
+首字母大写
+
+
+oDiv   aInput
+
+类型	前缀	类型	实例
+对象	o	Object	oDiv1
+数组	a	Array	aItems
+字符串	s	String	sUserName
+整数	i	Integer	iItemCount
+布尔值	b	Boolean	bIsComplete
+浮点数	f	Float	fPrice
+函数	fn	Function	fnHandler
+正则表达式	re	RegExp	reEmailCheck
+变体变量	v	Variant	vAnything
+
+
++ 加、- 减、* 乘、/ 除
+
+%取模  取余数
+
+
+n++
+n+=1;
+
+
+=、+=、-=、*=、/=、%=
+
+
+
+不等于：!=、!==
+
+
+if(a>9&&a<100)  并且&&
+
+
+if(a==5||a==6)  或者||
+
+!取反
+
+
+continue  跳过本次再继续循环
+break     结束
+
+
+真   true     非零数字  非空字符串   非空对象
+假   false    零         空字符串    空对象   undefined  null
+
+
+
+－－－－－－－－
+作业：判断是不是整数
+
+简易计算器
+JS简易日历  有布局
+发送短信：点击按钮倒计时  －〉 重新发送
+弹出框点透明层闪烁
+百度游戏   有图
+雷电搜索   有图
+
+复习所有学过的内容
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

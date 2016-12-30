@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+div{margin:0 auto;width:666px; overflow:hidden}
+ul{width:200px;border:1px solid #000;margin-right:20px; float:left;}
+li{width:200px;margin-bottom:10px; list-style:none;}
+</style>
+<script>
+window.onload=function()
+{
+	var aUl=document.getElementsByTagName('ul');
+	var n=0;
+	
+	function addLi()
+	{
+	//开始的20张
+	for(var i=0;i<20;i++)
+	{
+		var newLi=createLi();
+		n++;
+		newLi.innerHTML=n;
+		var oUl;
+		
+		if(aUl[0].offsetHeight<aUl[1].offsetHeight)
+		{
+			//	aUl[0].offsetHeight  小
+			if(aUl[0].offsetHeight<aUl[2].offsetHeight)
+			{
+				oUl=aUl[0];	
+			}
+			else
+			{
+				oUl=aUl[2];		
+			}
+		}
+		else
+		{	
+			//aUl[1].offsetHeight小
+			if(aUl[1].offsetHeight<aUl[2].offsetHeight)
+			{
+				oUl=aUl[1];	
+			}
+			else
+			{
+				oUl=aUl[2];		
+			}	
+		}
+		oUl.appendChild(newLi);
+	};
+	};
+	
+	addLi();
+	
+	window.onscroll=function()
+	{
+		var _scroll=document.documentElement.scrollTop||document.body.scrollTop;
+		var windowHeight=document.documentElement.clientHeight;
+		document.title=_scroll+windowHeight;
+		if(_scroll+windowHeight>=document.body.offsetHeight)
+		{
+			addLi();
+				
+		}
+			
+	};
+};
+
+function createLi()
+{
+	var oLi=document.createElement('li');
+	oLi.style.height=rnd(100,400)+'px';
+	oLi.style.background='rgb('+rnd(0,255)+','+rnd(0,255)+','+rnd(0,255)+')';
+	return oLi;
+};
+
+function rnd(n,m)
+{
+	return parseInt(Math.random()*(m-n+1)+n);
+};
+</script>
+</head>
+
+<body>
+<div>
+    <ul></ul>
+    <ul></ul>
+    <ul></ul>
+</div>
+</body>
+</html>

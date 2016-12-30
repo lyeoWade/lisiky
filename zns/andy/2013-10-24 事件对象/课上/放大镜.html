@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; }
+#box{ width:200px; height:200px; position:relative; padding:2px; border:1px solid #CCC; margin:100px auto;  }
+#box .small{  }
+#box .small span{ display:none; width:50px; height:50px;  background:#F90; opacity:.5; filter:alpha(opacity=50); position:absolute; left:3px; top:3px; border:1p solid #999; }
+#box .big{ position:absolute; left:206px; top:-1px; border:1px solid #CCC; width:204px; height:204px; overflow:hidden; display:none;  }
+#box .big img{  position:absolute; left:0; top:0; }
+</style>
+<title>无标题文档</title>
+
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oSmall=getByClass(oBox,'small')[0];
+	var oSpan=oSmall.children[0];
+	var oBig=getByClass(oBox,'big')[0];
+	var oImg=oBig.children[0];
+	oSmall.onmouseover=function()
+	{
+		oSpan.style.display='block';
+		oBig.style.display='block';
+	}
+	oSmall.onmouseout=function()
+	{
+		oSpan.style.display='none';
+		oBig.style.display='none';
+	}
+	oSmall.onmousemove=function(ev)
+	{
+		var oEvent=ev||event;
+		var l=oEvent.clientX-oBox.offsetLeft-oSpan.offsetWidth/2;
+		var t=oEvent.clientY-oBox.offsetTop-oSpan.offsetHeight/2;
+		oSpan.style.left=l+'px';
+		oSpan.style.top=t+'px';
+		
+		var sCaleX=l/(oBox.offsetWidth-oSpan.offsetWidth);
+		var sCaleY=t/(oBox.offsetHeight-oSpan.offsetHeight);
+		
+		oImg.style.left=-sCaleX*(oImg.offsetWidth-oBig.offsetWidth)+'px';
+		oImg.style.top=-sCaleY*(oImg.offsetHeight-oBig.offsetHeight)+'px';
+		document.title=sCaleY;
+		
+	}
+}
+
+function getByClass(oParent,sClass)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(sClass);
+	}else
+	{
+		var aEle=oParent.getElementsByTagName('*');
+		var re=new RegExp('\\b'+sClass+'\\b');
+		var result=[];
+		for(var i=0; i<aEle.length; i++)
+		{
+			if(re.test(aEle[i].className))
+			{
+				result.push(aEle[i]);
+			}
+		}
+		
+		return result;
+	}
+}
+</script>
+
+</head>
+
+<body>
+<div id="box">
+	<div class="small">
+    		<span></span>
+    		<p><img src="3_1.jpg"></p>
+    </div>
+    <div class="big">
+    		<img src="3_2.jpg">
+    </div>
+</div>
+</body>
+</html>

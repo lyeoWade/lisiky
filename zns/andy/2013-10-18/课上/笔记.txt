@@ -1,0 +1,127 @@
+arr.reverse()  翻转数组
+
+arr.splice()  //删除替换    开始结束的位置
+arr.splice(起始位置, 删除的个数 )
+
+arr.splice(起始位置, 删除的个数，插入 )
+
+
+起始位置的那个被删除
+
+<option value=''></option>不加value不兼容
+
+有length
+
+options 一组  select 独有的属性 代表取出的option的一组
+
+
+
+
+
+selectIndex   可设置或返回下拉列表中被选选项的索引号。   选中的文本
+
+
+innerHTML 和 text  
+
+
+
+
+
+
+删除 
+
+
+obj.removeChild(obj.option[2])  //删除第三个
+obj.option[2]=null;  //删除第三个     
+
+
+null  //能干掉事件什么的  、、、、、、
+
+
+
+
+appendChild
+
+
+previousSibling 上一个节点
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

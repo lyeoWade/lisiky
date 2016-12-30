@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+body {background:black;}
+#c1 {background:white;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oC=document.getElementById('c1');
+	var gd=oC.getContext('2d');
+	
+	var oImg=new Image();
+	
+	oImg.onload=function ()
+	{
+		//gd.drawImage(this, 0, 0);
+		
+		/*
+		drawImage(
+			图片对象,
+			源x,源y,源w,源h,
+			目标x,目标y,目标w,目标h
+		)
+		*/
+		var i=0;
+		setInterval(function (){
+			gd.clearRect(0,0,oC.width,oC.height);
+			gd.drawImage(
+				oImg,
+				0, i*60, 60, 60,
+				100, 100, 60, 60
+			);
+			
+			i++;
+			
+			if(i==10)
+			{
+				i=0;
+			}
+		}, 100);
+	};
+	
+	oImg.src='coinAni2.png';
+};
+</script>
+</head>
+
+<body>
+<canvas id="c1" width="800" height="600"></canvas>
+</body>
+</html>

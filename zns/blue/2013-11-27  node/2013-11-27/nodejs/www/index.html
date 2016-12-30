@@ -1,0 +1,62 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="ajax.js"></script>
+<script>
+window.onload=function ()
+{
+	var oTxt1=document.getElementById('txt1');
+	var oTxt2=document.getElementById('txt2');
+	var oBtn1=document.getElementById('btn1');
+	var oBtn2=document.getElementById('btn2');
+	
+	oBtn1.onclick=function ()
+	{
+		var url='user?act=login&user='+oTxt1.value+'&pass='+oTxt2.value+'&t='+Math.random();
+		
+		ajax(url, function (str){
+			var json=eval('('+str+')');
+			
+			if(json.error)
+			{
+				alert('登录失败：'+json.desc);
+			}
+			else
+			{
+				alert('登录成功');
+			}
+		});
+	};
+	
+	oBtn2.onclick=function ()
+	{
+		var url='user?act=reg&user='+oTxt1.value+'&pass='+oTxt2.value+'&t='+Math.random();
+		
+		ajax(url, function (str){
+			var json=eval('('+str+')');
+			
+			if(json.error)
+			{
+				alert('注册失败：'+json.desc);
+			}
+			else
+			{
+				alert('注册成功');
+			}
+		});
+	};
+};
+</script>
+</head>
+
+<body>
+用户：<input type="text" id="txt1" /><br>
+密码：<input type="password" id="txt2" /><br>
+<input type="button" value="登录" id="btn1" />
+<input type="button" value="注册" id="btn2" />
+</body>
+</html>

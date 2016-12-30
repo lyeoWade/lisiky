@@ -1,0 +1,123 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:300px; height:300px; border:1px solid black; margin:50px auto; border-radius:50%; position:relative; box-shadow:inset 2px 2px 5px #666;}
+
+#div1 span.hour {position:absolute; left:50%; width:12px; height:60px; background:black; margin-left:-6px; top:90px;
+
+	-webkit-transform-origin:center bottom;
+	-moz-transform-origin:center bottom;
+	-ms-transform-origin:center bottom;
+	-o-transform-origin:center bottom;
+	transform-origin:center bottom;
+}
+#div1 span.min {position:absolute; left:50%; width:4px; height:100px; background:black; margin-left:-2px; top:50px; 
+	-webkit-transform-origin:center bottom;
+	-moz-transform-origin:center bottom;
+	-ms-transform-origin:center bottom;
+	-o-transform-origin:center bottom;
+	transform-origin:center bottom;
+}
+#div1 span.sec {position:absolute; left:50%; width:2px; height:120px; background:black; margin-left:-1px; top:30px; 
+	-webkit-transform-origin:center bottom;
+	-moz-transform-origin:center bottom;
+	-ms-transform-origin:center bottom;
+	-o-transform-origin:center bottom;
+	transform-origin:center bottom;
+}
+
+#div1 span.dot {position:absolute; width:20px; height:20px; background:#666; left:50%; top:50%; margin-left:-10px; margin-top:-10px; border-radius:50%;}
+
+#div1 span.scaler {position:absolute; width:2px; height:10px; background:black; left:50%; margin-left:-1px; top:0;
+	-webkit-transform-origin:center 150px;
+	-moz-transform-origin:center 150px;
+	-ms-transform-origin:center 150px;
+	-o-transform-origin:center 150px;
+	transform-origin:center 150px;
+}
+#div1 span.big_scaler {position:absolute; width:6px; height:18px; background:black; left:50%; margin-left:-3px; top:0;
+	-webkit-transform-origin:center 150px;
+	-moz-transform-origin:center 150px;
+	-ms-transform-origin:center 150px;
+	-o-transform-origin:center 150px;
+	transform-origin:center 150px;
+}
+
+#div1 span.big_scaler em {font-style:normal; position:absolute; width:100px; left:-47px; text-align:center; top:20px;}
+</style>
+<script>
+function setStyle3(obj, name, value)
+{
+	var bigName=name.charAt(0).toUpperCase()+name.substring(1);
+	obj.style['Webkit'+bigName]=value;
+	obj.style['Moz'+bigName]=value;
+	obj.style['ms'+bigName]=value;
+	obj.style['O'+bigName]=value;
+	obj.style[name]=value;
+}
+
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	var oHour=oDiv.children[0];
+	var oMin=oDiv.children[1];
+	var oSec=oDiv.children[2];
+	
+	//刻度线
+	for(var i=0;i<60;i++)
+	{
+		var oSpan=document.createElement('span');
+		if(i%5)
+		{
+			oSpan.className='scaler';
+		}
+		else
+		{
+			oSpan.className='big_scaler';
+			if(i==0)
+			{
+				oSpan.innerHTML='<em>12<\/em>';
+			}
+			else
+			{
+				oSpan.innerHTML='<em>'+i/5+'<\/em>';
+			}
+			setStyle3(oSpan.children[0], 'transform', 'rotate(-'+i*6+'deg)');
+		}
+		
+		setStyle3(oSpan, 'transform', 'rotate('+i*6+'deg)');
+		
+		oDiv.appendChild(oSpan);
+	}
+	
+	//转
+	function tick()
+	{
+		var oDate=new Date();
+		
+		setStyle3(oHour, 'transform', 'rotate('+30*(oDate.getHours()+oDate.getMinutes()/60)+'deg)');
+		setStyle3(oMin, 'transform', 'rotate('+6*(oDate.getMinutes()+oDate.getSeconds()/60)+'deg)');
+		setStyle3(oSec, 'transform', 'rotate('+6*(oDate.getSeconds()+oDate.getMilliseconds()/1000)+'deg)');
+	}
+	
+	setInterval(tick, 30);
+	tick();
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<span class="hour"></span>
+	<span class="min"></span>
+	<span class="sec"></span>
+    <span class="dot"></span>
+</div>
+</body>
+</html>

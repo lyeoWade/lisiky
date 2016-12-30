@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="formCheck.js"></script>
+<script>
+window.onload=function ()
+{
+	formCheck('form', function (oTxt){
+		if(oTxt.name=='pass2')
+		{
+			var oPass=document.getElementsByName('pass')[0];
+			
+			if(oTxt.value==oPass.value)
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		
+		return true;
+	});
+};
+</script>
+</head>
+
+<body>
+<form id="form" action="http://www.zhinengshe.com/">
+	邮箱：<input type="text" name="email" /><br>
+    密码：<input type="text" name="pass" /><br>
+  <!--  确认：<input type="text" name="pass2" /><br>-->
+    <input type="submit" />
+</form>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="sea.js"></script>
+<script>
+window.onload=function ()
+{
+	seajs.use('baidu.js', function (baidu){
+		baidu.createList('txt1', 'ul1');
+		baidu.createRelated('txt2', 'btn2', 'div2');
+	});
+};
+</script>
+<style>
+#div2 a {padding:5px; margin:0 10px;}
+</style>
+</head>
+
+<body>
+<input type="text" id="txt1" />
+<ul id="ul1">
+</ul>
+<hr>
+<input type="text" id="txt2" />
+<input type="button" value="获取" id="btn2" />
+<div id="div2"></div>
+</body>
+</html>

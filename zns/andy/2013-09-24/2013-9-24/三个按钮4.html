@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red;}
+</style>
+<script>
+function toSHow(a,b)
+{
+	var oBox=document.getElementById('box');
+	oBox.style[a]=b;	
+};
+
+
+</script>
+</head>
+
+<body>
+<input type="button" value="变宽" onclick="toSHow('width','300px')">
+<input type="button" value="变高" onclick="toSHow('height','400px')">
+<input type="button" value="变色" onclick="toSHow('background','blue')">
+<div id="box"></div>
+</body>
+</html>

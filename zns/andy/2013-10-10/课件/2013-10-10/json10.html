@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	/*oBox.style.width='200px';
+	oBox.style.height='200px';
+	oBox.style.background='red';*/
+	
+	setCss(oBox,{width:'200px',height:'200px',background:'red'});
+	
+	function setCss(obj,json)
+	{
+		for(var key in json)
+		{
+			
+			obj.style[key]=json[key];	
+		};
+			
+	};
+		
+};
+</script>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>

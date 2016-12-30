@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#box{ width:100px; height:100px; background:red; }
+</style>
+<meta charset="utf-8">
+<script>
+
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	
+	oBox.attachEvent('onclick',function(){
+		alert(123);
+		});
+	oBox.attachEvent('onclick',function(){
+		alert(234555);
+		});	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>

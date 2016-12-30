@@ -1,0 +1,64 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+.box{width:500px;height:500px;}
+.box div{height:400px; border:1px solid #000; display:none}
+.box div.show{ display:block}
+input{ background:#ccc}
+.active{ background:yellow}
+</style>
+<script>
+function show(id,type)
+{
+	var oBox=document.getElementById(id);
+	var aBtn=oBox.getElementsByTagName('input');
+	var aDiv=oBox.getElementsByTagName('div');
+	for(var i=0;i<aBtn.length;i++)
+	{
+		aBtn[i].index=i;
+		aBtn[i][type]=function()
+		{
+			for(var i=0;i<aBtn.length;i++)
+			{
+				aBtn[i].className='';	
+				aDiv[i].className='';
+			};		
+			this.className='active';
+			aDiv[this.index].className='show';
+		};	
+	}
+};
+
+window.onload=function()
+{
+	show('box','onclick');
+	show('box2','onmouseover');	
+};
+</script>
+</head>
+
+<body>
+<div class="box" id="box">
+	<input class="active" type="button" value="选项1">
+	<input type="button" value="选项2">
+	<input type="button" value="选项3">
+    <div class="show">1111111</div>
+    <div>222222</div>
+    <div>3333333</div>
+</div>
+
+<div class="box" id="box2">
+	<input class="active" type="button" value="选项1">
+	<input type="button" value="选项2">
+	<input type="button" value="选项3">
+    <div class="show">1111111</div>
+    <div>222222</div>
+    <div>3333333</div>
+</div>
+
+</body>
+</html>

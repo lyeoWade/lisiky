@@ -1,0 +1,26 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.box{ background:red;width:200px;height:200px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function()
+	{
+		var oDiv=document.createElement('script');
+		oDiv.src='js.js';
+		document.getElementsByTagName('head')[0].appendChild(oDiv);	
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="aa" id="btn">
+</body>
+</html>

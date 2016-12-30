@@ -1,0 +1,58 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function getByClass(oParent, sClass)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(sClass);
+	}
+	
+	var aEle=oParent.getElementsByTagName('*');
+	
+	var arr=[];
+	var re=new RegExp('\\b'+sClass+'\\b');
+	for(var i=0;i<aEle.length;i++)
+	{
+		if(re.test(aEle[i].className))
+		{
+			arr.push(aEle[i]);
+		}
+	}
+	
+	return arr;
+}
+
+window.onload=function ()
+{
+	var oUl=document.getElementById('ul1');
+	
+	var aBox=getByClass(oUl, 'box');
+	
+	for(var i=0;i<aBox.length;i++)
+	{
+		aBox[i].style.background='red';
+	}
+};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li class="box active"></li>
+	<li class="box"></li>
+	<li class="box"></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</body>
+</html>

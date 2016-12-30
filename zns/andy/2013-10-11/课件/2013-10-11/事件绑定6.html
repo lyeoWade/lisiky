@@ -1,0 +1,37 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;pdding:0;}
+div{ width:100px;height:100px;background:red;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oTex=document.getElementById('tex');
+
+	
+	oBox.addEventListener('click',function(){
+		alert(222);	
+	},false);
+	
+	oBox.removeEventListener('click',function(){
+		alert(222);	
+	},false);
+	
+	// 匿名函数是不能解除的
+	
+
+		
+};
+</script>
+</head>
+
+<body>
+<div id="box"></div>
+<input id="tex" type="text" >
+</body>
+</html>

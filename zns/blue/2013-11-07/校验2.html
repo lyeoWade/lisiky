@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+var json=
+{
+	email:	/^(\w+@\w+(\.[a-z]{2,4}){1,2})$/
+};
+
+function checkForm(id, fnCheck)
+{
+	var oForm=document.getElementById(id);
+	var aTxt=oForm.getElementsByTagName('input');
+	
+	function checkTxt(oTxt, re)
+	{
+		if(re.test(oTxt.value))
+		{
+			if(!fnCheck)
+			{
+				oTxt.className='ok';
+				return true;
+			}
+			else
+			{
+				if(fnCheck(oTxt))
+				{
+					oTxt.className='ok';
+					return true;
+				}
+				else
+				{
+					oTxt.className='error';
+					return false;
+				}
+			}
+		}
+		else
+		{
+			oTxt.className='error';
+			return false;
+		}
+	}
+	
+	//1.提交
+	oForm.onsubmit=function ()
+	{
+		var ok=true;
+		
+		for(var i=0;i<aTxt.length;i++)
+		{
+			if(json[aTxt[i].name])
+			{
+				if(!checkTxt(aTxt[i], json[aTxt[i].name]))
+				{
+					ok=false;
+				}
+			}
+		}
+		
+		return ok;
+	};
+	
+	//2.blur
+	for(var i=0;i<aTxt.length;i++)
+	{
+		if(json[aTxt[i].name])
+		{
+			aTxt[i].onblur=function ()
+			{
+				checkTxt(this, json[this.name])
+			};
+		}
+	}
+}
+
+window.onload=function ()
+{
+	checkForm('form1');
+};
+</script>
+<style>
+input {border:1px solid #CCC; outline:none;}
+input.ok {border:1px solid green;}
+input.error {border:1px solid red;}
+</style>
+</head>
+
+<body>
+<form id="form1" action="http://www.zhinengshe.com/">
+	邮箱：<input type="text" name="email" /><br>
+    <input type="submit" />
+</form>
+</body>
+</html>

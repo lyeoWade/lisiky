@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+
+input{ position:absolute; left:50%; top:50%; margin:-20px 0 0 -60px; cursor:pointer;
+ width:120px; height:40px; text-align:center; line-height:40px; 
+ background:#ccc; z-index:1; border:1px solid #666; }
+#layer{ width:100%; height:100%; position:absolute; left:0; top:0; background:#000;
+ opacity:.4; filter:alpha(opacity=40);  }
+#box{ width:340px; height:240px; background:#F93; z-index:2; position:absolute; left:50%; top:50%;
+ margin:-170px 0 0 -120px; }
+.hide{ display:none; }
+#box h2{ width:100%; height:30px; background:#CCC; margin:0;  }
+#box .hh2{ background:#f00; }
+#box a{ width:50px; height:30px; background:#0C3; display:block;
+ text-align:center; line-height:30px; position:absolute; right:0; top:0; cursor:pointer; }
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oLayer=document.getElementById('layer');
+	var oBox=document.getElementById('box');
+	var aABtn=oBox.getElementsByTagName('a')[0];
+	var oH2=oBox.getElementsByTagName('h2')[0];
+	oBtn.onclick=function()
+	{
+		oLayer.className=oBox.className='';
+	}
+	aABtn.onclick=function()
+	{
+		oLayer.className=oBox.className='hide';
+	}
+	
+	var timer=null;
+	oLayer.onclick=function()
+	{
+		var n=0;
+		timer=setInterval(function(){
+			n++;
+			
+			if(oH2.className=='')
+			{
+				oH2.className='hh2';
+			}
+			else
+			{
+				oH2.className=''
+			}
+		
+			if(n>=20)
+			{
+				clearInterval(timer);
+			}
+			
+			},50);
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<input id="btn" type="button" value="点我 快点我" />
+<div id="layer" class="hide"></div>
+<div id="box" class="hide">
+		<h2>
+        	<a>-</a>
+        </h2>
+</div>
+</body>
+</html>

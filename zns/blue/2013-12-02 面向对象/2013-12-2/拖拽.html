@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:200px; height:200px; background:#CCC; position:absolute;}
+#div2 {width:200px; height:200px; background:#CCC; position:absolute;}
+</style>
+<script src="Drag.js"></script>
+<script src="extend.js"></script>
+<script src="LimitDrag.js"></script>
+<script>
+window.onload=function ()
+{
+	var oDiv1=document.getElementById('div1');
+	
+	var obj1=new Drag(oDiv1);
+	
+	var oDiv2=document.getElementById('div2');
+	
+	var obj2=new LimitDrag(oDiv2);
+};
+</script>
+</head>
+
+<body>
+<div id="div1">1</div>
+<div id="div2">2</div>
+</body>
+</html>

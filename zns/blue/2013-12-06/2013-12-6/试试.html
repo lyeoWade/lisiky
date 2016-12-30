@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:500px; height:500px; position:relative;}
+#div1 div {width:48px; height:48px; border:1px solid black; position:absolute;}
+</style>
+<script>
+var R=10;
+var C=10;
+
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	var r=0,c=0;
+	var dir='r';
+	
+	var minC=0;
+	var minR=0;
+	var maxC=C;
+	var maxR=R;
+	
+	var count=0;
+	
+	var timer=setInterval(function (){
+		var oNewDiv=document.createElement('div');
+		
+		oNewDiv.style.left=50*c+'px';
+		oNewDiv.style.top=50*r+'px';
+		
+		switch(dir)
+		{
+			case 'r':
+				c++;
+				if(c==maxC)
+				{
+					c=maxC-1;
+					dir='d';
+					maxC--;
+				}
+				break;
+			case 'd':
+				r++;
+				if(r==maxR)
+				{
+					r=maxR-1;
+					dir='l';
+					maxR--;
+				}
+				break;
+			case 'l':
+				c--;
+				if(c<minC)
+				{
+					c=minC;
+					dir='u';
+					minC++;
+				}
+				break;
+			case 'u':
+				r--;
+				if(r<minR)
+				{
+					minR++;
+					r=minR;
+					dir='r';
+				}
+				break;
+		}
+		
+		oDiv.appendChild(oNewDiv);
+		
+		count++;
+		
+		if(count==R*C)clearInterval(timer);
+	}, 30);
+};
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

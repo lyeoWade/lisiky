@@ -1,0 +1,43 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+li{height:30px; background:red;margin-top:4px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	
+	
+	function getByClass(oParent,iClass)
+	{
+		var aEl=oParent.getElementsByTagName('*');
+		for(var i=0;i<aEl.length;i++)
+		{
+			if(aEl[i].className==iClass)
+			{
+				aEl[i].style.background='blue';	
+			}	
+		}
+	};
+	
+	getByClass(oUl,'show');
+};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li>11</li>
+	<li>22</li>
+	<li class="show">33</li>
+	<li>44</li>
+	<li class="show">55</li>
+	<li>66</li>
+</ul> 
+ 
+</body>
+</html>

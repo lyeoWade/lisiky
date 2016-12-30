@@ -1,0 +1,9 @@
+//onchange    // 当下拉列表改变时  触发     select  
+
+
+// input  失焦时触发 
+
+
+
+
+//  textarea     可用

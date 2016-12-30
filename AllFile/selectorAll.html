@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>html:新属性</title>
+</head>
+<body>
+	<div id="box" class="a1 b1 c1 " style="height: 200px; width: 200px; border: 1px solid #ccc;"> </div>
+	<script type="text/javascript">
+		//var oBox=document.getElementById('');
+		//var oBox=document.querySelector('#box'); // 一个
+		//var oBox=document.querySelectorAll('#box'); // 选取一组
+		//console.log(oBox)
+
+		//obj.classList
+		//obj.classLis.add()
+		//obj.classList.remove()
+		//obj.classList.toggle(class);  //class存在 则删除 不存在 则添加
+		var oBox=document.querySelectorAll('#box')[0];
+
+		//console.log(oBox.classList.add('ccc'))
+
+		//console.log(oBox.classList.remove('a1')) 
+
+		oBox.classList.toggle('bing');
+	</script>
+</body>
+</html>

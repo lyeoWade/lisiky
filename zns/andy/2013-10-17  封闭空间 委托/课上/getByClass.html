@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	var aShow=getByClass(oUl,'show');
+	for(var i=0; i<aShow.length; i++)
+	{
+		aShow[i].style.background='green';
+	}
+}
+function getByClass(oParent,sClass)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(sClass);
+	}
+	else
+	{
+		var aEle=oParent.getElementsByTagName('*');
+		var arr=[];
+		for(var i=0; i<aEle.length; i++)
+		{
+			
+			var iClass=aEle[i].className.split(' ');
+			
+			if(findArr(sClass,iClass))
+			{
+				arr.push(aEle[i]);
+			}
+		}
+		return arr;
+	}
+}
+
+function findArr(sClass,arr)
+{
+	for(var i=0; i<arr.length; i++)
+	{
+		if(arr[i]==sClass)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+</script>
+<style>
+#ul1{  }
+li{ background:red; margin:10px; }
+</style>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<ul id="ul1">
+		<li class="show"></li>
+        <li></li>
+        <li class="show i"></li>
+</ul>
+
+</body>
+</html>

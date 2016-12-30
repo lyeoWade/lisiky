@@ -1,0 +1,68 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+li{ background:red;height:30px;margin:5px 0;}
+</style>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	var aShow=getByClass(oUl,'show');	
+	for(var i=0;i<aShow.length;i++)
+	{
+		aShow[i].style.background='blue';	
+	}
+};
+
+function getByClass(oParent,iClass)
+{
+	if(document.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(iClass);
+	}
+	
+	//IE 678
+	var arr=[];
+	var aEl=oParent.getElementsByTagName('*');
+	for(var i=0;i<aEl.length;i++)
+	{
+		/*if(aEl[i].className==iClass)
+		{
+			arr.push=aEl[i];	
+		}	*/
+		var cLassARR=aEl[i].className.split(' ');
+	}
+	
+	return arr;
+};
+
+function findSame(arr,iclass)
+{
+	for(var i=0;i<arr.length;i++)
+	{
+		if(arr[i]==iclass)
+		{
+			//能匹配
+			return true;	
+		}	
+	};
+	
+	return false;
+};
+</script>
+</head>
+
+<body>
+
+	<ul id="ul1">
+    	<li class="show show2"></li>
+    	<li class="show"></li>
+    	<li class="show active show2"></li>
+    	<li class="show2 show3"></li>
+    </ul>
+
+</body>
+</html>

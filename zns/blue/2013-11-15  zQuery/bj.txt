@@ -1,0 +1,60 @@
+
+call/aplay  函数上的方法
+
+
+最外层传 window       防止和别人冲突  为了扩展  
+
+(function(window,undefind){})(window)
+
+为了将整个Jquery拓展成一个命名空间的函数
+var zns={}
+
+(function(window,undefind){})( zns )
+
+
+
+
+
+
+兼容事件对象 直接在call( obj , event )
+
+toggle() // 点击
+
+多一层函数 this就会发生改变
+
+套了一层函数之后 arguments也会变;
+
+调用的当前对象
+
+
+$.ajax()     $是个函数 添加一个ajax方法
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

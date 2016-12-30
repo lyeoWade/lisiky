@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; }
+.box{
+	position:absolute; left:100px; top:500px;
+	width:300px; height:50px; background:#666;
+	}
+.box .tex{
+	margin-left:200px;
+	}
+</style>
+<script src="date2.js" type="text/javascript"></script>
+<script>
+MyEvent(window,'load',function()
+{
+	RlDate('date1')
+})
+MyEvent(window,'load',function()
+{
+	RlDate('date2')
+})
+function MyEvent(obj,events,fn)
+{
+	if(obj.attachEvent)
+	{
+		obj.attachEvent('on'+events,fn)
+	}else
+	{
+		obj.addEventListener(events,fn,false);
+	}
+}
+</script>
+</head>
+
+<body>
+<!--<div id="dateDiv">
+	<ul class="name">
+            <li>
+               <span id="s">2013年10月</span>
+               <a href="javascript:;" id="pre" class="a1">上月</a>
+               <a href="javascript:;" id="next" class="a2">下月</a>
+            </li>
+    </ul>
+    <ul class="week">
+    	<li>一</li>
+    	<li>二</li>
+    	<li>三</li>
+    	<li>四</li>
+    	<li>五</li>
+    	<li>六</li>
+    	<li>七</li>
+    </ul>
+    <ul class="dateUl">
+    	
+    </ul>
+</div>-->
+
+<div class="box"><input type="text" class="tex" id="date1" ></div>.tex{position:relative; left:300px; top:200px; }<input type="text" class="tex" id="date2" >
+
+</body>
+</html>

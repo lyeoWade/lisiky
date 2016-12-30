@@ -1,0 +1,48 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var aInput=document.getElementsByTagName('input');
+	var oS=document.getElementById('s1');
+	aInput[2].onclick=function()
+	{
+		var n1=	aInput[0].value;
+		var n2=	aInput[1].value;
+		var nS= oS.value;
+		
+		switch(nS)
+		{
+			case '+':
+			     alert(n1+nS+n2);  //不靠谱，这都是字符串
+			     break;
+			case '-':
+			     break;
+			case '/':
+			     break;
+			case '*':
+			     break;
+				 	
+		}
+	    
+	};
+};
+
+</script>
+</head>
+
+<body>
+<input type="text" >
+<select id="s1">
+	<option value="+">+</option>
+	<option value="-">-</option>
+	<option value="*">*</option>
+	<option value="/">/</option>
+</select>
+<input type="text" >
+<input type="button" value="开始计算">
+</body>
+</html>

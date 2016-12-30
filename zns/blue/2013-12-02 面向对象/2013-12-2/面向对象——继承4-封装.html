@@ -1,0 +1,69 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function Person(name, age)
+{
+	this.name=name;
+	this.age=age;
+}
+
+Person.prototype.showName=function ()
+{
+	alert('我的名字是：'+this.name);
+};
+Person.prototype.showAge=function ()
+{
+	alert(this.age);
+};
+
+
+function Worker(name, age, job)
+{
+	Person.apply(this, arguments);
+	
+	this.job=job;
+}
+
+for(var i in Person.prototype)
+{
+	Worker.prototype[i]=Person.prototype[i];
+}
+
+Worker.prototype.showJob=function ()
+{
+	alert('我的工作是：'+this.job);
+};
+
+//-------------------------------------------------
+
+function Coder(name, age, job, lang)
+{
+	Worker.apply(this, arguments);
+	
+	this.lang=lang;
+}
+
+for(var i in Worker.prototype)
+{
+	Coder.prototype[i]=Worker.prototype[i];
+}
+
+Coder.prototype.showLang=function ()
+{
+	alert('我常用的语言是：'+this.lang);
+};
+
+
+//var oW=new Worker('blue', 18, '打杂的');
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

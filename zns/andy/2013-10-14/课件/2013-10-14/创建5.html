@@ -1,0 +1,56 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red;}
+li{height:30px;border:1px solid #000;margin:5px 0;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oUl1=document.getElementById('ul1');
+	var n=4;
+	oBtn.onclick=function()
+	{
+		var oNewLi=document.createElement('li');
+			//alert(234);
+		oUl1.appendChild(oNewLi);
+		n++;
+		oNewLi.innerHTML=n;
+
+	};
+	
+		
+};
+
+</script>
+
+</head>
+
+<body>
+<input type="button" value="点击创建" id="btn">
+<ul id="ul1">
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+</ul>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,36 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+div{width:200px;height:200px; background:red; position:absolute;top:0;left:0}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementsByTagName('div')[0];
+	oDiv.onclick=function()
+	{
+		alert(123);
+		oDiv.setCapture();  //这个方法只有IE认
+		//	oDiv.setCapture();  基本只有拖拽的时候用
+		// 整个浏览器的事件都被屏蔽 都变成这个事件
+		//  只能给对象  document不可以
+		//  只能给鼠标事件
+	};
+};
+</script>
+</head>
+
+<body>
+dsfasdfsfsdaf<br />
+dsfasdfsfsdaf<br />
+dsfasdfsfsdaf<br />
+dsfasdfsfsdaf<br />
+dsfasdfsfsdaf<br />
+<span>hgfgjhgjh</span>
+<div></div>
+</body>
+</html>

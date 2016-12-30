@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+function getByClass(oParent, str)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(str);
+	}
+	
+	var aEle=oParent.getElementsByTagName('*');
+	var re=new RegExp('\\b'+str+'\\b');
+	var result=[];
+	
+	for(var i=0;i<aEle.length;i++)
+	{
+		if(re.test(aEle[i].className))
+		{
+			result.push(aEle[i]);
+		}
+	}
+	return result;
+}
+function _getEle(aParent,str)
+{
+	var aChild=[];
+	
+	for(var i=0; i<aParent.length; i++)
+	{
+		switch(str.charAt(0))
+		{
+			case '#':
+				var obj=aParent[i].getElementById(str.substring(1));
+				aChild.push(obj);
+				break;
+			case '.':
+				var arr=getByClass(aParent[i],str.substring(1));
+				for(var j=0; j<arr.length; j++)
+				{
+					aChild.push(arr[j]);
+				}
+				break;
+			default:
+				// li:first 伪类  li.box  li[input=xxx]
+				//li.box
+				if(/\w+\.\w+/.test(str)) // 用正则匹配属于上面四种的那个类型
+				{
+					var aStr=str.split('.');
+					var arr1=aParent[i].getElementsByTagName(aStr[0]);
+					var re=new RegExp('\\b'+aStr[1]+'\\b');
+					for(var j=0; j<arr1.length; j++)
+					{
+						if(re.test(arr1[j].className))
+						{
+							aChild.push(arr1[j])
+						}
+					}
+					
+				}
+				//li[input=xxx]
+				else if(/\w+\[\w+=\w+\]/.test(str))
+				{
+				/*	var aStr=str.split('[');
+					var aStr2=aStr[1].split('=');
+					
+					aStr2[1] = aStr2[1].split(']')[0];
+					*/
+					var aStr=str.split(/[\[\]]/g);
+					
+					
+					var arr=aParent[i].getElementsByTagName(aStr[0]);
+					var aStr2=aStr[1].split('=');
+					//alert(aStr2[0])
+					for(var j=0; j<arr.length; j++)
+					{
+						//if(arr[j][aStr2[0]]==aStr2[1])
+						if(arr[j].getAttribute(aStr2[0])==aStr2[1])
+						{		 // getAttribute
+							aChild.push(arr[j]);
+						}
+					}
+					
+					
+					
+				}
+				//li:first  li:has()  li:eq()
+				else if(a)
+				{
+					
+				}
+				else
+				{
+					var arr=aParent[i].getElementsByTagName(str);
+					for(var j=0; j<arr.length; j++)
+					{
+						aChild.push(arr[j]);
+					}
+					//alert(13)
+				}
+				
+		}
+	}
+	
+	return aChild;
+}
+
+function getEle(str)
+{
+	//整理
+	var arr=str.replace(/^\s+|\s+$/g, '').split(/\s+/g);
+	
+	var oParent=[document];
+	var aChild=[];
+	for(var i=0; i<arr.length; i++)
+	{
+		aChild=_getEle(oParent,arr[i]);
+		oParent=aChild;
+	}
+	return aChild;
+}
+
+
+window.onload=function()
+{
+	//var aBox=getEle(' #q li a.aaa ');
+	var aBox=getEle(' #q  input[bbb=aaa] ');
+	for(var i=0; i<aBox.length; i++)
+	{
+		aBox[i].style.background='red'
+		aBox[i].innerHTML='111111111111111111'
+	}
+}
+
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<ul id="q">
+	<li></li>
+    <li><a class="aaa"></a></li>
+    <li></li>
+    <li id="box"><p></p></li>
+    <li><input type="button" value="bbbbbb" bbb="aaa"></li>
+    <li class="lp"><span></span></li>
+    <li></li>
+    <li><p></p></li>
+    <li></li>
+</ul>
+</body>
+</html>

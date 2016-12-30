@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:200px; height:200px; background:#CCC; position:absolute;}
+</style>
+<script src="jquery-1.7.2.js"></script>
+<script>
+$(function (){
+	$('#div1').mousedown(function (ev){
+		var disX=ev.clientX-$('#div1').position().left;
+		var disY=ev.clientY-$('#div1').position().top;
+		
+		function fnMove(ev)
+		{
+			$('#div1').css({
+				left:	ev.clientX-disX+'px',
+				top:	ev.clientY-disY+'px'
+			});
+		}
+		
+		function fnUp()
+		{
+			$(this).unbind('mousemove', fnMove);
+			$(this).unbind('mouseup', fnUp);
+			
+			if($('#div1')[0].releaseCapture)
+			{
+				$('#div1')[0].releaseCapture();
+			}
+		}
+		if($('#div1')[0].setCapture)
+		{
+			$('#div1').mousemove(fnMove);
+			$('#div1').mouseup(fnUp);
+			
+			$('#div1')[0].setCapture();
+		}
+		else
+		{
+			$(document).mousemove(fnMove);
+			$(document).mouseup(fnUp);
+		}
+		
+		return false;
+	});
+});
+</script>
+</head>
+
+<body>
+asdfasdf
+<div id="div1"></div>
+asdfasdf
+</body>
+</html>

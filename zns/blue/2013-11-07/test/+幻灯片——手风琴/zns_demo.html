@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>手风琴效果 - 智能社 - www.zhinengshe.com</title>
+<link href="style/zns_style.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	oDiv.onclick=function()
+	{
+		startMove(oDiv,'opacity',100,{ time:'slow',type:'StoF' })
+	}
+}
+function getStyle(obj,attr){return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr]}
+function getCur(obj,name)
+{
+	if(name=='opacity')
+	{
+		var cur=Math.round(parseFloat(getStyle(obj,name))*100);	
+		
+	}else
+	{
+		var cur=parseInt(getStyle(obj,name));	
+	}
+	
+	return cur;
+}
+function startMove(obj,name,iTarget,options)
+{
+	
+	var timers={
+		
+		fast:500,
+		normal:2000,
+		slow:4000
+		}
+	
+	options=options||{};
+	options.time=options.time||800;
+	options.type=options.type||'buffer';
+	
+	if(typeof options.time=='string')
+	{
+		if(timers[options.time])
+		{
+			options.time=timers[options.time];
+		}else
+		{
+			options.time=800;
+		}
+	}
+	var count=parseInt(options.time/30);
+	var first=getCur(obj,name);
+	var dis=iTarget-first;
+	var n=0;
+	clearInterval(obj.timer)
+	obj.timer=setInterval(function(){
+		n++;
+		switch(options.type)
+		{
+			case 'linear':
+				var wade=n*dis/count;
+				break;
+			case 'buffer':
+				var a=(1-n/count);
+				var wade=dis*(1-a*a*a);
+				break;
+			case 'StoF':
+				var a=n/count;
+				var wade=dis*a*a*a;
+				break;
+			default:
+		}
+		if(name=='opacity')
+		{
+			obj.style.opacity=first+wade/100
+			obj.style.filter=first+'alpha(opacity='+wade+')';
+		}else
+		{
+			obj.style[name]=first+wade+'px';	
+		}
+		
+		if(n==count)
+		{
+			clearInterval(obj.timer);
+		}
+		},30);
+}
+
+
+
+</script>
+</head>
+<body>
+<div id="show1">
+    <ul>
+        <li class="active">
+            <span class="bg0">这是第一个</span>
+            <img src="images/1.jpg" />
+        </li>
+        <li>
+            <span class="bg1">这是第二个</span>
+            <img src="images/2.jpg" />
+        </li>
+        <li>
+            <span class="bg2">这是第三个</span>
+            <img src="images/3.png" />
+        </li>
+        <li>
+            <span class="bg3">这是第四个</span>
+            <img src="images/4.png" />
+        </li>
+        <li>
+            <span class="bg2">这是第五个</span>
+            <img src="images/2.jpg" />
+        </li>
+        <li>
+            <span class="bg3">这是第六个</span>
+            <img src="images/3.png" />
+        </li>
+    </ul>
+</div>
+
+<div id="div1" style="opacity:0.1; filter:alpha(opacity=10); width:100px; height:100px; background:#000; position:absolute; left:0; top:400px;"></div>
+</body>
+</html>

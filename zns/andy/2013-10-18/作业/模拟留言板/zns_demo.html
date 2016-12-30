@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<title>模拟留言板 - 智能课堂课堂 - www.zhinengshe.com</title>
+<link href="zns_style.css" rel="stylesheet" type="text/css" />
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oTxet=document.getElementById('text');
+	var oBox=document.getElementById('box');
+	var a_Div=oBox.getElementsByTagName('div');
+	var oEm=oBox.getElementsByTagName('em')[0]
+	oBtn.onclick=function()
+	{	
+		if(oTxet.value=='')
+		{
+			alert('兄弟，咱勤快点哈！');
+			return false;
+		}	
+		oDiv=document.createElement('div');
+		if(a_Div.length==0)
+		{
+			oBox.appendChild(oDiv);
+		}
+		else
+		{
+			oBox.insertBefore(oDiv,a_Div[0]);
+		}
+		oDiv.innerHTML=oTxet.value+'<a href="javascript:;">删除</a>';
+		oDiv.onmouseover=function()
+		{
+			var aA=this.getElementsByTagName('a')[0];
+			aA.style.opacity=1;
+			this.style.background='#fefefe';
+			aA.onclick=function()
+			{
+				oBox.removeChild(this.parentNode);
+			}
+		}
+		oDiv.onmouseout=function()
+		{
+			this.style.background='#fff';
+			var aA=this.getElementsByTagName('a')[0];
+			aA.style.opacity=0;
+		}
+		
+	
+	}
+	
+	
+}
+</script>
+</head>
+
+<body>
+
+<div id="parent">
+	<h4>留言内容：</h4>
+	<div id="box"><em style="display:block;">这里会显示留言内容……</em></div>
+	<textarea id="text"></textarea><br />
+	<input id="btn" type="button" value="发表留言" />
+</div>
+
+</body>
+</html>

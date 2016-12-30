@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<style>
+li{ background:#CCC;}
+</style>
+<head>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	
+	
+	var oW=getByClass(oUl,'w1');
+	
+	//oW.style.background='#f00';
+	
+	for(var i=0; i<oW.length; i++)
+	{
+		oW[i].style.background='blue';
+	}
+	
+}
+
+function getByClass(oParent,sClass)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(sClass);
+	}else
+	{
+		var aEle=oParent.getElementsByTagName(sClass);
+		var arr=[];
+		
+		for(var i=0; i<aEle.length; i++)
+		{
+			if(aEle[i].className==sClass)
+			{
+				arr[arr.length]=aEle[i];
+			}
+		}
+		
+		return arr;
+	}
+}
+
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<ul id="ul1">
+		<li class="w1"></li>
+        <li></li>
+        <li class="w1"></li>
+        <li></li>
+</ul>
+</body>
+</html>
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>

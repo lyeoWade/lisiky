@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0;}
+li{ list-style:none; }
+#box{ width:300px; height:520px;  margin:100px auto; }
+#box .head{ width:100%; height:40px; border-bottom:4px solid #F90; background:#999;}
+#box .head a{ display:block; float:left; width:150px; height:40px; text-align:center; line-height:40px;
+ text-decoration:none; color:#fff;  }
+#box .head .active{ background:#CCC; border-bottom:4px #F5E098; }
+#box .content{ width:100%; height:420px; background:#390}
+#box .content ul{ padding-top:4px; display:none;}
+#box .content ul.show{ display:block; }
+#box .content li{ width:100%; height:50px; text-align:center; line-height:50px; background:#f4f4f4;
+cursor:pointer;}
+#box .content .div{ width:100%; height:66px; background:#F00; display:none; }
+#box .content .divShow{ display:block; }
+#box .content .liHide{ display:none; }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var aBtn=oBox.children[0].children;
+	var oUl=oBox.children[1].children;
+	var aLi=oUl[0].getElementsByTagName('li');
+	var aLi2=oUl[1].getElementsByTagName('li');
+
+	var oP1=oUl[0].getElementsByTagName('p');
+	var oP2=oUl[1].getElementsByTagName('p');
+		//alert(oP1.length)
+	function color(obj)
+	{
+		for(var i=0; i<obj.length; i++)
+		{
+			if(i%2==1)
+			{
+				obj[i].style.background='#f4f4f4';
+			}else
+			{
+				obj[i].style.background='#999';
+			}
+		}
+	}
+	color(aLi)
+	color(aLi2)
+	
+	
+	
+	function tab(obj1,obj2,class1,class2)
+	{
+		for(var i=0; i<obj1.length; i++)
+		{
+			obj1[i].index=i;
+			obj1[i].onmouseover=function()
+			{
+				for(var i=0; i<obj1.length; i++)
+				{
+					obj2[i].className='';
+					obj1[i].className='';	
+				}
+				this.className=class1;
+				obj2[this.index].className=class2;
+			}	
+		}
+	}
+	tab(aBtn,oUl,'active','show')
+	tab(aLi,oP1,'liHide','div divShow')
+	tab(aLi2,oP2,'liHide','div divShow')
+	
+	
+	
+	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="box">
+		<div class="head">
+        		<a href="javascript:;" class="active">最新开服</a>
+                <a href="javascript:;">新游戏</a>
+        </div>
+        <div class="content">
+        		<ul class="show">
+                		<p class="div divShow"></p>
+                		<li class="liHide">
+                        		
+                        		倚天神剑吊炸天
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		倚天神剑吊炸天
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		倚天神剑吊炸天
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		倚天神剑吊炸天
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		倚天神剑吊炸天
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		倚天神剑吊炸天
+                        </li>
+                        <p class="div"></p>
+                  		 <li>
+                        		倚天神剑吊炸天
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		倚天神剑吊炸天
+                        </li>
+                </ul>
+                
+                <ul>
+               			 <p class="div divShow"></p>
+                		<li class="liHide">
+                        		做个悲伤的智者，
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		不如做个开心的傻子。
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		搞笑穿帮镜头是
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		倚天神剑吊炸天
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		穿帮镜头，搏你一笑。
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		倚天神剑吊炸天
+                        </li>
+                        <p class="div"></p>
+                  		 <li>
+                        		倚天神剑吊炸天
+                        </li>
+                        <p class="div"></p>
+                        <li>
+                        		倚天神剑吊炸天
+                        </li>
+                </ul>
+                
+        </div>
+</div>
+
+</body>
+</html>

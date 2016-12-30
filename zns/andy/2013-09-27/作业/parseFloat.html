@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var aBtn=document.getElementsByTagName('input');
+	
+	aBtn[1].onclick=function()
+	{
+		var valuea=aBtn[0].value;
+		//alert(valuea);
+		var last=parseInt(aBtn[0].value);
+		//alert(last);
+		if(valuea!=last)
+		{
+			alert('亲，这不是整数')
+		}else
+		{
+			alert('整数');
+		}
+	}	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<input type="text" ><input type="button" value="计算" >
+
+</body>
+</html>

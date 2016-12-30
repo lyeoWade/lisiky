@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; }
+#div1{ width:100px; height:100px; background:red; position:absolute; left:0; top:0; }
+#div2{ width:100px; height:100px; background:green; position:absolute; left:300px; top:300px; }
+</style>
+<script>
+window.onload=function()
+{
+	drag('div1','div2');
+	drag('div2','div1');
+	function drag(id1,id2)
+	{
+		var oDiv1=document.getElementById(id1);
+		var oDiv2=document.getElementById(id2);
+		
+		
+		//var arr2=[{left2:oDiv2.offsetLeft,top2:oDiv2.offsetTop}];
+		oDiv1.onmousedown=function(ev)
+		{
+			var oEvent=ev||event;
+			var posX=oEvent.clientX-oDiv1.offsetLeft;
+			var posY=oEvent.clientY-oDiv1.offsetTop;
+			var arr1=[{left:oDiv1.offsetLeft,top:oDiv1.offsetTop}];
+			document.onmousemove=function(ev)
+			{
+				var oEvent=ev||event;
+				oDiv1.style.left=oEvent.clientX-posX+'px';
+				oDiv1.style.top=oEvent.clientY-posY+'px';
+				
+				if(test(oDiv1,oDiv2))
+				{
+					oDiv2.style.background='yellow';
+				}
+			}
+			document.onmouseup=function()
+			{
+				
+				if(test(oDiv1,oDiv2))
+				{
+					oDiv1.style.left=oDiv2.offsetLeft+'px'
+					oDiv1.style.top=oDiv2.offsetTop+'px'	
+					oDiv2.style.left=arr1[0].left+'px';
+					oDiv2.style.top=arr1[0].top+'px';
+					oDiv2.style.background='green';
+					
+				}else
+				{
+					oDiv1.style.left=arr1[0].left;
+					oDiv1.style.top=arr1[0].top;	
+				}
+				document.onmousemove=document.onmouseup=null;
+				
+			}
+			return false;
+		}
+	
+	}
+	
+	function test(obj1,obj2)
+	{
+		var l1=obj1.offsetLeft;
+		var t1=obj1.offsetTop;
+		var r1=obj1.offsetLeft+obj1.offsetWidth;
+		var b1=obj1.offsetTop+obj1.offsetHeight;
+		
+		var l2=obj2.offsetLeft;
+		var t2=obj2.offsetTop;
+		var r2=obj2.offsetLeft+obj2.offsetWidth;
+		var b2=obj2.offsetTop+obj2.offsetHeight;
+		
+		if(l1>r2 || t1>b2 || r1<l2 || b1<t2)
+		{
+			return false;
+		}
+		return true;
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="div1">111111111</div>
+<div id="div2">222222222222</div>
+</body>
+</html>

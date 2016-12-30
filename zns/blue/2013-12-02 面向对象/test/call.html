@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div');
+	// call 是函数上的方法
+	
+	
+	oDiv.onclick=aaa;
+	
+	function aaa()
+	{
+		setInterval(function(){
+		
+		alert(aaa.call(this))
+		
+		},1000);
+	}
+	
+	setInterval(function(){
+		
+	alert(this)
+		
+	},1000);
+
+}
+</script>
+
+
+</head>
+
+<body>
+<div id="div" style="width:100px; height:100px; background:red;"></div>
+</body>
+</html>

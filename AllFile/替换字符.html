@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var str='"menuList":[{"linkUrl":"2","menuName":"2"},{"linkUrl":"3","menuName":"3"},]"';
+
+		//str=str.replace(str.lastIndexOf(','),'');
+		//alert(str.charAt(str.lastIndexOf(',')));
+		var ind=str.lastIndexOf(',');
+		//alert(ind)
+		str=str.substring(0,ind)+str.substring(ind+1);
+		alert(str);
+	</script>
+</body>
+</html>

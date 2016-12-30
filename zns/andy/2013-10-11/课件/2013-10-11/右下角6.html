@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;pdding:0;}
+html{ _background-image:url(about:blank); _background-attachment:fixed;}
+#box1{width:100px;height:100px;bottom:0;right:0; background:red; position:fixed; _position:absolute;}
+</style>
+<script>
+window.onload=function()
+{
+  var oBox=document.getElementById('box1');
+	
+	if(window.navigator.userAgent.indexOf('MSIE 6')!=-1)
+	{
+			
+		window.onscroll=function()
+		  {
+			  var oScrollT=document.documentElement.scrollTop||document.body.scrollTop;  //滚动距离
+			
+			   var winHeight=document.documentElement.clientHeight;//浏览器可视区高度
+			   document.title=oScrollT+winHeight-oBox.offsetHeight;
+			 oBox.style.top=oScrollT+winHeight-oBox.offsetHeight+'px';
+		  };  	  
+			
+	}
+	
+	 
+};
+</script>
+</head>
+
+<body>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<div id="box1">
+</div>
+</body>
+</html>

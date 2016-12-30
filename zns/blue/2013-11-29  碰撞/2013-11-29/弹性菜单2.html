@@ -1,0 +1,65 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+#ul1 {position:relative; width:408px; height:32px; margin:10px auto;}
+#ul1 li {width:100px; height:30px; line-height:30px; text-align:center; float:left; border:1px solid black; z-index:2; position:relative;}
+
+#ul1 li.box {position:absolute; background:yellow; width:102px; height:32px; border:none; left:0; top:0; z-index:1;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	var oBox=aLi[aLi.length-1];
+	
+	for(var i=0;i<aLi.length-1;i++)
+	{
+		aLi[i].onmouseover=function ()
+		{
+			startMove(oBox, this.offsetLeft);
+		};
+	}
+};
+
+var speed=0;
+var left=0;
+
+function startMove(obj, iTarget)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function (){
+		speed+=(iTarget-left)/5;
+		speed*=0.7;
+		
+		left+=speed;
+		
+		console.log(Math.round(left));
+		
+		//speed=speed>0?Math.ceil(speed):Math.floor(speed);
+		
+		obj.style.left=Math.round(left)+'px';
+		
+		document.title=obj.offsetLeft+','+iTarget+','+speed;
+	}, 30);
+}
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li>首页</li>
+	<li>作品</li>
+	<li>关于</li>
+	<li>其他</li>
+	<li class="box"></li>
+</ul>
+</body>
+</html>

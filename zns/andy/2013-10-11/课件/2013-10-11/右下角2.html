@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;pdding:0;}
+#box1{width:100px;height:100px; position:fixed;bottom:0;right:0; background:red; _position:absolute;}
+</style>
+<script>
+window.onload=function()
+{
+  var oBox=document.getElementsByTagName('box1');
+  // IE6不兼容fixed
+  
+  //if(window.navigator.userAgent.indexOf('MSIE 6')!=-1)
+  //{
+		
+		//alert('IE6');
+	 window.onscroll=function()
+	  {
+		  document.title=document.body.scrollTop;
+		
+	  };  
+		
+ // }
+  
+ 
+  
+		
+};
+</script>
+</head>
+
+<body>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<div id="box1">
+</div>
+</body>
+</html>

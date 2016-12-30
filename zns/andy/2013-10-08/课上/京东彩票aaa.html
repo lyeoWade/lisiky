@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	
+	oBtn.onclick=function()
+	{
+		var arr=[];
+		for(var i=0; i<6; i++)
+		{
+			arr[i]=toZero(ran(1,32));
+		}
+		oBox.innerHTML=arr;
+	}
+	
+	function toZero(n)
+	{
+		return n<10?'0'+n:n;
+	}
+	
+	function ran(n,m)
+	{
+		return parseInt(Math.random()*(m-n+1)+n);
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box" style="height:20px"></div>
+<input type="button" value="机选一注" id="btn">
+</body>
+</html>

@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 input {background:#CCC;}
+#div1 input.active {background:yellow;}
+
+#div1 div {width:300px; height:300px; background:#CCC; border:1px solid black; display:none;}
+</style>
+<script src="jquery-1.7.2.js"></script>
+<script>
+$(function (){
+	var aBtn=$('#div1 input[type=button]');
+	var aDiv=$('#div1 div');
+	
+	var now=0;
+	
+	aBtn.click(function (){
+		now=$(this).index();
+		
+		tab();
+	});
+	
+	function tab()
+	{
+		aBtn.removeClass('active');
+		aDiv.css('display', 'none');
+		
+		aBtn.eq(now).addClass('active');
+		aDiv.eq(now).css('display', 'block');
+	}
+	
+	function next()
+	{
+		//now=(now+1)%aBtn.length;
+		now++;
+		
+		if(now==aBtn.length)
+		{
+			now=0;
+		}
+		
+		tab();
+	}
+	
+	var timer=setInterval(next, 2000);
+	
+	$('#div1').hover(function (){
+		clearInterval(timer);
+	}, function (){
+		timer=setInterval(next, 2000);
+	});
+});
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<input type="button" value="aaa" class="active" />
+	<input type="button" value="bbb" />
+	<input type="button" value="ccc" />
+    <div style="display:block;">dfasdfasdf</div>
+    <div>45345</div>
+    <div>twetwert</div>
+</div>
+</body>
+</html>

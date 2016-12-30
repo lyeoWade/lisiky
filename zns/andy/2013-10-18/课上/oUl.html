@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+<style>
+li{ list-style:none; border:1px solid #ccc; height:40px; margin:2px 0; line-height:40px; }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul');
+	var aLi=oUl.children;
+	
+	for(var i=0; i<aLi.length; i++)
+	{
+		aLi[i].onclick=function()
+		{
+			oUl.appendChild(this);
+		}
+	}
+	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<ul id="ul">
+		<li><a href="#">上移</a>111111111<a href="#">下移</a></li>
+        <li><a href="#">上移</a>2222222222222<a href="#">下移</a></li>
+        <li><a href="#">上移</a>33333333333<a href="#">下移</a></li>
+        <li><a href="#">上移</a>444444444444<a href="#">下移</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+/*document.addEventListener('DOMContentLoaded',function(){
+	alert('ok')
+	},false);*/
+
+function Ready(fn)
+{
+	if(document.getElementsByClassName)
+	{
+		document.addEventListener('DOMContentLoaded',fn,false);
+	}else
+	{
+		document.attachEvent('onreadystatechange',function(){
+			
+			if(document.readyState=='complete')
+			{
+				fn()
+			}
+			
+			});
+	}
+}
+// DOMContentLoaded
+// onreadystatechange   complete
+Ready(function(){
+	
+	alert('ok')
+	
+	})
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<img src="http://d.hiphotos.baidu.com/album/w%3D2048/sign=12a2b9c19d82d158bb825eb1b43218d8/c2fdfc039245d68817948d8ba5c27d1ed21b240e.jpg">
+<img src="http://h.hiphotos.baidu.com/album/w%3D2048/sign=22a203f703087bf47dec50e9c6eb562c/6a63f6246b600c33b873e2741b4c510fd9f9a107.jpg">
+<img src="http://b.hiphotos.baidu.com/album/w%3D2048/sign=7c46992ef2deb48ffb69a6dec4273b29/960a304e251f95ca507491f9c8177f3e660952ff.jpg">
+<img src="http://b.hiphotos.baidu.com/album/w%3D2048/sign=841ebf457a899e51788e3d14769fdb33/3812b31bb051f81937fc6ff2dbb44aed2f73e7a9.jpg">
+<img src="http://b.hiphotos.baidu.com/album/w%3D2048/sign=1848bc97b151f819f125044aee8c4bed/908fa0ec08fa513d07cd56623c6d55fbb2fbd922.jpg">
+<img src="http://a.hiphotos.baidu.com/album/w%3D2048/sign=0e141926d1160924dc25a51be03f34fa/1f178a82b9014a904eea38cda8773912b21beeee.jpg">
+</body>
+</html>

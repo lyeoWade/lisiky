@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+#div1{ width:200px; height:240px; background:#ccc; margin:100px auto; }
+#div1 h2{ height:40px; background:#993; }
+</style>
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oH2=oDiv.children[0];
+	
+	oDiv.onmouseout=function(ev)
+	{
+		var oEvent=ev||event;
+		tqqo=oEvent.toElement||oEvent.relatedTarget;
+		
+		if(isChild(oDiv,tqqo)) return;
+		
+		alert(123)
+	}
+}
+
+function isChild(oParent,obj)
+{
+	while(obj)
+	{
+		if(obj==oParent)return true;
+		obj=obj.parentNode;
+	}
+	return false;
+}
+</script>
+</head>
+
+<body>
+<div id="div1">
+<h2>sadsfsf</h2>
+</div>
+</body>
+</html>

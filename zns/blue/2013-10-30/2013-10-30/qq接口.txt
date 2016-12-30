@@ -1,0 +1,47 @@
+http://zhinengshe.com/exercise/im/api.php
+
+
+1.注册
+		?a=reg&user=用户名&pass=密码&face=头像ID&cb=xxx
+
+		{err: 0, msg: "注册成功"}
+
+
+2.登录
+		?a=lgn&user=用户名&pass=密码&cb=xxx
+
+		{err: 0, msg: "登录成功", face: 头像ID, login_time: 上次登录时间}
+
+3.发言
+		?a=snd_msg&content=内容&cb=xxx
+		{err: 0, time: 发布时间, ID: 消息ID}
+
+
+4.完整获取
+		?a=get_msg&cb=xxx
+		{err: 0, data: [{ID: 消息ID, post_time: 消息时间,content: 消息内容,username: 发言用户},...]}
+
+
+5.退出登录
+		?a=logout&cb=xxx
+		{err: 0, msg: "成功退出登录"}
+6.获取用户列表
+		?a=get_user_list&cb=xxx
+		{err: 0, data: [{ID: 用户ID,username: 用户名,face: 用户头像}]}
+
+
+7.获取更新——增量更新
+		?a=get_msg_n&n=消息ID&cb=xxx
+		{err: 0, data: [{ID:'1',post_time:'1364873875',content:'asdfsdf',face:'1',username:'test',to:'发给谁'},...]}
+
+		关于消息ID：
+			“n=消息ID”指的是：已接收过的消息中，最大的“消息ID”，换句话说：get_msg_n命令，返回的是ID比n大的信息，从而不用获取以前的重复消息
+
+
+
+
+
+
+
+
+

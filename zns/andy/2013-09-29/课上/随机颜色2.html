@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+<style>
+div{ width:100px; height:100px; background:red; }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	
+	
+	oBox.onclick=function()
+	{
+		var a=parseInt(Math.random()*256);
+		var b=parseInt(Math.random()*256);
+		var c=parseInt(Math.random()*256);
+		this.style.background='rgb('+a+','+b+','+c+')';
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>

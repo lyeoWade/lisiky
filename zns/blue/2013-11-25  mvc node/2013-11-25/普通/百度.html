@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="baidu_m.js"></script>
+<script src="baidu_v.js"></script>
+<script>
+/*
+//M
+readFromBaidu('bbb', function (json){
+	alert(json.s);
+});
+*/
+
+/*
+//V
+window.onload=function ()
+{
+	createList(['aaa', 'bbb', 'ccc']);
+};
+*/
+
+window.onload=function ()
+{
+	var oTxt=document.getElementById('txt1');
+	
+	//C——协调、控制（主程序）
+	oTxt.onkeyup=function ()
+	{
+		//用到M
+		readFromBaidu(this.value, function (json){
+			//交给V
+			createList(json.s);
+		});
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="text" id="txt1" />
+<ul id="ul1">
+</ul>
+</body>
+</html>

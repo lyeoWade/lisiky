@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+	var sign=''
+	
+	function method(num1,num2,sign)
+	{
+		var result=0;
+		switch (sign)
+		{
+			case '+':
+				result=num1+num2;
+			break;
+			case '-':
+				result=num1-num2;
+			break;
+			case '×':
+				result=num1*num2;
+			break;
+			case '÷':
+				result=num1/num2;
+			break;
+			default:
+		}
+		return result;
+	}
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oTxt=document.getElementsByTagName('input');
+	var oSelect=document.getElementsByTagName('select')[0];
+	//var oPtion=oSelect.getElementsByTagName('option');
+	oBtn.onclick=function()
+	{
+		/*oTxt[0].value;
+		oTxt[1].value;*/
+	/*	if(oSelect.value=='+')
+		{
+			alert(method(parseInt(oTxt[0].value),parseInt(oTxt[1].value),'+'))
+		}else if(oSelect.value=='-')
+		{
+			alert(method(parseInt(oTxt[0].value),parseInt(oTxt[1].value),'-'))
+		}
+		else if(oSelect.value=='×')
+		{
+			alert(method(parseInt(oTxt[0].value),parseInt(oTxt[1].value),'×'))
+		}else if(oSelect.value=='÷')
+		{
+			alert(method(parseInt(oTxt[0].value),parseInt(oTxt[1].value),'÷'))
+		}*/
+		
+		switch (oSelect.value)
+		{
+			case '+':
+				alert(method(parseInt(oTxt[0].value),parseInt(oTxt[1].value),'+'))
+			break;
+			case '-':
+				alert(method(parseInt(oTxt[0].value),parseInt(oTxt[1].value),'-'))
+			break;
+			case '×':
+				alert(method(parseInt(oTxt[0].value),parseInt(oTxt[1].value),'×'))
+			break;
+			case '÷':
+				alert(method(parseInt(oTxt[0].value),parseInt(oTxt[1].value),'÷'))
+			break;
+			default:
+		}
+	}
+	
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<input type="text" >
+<select name="">
+		<option value="+">+</option>
+        <option value="-">-</option>
+        <option value="×">×</option>
+        <option value="÷">÷</option>
+</select>
+<input type="text" >
+<input type="button" value="计算" id="btn" >
+</body>
+</html>

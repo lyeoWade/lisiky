@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+
+/*var zns={
+	andy:{
+		tool:{} 工具
+		show:{}	效果
+	},
+	blue:{}
+};*/
+
+var zns={
+	andy:{
+		tool:{
+			byId:function(id){},
+			byClass:function(classNa,oParent){
+				if(!oParent)
+				{
+					var oParent=document;
+				}
+				return oParent.getElementsByClassName(classNa);	
+			}
+		}, 
+		show:{}	
+	},
+	blue:{}
+};
+
+</script>
+</head>
+
+<body>
+</body>
+</html>

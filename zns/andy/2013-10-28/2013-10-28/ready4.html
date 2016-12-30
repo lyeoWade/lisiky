@@ -1,0 +1,40 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+//ready   HTML+CSS+JS  就可以了
+//  IE678
+
+
+function addRead(fn)
+{
+	if(document.addEventListener) //DOMContentLoaded  
+	{
+		document.addEventListener('DOMContentLoaded',fn,false);	
+	}
+	else//onreadystatechange  complete
+	{
+		document.attachEvent('onreadystatechange',function(){
+			if(document.readyState=='complete')
+			{
+				fn();
+			}
+		});	
+	}	
+};
+
+addRead(function()
+{
+	alert('ready ok');
+});
+
+
+</script>
+</head>
+
+<body>
+<img src="http://h.hiphotos.baidu.com/album/w%3D2048/sign=5ed46c1f58ee3d6d22c680cb772e6f22/c8ea15ce36d3d539b9e9707b3b87e950342ab0b5.jpg">
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:200px; height:200px; background:#CCC; border:1px solid black;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	oDiv.onmouseover=function ()
+	{
+		startMove(oDiv, {width: 400, height: 400, borderWidth: 30});
+	};
+};
+
+function getStyle(obj, name)
+{
+	return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj, false)[name];
+}
+
+function startMove(obj, json)
+{
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function (){
+		for(var name in json)
+		{
+			var cur=parseInt(getStyle(obj, name));//初始值
+			
+			var speed=(json[name]-cur)/7; 
+			// 目标减去初始值  
+			speed=speed>0?Math.ceil(speed):Math.floor(speed);
+			
+			if(cur==json[name])
+			{
+				clearInterval(obj.timer);
+			}
+			else
+			{
+				obj.style[name]=cur+speed+'px';
+			}
+		}
+	}, 30);
+}
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

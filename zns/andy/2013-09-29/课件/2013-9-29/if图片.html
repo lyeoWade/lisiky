@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oImg=document.getElementById('img1');
+	alert(oImg.src);
+	// src  background  不要去if比较 
+	if(oImg.src=='0.jpg')
+	{
+		alert(123);	
+	}
+	else
+	{
+		alert('else');	
+	}
+};
+
+</script>
+</head>
+
+<body>
+<img id="img1" src="0.jpg" >
+</body>
+</html>

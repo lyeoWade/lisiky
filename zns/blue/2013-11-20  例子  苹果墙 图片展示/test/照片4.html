@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<script type="text/javascript">
+	window.onload=function()
+	{
+		var oBox=document.getElementById('box');
+		var aLi=oBox.getElementsByTagName('ul')[0].children;
+		var zIndex=2;
+		var aPos=[];
+		
+		var oMark=getByClass(oBox,'mark')[0];
+		var oWarp=getByClass(oBox,'warp')[0];
+		var oClose=oMark.children[0];
+		/*var oPicShow=getByClass(oBox,'pic_show')[0];
+		var oPrev=getByClass(oBox,'prev')[0];
+		var oNext=getByClass(oBox,'next')[0];*/
+		
+
+		
+		
+		for(var i=0;i<aLi.length; i++)
+		{
+		  //aPos[i]={ left:aLi[i].offsetLeft,top:aLi[i].offsetTop }
+			aPos[i]={ left:aLi[i].offsetLeft,top:aLi[i].offsetTop};
+			aLi[i].style.left=aLi[i].offsetLeft+'px';
+			aLi[i].style.top=aLi[i].offsetTop+'px'
+			
+		}
+
+		for(var i=0; i<aLi.length; i++)
+		{
+			aLi[i].style.position='absolute';
+			aLi[i].style.margin='0';
+			
+			aLi[i].index=i;
+		}
+		for(var i=0; i<aLi.length; i++)
+		{
+				drag(aLi[i])
+		}
+		function drag(obj)
+		{
+			obj.onmousedown=function(ev)
+			{
+				var oEvent=ev||event;
+				var posX=oEvent.clientX-obj.offsetLeft;
+				var posY=oEvent.clientY-obj.offsetTop;
+				
+				obj.style.zIndex=zIndex++;
+				clearInterval(obj.timer);
+				document.onmousemove=function(ev)
+				{
+					var oEvent=ev||event;
+					obj.style.left=oEvent.clientX-posX+'px';
+					obj.style.top=oEvent.clientY-posY+'px';
+/*					var near=nearest(obj);
+					for(var i=0; i<aLi.length; i++)
+					{
+						aLi[i].className='';
+					}
+					if(near)
+					{
+						near.className='active';
+					}*/
+
+					var near=nearest(obj);
+					if(near && near!=obj)
+					{
+						// 判断 obj 和 near 的位置
+						
+						var n=obj.index;
+						var m=near.index;
+						
+						if(n<m)
+						{
+							for(var i=0; i<aLi.length; i++)
+							{
+								if(aLi[i].index>=n+1 && aLi[i].index<=m)
+								{
+									aLi[i].index--;
+									startMove(aLi[i],aPos[aLi[i].index])
+								}
+							}
+							obj.index=m;
+						}else
+						{
+							for(var i=0; i<aLi.length; i++)
+							{
+								if(aLi[i].index>=m && aLi[i].index<=n-1)
+								{
+									aLi[i].index++;
+									startMove(aLi[i],aPos[aLi[i].index])
+								}
+							}
+							obj.index=m;
+							
+						
+						}
+						
+					}
+					return false;
+				}
+				
+				document.onmouseup=function()
+				{
+					document.onmousemove=null;
+					document.onmouseup=null;
+					startMove(obj,{ left : aPos[obj.index].left ,top:aPos[obj.index].top});
+				}
+				
+				return false;
+			}		
+		}
+		function test(obj1,obj2)
+		{
+			var l1=obj1.offsetLeft;
+			var t1=obj1.offsetTop;
+			var r1=obj1.offsetLeft+obj1.offsetWidth;
+			var b1=obj1.offsetTop+obj1.offsetHeight;
+
+			var l2=aPos[obj2.index].left//.offsetLeft;
+			var t2=aPos[obj2.index].top//obj2.offsetTop;
+			var r2=aPos[obj2.index].left+obj2.offsetWidth;
+			var b2=aPos[obj2.index].top+obj2.offsetHeight;
+
+			if(l1>r2 || r1<l2 || b1<t2 || t1>b2)
+			{
+				return null;
+			}
+			else 
+			{
+				return true;
+			}
+		}
+		
+		function nest(obj1,obj2)
+		{
+			var a=aPos[obj2.index].left-obj1.offsetLeft;
+			var b=aPos[obj2.index].top-obj1.offsetTop;
+			
+			return Math.sqrt(a*a+b*b)
+		}
+
+		function nearest(obj)
+		{
+			var minMax=999999;
+			var indexMin=-1;
+			// 先碰上
+			for(var i=0; i<aLi.length; i++)
+			{
+				//if(obj==aLi[i])continue;
+				if(test(obj,aLi[i]))
+				{
+					// 找距离
+					var dis=nest(obj,aLi[i])
+
+					if(dis<=minMax)
+					{
+						minMax=dis;
+						indexMin=i;
+					}
+				}
+			}
+
+			if(indexMin==-1)
+			{
+				return null;
+			}else
+			{
+				return aLi[indexMin];
+			}
+		}
+
+		
+
+	}
+
+	function getStyle(obj,attr){ return obj.currentStyle?obj.currentStyle[attr]:getComputedStyle(obj,false)[attr]}
+	function getCur(obj,name)
+	{
+		var cur=[];
+		if(name=='opacity')
+		{
+			cur=Math.round(parseFloat(getStyle(obj,name))*100)
+		}else
+		{
+			cur =parseInt(getStyle(obj,name))
+		}
+
+		if(isNaN(cur))
+		{
+			switch(name)
+			{
+				case 'top':
+					return obj.offsetTop;
+				case 'left':
+					return obj.offsetLeft;
+				case 'width':
+					return obj.offsetWidth;
+				case 'height':
+					return obj.offsetHeight;
+
+			}
+		}
+
+		return cur;
+	}
+	function startMove(obj,json,options)
+	{
+		options=options||{};
+		options.time=options.time||700;
+		options.type=options.type||'buffer';
+		var count=parseInt(options.time/30);
+		var first={};
+		var dis={};
+		for(var i in json)
+		{
+			first[i]=getCur(obj,i)
+			dis[i]=json[i]-first[i];
+		}
+
+		clearInterval(obj.timer)
+		var n=0;
+		obj.timer=setInterval(function(){
+			
+			n++;
+			var wade;
+			for(var i in json)
+			{
+				switch(options.type)
+				{
+					case 'linear':
+					wade=first[i]+n*dis[i]/count;
+					break;
+					case 'buffer':
+					var a=1-n/count;
+					wade=first[i]+dis[i]*(1-a*a*a);
+					break;
+					case 'StoF':
+					var a=n/count;
+					wade=first[i]+dis[i]*a*a*a;
+					break;
+				}
+	
+				if(i=='opacity')
+				{
+					obj.style.opacity=wade;
+					obj.style.filter='alpha(opacity:'+wade*100+')';
+				}else
+				{
+					obj.style[i]=wade+'px';
+				}
+			}
+	
+			if(n==count)
+			{
+				clearInterval(obj.timer)
+				options.fn && options.fn();
+			}
+		},30)
+		
+
+	}
+	
+	function getByClass(oParent,sClass)
+	{
+		if(oParent.getElementsByClassName)
+		{
+			return oParent.getElementsByClassName(sClass);
+		}
+		var re=new RegExp('\\b'+sClass+'\\b');
+		var aEle=oParent.getElementsByTagName('*');
+		var result=[];
+		var len=aEle.length;
+		for(var i=0; i<len; i++)
+		{
+			if(re.test(aEle[i].className))
+			{
+				result.push(aEle[i]);
+			}
+		}
+		
+		return result;
+	}
+	</script>
+
+	<style type="text/css">
+	*{ margin: 0; padding: 0; }
+	 ul{ width: 940px; margin: 40px auto; position: relative; background: #ccc; }
+	 li{ width: 128px; height: 128px; margin: 30px; float: left; list-style: none; z-index: 1; }
+	 li.active{ border: 1px solid #f00; }
+	.warp{ opacity:1;  background:#000; z-index:10; position:absolute; left:0; top:0; width: 100%; height: 100%; }
+	.mark{opacity:1; position: absolute; left: 0; top: 0; width: 100%; height: 100%; background: #000000; opacity: .7; filter:alpha(opacity=70); z-index: 100;}
+	.mark a{ width: 100px; height: 100px; position: absolute; right: 0; top: 0; color: #fff; font-size: 80px; text-decoration:none;  }
+	.mark a:active{ color: #999; }
+	.pic_show{opacity:1; width: 1000px; height: 600px;  margin-left:-500px; background: #333; position: absolute; left: 50%; top: 20px; z-index: 101; }
+	.pic_show .prev{  left: 0;  }
+	.pic_show .next{ right:0; }
+	.prev,.next{ width: 50px; height: 100px; background: red; position: absolute; top: 50%;  margin-top:-50px; opacity: .5;filter:alpha(opacity=50); }
+	.pic_show .next:hover,.prev:hover{ opacity: 1; filter:alpha(opacity=50); }
+	.pic_show .show{ width: 800px; height: 600px; margin: 0 auto;  overflow: hidden;}
+	.pic_show .show img{  height: 600px; display: block; }
+	</style>
+</head>
+<body>
+	<div id="box">
+		
+		<ul class="ul1">
+			<li><img src="img2/4.png"></li>
+			<li><img src="img2/2.png"></li>
+			<li><img src="img2/3.png"></li>
+			<li><img src="img2/1.png"></li>
+			<li><img src="img2/5.png"></li>
+			<li><img src="img2/6.png"></li>
+			<li><img src="img2/7.png"></li>
+			<li><img src="img2/8.png"></li>
+			<li><img src="img2/9.png"></li>
+			<li><img src="img2/10.png"></li>
+			<li><img src="img2/11.png"></li>
+			<li><img src="img2/12.png"></li>
+			<li><img src="img2/13.png"></li>
+			<li><img src="img2/14.png"></li>
+			<li><img src="img2/5.png"></li>
+		</ul>
+		<div class="warp">
+                <div class="mark">
+                    <a href="javascript:;" class="close">×</a>
+                </div>
+           <!--     <div class="pic_show">
+                    
+                    <a href="javascript:;" class="prev"></a>
+                    <a href="javascript:;" class="next"></a>
+                    <div class="show">
+                        
+                        <img src="img2/1.jpg" alt="">
+        
+                    </div>
+                </div>-->
+        </div>
+	</div>
+</body>
+</html>

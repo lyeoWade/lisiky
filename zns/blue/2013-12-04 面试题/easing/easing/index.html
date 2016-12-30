@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>演示：jQuery Easing 动画效果扩展</title>
+<meta name="keywords" content="jquery.easing.js,动画效果, jquery插件" />
+<meta name="description" content="Helloweba演示平台，演示XHTML、CSS、jquery、PHP案例和示例" />
+<link rel="stylesheet" type="text/css" href="../css/main.css" />
+<style type="text/css">
+#demo01{ width:200px; height:0; background-color:#f00;}
+#demo02{ width:200px; height:200px; background-color:#f00; display:none}
+
+.demo{width:860px; margin:20px auto}
+#alist{margin:10px}
+#alist li{float:left; height:24px; line-height:24px; padding:2px 10px; margin:4px; border:1px solid #d3d3d3; background:#f7f7f7; cursor:pointer}
+#alist li:hover{background:#fefefe}
+#alist li:visited{color:#999}
+#show{width:760px; height:50px; background:#f7f7f7; border:1px solid #d3d3d3; margin:10px auto; clear:both}
+</style>
+<script type="text/javascript" src="jquery1.7.min.js"></script>
+<script type="text/javascript" src="jquery.easing.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	$("#btn01").click(function(){
+		$("#demo01").animate({"height":200},{easing:"easeOutBounce",duration:1000,complete:function(){} })
+	});
+	
+	$("#btn02").click(function(){
+		$("#demo02").slideDown(1000,"easeOutBounce")
+	});
+	
+	
+	$("#alist li").click(function(){
+		$(this).css({"color":"#999","background-color":"#fdfdfd"});
+		var action = $(this).attr('rel');
+		
+		$('#show').height(50).animate({
+		 	height:300},{
+         	easing: action,
+         	duration: 1000,
+         	complete:function(){
+			}
+	 	});
+	}); 
+});
+</script>
+</head>
+
+<body>
+<a id="btn01">slideDown</a>
+<div id="demo01"></div>
+<a id="btn02">自定义动画</a>
+<div id="demo02"></div>
+
+
+<div id="main">
+   <h2 class="top_title"><a href="http://www.helloweba.com/view-blog-212.html">jQuery Easing 动画效果扩展</a></h2>
+   <div class="demo">
+      <ul id="alist">
+      	<li rel="linear">linear</li>
+        <li rel="swing">swing</li>
+        <li rel="jswing">jswing</li>
+        <li rel="easeInQuad">easeInQuad</li>
+        <li rel="easeOutQuad">easeOutQuad</li>
+        <li rel="easeInOutQuad">easeInOutQuad</li>
+        <li rel="easeInCubic">easeInCubic</li>
+        <li rel="easeOutCubic">easeOutCubic</li>
+        <li rel="easeInOutCubic">easeInOutCubic</li>
+        <li rel="easeInQuart">easeInQuart</li>
+        <li rel="easeOutQuart">easeOutQuart</li>
+        <li rel="easeInOutQuart">easeInOutQuart</li>
+        <li rel="easeInQuint">easeInQuint</li>
+        <li rel="easeOutQuint">easeOutQuint</li>
+        <li rel="easeInOutQuint">easeInOutQuint</li>
+        <li rel="easeInSine">easeInSine</li>
+        <li rel="easeOutSine">easeOutSine</li>
+        <li rel="easeInOutSine">easeInOutSine</li>
+        <li rel="easeInExpo">easeInExpo</li>
+        <li rel="easeOutExpo">easeOutExpo</li>
+        <li rel="easeInOutExpo">easeInOutExpo</li>
+        <li rel="easeInCirc">easeInCirc</li>
+        <li rel="easeInOutCirc">easeInOutCirc</li>
+        <li rel="easeInElastic">easeInElastic</li>
+        <li rel="easeOutElastic">easeOutElastic</li>
+        <li rel="easeInOutElastic">easeInOutElastic</li>
+        <li rel="easeInBack">easeInBack</li>
+        <li rel="easeInOutBack">easeInOutBack</li>
+        <li rel="easeInBounce">easeInBounce</li>
+        <li rel="easeOutBounce">easeOutBounce</li>
+        <li rel="easeInOutBounce">easeInOutBounce</li>
+      </ul>
+      <div id="show">---目标元素高度变化---</div>
+   </div>
+</div>
+</body>
+</html>

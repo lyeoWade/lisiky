@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0; }
+#box{ width:240px; height:auto; margin:100px auto; border:1px solid #0C9; }
+#h2{ cursor:pointer; background:#099; font-size:12px;  height:30px; line-height:30px; text-align:center;  }
+ul{ padding-top:20px;  }
+ul li{ height:30px; border-bottom:1px solid #999;; text-align:left; padding-left:30px; line-height:30px;  list-style:none; }
+ul li:hover{ background:#099; }
+</style>
+<script>
+function list()
+{
+	var oUl=document.getElementById('ul1');
+	if(oUl.style.display=='none')
+	{
+		oUl.style.display='block';
+	}else
+	{
+		oUl.style.display='none';	
+	}
+	
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box">
+		<h2 id="h2" onclick="list()">播放列表...</h2>
+        <ul id="ul1">
+        		<li>Eminem-Ass like  this</li>
+                <li>Eminem-Not Afraid</li>
+                <li>Eminem-Just lose It</li>
+                <li>Eminem-My band</li>
+        </ul>
+</div>
+</body>
+</html>

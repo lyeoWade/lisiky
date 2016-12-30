@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+var arr=[12323,434,455,6,7,,7,8,88,8,232,54,634,5,13];
+
+for(var i=0; i<arr.length; i++)
+{
+	var ind=arr[i];
+	var index=i;
+	for(var j=i+1; j<arr.length; j++)
+	{
+		if(arr[j]<ind)
+		{
+			ind=arr[j];
+			index=j;
+		}
+	}
+	
+	var z=arr[index];
+	
+	arr[index]=arr[i];
+	
+	arr[i]=z;
+}
+alert(arr);
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>

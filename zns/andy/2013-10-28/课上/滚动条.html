@@ -1,0 +1,60 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0; }
+#parent{ width:20px; height:500px; background:#CCC; position:absolute; left:380px; top:100px;  }
+#parent span{ width:20px; height:50px; background:#666; position:absolute; left:0px; top:0px; display:block; }
+#box{ width:300px; height:500px; border:1px solid #CCC; position:absolute; left:70px; top:100px; background:#F33;   opacity:0; filter:alpha(opacity=0);}
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oParent=document.getElementById('parent');
+	var oSpan=oParent.getElementsByTagName('span')[0];
+	var oBox=document.getElementById('box');
+	oSpan.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var posY=oEvent.clientY-oSpan.offsetTop;
+		
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			var t=oEvent.clientY-posY;
+			if(t<0)
+			{
+				t=0;
+			}else if(t>oParent.offsetHeight-oSpan.offsetHeight)
+			{
+				t=oParent.offsetHeight-oSpan.offsetHeight;
+			}
+			oSpan.style.top=t+'px';
+			
+			var Percent=t/(oParent.offsetHeight-oSpan.offsetHeight);
+			
+			oBox.style.opacity=Percent*1;
+			
+			return false;
+		}
+		document.onmouseup=function()
+		{
+			document.onmousemove=document.onmouseup=null;	
+		}
+		
+		return false;
+	}
+}
+
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="parent">
+	<span></span>
+</div>
+<div id="box">sjdhajdhasjdhj</div>
+</body>
+</html>

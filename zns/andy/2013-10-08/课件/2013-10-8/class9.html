@@ -1,0 +1,60 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+li{height:30px; background:red;margin-top:4px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	// IE678用我们自己的
+	// 其它的用原生
+	
+	//第一版BYCLASSNAME
+	function getByClass(oParent,iClass)
+	{
+		if(document.getElementsByClassName)
+		{
+			return oParent.getElementsByClassName(iClass);
+		}
+		var arr=[];  
+		var aEl=oParent.getElementsByTagName('*');
+		for(var i=0;i<aEl.length;i++)
+		{
+			if(aEl[i].className==iClass)
+			{
+				arr[arr.length]=aEl[i];
+			}	
+		}
+		return arr;			
+	};
+	
+	var aShow=getByClass(oUl,'show');
+	
+	for(var i=0;i<aShow.length;i++)
+	{
+		aShow[i].style.background='blue';	
+	}
+	
+	//getByClass(document.body,'show');
+};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li class="show">11</li>
+	<li>22
+    	<div  class="show"></div>
+    </li>
+	<li class="show">33</li>
+	<li>44</li>
+	<li class="show">55</li>
+	<li>66</li>
+</ul> 
+ 
+</body>
+</html>

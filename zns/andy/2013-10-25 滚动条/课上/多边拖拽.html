@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0; }
+#div1 { width:200px; height:200px; background:#CCC; position:absolute; left:200px; top:200px; }
+#div1 .lt,.lb,.rt,.rb{ position:absolute; width:20px; height:20px; background:#F00; display:block; }
+#div1 .lt{ top:0; left:0; }
+#div1 .lb{ bottom:0; left:0; }
+#div1 .rb{ right:0; bottom:0; }
+#div1 .rt{ right:0; top:0; }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oLt=oDiv.children[0];
+	var oLb=oDiv.children[1];
+	var oRt=oDiv.children[2];
+	var oRb=oDiv.children[3];
+	
+	oRb.onmousedown=function()
+	{
+		var posX=oDiv.offsetLeft;
+		var posY=oDiv.offsetTop;
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			oDiv.style.width=oEvent.clientX-posX+'px';
+			oDiv.style.height=oEvent.clientY-posY+'px';
+		}
+		document.onmouseup=function ()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+		return false;
+	}
+	oRt.onmousedown=function()
+	{
+		var posX=oDiv.offsetLeft;
+		var posY=oDiv.offsetTop+oDiv.offsetHeight;
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			
+			oDiv.style.width=oEvent.clientX-posX+'px';
+			oDiv.style.height=posY-oEvent.clientY+'px';
+			oDiv.style.top=oEvent.clientY+'px';
+		}
+		document.onmouseup=function ()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+		
+		return false;
+		
+	}
+	
+	oLb.onmousedown=function()
+	{
+		var posX=oDiv.offsetLeft+oDiv.offsetWidth;
+		var posY=oDiv.offsetTop;
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			oDiv.style.width=posX-oEvent.clientX+'px';
+			oDiv.style.height=oEvent.clientY-posY+'px';
+			oDiv.style.left=oEvent.clientX+'px';
+		}
+		document.onmouseup=function ()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+		return false;	
+	}
+	oLt.onmousedown=function()
+	{
+		var posX=oDiv.offsetLeft+oDiv.offsetWidth;
+		var posY=oDiv.offsetTop+oDiv.offsetHeight;
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			oDiv.style.width=posX-oEvent.clientX+'px';
+			oDiv.style.height=posY-oEvent.clientY+'px';
+			oDiv.style.left=oEvent.clientX+'px';
+			oDiv.style.top=oEvent.clientY+'px';
+		}
+		document.onmouseup=function ()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+		return false;	
+	}
+}
+
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="div1">
+	<span class="lt"></span>
+    <span class="lb"></span>
+    <span class="rt"></span>
+    <span class="rb"></span>
+</div>
+</body>
+</html>

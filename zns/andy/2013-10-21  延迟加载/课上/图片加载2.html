@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; }
+</style>
+<script>
+window.onload=window.onscroll=function()
+{
+	//alert(123);
+	var oImg=document.getElementsByTagName('img');
+	var _scroll=document.documentElement.scrollTop||document.body.scrollTop;
+	var winHeight=document.documentElement.clientHeight;
+	for(var i=0; i<oImg.length; i++)
+	{
+		if(!oImg[i]._load)
+		{
+			if(getPos(oImg[i]).top<=(_scroll+winHeight))
+			{
+				oImg[i].src=oImg[i].getAttribute('_src');
+				oImg[i]._load=true;
+			}
+		}
+		
+	}
+	
+
+}
+
+function getPos(obj)
+{
+	var l=0;
+	var t=0;
+	while(obj)
+	{
+		l+=obj.offsetLeft;
+		t+=obj.offsetTop;
+		obj=obj.offsetParent;	
+	};
+	return {left:l,top:t};
+};
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<img src="6b184157367cdd64d10906c9.jpg" width="1366" height="2000" _src="http://c.hiphotos.baidu.com/album/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=440f761c3b87e9505d17f16a28033031/08f790529822720efefc9b257acb0a46f21fab3b.jpg">
+<img src="6b184157367cdd64d10906c9.jpg" width="1366" height="2000" _src="http://h.hiphotos.baidu.com/album/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=ae020f0ea8014c08063b2aa33240617a/eac4b74543a9822688daa9808b82b9014a90eb7a.jpg">
+<img src="6b184157367cdd64d10906c9.jpg" width="1366" height="2000" _src="http://f.hiphotos.baidu.com/album/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=348717a35882b2b7b89f3bc20996a89d/500fd9f9d72a6059b0ee6ebd2934349b023bba9f.jpg">
+<img src="6b184157367cdd64d10906c9.jpg" width="1366" height="2000" _src="http://a.hiphotos.baidu.com/album/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=d98969c3574e9258b93484e8a4b9b22a/2e2eb9389b504fc205c831a2e4dde71191ef6d86.jpg">
+</body>
+</html>

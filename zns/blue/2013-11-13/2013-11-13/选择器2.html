@@ -1,0 +1,252 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function getByClass(oParent, str)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(str);
+	}
+	
+	var aEle=oParent.getElementsByTagName('*');
+	var re=new RegExp('\\b'+str+'\\b');
+	var result=[];
+	
+	for(var i=0;i<aEle.length;i++)
+	{
+		if(re.test(aEle[i].className))
+		{
+			result.push(aEle[i]);
+		}
+	}
+	
+	return result;
+}
+
+function _getByStr(aParent, str)
+{
+	var aChild=[]; //准备空数组 存得到的东西
+	
+	//迭代、遍历
+	for(var i=0;i<aParent.length;i++)// 循环aParent是因为 父级可能多个 如页面有多个.class 
+	{
+		// switch 走一次 找到了之后就出去匹配aChild 变成父级 然后继续往下面找
+		 
+		switch(str.charAt(0)) //获取第一个  //判断str的第一位是什么   
+		{
+			case '#': //如果是 ID
+				var obj=aParent[i].getElementById(str.substring(1)); //  从str的第一位开始获取 // 选择第一个字符后面的
+				aChild.push(obj); //存到准备好的空数组里面 返回出来用// 将选到的元素添加到aChild数组中！
+				break;
+			case '.':
+				var arr=getByClass(aParent[i], str.substring(1));
+				
+				for(var j=0;j<arr.length;j++) //得到的数组是伪数组 不能直接赋值 通过循环添加到空数组当中
+				{			// 选出来的arr是一个伪数组 不能直接contact 
+					aChild.push(arr[j]);// 选出来多个元素 利用循环搞进aChild里面
+				}
+				break;
+			default: 
+				//li	li.box	li[type=xxx]	li:has()	li#li1
+				
+				//li.box
+				
+				if(/\w+\.\w+/.test(str))// \w+  a-z0-9_     \.  以为.在正则里面代表所有  所以的转义 
+				{
+					var aStr=str.split('.');
+					//aStr[0]		标签
+					//aStr[1]		class
+					//第一步
+					var arr=aParent[i].getElementsByTagName(aStr[0]);// 从aParent下面找aStr[0] 
+					
+					var re=new RegExp('\\b'+aStr[1]+'\\b');
+					
+					for(var j=0;j<arr.length;j++)
+					{
+						//第二步
+						if(re.test(arr[j].className)) // 如果数组arr[j] 中的标签的className能够被re匹配到,那么就选到了
+						{
+							aChild.push(arr[j]);
+						}
+					}
+				}
+				//li[type=xxx]
+				else if(/\w+\[\w+=\w+\]/.test(str))
+				{
+					var aStr=str.split(/[\[\]]/g);// 得到3段 [  ab  ]     [  \[\]  ]
+ 					
+					//aStr[0]		标签
+					//aStr[1]		'type=xxx'
+					
+					//第一步
+					var arr=aParent[i].getElementsByTagName(aStr[0]);
+					var aStr2=aStr[1].split('=');
+					//aStr2[0]		名字
+					//aStr2[1]		值
+					
+					for(var j=0;j<arr.length;j++)
+					{
+						if(arr[j].getAttribute(aStr2[0])==aStr2[1])
+						{
+							aChild.push(arr[j]);
+						}
+					}
+				}
+				//li:has()
+				else if(/\w+:\w+(\(.+\))?/.test(str))//  \w+   a-z0-9_   : 再正则里没有特殊意义 不用转义
+				{
+					var aStr=str.split(':');
+					//aStr[0]		标签
+					//aStr[1]		伪类
+					
+					//第一步
+					var arr=aParent[i].getElementsByTagName(aStr[0]);
+					
+					//第二步
+					//aStr[1]	eq(0)
+					switch(aStr[1].split('(')[0])
+					{
+						case 'first': // 如果aStr[1] 用(分割之后的第0个是 first    
+							aChild.push(arr[0]);//就只将arr[0] 选出来
+							break;
+						case 'last':
+							aChild.push(arr[arr.length-1]);//选择最后一个
+							break;
+						case 'eq':// 如果是eq 
+							var s=aStr[1].match(/\d+/g)[0];// [0]  可以不要嘛？
+							var n=parseInt(s);
+							
+							if(!isNaN(n) && n>=0 && n<arr.length)
+							{
+								aChild.push(arr[n]);
+							}
+							break;
+						case 'odd':	//单数
+							for(var j=1;j<arr.length;j+=2)
+							{
+								aChild.push(arr[j]);
+							}
+							break;
+						case 'contains':
+							var s=aStr[1].split(/[\(\)]/)[1];
+							
+							for(var j=0;j<arr.length;j++)
+							{
+								if(arr[j].innerText.indexOf(s)!=-1)
+								{
+									aChild.push(arr[j]);
+								}
+							}
+							break;
+					}
+				}
+				//li#li1
+				else if(/\w+#\w+/.test(str))
+				{
+					var aStr=str.split('#');
+					//aStr[0]		标签
+					//aStr[1]		ID
+					
+					//第一步
+					var arr=document.getElementsByTagName(aStr[0]);
+					
+					for(var j=0;j<arr.length;j++)
+					{
+						if(arr[j].id==aStr[1])
+						{
+							aChild.push(arr[j]);
+						}
+					}
+				}
+				//li
+				else
+				{
+					var arr=aParent[i].getElementsByTagName(str);
+					
+					for(var j=0;j<arr.length;j++)
+					{
+						aChild.push(arr[j]);
+					}
+				}
+		}
+	}
+	
+	return aChild;
+}
+
+function getEle(str)
+{
+	//1.整理
+	var arr=str.replace(/^\s+|\s+$/g, '').split(/\s+/g);//整理 将要选择的整理成一个数组
+	
+	//2.选择
+	var aParent=[document];
+	var aChild=[];
+	/*
+	两个数组
+一个 放 父级 ap = [ ]
+一个 准备着 aC = [ ]  用来存 父级下找到的元素
+
+一开始  aP = [ document] 显然 先放了这个东西
+
+字符串 传进来 #div1 ul .box 
+所以 这里要循环去找  #div1  ul  .box 
+这里要执行 getEle（）这个方法 开始这个循环
+第一次 oParent [document] 下找#div1  所以这里有了 _getByStr( )这个方法
+这一次 _getByStr( )跑完 后 我得的一个结构 一个数组 其实 就是我想要的 aC
+所以 把 aC = 这个结果  aC这里面现在 存的是 #div1
+为了得到 第二次 循环的 父级 所以 这里 aP = aC 
+开始第二次。。。
+
+	*/
+	for(var i=0;i<arr.length;i++)
+	{
+		aChild=_getByStr(aParent, arr[i]); // 将arr[i] 里面所有的元素去匹配 函数_getByStr()   有符合_getByStr的就等于aChild		   _getByStr(aParent, str)
+		
+		aParent=aChild; // 并且让aChild 变成父级
+	}
+	
+	return aChild;
+}
+
+window.onload=function ()
+{
+	var aBox=getEle('li#li1');
+	
+	for(var i=0;i<aBox.length;i++)
+	{
+		aBox[i].style.background='red';
+	}
+};
+</script>
+</head>
+
+<body>
+<ul>
+	<li id="li1">afas</li>
+	<li>bczx</li>
+	<li id="li1">aaa</li>
+	<li id="li1">xcrtewr</li>
+	<li id="li1">abac</li>
+	<li>abca</li>
+	<li><input type="button" value="af" /></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</body>
+</html>

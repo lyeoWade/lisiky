@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:200px; height:200px; background:#CCC;}
+</style>
+<script>
+function appendTo(oParent, str)
+{
+	//oParent.innerHTML+=str;
+	
+	var oTmp=document.createElement('div');
+	
+	oTmp.innerHTML=str;
+	
+	/*
+	for(var i=0;i<oTmp.children.length;i++)
+	{
+		oParent.appendChild(oTmp.children[i]);
+		i--;
+	}
+	*/
+	while(oTmp.childNodes.length)
+	{
+		oParent.appendChild(oTmp.childNodes[0]);
+	}
+}
+
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	oDiv.children[0].onclick=function ()
+	{
+		alert('a');
+	};
+	
+	appendTo(oDiv, '我是：<span>Blue</span>，我来自：<em>中国</em>');
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<h1>hhhhhhh</h1>
+</div>
+</body>
+</html>

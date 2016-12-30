@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{height:50px;width:400px; line-height:50px; margin:10px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+
+   // alert(getComputedStyle(oBox,null).width); 
+   alert(getComputedStyle(oBox).width); 
+   // 如果不写第二个参数  低版本的FF不兼容			
+
+
+	
+};
+
+</script>
+</head>
+
+<body>
+<div id="box">
+dfdsfsd
+</div>
+</body>
+</html>

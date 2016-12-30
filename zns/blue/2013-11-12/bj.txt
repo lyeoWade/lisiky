@@ -1,0 +1,123 @@
+JQ
+
+-------------------------------------------
+
+创建！ 
+$('<li></li>');
+attr( 'value' ) // 属性
+
+val();给参数变成设置
+
+appendTo  // 插入(插入到最后面)
+
+prependTop  //插入到第一个  
+
+insertBefore  (' li:contains(5) ')  //插入到谁前面去 (在第五个之前插入)
+
+insertAfter()  //插入到谁后面去
+
+
+//绑定
+
+bind('事件名','函数')
+$(document).bind()
+
+
+加事件全是绑定      //
+
+每次都会给元素加事件
+
+live()                 //  给未来的元素添加             (事件委托)
+bind()                //给已有元素添加
+
+
+parent()       ------------->parentNode();
+remove()
+
+$(this).parent().remove();
+
+
+bind/unbind
+live/die 
+
+unbind('click')  //只传一个参数，清楚掉所有jq添加的事件
+
+
+
+
+
+
+-----------------包裹
+
+wrap('<div></div>')    // 单独包 一次 
+
+return   false;  阻止默认事件
+
+直接用ev   
+
+
+
+//width()  //相当于width
+outerWidth()  //加上border之类的
+
+
+offset()    自己的offsetLeft+父级的offsetLeft....
+
+
+原生的元素 和jq元素                 原生的和jq不能混合用
+
+
+.get(n)  jq变成原生的对象  
+.get(n)=[];
+
+
+
+
+包装   
+
+$(原生对象).css()....
+
+
+
+each()  // 迭代器             (循环)
+
+
+each(function(index,element){})
+
+this   
+
+$(this)
+
+elements==this;
+
+检测浏览器
+$.browser   ----( 浏览器内核)
+$.browser .version----( 浏览器版本)
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

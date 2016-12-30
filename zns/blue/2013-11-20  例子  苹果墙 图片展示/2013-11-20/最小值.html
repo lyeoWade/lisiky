@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+var arr=[12,5,8,3,2,89,18];
+
+//1.sort	顺序会乱
+//2.max/min	数字
+//3.最笨		万能
+
+var iMin=9999999999;
+var iMinIndex=-1;
+
+for(var i=0;i<arr.length;i++)
+{
+	if(iMin>arr[i])
+	{
+		iMin=arr[i];
+		iMinIndex=i;
+	}
+}
+
+alert('最小值是：'+iMin+'，在：'+iMinIndex);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

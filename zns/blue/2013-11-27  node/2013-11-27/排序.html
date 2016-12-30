@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+var arr=[12,6,99,3,18,4,13,98,127,2];
+
+// s 起始位置
+// e 结束位置
+function sortArr(arr, s, e)
+{
+	//特殊  s-e>0
+	if(s>e)			//空的   起始位置比结束位置小 相减的话肯定为负 所以当小于0的话就为  空 
+	{
+		return [];
+	}
+	else if(s==e)	//就一个  s-e=0
+	{
+		return [arr[s]];
+	}
+	else if(s==e-1)	//就两个  0 , 1  s=1-1  -- > 0  
+	{
+		if(arr[s]<arr[e])   // 两个数也要排序
+		{
+			return [arr[s], arr[e]];
+		}
+		else
+		{
+			return [arr[e], arr[s]];
+		}
+	}
+	
+	var c=Math.floor((s+e)/2);  // 取到中点位置
+	//左边
+	var lArr=sortArr(arr, s, c);
+
+	//右边
+	var rArr=sortArr(arr, c+1, e);
+	
+
+	//合并
+	var result=[]; 
+	while(lArr.length>0 || rArr.length>0)  
+	{
+		//特殊
+		if(lArr.length==0)	//左边拿空了，右边还有
+		{
+			result=result.concat(rArr);
+			break;
+		}
+		else if(rArr.length==0)	//右边拿空了，左边还有
+		{
+			result=result.concat(lArr);
+			break;
+		}
+		
+		if(lArr[0]<rArr[0])  // 排序  比较两边数组的第一个数  ，  谁小那么谁就先放在准备的数组里面
+		{
+			result.push(lArr.shift());
+		}
+		else
+		{
+			result.push(rArr.shift());
+		}
+	}
+	
+	return result;
+}
+
+alert(sortArr(arr, 0, arr.length-1));
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

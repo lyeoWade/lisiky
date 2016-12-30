@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	document.onclick=function(ev)
+	{
+		var oEvent=ev||event;
+		//事件源
+		//alert(123); 
+		//  toElement  
+		//   formElement
+		//  relatedTarget
+		alert(2);
+	};	
+	
+	document.getElementById('box').onclick=function(ev)
+	{
+		alert(1);	
+		var oEvent=ev||event;
+		oEvent.cancelBubble=true; //冒泡
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+sdfsdfdsf
+</div>
+</body>
+</html>

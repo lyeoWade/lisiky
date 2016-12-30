@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red;}
+</style>
+<script>
+window.onload=function()
+{
+    var arr=[4,3,2,6,22,7,8,1,0];
+	arr.sort(function(n1,n2){
+		//   2,6
+		if(n1<n2)
+		{
+			return -4; 	
+		}	
+		else if(n1>n2)
+		{
+			return 4;
+			
+		}
+		else
+		{
+			return 0;	
+		}
+		
+	});
+	alert(arr);
+};
+
+
+
+
+
+
+</script>
+</head>
+
+<body>
+<input type="button" value="aaa" id="btn">
+<div id="box">234234</div>
+</body>
+</html>

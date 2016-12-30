@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; }
+#div1{ width:400px; height:400px; border:1px solid #CCC; margin:100px auto; }
+h2{height:50px; background:#999; }
+</style>
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	oDiv.onmouseout=function(ev)
+	{
+		var oEvent=ev||event;
+		var ToElement=oEvent.toElement||oEvent.relatedTarget;
+		if(isChild(oDiv,ToElement))return;
+		alert(123);
+	}
+}
+function isChild(oParent,obj)
+{
+	while(obj)
+	{
+		if(obj==oParent)
+		{
+			return true;
+		}
+		obj=obj.parentNode;
+	}
+	return false;
+}
+</script>
+</head>
+
+<body>
+
+<div id="div1">
+		<h2>三等功精度高刻录机</h2>
+</div>
+
+</body>
+</html>

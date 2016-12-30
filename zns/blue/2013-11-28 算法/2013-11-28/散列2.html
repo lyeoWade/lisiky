@@ -1,0 +1,111 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+var arr=[];
+
+arr.length=10;
+
+var used=0;
+
+function hash_add(n)
+{
+	//alert('添加'+n);
+	
+	//极慢
+	if(used==arr.length)	//满了
+	{
+		var oldArr=arr;
+		
+		arr=[];
+		arr.length=oldArr.length*2;
+		used=0;
+		
+		for(var i=0;i<oldArr.length;i++)
+		{
+			hash_add(oldArr[i]);
+		}
+	}
+	
+	var pos=n%arr.length;
+	
+	if(arr[pos]==n)
+	{
+		//重复
+		return;
+	}
+	else if(!arr[pos])
+	{
+		arr[pos]=n;
+		used++;
+	}
+	else
+	{
+		while(arr[pos])
+		{
+			if(arr[pos]==n)return;
+			
+			pos++;
+			
+			if(pos==arr.length)
+			{
+				pos=0;
+			}
+		}
+		
+		arr[pos]=n;
+		
+		used++;
+	}
+}
+
+function hash_find(n)
+{
+	var pos=n%arr.length;
+	
+	if(arr[pos]==n)return true;
+	else if(!arr[pos])return false;
+	else
+	{
+		while(arr[pos])
+		{
+			if(arr[pos]==n)return true;
+			
+			pos++;
+			
+			if(pos==arr.length)
+			{
+				pos=0;
+			}
+		}
+		
+		return false;
+	}
+}
+
+hash_add(5);
+hash_add(8);
+hash_add(15);
+hash_add(25);
+hash_add(35);
+hash_add(45);
+hash_add(12);
+hash_add(13);
+hash_add(11);
+hash_add(55);
+hash_add(18);
+hash_add(19);
+hash_add(198);
+
+alert(hash_find(199));
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

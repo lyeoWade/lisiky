@@ -1,0 +1,139 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+#div1 {width:516px; margin:10px auto;}
+#div1 ul {width:150px; margin:10px; border:1px solid black; float:left; /*172*/}
+#div1 ul li {padding:10px 0;}
+#div1 ul li img {width:100%;}
+</style>
+<script src="ajax.js"></script>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	var nowPage=1;
+	var oldCol=3;
+	
+	window.onscroll=window.onresize=function ()
+	{
+		//1.到头加载
+		var scrollTop=document.documentElement.scrollTop||document.body.scrollTop;
+		var clientWidth=document.documentElement.clientWidth;
+		var clientHeight=document.documentElement.clientHeight;
+		
+		if(scrollTop+clientHeight==document.body.scrollHeight)
+		{
+			nowPage++;
+			
+			get(nowPage);
+		}
+		
+		//2.改变列数
+		var col=parseInt(clientWidth/172);
+		
+		if(col<3)col=3;
+		if(col>6)col=6;
+		
+		if(oldCol!=col)
+		{
+			oDiv.style.width=172*col+'px';
+			
+			var aLi=document.getElementsByTagName('li');
+			var arrLi=[];
+			for(var i=0;i<aLi.length;i++)
+			{
+				arrLi[i]=aLi[i];
+			}
+			
+			oDiv.innerHTML='';
+			
+			for(var i=0;i<col;i++)
+			{
+				var oUl=document.createElement('ul');
+				
+				oDiv.appendChild(oUl);
+			}
+			
+			for(var i=0;i<arrLi.length;i++)
+			{
+				var aUl=document.getElementsByTagName('ul');
+				var arr=[];
+				
+				for(var j=0;j<aUl.length;j++)
+				{
+					arr[j]=aUl[j];
+				}
+				
+				arr.sort(function (ul1, ul2){
+					return ul1.offsetHeight-ul2.offsetHeight;
+				});
+				
+				arr[0].appendChild(arrLi[i]);
+			}
+			
+			oldCol=col;
+		}
+	};
+	
+	get(1);
+	
+	function get(n)
+	{
+		ajax('get?page='+n+'&t='+Math.random(), function (str){
+			var json=eval('('+str+')');
+			
+			if(json.error)
+			{
+				alert('获取失败：'+json.desc);
+			}
+			else
+			{
+				for(var i=0;i<json.data.length;i++)
+				{
+					var oLi=document.createElement('li');
+					
+					oLi.innerHTML='<img src="img/'+json.data[i].src+'" />';
+					(function (oLi){
+						oLi.children[0].onload=function ()
+						{
+							//最小的ul
+							var aUl=document.getElementsByTagName('ul');
+							var arr=[];
+							
+							for(var j=0;j<aUl.length;j++)
+							{
+								arr[j]=aUl[j];
+							}
+							
+							arr.sort(function (ul1, ul2){
+								return ul1.offsetHeight-ul2.offsetHeight;
+							});
+							
+							arr[0].appendChild(oLi);
+						};
+					})(oLi);
+				}
+			}
+		}, function (){
+			alert('读取失败');
+		});
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<ul></ul>
+	<ul></ul>
+	<ul></ul>
+</div>
+</body>
+</html>

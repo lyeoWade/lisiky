@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+
+*{ margin:0; padding:0; }
+#box{ width:888px; overflow:hidden; margin:0 auto;  }
+#box ul{ width:202px; margin:0 10px;  float:left; }
+#box ul li{ width:200px; margin:10px 0; border:1px solid #0C9;  list-style:none; }
+</style>
+
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oUl=oBox.getElementsByTagName('ul');
+	var arr=[];
+	for(var j=0; j<oUl.length; j++)
+	{
+		arr.push(oUl[j]);  //将oUl添加到arr里面  后面找出arr里面最小的
+	}
+	function liu()
+	{
+		for(var i=0; i<20; i++)
+		{
+			var xUl;  // 具体添加到那个UL里面不知道  所以就定义xUl   添加到xUl里面  而这个xUl就是最短的那个ul
+			var aLi=create();
+			
+			arr.sort(function(n1,n2){
+				return n1.offsetHeight-n2.offsetHeight;// n1-n2;
+					});
+			xUl=arr[0];
+			xUl.appendChild(aLi);
+		}
+	}
+	liu();
+	
+	window.onscroll=function()
+	{
+		var _scroll=document.documentElement.scrollTop||document.body.scrollTop;
+		var winHeight=document.documentElement.clientHeight;
+		
+		if(_scroll+winHeight>=document.body.scrollHeight)
+		{
+			liu();
+		}
+	}
+	
+	
+}
+
+function create()
+{
+	var aLi=document.createElement('li');
+	aLi.style.height=toRand(200,400)+'px';
+	aLi.style.background='rgb('+toRand(0,225)+','+toRand(0,225)+','+toRand(0,225)+')';
+	
+	return aLi;
+}
+
+function toRand(n,m){return parseInt(Math.random()*(m-n+1)+n)}
+</script>
+
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box">
+		<ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+</div>
+</body>
+</html>

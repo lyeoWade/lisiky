@@ -1,0 +1,53 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementsByTagName('div')[0];
+	var oInput=document.getElementsByTagName('input')[0];
+	var aInput=oBox.getElementsByTagName('input');
+	oInput.onclick=function()
+	{
+		/*for(var i=0;i<aInput.length;i++)
+		{
+			aInput[i].checked=true;	
+		}*/
+		if(oInput.checked==true)
+		{
+			for(var i=0;i<aInput.length;i++)
+			{
+				aInput[i].checked=true;	
+			}
+		}
+		else
+		{
+			for(var i=0;i<aInput.length;i++)
+			{
+				aInput[i].checked=false;	
+			}
+			
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+
+<input type="checkbox" />
+<div>
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+</div>
+</body>
+</html>

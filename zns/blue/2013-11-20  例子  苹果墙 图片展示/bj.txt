@@ -1,0 +1,6 @@
+
+Math.sqrt()  开方
+Math.pow(a,2) 平方
+toFixed() 保留几位小数
+
+

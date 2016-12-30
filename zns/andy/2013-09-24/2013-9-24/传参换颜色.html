@@ -1,0 +1,25 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:#ccc;}
+</style>
+<script>
+function toColor(color)
+{
+  var oBox=document.getElementById('box');
+  oBox.style.background=color;
+};
+
+</script>
+</head>
+
+<body>
+<input type="button" value="变红" onclick="toColor('red')">
+<input type="button" value="变蓝" onclick="toColor('blue')">
+<input type="button" value="变黑" onclick="toColor('black')">
+<div id="box"></div>
+</body>
+</html>

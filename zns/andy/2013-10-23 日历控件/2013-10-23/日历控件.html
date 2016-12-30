@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+
+</style>
+<script>
+window.onload=function()
+{
+	var oTex=document.getElementById('tex');
+	oTex.onclick=function()
+	{
+		var oBox=document.createElement('div');
+		oBox.className='dateDiv';	
+		oBox.innerHTML='<ul class="name"><li><span id="s">2013年10月</span><a href="javascript:;" id="pre" class="a1">上月</a><a href="javascript:;" id="next" class="a2">下月</a></li></ul><ul class="week"><li>一</li>';	
+    	oBox.innerHTML+='<li>二</li>';
+    	oBox.innerHTML+='<li>三</li>';
+    	oBox.innerHTML+='<li>四</li>';
+    	oBox.innerHTML+='<li>五</li>';
+    	oBox.innerHTML+='<li>六</li>';
+    	oBox.innerHTML+='<li>七</li></ul><ul class="dateUl"></ul>';
+		document.body.appendChild(oBox);
+		
+		
+	};
+}
+</script>
+</head>
+
+<body>
+<input type="text" id="tex">
+</body>
+</html>

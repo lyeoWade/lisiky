@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="ZQuery.js"></script>
+<script>
+$(function (){
+	$('li').each(function (index,element){
+		//element.innerHTML=index;
+		$(this).click(function(){
+			$(this).css('background','red')
+			});
+		$(this).html(index);
+	});
+});
+</script>
+</head>
+
+<body>
+<ul>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+	<li></li>
+</ul>
+</body>
+</html>

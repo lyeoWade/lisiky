@@ -1,0 +1,46 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function()
+	{
+		alert(1);	
+	};	
+	
+	oBtn.onclick=function()
+	{
+		alert(2);	
+	};
+	
+	oBtn.addEventListener('click',function(){
+		alert(3);	
+	},false);
+	
+	oBtn.addEventListener('click',function(){
+		alert(4);	
+	},false);
+};
+
+
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	oBtn.onclick=function()
+	{
+		alert('onload2');	
+	};	
+	
+};
+
+</script>
+</head>
+
+<body>
+<input type="button" value="aaa" id="btn">
+</body>
+</html>

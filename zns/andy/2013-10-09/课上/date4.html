@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oDate=new Date();
+	
+	var year=oDate.getFullYear();
+	var mouth=oDate.getMonth()+1;
+	var day=oDate.getDay(); //获取一周内的第几天
+	var Day=oDate.getDate();
+	var hours=oDate.getHours();
+	var minutes=oDate.getMinutes();
+	var seconds=oDate.getSeconds();
+	var haomiao=oDate.getMilliseconds();
+	console.log(year);
+	console.log(mouth);
+	console.log(day);
+	console.log(Day)
+	console.log(hours);
+	console.log(minutes);
+	console.log(seconds);
+	console.log(haomiao);
+	document.body.innerHTML=year+'-'+mouth+'-'+day+'-'+hours+'-'+minutes+'-'+seconds;
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>

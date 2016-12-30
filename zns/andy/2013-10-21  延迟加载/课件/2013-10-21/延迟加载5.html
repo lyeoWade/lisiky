@@ -1,0 +1,45 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+#box{margin:100px;width:500px; background:#ccc;height:500px;padding:100px;display:block; position:relative;}
+#box div{width:300px;height:300px; background:red;}
+</style>
+<script>
+
+window.onload=window.onscroll=function()
+{
+	//var arr=new Array();
+	var oImg=new Image();
+	oImg.onload=function()
+	{
+		var oNew=document.createElement('img');
+		oNew.src=this.src;
+		document.body.appendChild(oNew);	
+	};
+	oImg.src='http://a.hiphotos.baidu.com/album/h%3D768%3Bcrop%3D0%2C0%2C1024%2C768/sign=d98969c3574e9258b93484e8a4b9b22a/2e2eb9389b504fc205c831a2e4dde71191ef6d86.jpg';
+	
+};
+
+function getPos(obj)
+{
+	var l=0;
+	var t=0;
+	while(obj)
+	{
+		l+=obj.offsetLeft;
+		t+=obj.offsetTop;
+		obj=obj.offsetParent;	
+	};
+	return {left:l,top:t};
+};
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

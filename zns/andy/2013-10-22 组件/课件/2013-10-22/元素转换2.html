@@ -1,0 +1,53 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+li{height:30px; background:red;margin-top:2px;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var aUl=document.getElementsByTagName('ul');
+	var aLi=aUl[0].children;
+	
+	oBtn.onclick=function()
+	{
+		var arr=[];
+		for(var i=0;i<aLi.length;i++)
+		{
+			arr.push(aLi[i]);	
+		}
+		
+		arr.sort(function(obj1,obj2){
+			
+			return parseInt(obj1.innerHTML)-parseInt(obj2.innerHTML);
+		});
+		
+		for(var i=0;i<aLi.length;i++)
+		{
+			aUl[0].appendChild(arr[i]);
+		}
+		
+		
+	};
+};
+</script>
+</head>
+
+<body>
+<ul>
+	<li>10</li>
+	<li>200</li>
+	<li>3</li>
+	<li>41</li>
+	<li>5</li>
+    <li>9</li>
+	<li>63</li>
+</ul>
+<input type="button" value="aa" id="btn">
+
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ padding:0; margin:0; }
+li{ list-style:none; }
+#box{ position:relative; padding:10px; width:300px; height:360px; margin:100px auto; border:1px solid #999; }
+#box .box_ul{ width:300px; height:300px; background:#CCC; }
+#box .box_ul ul{ overflow:hidden; width:300px; height:300px;}
+#box .box_ul li{ width:300px; height:300px;  }
+#box .box_bottom{ width:300px; height:60px; position:absolute; bottom:10px; left:10px; background:#000;
+ overflow:hidden; }
+#box .box_bottom ol{ width:585px; position:relative; left:20px; top:0px;z-index:1;} 
+#box .box_bottom li{ width:59px; height:60px; background:#F00; float:left; margin:0 3px; }
+#box .prev{ left:0;}
+#box .prev,.next{width:20px; height:60px; background:#F60; position:absolute; top:0; z-index:10; }
+#box .next{ right:0; }
+</style>
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oUl=oBox.getElementsByTagName('ul')[0];	
+	var aLiUl=oUl.children;
+	
+	var oOl=oBox.getElementsByTagName('ol')[0];
+	var aLiOl=oOl.children;
+	
+	var aBtn=oBox.getElementsByTagName('a');
+	
+	for(var i=0; i<aLiOl.length;i++)
+	{
+		aLiOl[i].index=i;
+		aLiOl[i].onclick=function()
+		{
+			for(var i=0; i<aLiOl.length;i++)
+			{
+				aLiUl[i].style.display='none'
+			}
+			aLiUl[this.index].style.display='block'
+		}
+	}
+	
+	var n=0;
+	aBtn[0].onclick=function()
+	{
+		n++;
+		oOl.style.left=-n*59+'px'
+		if(n==aLiOl.length-4)
+		{
+			n=-1;
+		}
+	}
+	aBtn[1].onclick=function()
+	{
+		if(n==0)
+		{
+			n=aLiOl.length-3;
+		}
+		n--;
+		oOl.style.left=-n*59+'px'
+		
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="box">
+	<div class="box_ul">
+    		<ul>
+            		<li><img src="11.png"></li>
+                    <li><img src="22.png"></li>
+                    <li><img src="33.png"></li>
+                    <li><img src="44.png"></li>
+                    <li><img src="55.png"></li>
+                    <li><img src="66.png"></li>
+                    <li><img src="77.png"></li>
+                    <li><img src="88.png"></li>
+                    <li><img src="99.png"></li>
+            </ul>
+    </div>
+    <div class="box_bottom">
+    		<a href="#" class="prev"></a>
+            <a href="#" class="next"></a>
+            <ol>
+            		<li><img src="1.png"></li>
+                    <li><img src="2.png"></li>
+                    <li><img src="3.png"></li>
+                    <li><img src="4.png"></li>
+                    <li><img src="5.png"></li>
+                    <li><img src="6.png"></li>
+                    <li><img src="7.png"></li>
+                    <li><img src="8.png"></li>
+            </ol> 
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,51 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+ul{width:60px;margin:100px auto;border:1px solid #000; overflow:hidden;}
+li{width:20px; float:left;height:20px; list-style:none;}
+div{ background:#}
+</style>
+<script>
+window.onload=function()
+{
+   var oUl=document.getElementById('ul1');
+   
+   var iColor=['00','33','66','99','cc','ff'];
+   var fiexdColor=['ff0000','00ff00','0000ff','ffff00','00ffff','ff00ff'];
+   
+   for(var i=0;i<12;i++)  //每一行
+   {
+		for(var k=0;k<3;k++)
+		{
+			var oLi=document.createElement('li');
+			oUl.appendChild(oLi);
+
+			if(k==1&&i<6)
+			{
+				oLi.style.background='#'+iColor[i]+iColor[i]+iColor[i];
+			}
+			else if(k==1)
+			{
+				oLi.style.background='#'+fiexdColor[i-6];
+            }
+			else
+			{
+				oLi.style.background='#000000';	
+			}
+		}
+		   
+   }
+};
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+
+</ul>
+</body>
+</html>

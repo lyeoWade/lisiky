@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red; position:absolute;top:0;left:0;}
+
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('box');
+	document.onkeydown=function(ev)
+	{
+		var oEvent=ev||event;
+		//alert(oEvent.keyCode);  //键值
+		//  上  38
+		//  下   40
+		//   左  37   右  39
+		switch(oEvent.keyCode)
+		{
+			case 38:
+			    break;
+			case 40:
+			    oDiv.style.top=oDiv.offsetTop+10+'px';
+			    break;
+			case 37:
+			    break;
+			case 39:
+			    oDiv.style.left=oDiv.offsetLeft+10+'px';
+			    break;
+			
+		}
+		
+		
+	};
+	
+};
+
+
+</script>
+</head>
+
+<body>
+<div id="box">
+  aaaa
+</div>
+</body>
+</html>

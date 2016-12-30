@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function getOuterHTML(obj)
+{
+	var oTmp=document.createElement('div');
+	
+	//1.
+	obj.parentNode.insertBefore(oTmp, obj);		//保留位置
+	
+	//2.
+	oTmp.appendChild(obj);
+	
+	var str=oTmp.innerHTML;
+	
+	//3.恢复
+	oTmp.parentNode.insertBefore(obj, oTmp);
+	
+	//4.删掉
+	oTmp.parentNode.removeChild(oTmp);
+	
+	return str;
+}
+
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	alert(getOuterHTML(oDiv));
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<h1>xxx</h1>
+    <p>asdfasdfasdf</p>
+</div>
+</body>
+</html>

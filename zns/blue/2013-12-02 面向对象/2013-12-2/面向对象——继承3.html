@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function Person(name, age)
+{
+	this.name=name;
+	this.age=age;
+}
+
+Person.prototype.showName=function ()
+{
+	alert('我的名字是：'+this.name);
+};
+Person.prototype.showAge=function ()
+{
+	alert(this.age);
+};
+
+// 继承
+function Worker(name, age, job)
+{
+	//Person.call(this, name, age);
+	Person.apply(this, arguments); // 参数可能有多个   那么不确定
+	
+	this.job=job;
+	
+}
+for(var i in Person.prototype)
+{
+	Worker.prototype[i]=Person.prototype[i];
+}
+
+// 添加新方法
+
+Worker.prototype.showJob=function ()
+{
+	alert('我的工作是：'+this.job);
+};
+
+var oW=new Worker('blue', 18, '打杂的');
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red; position:absolute;top:0;left:0; display:none}
+</style>
+<script>
+window.onload=function()
+{
+    var oBox=document.getElementById('box');
+	/*document.onmousemove=function(ev)
+	{
+		var oEvent=ev||event;
+		// 存储事件信息
+		document.title=(oEvent.clientX+' '+oEvent.clientY);	
+		oBox.style.left=oEvent.clientX+'px';
+		oBox.style.top=oEvent.clientY+'px';
+	};*/
+	document.oncontextmenu=function(ev)
+	{
+		var oEvent=ev||event;
+        oBox.style.display='block';
+		oBox.style.left=oEvent.clientX+'px';
+		oBox.style.top=oEvent.clientY+'px';
+		return false;	
+	};
+};
+
+</script>
+</head>
+
+<body>
+<input id="btn" type="button" value="打开">
+<div id="box">131123</div>
+</body>
+</html>

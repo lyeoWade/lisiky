@@ -1,0 +1,104 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oUl=document.getElementById('ul1');
+	var oTxt=document.getElementById('text');
+	var aLi=oUl.getElementsByTagName('li');
+	var Color=['00','33','66','99','cc','ff','00','33','66','99','cc','ff'];
+	var fixedColor=['ff0000','00ff00','0000ff','ffff00','00ffff','ff00ff'];
+	
+	for(var i=0; i<12; i++)
+	{
+		for(var k=0; k<3; k++)
+		{
+			var oLi=document.createElement('li');
+			oUl.appendChild(oLi);
+			//oLi.style.background='#000';
+			if(k==1 && i<6)
+			{
+				oLi.style.background='#'+Color[i]+Color[i]+Color[i];
+			}else if(k==1)
+			{
+				oLi.style.background='#'+fixedColor[i-6]
+			}else
+			{
+				oLi.style.background='#000000'
+			}
+		}
+		
+		for(var z=0; z<3; z++)
+		{
+			for(var j=0; j<6; j++)
+			{
+				var oLi=document.createElement('li');
+				oUl.appendChild(oLi);
+				
+				if(i<6)
+				{
+					var f=Color[z];
+				}else
+				{
+					var f=Color[z+3]
+				}
+				oLi.style.background='#'+f+Color[j]+Color[i];
+			}
+		}
+	}
+	for(var a=0; a<aLi.length; a++)
+	{
+		aLi[a].onmouseover=function(ev)
+		{
+			var oLayer=document.createElement('div');
+			this.appendChild(oLayer);
+			var oEvent=ev||event;
+			var disX=oEvent.clientX;
+			var disY=oEvent.clientY;
+			oLayer.innerHTML=this.style.background
+			
+			this.onmousemove=function(ev)
+			{
+				var oEvent=ev||event;
+				oLayer.style.left=oEvent.clientX-disX+20+'px';
+				oLayer.style.top=oEvent.clientY-disY-20+'px';
+			}
+			
+			this.onclick=function()
+			{
+				oTxt.innerHTML=oLayer.innerHTML;
+			}
+		}
+		aLi[a].onmouseout=function()
+		{
+			var div=this.getElementsByTagName('div')[0];
+			this.removeChild(div);
+		}
+	}
+}
+
+
+
+</script>
+<style>
+*{ margin:0; padding:0; }
+#ul1{  width:420px; height:240px; border:1px solid #ccc; border-right:none; margin:100px auto; position:relative; }
+#ul1 li{ position:relative; width:19px; height:19px; float:left; list-style:none; cursor:pointer;
+border-top:1px solid #ccc; border-right:1px solid #ccc; }
+#ul1 li div{ font-size:10px; text-align:center; line-height:20px; width:200px; height:20px; background:#fff;
+border:1px solid #ccc; z-index:100; position:absolute; }
+#text{ position:absolute; top:-32px; left:-1px; width:419px; height:30px; border:1px solid #ccc; text-align:center;
+line-height:30px; font-family:Georgia;   }
+</style>
+<title>无标题文档</title>
+</head>
+
+<body>
+<ul id="ul1">
+	<div id="text"></div>
+</ul>
+
+</body>
+</html>

@@ -1,0 +1,32 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+input{ float:left;}
+div{width:200px;height:200px; background:red;margin:5px; float:left;}
+</style>
+<script>
+function toSHow(id,a)
+{
+	var oBox=document.getElementById(id);
+	oBox[a]=function()
+	{
+		alert(123);	
+	};	
+};
+
+</script>
+</head>
+
+<body>
+<input type="button" value="点击" onclick="toSHow('box1','onclick')">
+<input type="button" value="移入" onclick="toSHow('box2','onmouseover')">
+<input type="button" value="移出" onclick="toSHow('box3','onmouseout')">
+
+<div id="box1">111</div>
+<div id="box2">222</div>
+<div id="box3">333</div>
+</body>
+</html>

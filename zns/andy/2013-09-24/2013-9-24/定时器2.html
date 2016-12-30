@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+#left_g{width:100px;height:200px; background:red; position:fixed;left:0;top:200px;}
+#sina_gg{width:500px;height:100px; background:blue; position:fixed; top:100px;left:50%;margin-left:-250px; z-index:9999; display:none;}
+</style>
+<script>
+window.onload=function()
+{
+	var oLeft=document.getElementById('left_g');
+	var oG=document.getElementById('sina_gg');
+	
+	oLeft.onmouseover=function()
+	{
+		oG.style.display='block';
+		
+		setTimeout(function(){
+			oG.style.display='none';	
+		},3000);	
+	};
+	
+	
+};
+
+</script>
+</head>
+
+<body>
+<div id="left_g"></div>
+<div id="sina_gg"></div>
+</body>
+</html>

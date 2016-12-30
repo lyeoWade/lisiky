@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function setCookie(name, value, iDay)
+{
+	var oDate=new Date();
+	oDate.setDate(oDate.getDate()+iDay);
+	
+	document.cookie=name+'='+value+';expires='+oDate;
+}
+
+//'user=blue; pass=123456; sex=1'
+function getCookie(name)
+{
+	var arr=document.cookie.split('; ');
+	//arr=['user=blue', 'pass=123456', 'sex=1']
+	
+	for(var i=0;i<arr.length;i++)
+	{
+		var arr2=arr[i].split('=');
+		
+		//arr2[0]	->	名字
+		//arr2[1]	->	值
+		
+		if(name==arr2[0])
+		{
+			return arr2[1];
+		}
+	}
+	
+	return '';
+}
+
+setCookie('user', 'blue', 30);
+setCookie('pass', '123456', 3);
+setCookie('sex', '1', 30000);
+
+alert(getCookie('qq'));
+
+//alert(document.cookie);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; border:1px solid #000}
+
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');
+	oBtn.onclick=function()
+	{
+		 var n=0;
+		 var timer=setInterval(function(){
+			 // 1.  red
+			 // 2.   blue
+			 
+			 if(n%2==0)
+			 {
+				oBox.style.background='red';	 
+			 }  
+			 else
+			 {
+				oBox.style.background='blue'; 
+			 };
+			 n++;
+			 if(n==10)
+			 {
+				clearInterval(timer);	 
+			 }
+				 
+		 },80);
+			
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="aa" id="btn" >
+<div id="box"></div>
+</body>
+</html>
+
+
+
+
+
+
+
+

@@ -1,0 +1,35 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red}
+</style>
+<script>
+window.onload=function()
+{
+  var oBox=document.getElementById('box');
+  
+  oBox.onclick=function()
+  {
+	  var width=400;
+	  var a=34;
+	  with(oBox.style) //干扰作业域  opacity
+	  {
+		    alert(a);
+			width=width+'px';
+			height='400px';
+			background='blue';  
+	  } 
+  };
+  
+ 
+};
+</script>
+</head>
+
+<body>
+<div id="box"></div>
+</body>
+</html>

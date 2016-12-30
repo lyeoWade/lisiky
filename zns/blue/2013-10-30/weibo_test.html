@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能课堂 —— 微博ajax接口测试 - www.zhinengshe.com</title>
+<link href="style/weibo.css" rel="stylesheet" type="text/css" />
+<script src="ajax.js"></script>
+<script>
+window.onload=function ()
+{
+	var oBtn=document.getElementById('btn_sub');
+	var oTxt=document.getElementById('tijiaoText');
+	var oDiv=document.getElementById('div1');
+	
+	oBtn.onclick=function ()
+	{
+		//weibo.php?act=add&content=xxx&t=xxx
+		var url='weibo.php?act=add&content='+oTxt.value+'&t='+Math.random();
+		
+		ajax(url, function (str){
+			var json=eval('('+str+')');
+			
+			if(json.error)
+			{
+				alert('留言出错');
+			}
+			else
+			{
+				var oNewDiv=document.createElement('div');
+				
+				var oDate=new Date();
+				
+				oDate.setTime(json.time*1000);
+				
+				var sDate=oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+' '+oDate.getHours()+':'+oDate.getMinutes();
+				
+				oNewDiv.className='reply';
+				
+				oNewDiv.innerHTML=	//隐患——将来
+					'<p class="replyContent">'+oTxt.value+'</p>'+
+					'<p class="operation">'+
+						'<span class="replyTime">'+sDate+'</span>'+
+						'<span class="handle">'+
+							'<a href="javascript:;" class="top">0</a>'+
+							'<a href="javascript:;" class="down_icon">0</a>'+
+							'<a href="javascript:;" class="cut">删除</a>'+
+						'</span>'+
+					'</p>';
+				
+				if(oDiv.children.length>0)
+				{
+					oDiv.insertBefore(oNewDiv, oDiv.children[0]);
+				}
+				else
+				{
+					oDiv.appendChild(oNewDiv);
+				}
+				//oDiv.appendChild(oNewDiv);
+			}
+		}, function (){
+			alert('提交失败');
+		});
+	};
+};
+</script>
+</head>
+
+<body>
+<div class="znsArea">
+<!--留言-->
+     <div class="takeComment">
+        <textarea name="textarea" class="takeTextField" id="tijiaoText"></textarea>
+        <div class="takeSbmComment">
+            <input type="button" id="btn_sub" class="inputs" value="" />
+            <span>(可按 Enter 回复)</span>
+        </div>
+    </div>
+<!--已留-->
+    <div class="commentOn">
+        <!--<div class="noContent">暂无留言</div>-->
+        <div class="messList" id="div1">
+        	<!--<div class="reply">
+                <p class="replyContent">卫士，新款卫士将推出总共14种车身式样。其中， XS旅行款车型售价为32295英镑(约33.6万元)。</p>
+                <p class="operation">
+                    <span class="replyTime">2011-09-08 16:37:60</span>
+                    <span class="handle">
+                    	<a href="javascript:;" class="top">0</a>
+                        <a href="javascript:;" class="down_icon">0</a>
+                        <a href="javascript:;" class="cut">删除</a>
+                    </span>
+                </p>
+            </div>-->
+        </div>
+        <div class="page">
+        	<a href="javascript:;" class="active">1</a>
+        	<a href="javascript:;">2</a>
+        	<a href="javascript:;">3</a>
+        </div>
+    </div>
+</div>
+</body>
+</html>

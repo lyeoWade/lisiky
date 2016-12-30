@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function replaceData(str, json)
+{
+	return str.replace(/\{\$[\-\w]+\}/g, function (s){
+		//alert(s);
+		s=s.substring(2, s.length-1);
+		
+		return json[s];
+		//return '12312312';
+	});
+}
+
+alert(replaceData('我的名字：{$name}，我今年{$age}岁', {name: 'blue', age: 18}));
+
+//replaceData('我的名字：{$name}，我今年{$age}岁', {name: 'blue', age: 18});
+//->'我的名字：blue，我今年18岁'
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>用户注册ajax接口测试 - 智能社 - www.zhinengshe.com</title>
+<link type="text/css" rel="stylesheet" href="style/common.css">
+<script src="ajax.js"></script>
+<script>
+window.onload=function ()
+{
+	var oTxt1=document.getElementById('add_user');
+	var oTxt2=document.getElementById('add_pass');
+	var oBtn=document.getElementById('add_btn');
+	
+	oBtn.onclick=function ()
+	{
+		var url='user.php?act=add&user='+oTxt1.value+'&pass='+oTxt2.value;
+		
+		ajax(url, function (str){
+			var json=eval('('+str+')');
+			
+			if(json.error)
+			{
+				alert('注册失败，'+json.desc);
+			}
+			else
+			{
+				alert('注册成功，请登录');
+			}
+		});
+	};
+};
+</script>
+</head>
+
+<body>
+<!--登陆-->
+<div class="loginBox">
+	<ul class="loginList clearfix">
+    	<li class="hTxt">用户注册</li>
+        <li class="inputBox">
+        	<input type="text" class="inputs" id="add_user">
+        </li>
+        <li class="inputBox">
+        	<input type="password" class="inputs" id="add_pass">
+        </li>
+        <li class="btns">
+            <input id="add_btn" type="button" class="reg" value="" />
+        </li>
+        <li class="look"><a href="user_view.php" target="_blank">查看已注册用户</a></li>
+    </ul>
+</div>
+<!--注册-->
+<div class="loginBox">
+	<ul class="loginList clearfix">
+    	<li class="hTxt">用户登陆</li>
+        <li class="inputBox">
+        	<input type="text" class="inputs" id="login_user">
+        </li>
+        <li class="inputBox">
+        	<input type="password" class="inputs" id="login_pass">
+        </li>
+        <li class="btns">
+            <input id="login_btn" type="button" class="login" value="" />
+        </li>
+    </ul>
+</div>
+</body>
+</html>

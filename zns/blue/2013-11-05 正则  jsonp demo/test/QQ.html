@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oTxt=document.getElementById('txt');
+	var oBnt=document.getElementById('btn');
+	oBnt.onclick=function()
+	{
+		//alert(oTxt.value);
+		/**/
+		var re=/^[1-9]\d{4,11}$/          //{6,7} 没效果(0[1-9]\d{1,2}\-)?
+		if(re.test(oTxt.value))
+		{
+			alert('Ok')
+		}else
+		{
+			alert('错了')
+		}
+	}
+}
+</script>
+</head>
+
+<body>
+
+<input type="text" id="txt">
+<input type="button" value="验证" id="btn">
+</body>
+</html>

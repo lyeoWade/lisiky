@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+
+*{ margin:0; padding:0; }
+#box{ width:888px; overflow:hidden; margin:0 auto;  }
+#box ul{ width:202px; margin:0 10px;  float:left; }
+#box ul li{ width:200px; margin:10px 0; border:1px solid #0C9;  list-style:none; }
+</style>
+
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oUl=oBox.getElementsByTagName('ul');
+	
+/*	for(var i=0; i<oUl.length; i++)
+	{
+		oUl.style.height=
+	}*/
+	
+/*	function ind(index)
+	{
+		var imd=99999999999999;
+		var index;
+		for(var i=0; i<oUl.length; i++)
+		{
+			if(oUl[i].offsetHeight<imd)
+			{
+				imd=oUl[i].offsetHeight;
+				index=i;
+			}
+		}
+		return index;
+	}*/
+	function PBL()
+	{
+		for(var i=0; i<20; i++)
+		{
+			(function(){
+				
+				var Ul;
+				var aLi=creatLi();
+				var imd=99999999999999;
+				var index;
+				for(var i=0; i<oUl.length; i++)
+				{
+					if(oUl[i].offsetHeight<imd)
+					{
+						imd=oUl[i].offsetHeight;
+						index=i;
+					}
+				}
+				Ul=oUl[index];
+				Ul.appendChild(aLi);
+				})()
+		}
+	}
+	PBL()
+	window.onscroll=function()
+	{
+		var _sroll=document.documentElement.scrollTop||document.body.scrollTop;
+		var winHeight=document.documentElement.clientHeight;
+		var bHei=document.body.clientHeight;//clientHeight  当父级没有加hidden时 有问题  
+		if(_sroll+winHeight>=bHei)
+		{
+			PBL();
+		}
+	}
+}
+function creatLi()
+{
+	var aLi=document.createElement('li');
+	aLi.style.height=toRand(200,400)+'px';
+	aLi.style.background='rgb('+toRand(0,225)+','+toRand(0,225)+','+toRand(0,225)+')';
+	return aLi;
+}
+function toRand(n,m){ return parseInt(Math.random()*(m-n+1)+n) }
+</script>
+
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box">
+		<ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+</div>
+</body>
+</html>

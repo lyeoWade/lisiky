@@ -1,0 +1,41 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementsByTagName('div')[0];
+	var aBtn=oBox.getElementsByTagName('input');
+	
+	var oBtn=document.getElementById('btn');
+	
+	
+	for(var i=0;i<aBtn.length;i++)
+	{
+		aBtn[i].onclick=function()
+		{
+			alert(123);	
+		};	
+	}
+	
+};
+</script>
+</head>
+
+<body>
+
+<input type="checkbox" id="btn" />全选
+
+<div>
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+    <input type="checkbox" />
+
+</div>
+</body>
+</html>

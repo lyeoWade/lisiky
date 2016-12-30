@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:200px; height:200px; background:#CCC; position:absolute; left:0; top:50px;}
+</style>
+<script>
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	var speed=30;
+	
+	setInterval(function (){
+		speed--;	//减速
+		
+		oDiv.style.left=oDiv.offsetLeft+speed+'px';
+	}, 30);
+};
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

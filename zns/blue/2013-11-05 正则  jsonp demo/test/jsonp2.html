@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin:0; padding:0;}
+input{outline:none; border:none;}
+html{overflow-y:scroll;}
+#div1 {width:430px; margin:50px auto;}
+#txt1 {width:418px; height:14px; font-size:14px; padding:9px 5px; border:#999 solid 1px; box-shadow:inset 0 0 6px #CCC;}
+#ul1 {width:428px; border:1px solid #817F82; display:none; margin-top:-1px;}
+#ul1 li {font-size:14px; padding:6px 8px; list-style:none;}
+#ul1 li:active{background-color: rgb(238, 238, 238);}
+.act{ background:#CCC; cursor:pointer; }
+</style>
+<title>智能课堂 —— 百度JSONp接口测试</title>
+<script>
+window.onload=function()
+{
+	var oTxt1=document.getElementById('txt1');
+	var oUl=document.getElementById('ul1');
+	oTxt1.onkeyup=function()
+	{
+
+			//jsonp(url,date,fns);
+			jsonp('http://suggestion.baidu.com/su',{
+				
+				wd: oTxt1.value
+				},function(json){
+					
+					oUl.style.display='block';
+					oUl.innerHTML='';
+					for(var i=0; i<json.s.length; i++)
+					{
+						var oLi=document.createElement('li');
+						oLi.innerHTML=json.s[i];
+						oUl.appendChild(oLi);
+					}
+					
+					});
+	}
+	
+}
+
+
+function jsonp(url,date,fns) // 
+{
+	
+	var fnName='json_'+Math.random();
+	
+	
+	fnName=fnName.replace('.','');
+	date.cb=fnName;
+	window[fnName]=function(json)// 这个得到的json是服务器返回来的
+	{
+		fns&&fns(json); 
+		oHead.removeChild(oS);
+	}
+	
+	var str=url+'?'+jsonurl(date);
+	
+	var oS=document.createElement('script');
+	oS.src=str;
+	var oHead=document.getElementsByTagName('head')[0];
+	oHead.appendChild(oS);
+	
+}
+function jsonurl(json)
+{
+	var arr=[];
+	for(var i in json)
+	{
+		arr.push(i+'='+json[i]);
+	}
+	return arr.join('&');
+}
+
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<input id="txt1" type="text" />
+    <ul id="ul1"></ul>
+</div>
+</body>
+</html>

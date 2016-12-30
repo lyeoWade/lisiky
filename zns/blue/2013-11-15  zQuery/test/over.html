@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+#div1{ width:200px; height:240px; background:#ccc; margin:100px auto; }
+#div1 h2{ height:40px; background:#993; }
+</style>
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oH2=oDiv.children[0];
+	oDiv.onmouseover=function(ev)
+	{
+		var oEvent=ev||event;
+		var from=oEvent.fromElement||oEvent.relatedTarget;
+		if(isChild(oDiv,from)) return false;
+		
+		alert(123);
+	}
+}
+
+function isChild(parent,obj)
+{
+	while(obj)
+	{
+		if(obj==parent)return true;
+		obj=obj.parentNode;
+	}
+	return false;
+}
+
+/*function isChild(oParent, obj) // 找子集
+{
+	while(obj) 
+	{
+		if(oParent==obj)return true; //如果obj等于oParent自己了  那么就不找了
+		obj=obj.parentNode; // 找一级  就让obj等于父级继续往下面找
+	}
+	
+	return false;
+}*/
+
+</script>
+</head>
+
+<body>
+<div id="div1">
+<h2>sadsfsf</h2>
+</div>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0; }
+#div1{ width:100px; background:#333; height:100px; position:absolute; top:100px; left:100px;  }
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	
+	
+	oDiv.onclick=function()
+	{
+		stratMove(oDiv,'left',500);  //  {}
+	}
+}
+
+function getStyle(obj,name){ return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj,false)[name]}
+
+function stratMove(obj,name,iTarget,options)//options  是一个json
+{
+	
+	options=options||{};
+	options.time=options.time||700;
+	options.type=options.type||'buffer'
+			//如果没有传options这个参数  那么就执行 {options.time:700,options.type:'buffer'  }  
+	var count=parseInt(options.time/30);
+	
+	var first=parseInt(getStyle(obj,name));
+	
+	var dis=iTarget-first;
+	
+	var n=0;
+	
+	clearInterval(obj.timer);
+	obj.timer=setInterval(function(){
+		
+		n++;
+		
+		switch(options.type)
+		{
+			case 'linear':
+				obj.style[name]=first+n*dis/count+'px';
+				break;
+			case 'buffer':
+				
+				var a=(1-n/count);
+				
+				obj.style[name]=first+ dis*(1-a*a*a) +'px';
+				break;
+				
+			default:
+		}
+		if(n==count)
+		{
+			clearInterval(obj.timer)
+		}
+		},30);
+	
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="div1"></div>
+<span style="position:absolute; left:500px; top:0; height:400px; width:1px; background:#F66;"></span>
+</body>
+</html>

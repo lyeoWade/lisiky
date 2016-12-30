@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+div {float:left; margin:10px; width:200px; height:200px; background:#CCC;}
+</style>
+<script src="jquery-1.7.2.js"></script>
+<script>
+//1.简单
+/*$.fn.toRed=function ()
+{
+	alert('abc');
+};*/
+
+//2.批量
+$.fn.extend({
+	toRed:	function ()
+	{
+		//JQuery里所有this，都是原生对象；除了插件
+		//插件里，this——当前的JQ对象
+		this.css('background', 'red');
+	}
+});
+
+$(function (){
+	$('div').toRed();
+});
+</script>
+</head>
+
+<body>
+<div></div>
+<div></div>
+<div></div>
+<div></div>
+</body>
+</html>

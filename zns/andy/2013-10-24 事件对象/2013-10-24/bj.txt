@@ -1,0 +1,31 @@
+事件EVENT对象  存储事件相关的信息
+
+html:
+div1-span
+div2-img
+
+
+
+最大的left=oDiv1.offsetWidth-oSan.offsetWidth;   大
+最大的left=oDiv2.offsetWidth-oImg.offsetWidth;   小
+
+当前的left/oDiv1.offsetWidth-oSan.offsetWidth*oDiv2.offsetWidth-oImg.offsetWidth = 大l;
+
+
+
+
+当前的left/oDiv1.offsetWidth-oSan.offsetWidth*oDiv2.offsetWidth-oImg.offsetWidth
+
+-----------
+
+oEvent.ctrlKey   ctrl键
+       altKey
+       shiftKey
+
+
+oncontextmenu  右键
+
+
+///
+作业：
+加强版的放大镜  多个

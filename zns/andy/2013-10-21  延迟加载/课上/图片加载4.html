@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; }
+</style>
+<script>
+window.onload=window.onscroll=function()
+{
+	var oImg=document.getElementsByTagName('img');
+	var _scroll=document.documentElement.scrollTop||document.body.scrollTop;
+	var winHeight=document.documentElement.clientHeight;
+	//var winHeight=document.documentElement.clientHeight;
+	for(var i=0; i<oImg.length; i++)
+	{
+		if(!oImg[i]._load)
+		{
+			if( getPos(oImg[i]).top <(_scroll+winHeight))
+			{
+				(function(ind){
+					
+					var aImg=new Image();
+					aImg.onload=function()
+					{
+						oImg[ind].src=this.src;
+						oImg[ind]._load=true;
+					}
+					aImg.src=oImg[ind].getAttribute('_src');
+					
+					})(i)
+							
+			}
+		}
+	}
+}
+
+function getPos(obj)
+{
+	var l=0;
+	var t=0;
+	while(obj)
+	{
+		l+=obj.offsetLeft;
+		t+=obj.offsetTop;
+		obj=obj.offsetParent;  // 
+	}
+	return { left:l,top:t };
+}
+
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<img width="1366" height="2000" src="2cfe3d09db8779f43ac763d1.jpg" _src="6b184157367cdd64d10906c9.jpg">
+<img width="1366" height="2000" src="2cfe3d09db8779f43ac763d1.jpg" _src="4c070af6e35eb480.jpg">
+<img width="1366" height="2000" src="2cfe3d09db8779f43ac763d1.jpg" _src="1dae76d9cb0b6d9c8c102976.jpg">
+<img width="1366" height="2000" src="2cfe3d09db8779f43ac763d1.jpg" _src="2cfe3d09db8779f43ac763d1.jpg">
+</body>
+</html>

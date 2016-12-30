@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0; }
+#div1{ width:200px; height:200px; background:#096; position:relative; left:400px; top:200px; }
+#div1 p{ width:200px; height:200px; background:#036; position:absolute; }
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oP=oDiv.getElementsByTagName('p')[0];
+	document.onmousemove=function(ev)
+	{
+		var oEvent=ev||event;
+		// 
+		if(oEvent.clientX>oDiv.offsetLeft && oEvent.clientX<oDiv.offsetLeft+oDiv.offsetWidth && oEvent.clientY>oDiv.offsetTop+oDiv.offsetHeight)
+		{
+					
+//			oDiv.style.left=getPos(oInput).left+'px';
+//			oDiv.style.top=getPos(oInput).top+oInput.offsetHeight+'px';
+			oP.style.left=0+'px';
+			oP.style.top=oDiv.offsetHeight+'px'
+		}else if(oEvent.clientX<oDiv.offsetLeft && oEvent.clientY<oDiv.offsetTop+oDiv.offsetHeight && oEvent.clientY>oDiv.offsetTop)
+		{
+			oP.style.left=-oDiv.offsetWidth+'px';
+			oP.style.top=0+'px'
+		}else if(oEvent.clientX>oDiv.offsetLeft && oEvent.clientX<oDiv.offsetLeft+oDiv.offsetWidth && oEvent.clientY<oDiv.offsetTop)
+		{
+			oP.style.left=-0+'px';
+			oP.style.top=-oDiv.offsetHeight+'px'			
+		}else if(oEvent.clientX>oDiv.offsetLeft+oDiv.offsetWidth && oEvent.clientY<oDiv.offsetTop+oDiv.offsetHeight && oEvent.clientY>oDiv.offsetTop)
+		{
+			oP.style.left=oDiv.offsetWidth+'px';
+			oP.style.top=0+'px'
+		}
+	}
+}
+
+function getPos(obj)
+{
+	var l=0;
+	var t=0;
+	while(obj)
+	{
+		l+=obj.offsetLeft;
+		t+=obj.offsetTop;
+		obj=obj.offsetParent;
+	}
+	return { left:l,top:t }
+}
+
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<div id="div1">
+	<p>pppppppppppppppp</p>
+</div>
+
+</body>
+</html>

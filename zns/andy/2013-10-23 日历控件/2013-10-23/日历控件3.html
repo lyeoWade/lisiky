@@ -1,0 +1,57 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+
+</style>
+<script>
+window.onload=function()
+{
+	var oTex=document.getElementById('tex');
+	oTex.onclick=function()
+	{
+		var oBox=document.createElement('div');
+		oBox.className='dateDiv';	
+		var s='<ul class="name"><li><span id="s">2013年10月</span><a href="javascript:;" id="pre" class="a1">上月</a><a href="javascript:;" id="next" class="a2">下月</a></li></ul><ul class="week"><li>一</li>';	
+    	s+='<li>二</li>';
+    	s+='<li>三</li>';
+    	s+='<li>四</li>';
+    	s+='<li>五</li>';
+    	s+='<li>六</li>';
+    	s+='<li>七</li></ul><ul class="dateUl"></ul>';
+		//alert(s);
+		oBox.innerHTML=s;
+		document.body.appendChild(oBox);
+		//getPos(obj)
+		oBox.style.top=getPos(oTex).top+oTex.offsetHeight+'px';
+		oBox.style.left=getPos(oTex).left+'px';
+	};
+	
+	function getPos(obj)
+	{
+		var l=0;
+		var t=0;
+		if(obj)
+		{
+			l+=obj.offsetLeft;
+			t+=obj.offsetTop;
+			obj=obj.offsetParent;	
+		}
+		return {left:l,top:t};
+	};
+	
+	var oLink=document.createElement('link');
+	oLink.href='date.css';
+	oLink.rel='stylesheet';
+	oLink.type='text/css';
+	document.getElementsByTagName('head')[0].appendChild(oLink);
+}
+</script>
+</head>
+
+<body>
+<input type="text" id="tex">
+</body>
+</html>

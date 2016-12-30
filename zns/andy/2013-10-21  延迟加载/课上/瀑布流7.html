@@ -1,0 +1,72 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+
+*{ margin:0; padding:0; }
+#box{ width:888px; overflow:hidden; margin:0 auto;  }
+#box ul{ width:202px; margin:0 10px;  float:left; }
+#box ul li{ width:200px; margin:10px 0; border:1px solid #0C9;  list-style:none; }
+</style>
+
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oUl=oBox.getElementsByTagName('ul');
+	
+	var arr=[];
+	for(var i=0; i<oUl.length; i++)
+	{
+		arr.push(oUl[i]);
+	}
+	//alert(arr.length)
+	function PBL()
+	{
+			for(var i=0; i<20; i++)
+			{
+				var Ul;
+				var aLi=creatLi();
+				arr.sort(function(n1,n2){
+					return n1.offsetHeight-n2.offsetHeight;
+					});
+				Ul=arr[0];
+				Ul.appendChild(aLi);
+			}
+	}
+	PBL()
+	window.onscroll=function()
+	{
+		var _sroll=document.documentElement.scrollTop||document.body.scrollTop;
+		var winHeight=document.documentElement.clientHeight;
+		var bHei=document.body.scrollHeight//clientHeight;
+		if(_sroll+winHeight>=bHei)
+		{
+			PBL();
+		}
+	}
+}
+
+function creatLi()
+{
+	var aLi=document.createElement('li');
+	aLi.style.height=toRand(200,400)+'px';
+	aLi.style.background='rgb('+toRand(0,225)+','+toRand(0,225)+','+toRand(0,225)+')';
+	return aLi;
+}
+function toRand(n,m){ return parseInt(Math.random()*(m-n+1)+n) }
+</script>
+
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="box">
+		<ul></ul>
+        <ul></ul>
+        <ul></ul>
+        <ul></ul>
+</div>
+</body>
+</html>

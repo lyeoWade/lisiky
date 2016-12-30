@@ -1,0 +1,72 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+div{width:200px;height:200px; background:red; position:absolute;top:0;left:0}
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementsByTagName('div')[0];
+	var arr=[];
+	oDiv.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var disX=oEvent.clientX-oDiv.offsetLeft;
+		var disY=oEvent.clientY-oDiv.offsetTop;
+		
+		
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			oDiv.style.top=oEvent.clientY-disY+'px';
+			oDiv.style.left=oEvent.clientX-disX+'px';
+			
+			arr.push({l:oEvent.clientX-disX,t:oEvent.clientY-disY});	
+				
+		};
+		
+		document.onmouseup=function()
+		{
+			document.onmousemove=document.onmouseup=null;
+			if(oDiv.releaseCapture)
+			{
+				oDiv.releaseCapture();//取消获捕
+			};
+		};
+		
+		if(oDiv.setCapture)
+		{
+			oDiv.setCapture();
+		}
+		
+		
+		return false;
+			
+	};
+	
+	document.getElementById('btn').onclick=function()
+	{
+		setInterval(function(){
+			
+			var json=arr[arr.length-1];
+			arr.pop();
+			
+			oDiv.style.top=json.t+'px';
+			oDiv.style.left=json.l+'px';
+			
+		},30);	
+	};
+		
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="回放" id="btn">
+<div></div>
+</body>
+</html>

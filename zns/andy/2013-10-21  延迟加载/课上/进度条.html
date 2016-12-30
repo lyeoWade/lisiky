@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{ margin:0; padding:0; }
+#box{ position:relative; width:500px; height:20px; border:1px solid #ccc; margin:100px auto; }
+#box p{width:500px;  text-align:center; font-family:Georgia;  position:absolute; top:-20px;  }
+#box span{ padding:0; width:0; background:#0C6; height:20px; display:block;  }
+</style>
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oP=oBox.getElementsByTagName('p')[0];
+	var oSpan=oBox.getElementsByTagName('span')[0];
+	var timer=null;
+	timer=setInterval(function(){
+		
+		oSpan.style.width=oSpan.offsetWidth+5+'px';
+		oP.innerHTML='已经加载'+oSpan.offsetWidth/5+'%';
+		if(oSpan.offsetWidth>=500)
+		{
+			clearInterval(timer)
+			oP.innerHTML='加载完成';
+		}
+		},50)
+	
+}
+</script>
+</head>
+
+<body>
+<div id="box">
+		<p>已经加载0%</p>
+		<span></span>
+</div>
+
+
+
+</body>
+</html>

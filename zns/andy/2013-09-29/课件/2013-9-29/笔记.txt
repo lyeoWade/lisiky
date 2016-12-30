@@ -1,0 +1,229 @@
+学到现在：onload是不是只能写一个
+
+调试：
+alert();
+console.log()
+document.title=xxx;
+
+
+typeof 
+
+a='sdf';
+a=3432;
+a=function(){};
+a=true;
+a=ByID
+a=[];
+a;
+
+
+强制转换：
+parseInt    不能转带小数
+psrseFloat  可以转带小数点
+Number      只能转纯数字的字符串
+
+
+隐性转换：
+var a='12';
+
+
+==    
+===   比较类型也要比较值
+
+
+全局变量：  
+局部变量：  
+闭包：     子函数可以用父函数的变量
+
+
+a=3243;  单位：秒
+我想知道这是多少分钟多少秒
+
+
+var b=true;
+
+b=false;
+b=!b;
+
+
+!isNaN
+
+-----------------
+
+eval:  执行字符串里的JS
+很方便，很强大
+
+
+注入攻击
+避免这个问题
+
+eavl  一般不让用
+      核心人员用
+      核心人员封好了给用
+
+onchange  当改变的时候
+select
+input   //失焦才触发
+textarea
+
+
+------------------------
+
+if(a=='man')
+{
+	alert('男人');	
+}
+else
+{
+	alert('女人');
+};
+
+// 三目 简写if
+
+条件?条件成立执行:条件不成立执行;
+
+if(条件)
+{
+   语句
+}
+
+条件&&语句;
+
+－－－－－－－－
+
+Math 用于处理一些数学的需求
+Math.random()  随机数   0－1之间的随机  1不会有
+
+Math.random()             0－1
+Math.random()*100         0－100 
+Math.random()*50          0－50
+Math.random()*70+10       10－80
+Math.random()*60+30       30－90
+Math.random()*(大－小)+小
+   
+
+css写颜色
+red
+#f00
+rgb(255,0,0);
+
+
+
+真   true    非零数字   非空对象   非空字符串
+假   false   零         空对象     空字符串    null   undefined
+
+
+
+
+oBox.currentStyle.width              IE可以用
+getComputedStyle(oBox,false).width   非IE678
+
+兼容之后  
+1 只要有样式就能获取   默认样式fontSize   
+2 继承的样式也能获取
+3 取组合样式不兼容  但可以分开取
+4 带后面的单位px  
+
+
+css:  z-index   margin-top
+js   遇到横杠就把横杠去掉，后面一个字母大写   zIndex  marginTop
+
+
+  
+
+------------------------
+
+
+返回值  return
+将某些值返回到调用函数的地方
+
+可以返回任何类型的东西
+
+如果没有写return  返回undefined
+
+
+return以后函数停止
+
+
+调用函数重要
+----------------------
+
+this:  定时器里不能直接用this
+
+
+------------
+作业
+雷电：先想思路。如果OK试着做一下
+
+
+
+京东彩票：
+1  6个红球  蓝球不用做
+2  1－32
+3  不重复
+4  点按钮会动还会停
+
+
+
+京东菜单
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

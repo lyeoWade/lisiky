@@ -1,0 +1,47 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	
+	var oTab=document.getElementById('tab');
+	//alert(oTab.getElementsByTagName('tbody')[0].getElementsByTagName('tr')[1].getElementsByTagName('td')[2].innerHTML);
+	
+	alert(oTab.tBodies[0].rows[1].cells[2].innerHTML);
+	//  tHead   tFoot   不是一组
+};
+</script>
+</head>
+
+<body>
+<table border="1" id="tab">
+	<thead>
+    	<tr>
+        	<td>标题</td>
+        	<td>性别</td>
+        	<td>姓名</td>
+        </tr>
+    </thead>
+    <tbody>
+    	<tr>
+        	<td>标题1</td>
+        	<td>男</td>
+        	<td>石磊</td>
+        </tr>
+        <tr>
+        	<td>标题2</td>
+        	<td>男</td>
+        	<td>张三</td>
+        </tr>
+        <tr>
+        	<td>标题3</td>
+        	<td>男</td>
+        	<td>李四</td>
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>

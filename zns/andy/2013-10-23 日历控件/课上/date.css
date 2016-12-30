@@ -1,0 +1,13 @@
+*{margin:0;padding:0}
+.dateDiv{width:210px;overflow:hidden;border:1px solid #000; position:absolute;}
+.dateDiv .name{height:20px; line-height:20px; }
+.dateDiv .name li{ position:relative; height:20px;width:100%; text-align:center; color:#f60;list-style:none;}
+.dateDiv .name li .a1{ position:absolute;top:0;left:0;}
+.dateDiv .name li .a2{ position:absolute;top:0;right:0;}
+.dateDiv .week{height:30px; line-height:20px;border-bottom:1px solid #000;}
+.dateDiv .week li{ float:left;width:30px;height:30px; text-align:center; list-style:none;}
+.dateDiv .dateUl{ overflow:hidden; clear:both}
+.dateDiv .dateUl li{ cursor:pointer; float:left;width:30px;height:30px; text-align:center; line-height:30px;list-style:none;}
+.dateDiv .dateUl li.ccc{ color:#ccc;}
+.dateDiv .dateUl li.red{ background:#F90; color:#fff;}
+.dateDiv .dateUl li.sun{ color:#f00;}

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script src="baidu_m.js"></script>
+<script src="baidu_v.js"></script>
+<script>
+window.onload=function ()
+{
+	(function (){
+		var oTxt=document.getElementById('txt1');
+		
+		//C——协调、控制（主程序）
+		oTxt.onkeyup=function ()
+		{
+			//用到M
+			readFromBaidu(this.value, function (json){
+				//交给V
+				createList(json.s);
+			});
+		};
+	})();
+	
+	//-----------------------
+	
+	(function (){
+		var oTxt=document.getElementById('txt2');
+		var oBtn=document.getElementById('btn2');
+		
+		oBtn.onclick=function ()
+		{
+			readFromBaidu(oTxt.value, function (json){
+				createRelated(json.s);
+			});
+		};
+	})();
+};
+</script>
+<style>
+#div2 a {padding:5px; margin:0 10px;}
+</style>
+</head>
+
+<body>
+<input type="text" id="txt1" />
+<ul id="ul1">
+</ul>
+<hr>
+<input type="text" id="txt2" />
+<input type="button" value="获取" id="btn2" />
+<div id="div2"></div>
+</body>
+</html>

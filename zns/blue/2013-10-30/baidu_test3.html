@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+*{margin:0; padding:0;}
+input{outline:none; border:none;}
+html{overflow-y:scroll;}
+#div1 {width:430px; margin:50px auto;}
+#txt1 {width:418px; height:14px; font-size:14px; padding:9px 5px; border:#999 solid 1px; box-shadow:inset 0 0 6px #CCC;}
+#ul1 {width:428px; border:1px solid #817F82; display:none; margin-top:-1px;}
+#ul1 li {font-size:14px; padding:6px 8px; list-style:none;}
+#ul1 li:active{background-color: rgb(238, 238, 238);}
+</style>
+<title>智能课堂 —— 百度JSONp接口测试</title>
+<script>
+function show(json)
+{
+	var oUl=document.getElementById('ul1');
+	
+	oUl.innerHTML='';
+	
+	if(json.s.length==0)
+	{
+		oUl.style.display='none';
+	}
+	else
+	{
+		oUl.style.display='block';
+	}
+	
+	for(var i=0;i<json.s.length;i++)
+	{
+		var oLi=document.createElement('li');
+		
+		oLi.innerHTML=json.s[i];
+		
+		oUl.appendChild(oLi);
+	}
+}
+
+window.onload=function ()
+{
+	var oTxt=document.getElementById('txt1');
+	
+	oTxt.onkeyup=function ()
+	{
+		//每次都是新的
+		var oS=document.createElement('script');
+		
+		oS.src='http://suggestion.baidu.com/su?wd='+this.value+'&cb=show';
+		
+		var oHead=document.getElementsByTagName('head')[0];
+		
+		oHead.appendChild(oS);
+		
+		//用过的script删掉？
+	};
+};
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<input id="txt1" type="text" />
+    <ul id="ul1"></ul>
+</div>
+</body>
+</html>

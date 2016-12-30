@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:200px; height:200px; background:#CCC;}
+</style>
+<script src="jquery-1.7.2.js"></script>
+<script>
+window.onload=function ()
+{
+	//原生对象、DOM对象——用原生方法获取的元素
+	/*var oDiv=document.getElementById('div1');
+	
+	oDiv.css('background', 'red');*/
+	
+	//JQuery对象——用JQuery获取的元素
+	//$('#div1').style.background='red';
+	
+	//$('#div1').eq(0).css('background', 'red');
+	//$('#div1').get(0).style.background='red';
+	//$('#div1')[0].style.background='red';
+	
+	var oDiv=document.getElementById('div1');
+	
+	//包装
+	$(oDiv).css('background', 'red');
+};
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

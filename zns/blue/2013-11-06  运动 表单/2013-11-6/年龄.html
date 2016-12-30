@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+window.onload=function ()
+{
+	var re=/^(1[2-9]|[2-9]\d|100)$/;
+	
+	var oTxt=document.getElementById('txt1');
+	var oBtn=document.getElementById('btn1');
+	
+	oBtn.onclick=function ()
+	{
+		if(re.test(oTxt.value))
+		{
+			alert('OK');
+		}
+		else
+		{
+			alert('不行');
+		}
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="text" id="txt1" />
+<input type="button" value="校验" id="btn1" />
+</body>
+</html>

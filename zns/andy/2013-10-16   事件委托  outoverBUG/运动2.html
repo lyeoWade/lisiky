@@ -1,0 +1,94 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+ul{height:32px;margin-left:40px;}
+li{ float:left;height:60px; position:relative;width:150px;border:1px solid #000; list-style:none}
+span{ position: absolute;top:60px;left:0;width:100%;height:60px; background:red;}
+p{ position: absolute;top:0;left:0;width:100%;height:60px;  text-align:center; line-height:30px;}
+</style>
+<script>
+window.onload=function()
+{
+	var aLi=document.getElementById('ul1').getElementsByTagName('li');
+	var n=0;
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].top=false;  // 代表没有走到顶
+		aLi[i].onmouseover=function()
+		{
+			n++;
+			document.title=n;
+			var oSpan=this.getElementsByTagName('span')[0];
+			clearInterval(this.timer);
+			var This=this;
+			this.timer=setInterval(function(){
+				oSpan.style.top=oSpan.offsetTop-4+'px';
+				if(oSpan.offsetTop<=0)
+				{
+				   clearInterval(This.timer);
+				   oSpan.style.top='0px';
+				   This.top=true;  //代表到顶
+				}
+					
+			},60);	
+		};	
+		
+		aLi[i].onmouseout=function()
+		{
+			n++;
+			document.title=n;
+			
+			var iSpeed;
+			
+			if(this.top==false)  //over的时候没有到顶
+			{
+				iSpeed=-4;
+			}
+			else
+			{
+				iSpeed=4;
+			}
+			
+			var oSpan=this.getElementsByTagName('span')[0];
+			clearInterval(this.timer);
+			var This=this;
+			this.timer=setInterval(function(){
+				oSpan.style.top=oSpan.offsetTop+iSpeed+'px';
+				if(oSpan.offsetTop>=60)
+				{
+				   clearInterval(This.timer);
+				   oSpan.style.top='60px';
+				    This.top=false;
+				};
+				
+				if(oSpan.offsetTop<=0)
+				{
+					//  -4
+				   //clearInterval(This.timer);
+				   oSpan.style.top='0px';
+				  iSpeed=-iSpeed;
+				};
+					
+			},60);	
+		};	
+	}	
+};
+
+</script>
+</head>
+
+<body>
+<ul id="ul1">
+	<li><span></span><p>1111</p></li>
+	<li><span></span><p>2222</p></li>
+	<li><span></span><p>3333</p></li>
+	<li><span></span><p>4444</p></li>
+	<li><span></span><p>5555</p></li>
+	<li><span></span><p>6666</p></li>
+</ul>
+</body>
+</html>

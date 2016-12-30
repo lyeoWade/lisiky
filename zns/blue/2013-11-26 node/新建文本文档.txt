@@ -1,0 +1,82 @@
+php  jsp  asp 语言  和 运行环境无关
+
+nodejs  即是环境又是语言
+
+
+http  -- >模块
+方法  createServer(fn)    创建一个服务器  (当有人访问的时候就调用)
+回调函数  有两个参数  request  ， response
+
+request  浏览器向服务器请求                  输入
+
+request.url  请求什么文件  
+response 服务器响应浏览器的请求         输出
+
+
+response.end();               判断服务器是否发完数据
+
+监听  .listen() ---- 等浏览器访问 
+
+
+
+ctrl + c 关闭程序 
+
+
+端口  ----  8080  
+
+服务不同 可以运行不同的服务器
+
+80端口 外部服务标准端口、通用的！
+
+
+localhost：8080
+
+------------
+
+var  fs=require('fs')  // 操作
+
+fs.readFile('文件名','编码',回调函数)  //读取文件  （ '编码' 测试的时候才加） 加了编码读不出图片
+
+
+回调函数 两个参数   (error , date)       date-------->null
+
+
+从前台接收数据  
+
+数据库连接
+
+
+
+
+nodeJs    没有DOM、bom  (document/window)
+               没有事件
+
+
+独有事件 
+request.addListener('date',function(){})  发生多次
+
+request.addListener('end',function(){})  只发生一次
+
+
+
+base 64
+
+
+
+引自己的模块  加上 ./   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

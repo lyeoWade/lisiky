@@ -1,0 +1,205 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能课堂 —— 微博ajax接口测试 - www.zhinengshe.com</title>
+<link href="style/weibo.css" rel="stylesheet" type="text/css" />
+<script src="ajax.js"></script>
+<script>
+function json2url(json)
+{
+	json.t=Math.random();
+	
+	var arr=[];
+	
+	for(var i in json)
+	{
+		arr.push(i+'='+encodeURIComponent(json[i]));
+	}
+	
+	return arr.join('&');
+}
+
+window.onload=function ()
+{
+	var oBtn=document.getElementById('btn_sub');
+	var oTxt=document.getElementById('tijiaoText');
+	var oDiv=document.getElementById('div1');
+	var oPageDiv=document.getElementById('page_div');
+	
+	var now_page=window.location.hash||'#1';
+	
+	now_page=parseInt(now_page.substring(1));
+	
+	oBtn.onclick=function ()
+	{
+		var url='weibo.php?'+json2url({
+			act:		'add',
+			content:	oTxt.value
+		});
+		
+		ajax(url, function (str){
+			var json=eval('('+str+')');
+			
+			if(json.error)
+			{
+				alert('留言出错');
+			}
+			else
+			{
+				var oNewDiv=createDiv(json.id, oTxt.value, json.time, 0, 0);
+				
+				if(oDiv.children.length>0)
+				{
+					oDiv.insertBefore(oNewDiv, oDiv.children[0]);
+				}
+				else
+				{
+					oDiv.appendChild(oNewDiv);
+				}
+				//oDiv.appendChild(oNewDiv);
+			}
+		}, function (){
+			alert('提交失败');
+		});
+	};
+	
+	function createDiv(id, content, time, acc, ref)
+	{
+		var oNewDiv=document.createElement('div');
+		
+		var oDate=new Date();
+		
+		oDate.setTime(time*1000);
+		
+		var sDate=oDate.getFullYear()+'-'+(oDate.getMonth()+1)+'-'+oDate.getDate()+' '+oDate.getHours()+':'+oDate.getMinutes();
+		
+		oNewDiv.className='reply';
+		
+		oNewDiv.innerHTML=	//隐患——将来
+			'<p class="replyContent">'+content+'</p>'+
+			'<p class="operation">'+
+				'<span class="replyTime">'+sDate+'</span>'+
+				'<span class="handle">'+
+					'<a href="javascript:;" class="top">'+acc+'</a>'+
+					'<a href="javascript:;" class="down_icon">'+ref+'</a>'+
+					'<a href="javascript:;" class="cut">删除</a>'+
+				'</span>'+
+			'</p>';
+		
+		return oNewDiv;
+	}
+	
+	function get(n)
+	{
+		//weibo.php?act=get&page=1
+		var url='weibo.php?'+json2url({
+			act:		'get',
+			page:		n
+		});
+		
+		ajax(url, function (str){
+			var arr=eval('('+str+')');
+			
+			oDiv.innerHTML='';
+			for(var i=0;i<arr.length;i++)
+			{
+				var oNewDiv=createDiv(arr[i].id, arr[i].content, arr[i].time, arr[i].acc, arr[i].ref);
+				
+				oDiv.appendChild(oNewDiv);
+			}
+		}, function (){
+			alert('获取信息失败');
+		});
+	}
+	
+	get(now_page);
+	
+	//获取页数
+	function getPageCount()
+	{
+		var url='weibo.php?'+json2url({
+			act:	'get_page_count'
+		});
+		
+		ajax(url, function (str){
+			var json=eval('('+str+')');
+			
+			//alert(json.count);
+			
+			oPageDiv.innerHTML='';
+			
+			for(var i=now_page-8;i<now_page+8;i++)
+			{
+				if(i+1<1)continue;
+				if(i+1>json.count)continue;
+				
+				var oA=document.createElement('a');
+				
+				oA.href='javascript:;';
+				
+				oA.innerHTML=i+1;
+				
+				if(i+1==now_page)
+				{
+					oA.className='active';
+				}
+				
+				oA.onclick=function ()
+				{
+					window.location.hash=this.innerHTML;//点击的时候添加锚点   刷新的时候就不会改变
+					
+					now_page=parseInt(this.innerHTML);
+					
+					getPageCount();
+					
+					get(this.innerHTML);
+				};
+				
+				oPageDiv.appendChild(oA);
+			}
+		}, function (){
+			alert('获取页码失败');
+		});
+	}
+	
+	getPageCount();
+};
+</script>
+</head>
+
+<body>
+<div class="znsArea">
+<!--留言-->
+     <div class="takeComment">
+        <textarea name="textarea" class="takeTextField" id="tijiaoText"></textarea>
+        <div class="takeSbmComment">
+            <input type="button" id="btn_sub" class="inputs" value="" />
+            <span>(可按 Enter 回复)</span>
+        </div>
+    </div>
+<!--已留-->
+    <div class="commentOn">
+    	<div class="page" id="page_div">
+        	<!--<a href="javascript:;" class="active">1</a>
+        	<a href="javascript:;">2</a>
+        	<a href="javascript:;">3</a>-->
+        </div>
+        <!--<div class="noContent">暂无留言</div>-->
+        <div class="messList" id="div1">
+        	<!--<div class="reply">
+                <p class="replyContent">卫士，新款卫士将推出总共14种车身式样。其中， XS旅行款车型售价为32295英镑(约33.6万元)。</p>
+                <p class="operation">
+                    <span class="replyTime">2011-09-08 16:37:60</span>
+                    <span class="handle">
+                    	<a href="javascript:;" class="top">0</a>
+                        <a href="javascript:;" class="down_icon">0</a>
+                        <a href="javascript:;" class="cut">删除</a>
+                    </span>
+                </p>
+            </div>-->
+        </div>
+    </div>
+</div>
+</body>
+</html>

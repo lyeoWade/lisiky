@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#div1{ width:200px; height:200px; background:red; position:absolute; left:0; top:0; }
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oBtn=document.getElementById('btn');
+	var arr=[];
+	oDiv.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var posX=oEvent.clientX-oDiv.offsetLeft;
+		var posY=oEvent.clientY-oDiv.offsetTop;
+		arr.push({l:oEvent.clientX-posX,t:oEvent.clientY-posY})
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			oDiv.style.left=oEvent.clientX-posX+'px';
+			oDiv.style.top=oEvent.clientY-posY+'px';
+			
+			arr.push({l:oEvent.clientX-posX,t:oEvent.clientY-posY})
+			//arrX.push(oEvent.clientX-posX);
+			//arrY.push(oEvent.clientY-posY);
+			//console.log(oEvent.clientX);
+			return false;
+		}
+		document.onmouseup=function()
+		{
+			document.onmousemove=null;
+			document.onmouseup=null;
+		}
+		
+		
+		return false;
+	}
+	
+	oBtn.onclick=function()
+			{
+				var timer=setInterval(function(){
+					if(arr.length==0)
+					{
+						clearInterval(timer);
+					}else
+					{
+						//arr.pop();
+						//arrY.pop();
+						//var x=parseInt(arrX);
+						//var y=parseInt(arrY);
+						//console.log(typeof x);
+						
+						var json=arr.pop();
+						
+						oDiv.style.left=json.l+'px';
+						oDiv.style.top=json.t+'px';
+					}
+					
+					},30)
+			}
+			
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+
+<input type="button" value="回放" id="btn">
+<div id="div1"></div>
+</body>
+</html>

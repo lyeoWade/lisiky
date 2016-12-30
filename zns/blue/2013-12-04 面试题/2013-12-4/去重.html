@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+var arr=[12,1,2,2,2,2,12,5,5,6,6,6,6,6,7,7,7,7,8,8,3,3,3,3,3];
+var arr2=[];
+
+for(var i=0;i<arr.length;i++)
+{
+	var found=false;
+	for(var j=0;j<arr2.length;j++)
+	{
+		if(arr2[j]==arr[i])
+		{
+			found=true;
+			break;
+		}
+	}
+	
+	if(!found)
+	{
+		arr2.push(arr[i]);
+	}
+}
+
+alert(arr2);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

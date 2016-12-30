@@ -1,0 +1,113 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+* {margin:0; padding:0; list-style:none;}
+
+.my_sel {display:inline-block; width:80px; height:26px; line-height:26px; border:1px solid black; position:relative;}
+.my_sel span {display:block; width:80px; height:26px; line-height:26px; text-align:center;}
+.my_sel ul {position:absolute; left:0; top:28px; display:none;}
+.my_sel ul li {border:1px solid #CCC; text-align:center; line-height:20px; width:80px;}
+</style>
+<script src="extend.js"></script>
+<script>
+(function (){
+	window.MySelect=function (oSel)
+	{
+		this.oSel=oSel;
+		
+		//1.创建元素
+		_createDOM.call(this);
+		
+		//2.添加事件
+		_addEvent.call(this);
+	}
+	
+	function _createDOM()
+	{
+		//div
+		var oDiv=document.createElement('div');
+		
+		oDiv.className='my_sel';
+		
+		//span
+		var oSpan=document.createElement('span');
+		
+		//?
+		oSpan.innerHTML=this.oSel.options[this.oSel.selectedIndex].text;
+		oDiv.appendChild(oSpan);
+		
+		//ul
+		var oUl=document.createElement('ul');
+		for(var i=0;i<this.oSel.options.length;i++)
+		{
+			var oLi=document.createElement('li');
+			
+			oLi.innerHTML=this.oSel.options[i].text;
+			
+			oUl.appendChild(oLi);
+		}
+		
+		oDiv.appendChild(oUl);
+		
+		this.oSel.parentNode.insertBefore(oDiv, this.oSel);
+	}
+	
+	function _addEvent()
+	{
+		oSpan.onclick=function ()
+		{
+			
+		};
+	}
+})();
+
+var NewSelect=extend(MySelect, null, {
+	aaa:	function ()
+	{
+		_createDOM();
+	}
+});
+
+var obj=new NewSelect(document);
+
+obj.aaa();
+
+window.onload=function ()
+{
+	var oCity=document.getElementsByName('city')[0];
+	
+	var obj=new MySelect(oCity);
+	
+	obj.onchange=function ()
+	{
+		alert('a');
+	};
+};
+</script>
+</head>
+
+<body>
+<form action="http://www.zhinengshe.com/">
+	城市：
+    <!--<div class="my_sel">
+    	<span>北京</span>
+        <ul>
+        	<li>北京</li>
+        	<li>北京</li>
+        	<li>北京</li>
+        </ul>
+    </div>-->
+    <select name="city">
+    	<option value="1">北京</option>
+    	<option value="2">天津</option>
+    	<option value="3">武汉</option>
+    </select>
+    <input type="submit" />
+</form>
+</body>
+</html>

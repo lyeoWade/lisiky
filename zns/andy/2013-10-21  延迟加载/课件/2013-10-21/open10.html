@@ -1,0 +1,25 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+
+window.onload=function()
+{
+  document.getElementById('btn').onclick=function()
+  {
+	  //_self
+	  // 如果不写，默认就是_blank
+		var win=window.open('about:blank');
+		win.document.write('<h1 style="color:red">标题</h1>');
+  };	
+};
+
+</script>
+</head>
+
+<body>
+<input type="button" value="aa" id="btn">
+</body>
+</html>

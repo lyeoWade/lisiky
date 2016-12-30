@@ -1,0 +1,147 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+.div1{width:600px;height:30px;margin:100px auto; background:#ccc; position:relative;}
+.div1 span{width:100px;height:30px; background:red; position:absolute;top:0;left:0;}
+.div1 a{width:20px;height:30px; background:yellow; position:absolute;top:0;left:-30px;}
+
+.div2{width:300px;height:300px; background:green; position:relative; overflow:hidden}
+.div2 p{width:300px;height:100px; overflow:hidden; position:absolute;top:0;left:0}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementsByTagName('div')[0];
+	var oSpan=oBox.children[1];
+	var oA=oBox.children[0];
+	var oBox2=document.getElementsByTagName('div')[1]
+	var oP=oBox2.children[0];
+	
+	//oSpan 的宽度不定
+	
+	if(oBox2.offsetHeight>=oP.offsetHeight)
+	{
+		oBox.style.display='none';
+	}
+	else
+	{
+	
+	oSpan.style.width=oBox2.offsetHeight/oP.offsetHeight*oBox.offsetWidth+'px';
+	};
+	
+	
+	//拖拽
+	oSpan.onmousedown=function(ev)
+	{
+		var oEvent=ev||event;
+		var disX=oEvent.clientX-oSpan.offsetLeft;
+		
+		document.onmousemove=function(ev)
+		{
+			var oEvent=ev||event;
+			var l=oEvent.clientX-disX;
+			leftFn(l);
+			
+		};
+		
+		document.onmouseup=function()
+		{
+			document.onmousemove=document.onmouseup=null;
+			
+		};
+	
+		return false;
+			
+	};
+	
+	oA.onclick=function()
+	{
+		 var l=oSpan.offsetLeft-10;
+		   leftFn(l);	
+	};
+	
+	function leftFn(l)
+	{
+		  if(l<0)l=0;
+			if(l>oBox.offsetWidth-oSpan.offsetWidth)l=oBox.offsetWidth-oSpan.offsetWidth;
+			oSpan.style.left=l+'px';
+			
+			
+			var b=l/(oBox.offsetWidth-oSpan.offsetWidth);
+			
+			oP.style.top=-(oP.offsetHeight-oBox2.offsetHeight)*b+'px';	
+	};
+	
+	wheel(oBox2,function(down){
+		if(down)
+		{
+		   //向下
+		   var l=oSpan.offsetLeft+10;
+		   leftFn(l);
+		   	
+		}
+		else
+		{
+			 var l=oSpan.offsetLeft-10;
+		   leftFn(l);
+		}	
+			
+	});
+	
+};
+
+
+
+function wheel(obj,fn)
+{
+	if(window.navigator.userAgent.indexOf('Firefox')!=-1)
+	{	
+		obj.addEventListener('DOMMouseScroll',wheelFn,false);
+	}
+	else
+	{
+		obj.onmousewheel=wheelFn;
+	};
+	
+	function wheelFn(ev)
+	{
+		var oEvent=ev||event;
+        var down=oEvent.wheelDelta?oEvent.wheelDelta<0:oEvent.detail>0;
+		//true 向下滚
+		
+		fn&&fn(down);
+		//alert(down);
+		
+		ev&&ev.preventDefault(); 
+		return false;
+		
+	};
+};
+</script>
+</head>
+
+<body style="height:2000px">
+
+<div class="div1">
+    <a href="javascript:;">左</a>
+	<span></span>
+</div>
+
+<div class="div2">
+	<p>-公认最好的JavaScript视频教程，此视频成为JS爱好者必备的最佳JS入门学习视频，如果你还没有看过，机会来了 :) >>点击进入视频列表
+
+-公认最好的JavaScript讲师，课程讲解通俗易懂，开放而兼具互动，堪称JS最佳学习体验之旅，想来试试吗 >>点击报名免费试听 注意！是免费的哦
+
+-我就是Blue，我在智能社——前淘宝核心开发工程师，先后亲历多次大型项目开发，涉足前端交互、用户体验、数据挖掘等多个领域，具备极其深厚的程序功底，拥有近10年程序开发经验，喜好钻研技术问题，离开淘宝后转战教育事业，现成立智能社，力求传播先进技术，解决人才鸿沟，为JS培训行业做些贡献
+
+来智能社享受一流的课程体验
+4
+</p>
+</div>
+
+</body>
+</html>

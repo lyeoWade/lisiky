@@ -1,0 +1,42 @@
+
+<!doctype html>
+<html>
+<head>
+<style>
+div{ width:100px; height:100px; background:red; }
+div.active{ background:green; }
+</style>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementsByTagName('div')[0];
+	addClass(oDiv,'active')
+	
+}
+
+function addClass(obj,sClass)
+{
+	var aClass=obj.className.split('');
+	if(!aClass[0])
+	{
+		obj.className=sClass;
+		return
+	}
+	for(var i=0;i<aClass.length;i++)
+	{
+		if(aClass[i]==sClass)
+		{
+			return;
+		}
+	}
+	obj.className+=' '+sClass;
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div ></div>
+</body>
+</html>

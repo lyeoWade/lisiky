@@ -1,0 +1,146 @@
+@charset "utf-8";
+/* 智能社 - www.zhinengshe.com */
+* {
+	margin: 0;
+	padding: 0;
+}
+li {
+	list-style: none;
+}
+img {
+	border: none;
+}
+a {
+	text-decoration: none;
+}
+.clearfix:after {
+	content: "";
+	display: block;
+	clear: both;
+}
+.clearfix {
+	zoom: 1;
+}
+.fl {
+	float: left;
+}
+.fr {
+	float: right;
+}
+.navBox {
+	height: 40px;
+	background: #E4393C;
+	width: 80%;
+	margin: 50px auto;
+}
+.allShop {
+	width: 210px;
+	height: 40px;
+	line-height: 40px;
+	position: relative;
+}
+.allShop_title {
+	font: 14px/40px "Microsoft YaHei";
+	color: #FFF;
+	padding-left: 20px;
+}
+.nav {
+	position: absolute;
+	left: 0;
+	top: 39px;
+	border: #E4393C solid 1px;
+	width: 100%;
+	background-color: #FAFAFA;
+	font-size: 14px;
+}
+.nav li {
+	height: 33px;
+	border-bottom: #FFF solid 1px;
+	position: relative;
+	vertical-align:top;
+}
+.nav_item {
+	font-weight: normal;
+	background: url(../img/navLi_bg.jpg) 9px center no-repeat;
+	width: 100%;
+	line-height: 33px;
+	font-size: 14px;
+	position: absolute;
+	left: 0;
+	top: 0;
+	text-indent: 22px;
+}
+.nav_item i {
+	background: url(../img/s.png) left top no-repeat;
+	width: 6px;
+	height: 9px;
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	margin-top: -4px;
+}
+/*右侧显示出来的内容*/
+.item_show {
+	display: none;
+	position: absolute;
+	left: 204px;
+	top: 0;
+	z-index: 2;
+	width: 680px;
+	border: #CCC solid 1px;
+	padding: 0 10px;
+	background-color: #FFF;
+}
+.fore1 {
+	padding: 5px 0;
+	border-bottom: #E8E8E8 solid 1px;
+	line-height: 20px;
+	font-size: 12px;
+	overflow: hidden;
+	width: 100%;
+	white-space: nowrap;
+}
+.fore1 dt {
+	float: left;
+	width: 54px;
+	text-align: right;
+}
+.fore1 dd {
+	padding-left: 58px;
+}
+.fore1 a {
+	color: #666;
+}
+.fore1 dt a {
+	font-weight: bold;
+	color: #E4393C;
+}
+.fore1 dd a {
+	float: left;
+	word-break: break-all;
+	margin: 0 5px;
+}
+.fore1 a:hover {
+	text-decoration: underline;
+}
+.b_none {
+	border-bottom: none;
+}
+/*鼠标移入状态 加给li*/
+.nav_item_active {
+	background-color: #FFF;
+	z-index: 3;
+	border: #CCC solid 1px;
+	border-left: none;
+	border-right: none;
+	width: 205px;
+	height: 31px;
+	line-height: 31px;
+}
+.nav_item_active i {
+	display: none;
+}
+/*鼠标移入状态 加给li里面的item_show加 show*/
+.show {
+	display: block;
+}

@@ -1,0 +1,68 @@
+//
+
+
+oninput事件，监听文本框内的数字 //标准
+onprooertychange()  // 当文本框有变化的时候 , //IE 
+
+滚轮事件  
+
+onmousewheel // IE chrome
+DOMMouseScroll  //火狐  走绑定
+
+DOM事件大部分只支持火狐
+
+只要是绑定都不能用 return false;
+在绑定里不能直接用 return false  阻止浏览器滚动条
+
+火狐下 阻止默认用事件  
+
+function (ev)
+{
+	ev.preventDefault();
+}
+
+
+滚轮 
+
+// 事件对象  兼容    
+向上滚动  向下滚动
+
+var oEvent=ev||event;
+
+oEvent.wheelDelta() ; //IE  chrome
+
+
+oEvent.detail   //火狐 
+
+
+兼容时
+
+if(oEvent.wheelDelta)
+{
+	if()
+{
+
+}
+}else
+{
+
+}
+
+
+
+
+
+onreadystatechange  // IE
+
+
+
+
+
+
+
+
+
+
+
+
+

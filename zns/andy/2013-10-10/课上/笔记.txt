@@ -1,0 +1,57 @@
+判断浏览器
+
+widow.navigator.userAgent    //兼容  字符串
+
+
+indexOf     查找字符串相应的字符  找到字符的位置  
+没找到返回-1  
+
+document.all   判断是否是IE
+
+
+
+
+
+
+json 标准写法  每一个名称都是带引号的
+
+
+能读能写
+
+
+
+
+selectedIndex 属性可设置或返回下拉列表中被选选项的索引号。
+
+
+
+document.getElementByName
+
+
+
+
+
+事件冒泡  往上级标签找  从外往里
+
+阻止冒泡  
+
+
+捕获  从里往外
+
+
+
+event对象用来存储事件信息  不兼容火狐
+
+
+
+ev   火狐
+
+ev 放在 event  前面
+
+
+
+
+
+
+
+

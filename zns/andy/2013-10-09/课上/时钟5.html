@@ -1,0 +1,121 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body{ background:url(images/bg.png) center center }
+#box{ width:400px; height:500px; margin:0px auto; }
+#box .top{ width:400px; height:50px; text-align:center; vertical-align:middle;  }
+#box .nyr span{ display:block; }
+.center{ width:100%; height:100%; }
+.week,.sfm,.nyr{ font-family:Georgia; text-align:center; height:50px; width:100%;  font-size:30px; padding-top:100px; line-height:50px; color:#fff; font-weight:bold; }
+.sfm{ padding-top:50px; }
+</style>
+<script>
+function getByClass(oParent,sClass)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(sClass);
+	}else
+	{
+		var aEle=oParent.getElementsByTagName('*');
+		var arr=[];
+		
+		for(var i=0; i<aEle.length; i++)
+		{
+			if(aEle[i].className==sClass)
+			{
+				arr[arr.length]=aEle[i]
+			}
+		}
+		
+		return arr;
+	}
+}
+
+function tozero(n){return n<10?'0'+n:n}
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oNyr=getByClass(oBox,'nyr')[0];
+	var oSfm=getByClass(oBox,'sfm')[0];
+	
+	var weekarr=['images/seven.png','images/one.png','images/two.png','images/three.png','images/four.png','images/five.png','images/six.png'];
+	clock();
+	setInterval(clock,1000);
+	
+	function clock(){
+		
+		var oDate=new Date();
+		var oYear=''+oDate.getFullYear();
+		var oMonth=''+(oDate.getMonth()+1);
+		var oDay=''+tozero(oDate.getDate());
+		var oHours=''+tozero(oDate.getHours());
+		var oMiuntes=''+tozero(oDate.getMinutes());
+		var oSeconds=''+tozero(oDate.getSeconds());
+		var oWeekkkk=''+oDate.getDay();
+		var oSpanOne=oNyr.getElementsByTagName('span')[0];
+		aImg=oSpanOne.children;
+		var img='images/';
+		var png='.png';
+		aImg[0].src=img+oYear.charAt(0)+png;
+		aImg[1].src=img+oYear.charAt(1)+png;
+		aImg[2].src=img+oYear.charAt(2)+png;
+		aImg[3].src=img+oYear.charAt(3)+png;
+		aImg[5].src=img+oMonth.charAt(0)+png;
+		aImg[6].src=img+oMonth.charAt(1)+png;
+		aImg[8].src=img+oDay.charAt(0)+png;
+		aImg[9].src=img+oDay.charAt(1)+png;
+		var oSpanTwo=oSfm.getElementsByTagName('span')[0];
+		aImg1=oSpanTwo.children;
+		aImg1[0].src=img+oHours.charAt(0)+png;
+		aImg1[1].src=img+oHours.charAt(1)+png;
+		aImg1[3].src=img+oMiuntes.charAt(0)+png;
+		aImg1[4].src=img+oMiuntes.charAt(1)+png;
+		aImg1[6].src=img+oSeconds.charAt(0)+png;
+		aImg1[7].src=img+oSeconds.charAt(1)+png;
+		
+		var oWeekqqq=getByClass(oBox,'week')[0];
+		var	aWeek=oWeekqqq.children[1];
+			
+			aWeek.src=weekarr[oWeekkkk];
+			
+		}
+}
+</script>
+<title>无标题文档</title>
+
+</head>
+
+<body>
+<div id="box">
+	<div class="top"><img src="images/title.png" height=""></div>
+    <div class="center">
+    		<div class="nyr">当前时间:<span>
+            <img src="images/0.png">
+            <img src="images/0.png">
+            <img src="images/0.png">
+            <img src="images/0.png">
+            <img src="images/year.png">
+            <img src="images/0.png">
+            <img src="images/0.png">
+            <img src="images/month.png">
+            <img src="images/0.png">
+            <img src="images/0.png">
+            </span></div>
+            <div class="sfm"><span>
+            	<img src="images/0.png">
+                <img src="images/0.png">
+                <img src="images/sign.png">
+                <img src="images/0.png">
+                <img src="images/0.png">
+                <img src="images/sign.png">
+                <img src="images/0.png">
+                <img src="images/0.png">
+            </span></div>
+            <div class="week"><img src="images/week.png">&nbsp;<img src="images/three.png"></div>
+    </div>
+</div>
+</body>
+</html>

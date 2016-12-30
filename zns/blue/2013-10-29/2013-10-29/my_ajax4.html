@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+
+</style>
+<script>
+window.onload=function ()
+{
+	var oBtn=document.getElementById('btn1');
+	
+	oBtn.onclick=function ()
+	{
+		//正式开始
+		//1.创建Ajax对象
+		if(window.XMLHttpRequest)
+		{
+			var oAjax=new XMLHttpRequest();
+		}
+		else
+		{
+			var oAjax=new ActiveXObject('Microsoft.XMLHttp');
+		}
+		
+		//2.连接
+		//open('方法', 'url', 异步)
+		oAjax.open('get', 'a.txt', true);
+		
+		//3.发送请求
+		oAjax.send();
+		
+		//4.接收数据
+		oAjax.onreadystatechange=function ()
+		{
+			if(oAjax.readyState==4)		//完成
+			{
+				if(oAjax.status>=200 && oAjax.status<300 || oAjax.status==304)
+				{
+					alert('成功：'+oAjax.responseText);
+				}
+				else
+				{
+					alert('失败');
+				}
+			}
+		};
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="读取" id="btn1" />
+</body>
+</html>

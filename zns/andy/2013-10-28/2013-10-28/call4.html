@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+p{height:30px; background:red;margin-top:2px;}
+</style>
+<script>
+window.onload=function()
+{
+	document.getElementById('box').onclick=function(ev)
+	{
+		alert(this);
+		a.call(this);  // this   传进来的this是当前作用域的this
+		a.call(123);  //call －〉第一个参数，是将对象传进去，然后在函数中this就指向它
+	};
+};
+
+function a()
+{
+  alert(this);	
+};
+
+
+
+</script>
+</head>
+
+<body>
+<div id="box">
+	<p>1</p>
+    <p>2</p>
+    <p>3</p>
+    <p>4</p>
+</div>
+</body>
+</html>

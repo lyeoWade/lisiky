@@ -1,0 +1,94 @@
+<!--
+智能社© - http://www.zhinengshe.com/
+
+微博：@北京智能社
+微信：zhi_neng_she
+
+最具深度的前端开发培训机构 HTML+CSS/JS/HTML5
+-->
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>iPhone手机图片查看器 - 智能社 - www.zhinengshe.com</title>
+<link href="style.css" rel="stylesheet" type="text/css" />
+<script src="../move3.js"></script>
+<script type="text/javascript">
+window.onload=function ()
+{
+	var oDiv=document.getElementById('iphone');
+	var oUl=oDiv.getElementsByTagName('ul')[0];
+	var aLi=oUl.children;
+	
+	var now=0;
+	
+	oUl.onmousedown=function (ev)
+	{
+		var oEvent=ev||event;
+		
+		var disX=oEvent.clientX-oUl.offsetLeft;
+		
+		var downX=oEvent.clientX;
+		
+		clearInterval(oUl.timer);
+		
+		document.onmousemove=function (ev)
+		{
+			var oEvent=ev||event;
+			
+			oUl.style.left=oEvent.clientX-disX+'px';
+		};
+		
+		document.onmouseup=function (ev)
+		{
+			var oEvent=ev||event;
+			
+			document.onmousemove=null;
+			document.onmouseup=null;
+			
+			if(Math.abs(oEvent.clientX-downX)>50)
+			{
+				if(oEvent.clientX<downX)
+				{
+					//左
+					now++;
+					if(now==aLi.length)
+					{
+						now=aLi.length-1;
+					}
+				}
+				else
+				{
+					//右
+					now--;
+					
+					if(now==-1)now=0;
+				}
+			}
+			
+			startMove(oUl, 'left', -now*aLi[0].offsetWidth);
+		};
+		
+		return false;
+	};
+};
+</script>
+</head>
+
+<body>
+
+<div id="iphone">
+	<div id="wrap">
+		<ul>
+			<li style="background:url(images/pic1.png);" title="智能社"></li>
+			<li style="background:url(images/pic2.png);" title="智能社"></li>
+			<li style="background:url(images/pic3.png);" title="智能社"></li>
+			<li style="background:url(images/pic4.png);" title="智能社"></li>
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>

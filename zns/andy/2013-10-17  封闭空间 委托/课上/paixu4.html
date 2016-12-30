@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	var oBtn=document.getElementById('btn');
+	
+	oBtn.onclick=function()
+	{
+		var arr=[];
+		for(var i=0; i<6; i++)
+		{
+			var num=toZero(rand(1,32))
+			
+				arr[arr.length]=num;
+			
+			
+		}
+		oDiv.innerHTML=arr;
+	}
+	//排序
+	
+	function paixu(arr)
+	{
+		for(var i=0; i<arr.length; i++)
+		{
+			var ind=arr[i]
+			var index=i;
+			for(var j=i+1; j<arr.length; j++)
+			{
+				if(arr[j]<ind)
+				{
+					ind=arr[j]
+					index=j
+				}
+			}
+			
+			var z=arr[index];
+			arr[index]=arr[i];
+			arr[i]=z;
+		}
+	}
+	
+	function toZero(n){ return n<10?'0'+n:n}
+	
+	function findarr(n,arr)
+	{
+		for(var i=0; i<arr.length; i++)
+		{
+			if(arr[i]==n)
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+	function rand(n,m){return parseInt(Math.random()*(m-n+1)+n)}
+	
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="div1" style="height:30px; "></div>
+<input type="button" value="机选一注" id="btn">
+</body>
+</html>

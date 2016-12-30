@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+body{ background:url(images/bg.png) center center }
+#box{ width:400px; height:500px; margin:0px auto; }
+#box .top{ width:400px; height:50px; text-align:center; vertical-align:middle; margin-top:100px; }
+#box .nyr span{ display:block; }
+.center{ width:100%; height:100%; }
+.week,.sfm,.nyr{ font-family:Georgia; text-align:center; height:50px; width:100%;  font-size:30px; padding-top:100px; line-height:50px; color:#fff; font-weight:bold; }
+.sfm{ padding-top:50px; }
+</style>
+<script>
+function getByClass(oParent,sClass)
+{
+	if(oParent.getElementsByClassName)
+	{
+		return oParent.getElementsByClassName(sClass);
+	}else
+	{
+		var aEle=oParent.getElementsByTagName('*');
+		var arr=[];
+		
+		for(var i=0; i<aEle.length; i++)
+		{
+			if(aEle[i].className==sClass)
+			{
+				arr[arr.length]=aEle[i]
+			}
+		}
+		
+		return arr;
+	}
+}
+
+function tozero(n){return n<10?'0'+n:n}
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var oNyr=getByClass(oBox,'nyr')[0];
+	var oSfm=getByClass(oBox,'sfm')[0];
+	setInterval(function(){
+		
+		var oDate=new Date();
+	
+		var oYear=oDate.getFullYear();
+		var oMonth=oDate.getMonth()+1;
+		var oDay=tozero(oDate.getDate());
+		var oHours=tozero(oDate.getHours());
+		var oMiuntes=tozero(oDate.getMinutes());
+		var oSeconds=tozero(oDate.getSeconds());
+		
+		var oSpanOne=oNyr.getElementsByTagName('span')[0];
+		oSpanOne.innerHTML=oYear+'-'+oMonth+'-'+oDay
+		
+		var oSpanTwo=oSfm.getElementsByTagName('span')[0];
+		oSpanTwo.innerHTML=oHours+'-'+oMiuntes+'-'+oSeconds;
+		},1000);
+	
+	
+}
+</script>
+<title>无标题文档</title>
+
+</head>
+
+<body>
+<div id="box">
+	<div class="top"><img src="images/title.png" height=""></div>
+    <div class="center">
+    		<div class="nyr">当前时间:<span></span></div>
+            <div class="sfm"><span></span></div>
+            <div class="week"><img src="images/week.png"><img src="images/three.png"></div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:200px; height:200px; background:#CCC; position:absolute; left:100px; top:50px;}
+</style>
+<script>
+//var start=0;
+
+window.onload=function ()
+{
+	var oDiv=document.getElementById('div1');
+	
+	oDiv.onclick=function ()
+	{
+	//	start=new Date().getTime();
+		startMove(oDiv, 'width', 500, 300);
+	};
+};
+
+function getStyle(obj, name)
+{
+	return obj.currentStyle?obj.currentStyle[name]:getComputedStyle(obj, false)[name];
+}
+
+function startMove(obj, name, iTarget, iTime)
+{
+	var 次数=parseInt(iTime/30);
+	var 起点=parseInt(getStyle(obj, name));
+	var 距离=iTarget-起点;
+	
+	var n=0;
+	
+	clearInterval(obj.timer);
+	
+	obj.timer=setInterval(function (){
+		
+		n++;
+		// 距离/次数 *n  = speed
+		obj.style[name]=起点+距离*n/次数+'px';
+	//  obj.style.width=100+400*n/10+'px';
+						//	40*1 140
+						//  40*2 180
+						//  40*3 220
+		if(n==次数)
+		{
+			clearInterval(obj.timer);
+			
+			//alert(new Date().getTime()-start);
+			alert(n)
+		}
+	}, 30);
+}
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

@@ -1,0 +1,99 @@
+<!--
+智能社© - http://www.zhinengshe.com/
+
+微博：@北京智能社
+微信：zhi_neng_she
+
+最具深度的前端开发培训机构 HTML+CSS/JS/HTML5
+-->
+
+
+﻿<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>手风琴效果 - 智能社 - www.zhinengshe.com</title>
+<link href="style/zns_style.css" rel="stylesheet" type="text/css" />
+<script>
+window.onload=function ()
+{
+	var aLi=document.getElementsByTagName('li');
+	
+	var timer=null;
+	var n=0;
+	for(var i=0;i<aLi.length;i++)
+	{
+		aLi[i].onmouseover=function ()
+		{
+			var _this=this;
+			//alert(this.offsetWidth)  变化Li的宽度   默认值是22  
+			clearInterval(timer);
+			
+			timer=setInterval(function (){
+				//其他5个变小
+				var sum=0;
+				
+				for(var i=0;i<aLi.length;i++)
+				{
+					if(_this==aLi[i])continue;
+					
+					var speed=(22-aLi[i].offsetWidth)/6;  
+					
+					//         目标值   当前值
+					speed=speed>0?Math.ceil(speed):Math.floor(speed);
+					
+					aLi[i].style.width=aLi[i].offsetWidth+speed+'px';
+					
+					sum+=aLi[i].offsetWidth;
+					n++;
+					console.log(n);
+					
+				}
+				
+				if(_this.offsetWidth==660-sum)
+				{
+					clearInterval(timer)
+					alert('关了')
+				}
+				// sum 储存剩余aLi的Width
+				//当前的填满剩下的
+				_this.style.width=660-sum+'px';
+				
+			}, 30);
+		};
+	}
+};
+</script>
+</head>
+<body>
+<div id="show1">
+    <ul>
+        <li class="active">
+            <span class="bg0">这是第一个</span>
+            <img src="images/1.jpg" />
+        </li>
+        <li>
+            <span class="bg1">这是第二个</span>
+            <img src="images/2.jpg" />
+        </li>
+        <li>
+            <span class="bg2">这是第三个</span>
+            <img src="images/3.png" />
+        </li>
+        <li>
+            <span class="bg3">这是第四个</span>
+            <img src="images/4.png" />
+        </li>
+        <li>
+            <span class="bg2">这是第五个</span>
+            <img src="images/2.jpg" />
+        </li>
+        <li>
+            <span class="bg3">这是第六个</span>
+            <img src="images/3.png" />
+        </li>
+    </ul>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{background:#fff; font:12px Arial;color:#333;margin:0;padding:0;}
+div,form,img,ul,ol,li,dl,dt,dd,p,input {margin:0;padding:0;border:0;}
+li{list-style-type:none;}
+img{vertical-align:top;}
+h1,h2,h3,h4,h5,h6{margin:0;padding:0; font-size: 100%;}
+a{ color:#444; text-decoration: none; font-size:14px; font-family:"微软雅黑";}
+a:hover{ color:#cc3311; text-decoration: none;}
+.fl{ float: left;}
+.fr{ float: right;}
+.clearfix:after {visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0;}
+.clearfix { *zoom:1;}
+.clear{clear:both;height:0;overflow:hidden;}
+.mt10{ margin-top: 10px;}
+.mt15{ margin-top: 15px;}
+.mt20{ margin-top: 20px;}
+.mt25{ margin-top: 25px;}
+.mt30{ margin-top: 30px;}
+.pl{ padding-left:20px; }
+.c-f00{ color: #f00;}
+
+.abs{ position:absolute;  }
+.absl0{ position:absolute; left:0; }
+.absr0{ position:absolute; right:0; }
+.abslr0{ position:absolute; left:0; top:0; }
+/*清浮动*/
+.clearfix:after{content:"";display:block;clear:both;}
+.clearfix{zoom:1;}
+
+/*通用的样式*/
+.comWidth{width:970px; margin:0 auto;}
+.fl{float:left;}
+.fr{float:right;}
+.show{display:block;}
+.hr_19{height:19px; overflow:hidden;}
+.hr_20{height:20px; overflow:hidden;}
+.hr_50{height:50px; overflow:hidden;}
+.pt{padding-top:20px;}
+.mb{margin-bottom:20px;}
+.mb10{margin-bottom:10px;}
+.mr{margin-right:20px;}
+
+
+
+
+
+

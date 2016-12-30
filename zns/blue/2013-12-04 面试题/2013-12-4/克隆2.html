@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+function cloneObj(obj)
+{
+	var newObj=new obj.constructor(obj.valueOf());
+	
+	return newObj;
+}
+
+var arr=[12,3,5,6,7];
+var arr2=cloneObj(arr);
+
+arr2.push(9,9,9);
+
+alert(arr);
+alert(arr2);
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

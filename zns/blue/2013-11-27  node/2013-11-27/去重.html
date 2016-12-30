@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<script>
+Array.prototype.indexOf=function (n)  //给数组添加indexOf方法
+{
+	for(var i=0;i<this.length;i++) 
+	{
+		if(this[i]==n)return i;
+	}
+	
+	return -1;
+};
+
+var arr=[12,5,5,5,5,5,12,3,3,3,3,3,3,12,12,12,8,8,8,8,7,5];
+//->[12,5,3,8,7]
+
+function removeDup(arr, s, e)
+{
+	if(s>e)return [];  // 空数组
+	else if(s==e)return [arr[s]];  // 只有一个数
+	else if(s==e-1)// 只有两个数
+	{
+		if(arr[s]==arr[e])  // 两个数一样
+		{
+			return [arr[s]];
+		}
+		else
+		{
+			return [arr[s], arr[e]];
+		}
+	}
+	
+	var c=Math.floor((s+e)/2);  // 找中点
+	
+	//分
+	var lArr=removeDup(arr, s, c); // 分成两个数组 
+
+	var rArr=removeDup(arr, c+1, e);
+	
+	//合并
+	var result=lArr; 
+	
+	for(var i=0;i<rArr.length;i++)
+	{
+		if(result.indexOf(rArr[i])==-1) // 如果左边的数组里面没有和右边数组匹配的  
+		{
+			result.push(rArr[i]);
+		}
+	}
+	
+	return result;
+}
+
+alert(removeDup(arr, 0, arr.length-1));
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+
+</head>
+
+<body>
+</body>
+<script>
+
+// 新建一个时间对象
+var oDate=new Date();
+
+//alert( oDate.getFullYear() );   2013
+//alert( oDate.getMonth()+1 );   //  9  月份是从0开始的
+//alert(oDate.getDate());
+
+document.body.innerHTML=oDate.getFullYear()+'-'+( oDate.getMonth()+1 )+'-'+oDate.getDate();
+</script>
+</html>

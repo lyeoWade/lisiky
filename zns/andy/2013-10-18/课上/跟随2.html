@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#div1{ display:none; position:absolute; width:100px; height:100px; background:#f00; }
+
+</style>
+<meta charset="utf-8">
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	document.onmousemove=function(ev)
+	{
+		var oEvent=ev||event;
+		oDiv.style.display='block';
+		oDiv.style.left=oEvent.clientX+'px';
+		oDiv.style.top=oEvent.clientY+'px';
+	}
+}
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

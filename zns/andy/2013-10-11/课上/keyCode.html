@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+<head>
+<style>
+#div1{ width:100px; height:100px; background:red; position:absolute; left:0; top:0; }
+</style>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oDiv=document.getElementById('div1');
+	
+	document.onkeydown=function(ev)
+	{
+		var oEvent=ev||event;
+		switch (oEvent.keyCode)
+		{
+			case 37:
+				oDiv.style.left=oDiv.offsetLeft-10+'px';
+			break;
+			case 38:
+				oDiv.style.top=oDiv.offsetTop-10+'px';
+			break;
+			case 39:
+				oDiv.style.left=oDiv.offsetLeft+10+'px';
+			break;
+			case 40:
+				oDiv.style.top=oDiv.offsetTop+10+'px';
+			break;
+		}
+		
+
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>

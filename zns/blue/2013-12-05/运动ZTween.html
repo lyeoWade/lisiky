@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0}
+#div1{ width:200px; height:200px; background:#F00; position:absolute; top:0; left:0}
+#EF{ margin-left:50px; margin-top:300px}
+h3{ margin-top:30px}
+label{ margin-right:20px;}
+</style>
+
+<script src="ZTween.js"></script>
+<script>
+window.onload=function(){
+	var oDiv=document.getElementById('div1');
+
+/*t: current time（当前时间）；
+b: beginning value（初始值）；
+c: change in value（变化量）；
+d: duration（持续时间）
+*/
+/*
+inQuad
+outQuad
+inOutQuad
+inCubic
+outCubic
+inOutCubic
+inQuart
+outQuart
+inOutQuart
+inQuint
+outQuint
+inOutQuint
+inSine
+outSine
+inOutSine
+inExpo
+outExpo
+inOutExpo
+inCirc
+outCirc
+inOutCirc
+inElastic
+outElastic
+inOutElastic
+inBack
+outBack
+inOutBack
+outBounce
+*/
+	var b=0,c=600,d=30,t=0;  
+	timer=setInterval(function(){
+		t++;
+		oDiv.style.left = Math.ceil(ZTween. inCirc(t,b,c,d)) + "px";
+		if(t==d){clearInterval(timer) }
+		
+	},30)
+	
+}
+</script>
+
+
+</head>
+
+<body>
+<div id="div1"></div>
+
+</body>
+</html>

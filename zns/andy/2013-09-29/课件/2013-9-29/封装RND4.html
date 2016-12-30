@@ -1,0 +1,50 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+function rnd(n,m)
+{
+	return parseInt(Math.random()*(m-n+1)+n);
+};
+
+window.onload=function()
+{
+	var number=null;
+	setInterval(fn,500);
+	function fn()
+	{
+		
+		/*if(n==number)
+		{
+			//与上一个相同	
+		}*/
+		
+		for(var i=0;i<10;i++)
+		{
+			var n=rnd(1,5);
+			if(n==number)
+			{
+				//与上一个相同	
+			}	
+			else
+			{
+				break;
+			}
+		}
+		
+		number=n;
+		
+		document.body.innerHTML+=n+' ';
+			
+	};
+};
+
+</script>
+</head>
+
+<body>
+
+</body>
+</html>

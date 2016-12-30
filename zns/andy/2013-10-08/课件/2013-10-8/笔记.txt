@@ -1,0 +1,220 @@
+复习：
+
+<script>
+  js 
+</script>
+
+1.  onload
+2.  获取元素
+3.  操作样式  其它的JS语句
+
+window.onload=function(){}; 页面载和完成之后执行
+
+获取元素
+1.   document.getElementById
+2.   document.getElementsByTagName   只要是子元素都可以获取  只是一种标签
+3.   children      只获取一级
+
+function fn()
+{
+	定义一个函数
+};
+
+fn();  调用函数
+
+调用函数重要。
+
+return 返回值  将相应值返回到函数调用的地方
+
+
+传参   在调用的时候传值。在定义函数的括号里接收
+
+
+var a=123; 变量
+var s='abc'; 字符串
+var s='123';   
+强制转换  parseInt  parseFloat  Number  
+隐性转换  相减 乘  除 ＝＝  〈   〉
+NaN   不是一个数字  not a number
+
+if( isNaN(a) )  判断这个A不是一个数字  返回true false
+
+true false  用于判断逻辑
+
+if(true)  
+{
+
+}
+else
+{
+ // false
+}
+
+
+if()
+{
+
+}
+else if()
+{
+
+}
+else if()
+{
+
+}
+else
+{
+
+}
+
+
+if()
+{
+
+}
+// else 可以省
+
+
+if(条件)
+{
+   语句
+}
+简写
+条件 && JS语句
+
+10〉9  &&  alert(123);
+
+
+if()
+{
+
+}
+else
+{
+
+}
+简写
+
+条件？成立执行：不成立执行   三目
+
+
+switch(变量)
+{
+  case '1':
+        语句
+       break;
+  case '2':
+        语句
+       break;
+       default:
+         如果都不成立，执行这
+}
+
+
+for(var i=0;i<xx.length;i++)     次数已定
+{
+    if()
+    {
+       break;  //终止循环
+    }
+    
+    if()
+   {
+      continue;   跳过本次 
+   }
+}
+
+while()    目标已定
+{
+
+}
+  
+
+
+obj.style.width='100px';    写  赋在行间
+                 
+obj.style.width             读  如果行间有样式才能读到
+
+
+
+obj.currentStyle.width              IE678
+getComputedStyle(obj,false).width   非IE678
+
+if(obj.currentStyle)
+{
+	obj.currentStyle.width 	
+}
+else
+{
+	getComputedStyle(obj,false).width 
+}
+
+
+全局变量   JS内都可以用 
+局部变量   只在本函数内用
+闭名：     子函数可以用父函数的变量
+
+如果全局变量与局部变量同名： 在局部变量的函数内 会屏蔽全部变量
+
+
+＝＝    会先隐性转换
+＝＝＝  值和类型都要比较
+
+
+eavl  很强大  但不建议用
+
+Math 用来执行一些数学任务
+Math.random()  随机数   0－1  1不会出现
+
+function rnd(n,m)
+{
+	return parseInt( Math.random()*(m-n+1)+n );
+}
+
+调试
+alert();
+document.title=xxx;
+console.log()   
+
+
+setTimeout(fn,100)  只执行一次
+setInterval(fn,100) N次
+
+clearInterval
+clearTimeout
+
+
+var arr=[];
+
+
+%             求余
+innerHTML     读和写  连标签一块
+
+选项卡  大部分的效果的思想
+
+
+
+-----------
+
+
+document.getElementsByClassName   非IE678
+
+charAt  找到相应下标的字符
+
+
+
+
+
+作业1：
+
+京东菜单
+彩票
+封一个简单的选择器
+youku
+
+
+
+
+
+

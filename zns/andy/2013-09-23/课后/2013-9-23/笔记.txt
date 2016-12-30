@@ -1,0 +1,268 @@
+
+JS
+
+1.  脚本语言
+2.  修改样式
+
+
+css :  left  拖 拽
+
+
+－－－－－－－－－－
+
+<input type="button" value="点击" onclick="alert(456)">
+
+
+ onclick="alert(456)"
+
+
+on click  属性  事件：用户操作
+当 点击
+
+
+alert(值)  带确定按钮的弹出框
+调试程序
+
+-----------
+
+js-id: 取名字
+
+---------
+ onclick="document.getElementById('box').style.display='none'"
+
+
+document.getElementById('box').style.display='none'
+
+
+
+getElementById('box')
+
+get   Element  By    Id   
+获取  元素     通过  id   在页面中通过ID获取元素
+ 
+元素 －  标签 
+
+.  的  
+
+
+=  赋值 改变
+
+
+-----------------------
+
+任何标签任何元素都可以操作
+
+任何样式都可以修改
+
+－－－－－－－－－－－－－－－
+
+on mouse over  鼠标移入
+   鼠标  移入
+
+on mouse out   鼠标移出
+
+
+
+JS 每一段或每一句中间和CSS一样，也是用分号隔开
+
+
+
+
+
+-----------------
+
+行间事件
+
+
+函数   可重复调用的代码块
+
+.class{ 样式}
+
+function 函数名字()
+{
+	代码	
+}
+
+函数名字()    加上括号代表执行函数
+
+function aa()   定义了这个函数
+{
+	代码
+}
+
+
+aa();     这里才执行
+
+--------------------------------
+
+JS 长得像的，都可以合并
+
+变量
+
+var 名字=值;
+var a=5;
+
+1.
+2. 字母和下划线
+3.  对大小写敏感   a=5   A=5  不是一个东西
+
+
+
+-----------------------------
+
+1.  获取元素
+2.  修改样式  或 其它操作
+
+----------------------------
+
+HTML  属性
+
+在JS中操作属性HTML怎么写
+JS就怎么写
+
+变量名.属性  
+input.value  读  alert(oBtn.value);
+
+唯独有一个例class  ->  className
+
+
+----------------------------
+
+复习早上
+
+事件：         onclick  onmouseover  onmouseout
+获取元素       document.getElementById('id')
+变量           var a=12;
+函数           function fn(){ 语句 };  //定义函数
+               fn();   //调用这个函数
+
+
+
+----------------------------
+
+属性也能修改
+
+
+
+----------------------------
+
+
+
+如果DIV  显示  点击隐藏
+如果DIV  隐藏  点击显示
+
+if(条件)
+{
+  条件成立，执行语句1
+}
+else
+{
+  条件不成立，执行语句2
+}
+
+if(下雨)
+{
+  打伞
+}
+else
+{
+
+  不打伞
+}
+
+
+if(DIV隐藏)
+{
+  DIV显示
+}
+else
+{
+
+  DIV隐藏
+}
+
+if(DIV.style.display='none')
+{
+  dIV.style.display='block'
+}
+else
+{
+ dIV.style.display='none'
+}
+
+
+=    赋值
+==   比较
+
+
+
+－－－－－－－－－－－－－－
+
+oBox.style.display
+ JS 修改样式 是在行间操作
+
+
+* ->  div -> class -> id ->  行间
+
+写style和class
+推荐class  易于维护
+
+style也可以写
+如果你写了style就一直style
+
+
+
+ 
+避免a标签 #号返回顶部的问题
+
+<a href="javascript:;">点击</a>
+
+
+ 
+
+function fn()
+{
+	JS语句
+};
+
+fn();
+
+标签.属性
+
+if(条件)
+{}
+else
+{}
+－－－－－－－－－－－－
+
+基础练习事件：
+五个按钮，控制Div：变宽、变高、变色、显示、隐藏
+
+
+移入移出：QQ首页提示框
+
+
+if判断：播放列表收缩展开
+
+
+显示隐藏：弹出层效果——居中
+
+
+课程应用百度首页+透明层+登陆框居中
+
+
+选做：换肤：hao123换肤
+
+
+
+－－－－－－－
+
+for  getElementsByTagName  多选框
+
+
+
+
+  
+
+
+

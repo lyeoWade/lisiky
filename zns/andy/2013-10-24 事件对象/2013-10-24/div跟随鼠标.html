@@ -1,0 +1,30 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red}
+</style>
+<script>
+window.onload=function()
+{
+	document.onmousemove=function(ev)
+	{
+		var oEvent=ev||event;
+		oDIV.style.position='absolute';
+		oDIV.style.left=oEvent.clientX+'px';
+		oDIV.style.top=oEvent.clientY+'px';
+	};	
+	
+	var oDIV=document.getElementById('box');
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+sdfsdfdsf
+</div>
+</body>
+</html>

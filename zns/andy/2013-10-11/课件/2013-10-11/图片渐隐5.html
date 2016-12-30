@@ -1,0 +1,97 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;pdding:0;}
+#box1{ width:208px;height:90px; position:relative;margin:100px auto;}
+img{ position:absolute;top:0;left:0;opacity:0;filter:alpha(opacity:0); z-index:0;}
+.show{opacity:1;filter:alpha(opacity:100); z-index:1}
+input{ display:block;margin:0 auto;}
+</style>
+<script>
+window.onload=function()
+{
+  var aImg=document.getElementsByTagName('img');
+  var oBtn=document.getElementById('btn');
+  var oBtn2=document.getElementById('btn2');
+  var iNow=0;
+ 
+  oBtn.onclick=function()
+  {
+	  goOpacity(aImg[iNow],0);
+	  iNow=iNow>2?0:iNow;
+	  if(iNow>aImg.length-1)
+	  {
+		  iNow=0
+	  }else
+	  {
+		 iNow++ 
+	  }
+	  goOpacity(aImg[iNow],1);  
+  };
+  
+    oBtn2.onclick=function()
+	  {
+		  goOpacity(aImg[iNow],0);
+		  iNow=iNow>2?0:iNow;
+		  if(iNow>0)
+		  {
+			  iNow=aImg.length-1
+		  }else
+		  {
+			 iNow--;
+		  }
+		  goOpacity(aImg[iNow],1);  
+	  };
+  
+  function goOpacity(obj,iTarget)
+  {
+		// iTarget  目标值
+	    clearInterval(obj.timer1);
+	   var objOpa1=getStyle(obj,'opacity')*10;
+	   var iSpeed=iTarget?1:-1;
+
+	   obj.timer1=setInterval(function(){
+		 objOpa1+=iSpeed;
+		 obj.style.opacity=objOpa1/10;
+		 obj.style.filter='alpha(opacity:'+objOpa1*10+')';
+		  if(objOpa1<=0||objOpa1>=10)  
+		  {
+			clearInterval(obj.timer1); 
+			obj.style.zIndex=iTarget;   
+		  };
+	 },100);
+		
+		  
+  };
+  
+ 
+  function getStyle(obj,attr)
+  {
+	  if(obj.currentStyle)
+	  {
+		  return obj.currentStyle[attr];
+	  }
+	  else
+	  {
+		  return getComputedStyle(obj,false)[attr];
+	  }
+  };
+		
+};
+</script>
+</head>
+
+<body>
+<div id="box1">
+   <img class="show" src="t0164fd905342b4af26.jpg" width="208" height="90">
+   <img src="t0187df7112093c464a.jpg" width="208" height="90">
+   <img src="t01681c698e44006826.jpg" width="208" height="90">
+</div>
+<input type="button" value="下一张" id="btn">
+
+<input type="button" value="上一张" id="btn2">
+</body>
+</html>

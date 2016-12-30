@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+  div{width:200px;height:200px; background:red; position:absolute;top:100px;left:0;}
+</style>
+<script>
+window.onload=function()
+{
+	var oBtn=document.getElementById('btn');
+	var oBox=document.getElementById('box');	
+	var n=0;
+	var timer=null;
+	oBtn.onclick=function()
+	{
+		clearInterval(timer);
+		timer=setInterval(function(){
+			n+=3;
+			n=n>200?200:n;
+			oBox.style.left=n+'px';	
+			if(n>=200)
+			{
+				clearInterval(timer);	
+			}
+		},30);
+			
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" id="btn" value="开始">
+<div id="box"></div>
+</body>
+</html>

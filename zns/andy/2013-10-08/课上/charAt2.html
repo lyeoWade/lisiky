@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<script>
+
+switch (arr.charAt(0))
+{
+	case '#':
+	var obj=document.getElementById(arr.substring(1));
+	break;
+	case '.':
+	var obj=document.getElementsByTagName(arr.substring(1));
+	break;
+	default:	//tagName
+	var obj=document.getElementsByTagName(vArg);
+}
+
+</script>
+<title>无标题文档</title>
+</head>
+
+<body>
+</body>
+</html>

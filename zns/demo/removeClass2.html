@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+li{ height:30px;  margin:5px 0; }
+.aaa{ background:#066; }
+.kkk{ color:#f90; }
+.bbb{ background:#CF9; }
+
+#aaa{
+	width:100px;
+	height:100px;
+	border:1px solid #063;
+	}
+</style>
+<script>
+window.onload=function(){
+	var oUl=document.getElementById('ul');
+	var aLi=oUl.children;
+	
+	for(var i=0; i<aLi.length; i++){
+		(function(ind){
+			aLi[ind].onmouseover=function(){
+				addClass(aLi[ind],'aaa');	
+			}
+			aLi[ind].onmouseout=function(){
+				removeClass(aLi[ind],'aaa');	
+			}
+		})(i)
+	}	
+}
+
+
+function removeClass(obj,sClass){
+	if(obj.className){
+		var arr=obj.className.split(' '); // 转数组
+		var i=0;
+		while(i<arr.length){
+			if(arr[i]==sClass){ // 相等了 去掉相等的
+				arr.splice(i,1)// 从i哪里删除自己
+				obj.className=arr.join(' ')// 转字符串
+				return;
+			}
+			i++
+		}	
+	}
+	
+}
+
+function addClass(obj,sClass){
+	
+	if(obj.className==''){
+		obj.className=sClass;
+		return ;	
+	}
+	else{
+		var arr=obj.className.split(' '); // 转数组
+		for(var i=0; i<arr.length; i++){
+			if(arr[i]!=sClass){
+				arr.push(sClass);
+				obj.className=arr.join(' ');
+				return;	
+			}
+		}	
+	}
+}
+
+/*
+function getClass(obj,sClass)
+{
+	var aClass=obj.className.split(" ");
+	for(var i=0;i<aClass.length;i++)
+	{
+		if(aClass[i]==sClass)
+		{
+			return true;
+		}
+	}
+	return false;
+}
+
+*/
+</script>
+</head>
+
+<body>
+<ul id="ul">
+	<li>sdfsdfsdfsdf</li>
+	<li>sdfsdfsdfsdf</li>
+	<li>sdfsdfsdfsdf</li>
+	<li>sdfsdfsdfsdf</li>
+	<li>sdfsdfsdfsdf</li>
+	<li>sdfsdfsdfsdf</li>
+	<li>sdfsdfsdfsdf</li>
+	<li>sdfsdfsdfsdf</li>
+	<li>sdfsdfsdfsdf</li>
+	<li></li>
+</ul>
+</body>
+</html>

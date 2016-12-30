@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+div{width:200px;height:200px; background:red; display:none}
+</style>
+<script>
+window.onload=function()
+{
+
+	document.onclick=function(ev)
+	{
+		var oEvent=ev||event;
+		// 存储事件信息
+		alert(oEvent.clientX+' '+oEvent.clientY);	
+	};
+};
+
+</script>
+</head>
+
+<body>
+<input id="btn" type="button" value="打开">
+<div id="box">131123</div>
+</body>
+</html>

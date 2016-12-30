@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0;}
+#box{ margin:50px auto; width:200px; height:300px; border:1px solid #F00; position:relative;
+ }
+.active{ background:#F00; }
+#box ul{ width:200px; height:200px; position:absolute; left:0; bottom:0;
+ }
+#box li{ width:200px; height:200px;  background:#CCC; display:none;
+ }
+li{ list-style:none;  }
+</style>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	var aInput=oBox.getElementsByTagName('input');
+	
+	var aLi=oBox.getElementsByTagName('li');
+	var timer=null;
+	var iNow=0;
+	for(var i=0; i<aInput.length; i++)
+	{
+		aInput[i].index=i;
+		aInput[i].onmouseover=function()
+		{
+			
+			iNow=this.index;
+			
+			show()
+			
+		}
+	}
+	
+	timer=setInterval(toMove,1000);
+	
+	oBox.onmouseover=function()
+	{
+		clearInterval(timer);
+	}
+	oBox.onmouseout=function()
+	{
+		timer=setInterval(toMove,1000);
+	}
+	function toMove()
+	{
+		if(iNow==aInput.length-1)
+		{
+			iNow=0;
+		}else
+		{
+			iNow++;
+		}
+		show()
+	}
+	
+	function show()
+	{
+		for(var i=0; i<aInput.length; i++)
+			{
+				aInput[i].className='';
+				aLi[i].style.display='none';
+			}
+			aInput[iNow].className='active';
+			aLi[iNow].style.display='block';
+	}
+}
+</script>
+</head>
+
+<body>
+
+<div id="box">
+		<input type="button" value="111" class="active">
+        <input type="button" value="222">
+        <input type="button" value="333">
+        
+        <ul>
+        		<li style="display:block;">111</li>
+                <li>222</li>
+                <li>333</li>
+        </ul>
+</div>
+
+</body>
+</html>

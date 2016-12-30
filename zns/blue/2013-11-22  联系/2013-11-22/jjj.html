@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<script type="text/javascript">
+	
+	
+	function searcha(str,json)
+	{
+		return str.replace(/\{\$[\-\w]+\}/g,function (s){
+			var arr=s.substring(2,s.length-1)
+			alert(json[arr])//alert(arr);
+		});
+	}
+
+	searcha('名字{$name},性别{$sex}',{ name:'deron',sex:'男' })
+
+</script>
+<body>
+<div id="div1">
+	
+</div>
+</body>
+</html>

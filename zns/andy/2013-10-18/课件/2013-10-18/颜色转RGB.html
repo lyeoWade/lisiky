@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+ul{ width:900px; margin:90px auto;}
+li{ height:20px; width:20px; background:pink; float:left; margin-right:20px; display:inline; cursor:pointer;}
+.active{ background:red;}
+</style>
+<script>
+
+ var sColor='#2c1c59';
+   var sColorChange = [];
+  for(var i=1; i<7; i+=2)
+  {
+   sColorChange.push(parseInt("0x"+sColor.slice(i,i+2))); 
+  }
+  var s="RGB(" + sColorChange.join(",") + ")";
+alert(s);
+
+</script>
+</head>
+
+
+<body>
+<div>
+	<ul class="clear">
+    	<li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="clear">
+    	<li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <ul class="clear">
+    	<li></li>
+        <li></li>
+        <li></li>
+   </ul>
+    <ul class="clear">
+    	<li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+</div>
+</body>
+</html>

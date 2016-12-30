@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<title>智能社 - www.zhinengshe.com</title>
+<style>
+#div1 {width:200px; height:200px; background:#CCC;}
+</style>
+<script src="jquery-1.7.2.js"></script>
+<script>
+$(function (){
+	/*$('#div1').mouseover(function (){
+		alert('a');
+	});*/
+	/*$('#div1').mouseout(function (){
+		alert('a');
+	});*/
+	
+	//没问题
+	/*$('#div1').mouseenter(function (){
+		alert('a');
+	});*/
+	/*$('#div1').mouseleave(function (){
+		alert('a');
+	});*/
+	
+	$('#div1').hover(function (){
+		alert('a');
+	}, function (){});
+});
+</script>
+</head>
+
+<body>
+<div id="div1">
+	<h1>asdf</h1>
+</div>
+</body>
+</html>

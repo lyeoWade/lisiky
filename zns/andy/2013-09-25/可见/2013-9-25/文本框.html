@@ -1,0 +1,28 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<script>
+window.onload=function()
+{
+	var aInput=document.getElementsByTagName('input');
+	for(var i=0;i<aInput.length;i++)
+	{
+		aInput[i].onfocus=function()
+		{
+			alert(123);	
+		};		
+	}
+};
+
+</script>
+</head>
+
+<body>
+<input type="text" /><br />
+<input type="text" /><br />
+<input type="text" /><br />
+<input type="text" /><br />
+</body>
+</html>

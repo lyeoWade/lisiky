@@ -1,0 +1,33 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{margin:0;padding:0}
+#box{width:300px;height:300px;border:1px solid #000}
+#box div{width:300px;height:280px; background:#ccc; color:red; display:none}
+#box div.show{ display:block}
+a{ font-size:20px;padding:5px;}
+a.active{ color:blue}
+</style>
+<script>
+window.onload=function()
+{
+	var oBox=document.getElementById('box');
+	oBox.onclick=function()
+	{
+		alert(123);
+		return false;	
+	};
+
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+	<a class="active" href="http://www.sohu.com/">sohu</a>
+</div>
+</body>
+</html>

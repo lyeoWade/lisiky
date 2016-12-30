@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<style>
+*{ margin:0; padding:0;}
+#fff{ position:absolute; left:50%; top:50%; margin:-20px 0 0 -60px; z-index:12;
+ width:120px; height:40px; cursor:pointer; background:red; opacity:.3; }
+input{ position:absolute; left:50%; top:50%; margin:-20px 0 0 -60px; cursor:pointer;
+ width:120px; height:40px; text-align:center; line-height:40px; 
+ background:#ccc; z-index:1; border:1px solid #666; }
+</style>
+<script>
+window.onload=function()
+{
+	var aInput=document.getElementsByTagName('input')[0];
+	var oFFF=document.getElementById('fff');
+	var n=11;
+	var timer=null;
+	
+	aInput.onclick=function()
+	{
+		//clearInterval(timer);
+		oFFF.style.display='block';
+		timer=setInterval(send,1000);
+		function send(){
+				n--;
+				aInput.value=n+'秒后发送';
+				if(n==0)
+				{
+					clearInterval(timer);
+					aInput.value='点击重新发送'
+					n=11;
+					oFFF.style.display='none';
+				}
+			}
+	}
+}
+</script>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+
+<body>
+<div id="fff" style=" display:none; "></div>
+<input type="button" value="点击获取验证码" />
+
+</body>
+</html>

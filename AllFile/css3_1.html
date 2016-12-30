@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 <style type="text/css">
+        .rubberBand{
+            -webkit-animation:rubberBand 1s ease-out;
+            -moz-animation:rubberBand 1s ease-out;
+            -ms-animation:rubberBand 1s ease-out;
+            -o-animation:rubberBand 1s ease-out;
+            animation:rubberBand 1s ease-out;
+        }
+        @-webkit-keyframes rubberBand{
+            0%{
+                -webkit-transform:scale3d(1, 1, 1);
+                -o-transform:scale3d(1, 1, 1);
+                -ms-transform:scale3d(1, 1, 1);
+                -moz-transform:scale3d(1, 1, 1);
+                transform:scale3d(1, 1, 1)
+            }
+            30%{
+                -webkit-transform:scale3d(1.25, 0.75, 1);
+                -moz-transform:scale3d(1.25, 0.75, 1);
+                -ms-transform:scale3d(1.25, 0.75, 1);
+                -o-transform:scale3d(1.25, 0.75, 1);
+                transform:scale3d(1.25, 0.75, 1)
+            }
+            40%{
+                -webkit-transform:scale3d(0.75, 1.25, 1);
+                -ms-transform:scale3d(0.75, 1.25, 1);
+                -moz-transform:scale3d(0.75, 1.25, 1);
+                -o-transform:scale3d(0.75, 1.25, 1);
+                transform:scale3d(0.75, 1.25, 1)
+            }
+            50%{
+                -webkit-transform:scale3d(1.15, 0.85, 1);
+                -moz-transform:scale3d(1.15, 0.85, 1);
+                -ms-transform:scale3d(1.15, 0.85, 1);
+                -o-transform:scale3d(1.15, 0.85, 1);
+                transform:scale3d(1.15, 0.85, 1)
+            }
+            65%{
+                -webkit-transform:scale3d(0.95, 1.05, 1);
+                -moz-transform:scale3d(0.95, 1.05, 1);
+                -ms-transform:scale3d(0.95, 1.05, 1);
+                -o-transform:scale3d(0.95, 1.05, 1);
+                transform:scale3d(0.95, 1.05, 1)
+            }
+            75%{
+                -webkit-transform:scale3d(1.05, 0.95, 1);
+                -moz-transform:scale3d(1.05, 0.95, 1);
+                -ms-transform:scale3d(1.05, 0.95, 1);
+                -o-transform:scale3d(1.05, 0.95, 1);
+                transform:scale3d(1.05, 0.95, 1)
+            }
+            100%{
+                -webkit-transform:scale3d(1, 1, 1);
+                -moz-transform:scale3d(1, 1, 1);
+                -ms-transform:scale3d(1, 1, 1);
+                -o-transform:scale3d(1, 1, 1);
+                transform:scale3d(1, 1, 1)
+            }
+        }
+
+        .box{
+        	width: 100px; 
+        	height: 100px; 
+        	border: 1px solid #ccc;
+			border-radius: 50%;
+			background: #f1f1f1;
+			margin: 200px;
+        }
+        .box:hover{
+        	-webkit-animation:rubberBand 1s ease-out;
+            -moz-animation:rubberBand 1s ease-out;
+            -ms-animation:rubberBand 1s ease-out;
+            -o-animation:rubberBand 1s ease-out;
+            animation:rubberBand 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0; }
+#box{
+	width:300px;
+	height:200px;
+	margin:100px auto;
+	overflow:hidden;
+	text-align:center;
+	position:relative;
+	}
+#box img{
+	width:300px;
+	height:200px;
+	}
+.mark{ 
+	background-color:rgba(0,0,0,0.5); 
+	width:100%; 
+	height:100%; 
+	position:absolute;
+	left:0;
+	top:0;
+	text-align:center;
+	line-height:200px;
+	opacity:0;
+	-webkit-transition:.5s;
+	-moz-transition:.5s;
+	-ms-transition:.5s;
+	-o-transition:.5s;
+	transition:.5s;
+}
+.mark a{
+	padding:6px 18px;
+	background:#F90;
+	color:#ffffff;
+	text-decoration:none;
+	}
+p{
+	position:absolute;
+	left:0;
+	bottom:0;
+	height:34px;
+	width:100%;
+	text-align:center;
+	line-height:34px;
+	color:#fff;
+	background-color:rgba(0,0,0,0.5);
+	}
+</style>
+</head>
+
+<body>
+<div id="box">
+	<img src="1.jpg" />
+    <div class="mark"><a href="javascript:;">立即查看</a></div>
+    <p>韦德，谢谢你给我的期待</p>
+</div>
+</body>
+<script src="../../Bing/Bing.js"></script>
+<script>
+	var oBox=$_('#box');
+	
+	var bKg=true;
+	
+	oBox.onmouseover=function(ev){
+		var oEvent=ev||event;
+		var over=oEvent.relatedTarget||oEvent.formElement;
+		if($_.tool.isChild(over,oBox))return true;
+		var oP=$_('#box p');
+		var Mark=$_('.mark');
+		$_.tool.move(oP,{height:0},{end:function(){
+			if(bKg){
+				$_.tool.move(Mark,{opacity:100});
+				$_.css3.move(Mark,{transform:'rotateZ(360deg)'});
+				bKg=false;
+			}else{
+				bKg=true;	
+			}
+		}});
+	};
+	oBox.onmouseout=function(ev){
+			var oEvent=ev||event;
+			var over=oEvent.relatedTarget||oEvent.toElement;
+			if($_.tool.isChild(over,oBox))return true;
+			var oP=$_('#box p');
+			var Mark=$_('.mark');
+			if(bKg){
+				$_.tool.move(oP,{height:34})
+			}else{
+				$_.css3.move(Mark,{transform:'rotateZ(-360deg)'});
+				$_.tool.move(Mark,{opacity:0},{end:function(){
+					$_.tool.move(oP,{height:34},{end:function(){
+						bKg=true;	
+					}});
+				}});
+			}
+			
+	}
+</script>
+</html>
