@@ -125,15 +125,7 @@
 </div>
 
 <script type="text/javascript">
-  $(function(){
-    $('.columnwrap li').on('mouseenter',function(){
-      //alert($(this).index())
-      $('.columnwrap li').removeClass('active');
-      $(this).addClass('active');
-      $('.tabswitch').css('display','none');
-     $('.tabswitch').eq($(this).index()).css('display','block');
-    })
-  });
+  
 </script>
 
 

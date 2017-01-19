@@ -178,12 +178,28 @@ app.controller('hzlWrap',function($scope,$http,$timeout){
 		// };
 
 		//console.log($scope.selected)
+
 		var sShopAttr=JSON.stringify($scope.selected);
 
+
+		var newJson=eval('('+sShopAttr+')');
+
+		for(var i=0; i<newJson.length; i++){
+			
+			for(var k in newJson[i]){
+				if(k=='imageList' || k=='unit' || k=='coverpic' || k=='$$hashKey' || k=='title'){
+					delete newJson[i][k]; 
+				}
+			}
+		};
+
+		//console.log(newJson);
+		
+		var newStr=JSON.stringify(newJson);
 		$http.post('js/data.php',{
 			'type':'ShopData',
 			'openId':getCookie('openId'),
-			'shopAttr':sShopAttr
+			'shopAttr':newStr
 		},{
 	        headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
 	        transformRequest: transform
@@ -192,7 +208,7 @@ app.controller('hzlWrap',function($scope,$http,$timeout){
 		}).error();
 	};
 
-
+	
 	$scope.showShop=false;
 
 	$scope.imagesArrBys=false;

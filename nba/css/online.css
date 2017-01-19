@@ -1,9 +1,9 @@
 body{ font-family: "微软雅黑" }
 .center{
-	width: 1000px;
+	width: 1200px;
 	margin:0px auto;
 	background: #fff;
-	padding: 20px;
+	padding: 0px;
 }
 
 .onlineWarp{
@@ -11,7 +11,7 @@ body{ font-family: "微软雅黑" }
 }
 .rightside1{
 	margin-left: 20px;
-	width: 220px;
+	width: 380px;
 }
 .rightside{
 	margin-left: 20px;
@@ -220,24 +220,24 @@ body{ font-family: "微软雅黑" }
 /* video */
 
 .videoLeft{
-	width: 750px;
+	width: 800px;
 }
 .videoBanner{
-	width: 750px;
+	width: 800px;
 	margin-bottom: 20px;
-	height: 320px;
+	height: 360px;
 }
 .bannerbox{
 	position: relative;
-	height: 320px;
-	width: 750px;
+	height: 360px;
+	width: 800px;
 }
 .bannerbox ul{
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 750px;
-	height: 320px;
+	width: 800px;
+	height: 360px;
 }
 .bannerbox ul li{
 	position: absolute;
@@ -245,8 +245,8 @@ body{ font-family: "微软雅黑" }
 	top: 0;
 }
 .bannerbox ul li img{
-	width: 750px;
-	height: 320px;
+	width: 800px;
+	height: 360px;
 	display: block;
 }
 .bannerbox .textWarp{

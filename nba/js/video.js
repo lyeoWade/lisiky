@@ -19,6 +19,38 @@ $(function(){
 	//sidehotvideo(); //热门视频
 });
 
+
+function seeting(){
+	var arr=[];
+	//var oData;
+	$.ajax({
+		type:"POST"	,
+		url:"phpdata/datapage/othersetting.php",
+		data:"type=GetOtherSetting",
+		async: false, 
+		success: function(str){
+			var oData=$.parseJSON(str);
+			arr.push({
+				contactQQ:  oData.contactQQ,
+				description:oData.description,
+				fLink:      oData.fLink,
+				keyword:    oData.keyword,
+				keyword1:   oData.keyword1,
+				keyword2:   oData.keyword2,
+				keyword3:   oData.keyword3,
+				newsTag:    oData.newsTag,
+				statement1: oData.statement1,
+				statement2: oData.statement2,
+				videoTag:   oData.videoTag
+			})
+			
+		}
+	});	
+	return arr[0];	
+};
+
+
+
 //获取视频标签
 
 function videoTag(){
