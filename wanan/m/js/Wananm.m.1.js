@@ -3,7 +3,7 @@
 
 function Wananm(){
 
-
+	this.Sider();
 	
 }
 
@@ -147,6 +147,23 @@ Wananm.prototype.GetBannerM=function(){
 	})
 
 }
+
+Wananm.prototype.Sider=function(){
+	var oSider=document.getElementsByClassName('sider')[0];
+	var menuIcon=document.getElementsByClassName('menuIcon')[0];
+	var oMark=oSider.getElementsByClassName('sider-mark')[0];
+	oSider.style.height=view().h+'px';
+	
+	bind(oMark,"touchend",function(){
+		oSider.style.transition='0.6s';
+		oSider.style.left="-500px";
+	});
+	bind(menuIcon,"touchend",function(){
+		oSider.style.transition='1s';
+		oSider.style.left=0;
+	});
+}
+
 function view() {
     return {
         w: document.documentElement.clientWidth,

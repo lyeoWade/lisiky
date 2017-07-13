@@ -4,6 +4,9 @@
 .abs {
   position: absolute;
 }
+.fix {
+  position: fixed;
+}
 .snh1 {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -214,19 +217,86 @@ header .menuIcon {
 .duanzi-tab-info {
   line-height: 24px;
 }
+#article {
+  background: #ffffff;
+}
 #article .articlecontent p {
   font-size: 0.14rem;
 }
 .sider {
   width: 100%;
   height: 5.5rem;
-  background: #ffffff;
-  position: absolute;
-  left: 0;
+  position: fixed;
+  left: -500px;
   top: 0;
 }
 .sider .sider-wrap {
   width: 2.1rem;
-  background: #4f5157;
+  background: #333333;
   height: 100%;
+}
+.sider .sider-wrap .logo-wrap {
+  width: 2.1rem;
+  height: 1.2rem;
+  padding-top: 0.3rem;
+  text-align: center;
+}
+.sider .sider-wrap .logo-wrap img {
+  width: 0.9rem;
+  height: 0.9rem;
+  border-radius: 0.45rem 0.45rem 0.45rem 0.45rem;
+}
+.sider .sider-wrap .nav-wrap ul li {
+  line-height: 0.4rem;
+  border-bottom: 1px solid #222222;
+}
+.sider .sider-wrap .nav-wrap ul li a {
+  padding-left: 0.2rem;
+  color: #ffffff;
+  display: block;
+  position: relative;
+}
+.sider .sider-wrap .nav-wrap ul li a i {
+  position: absolute;
+  top: 0.14rem;
+  right: 0.1rem;
+  background: url('../images/right.png') no-repeat center center;
+  background-size: contain;
+  width: 0.12rem;
+  height: 0.12rem;
+  display: block;
+}
+.sider .sider-mark {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: -1;
+}
+.closeSider {
+  animation: close 10s;
+}
+.openSider {
+  animation: open 10s;
+}
+@keyframes close {
+  0% {
+    left: 0px;
+  }
+  50% {
+    left: -500px;
+  }
+  100% {
+    left: -500px;
+  }
+}
+@keyframes open {
+  from {
+    left: -500px;
+  }
+  to {
+    left: 0;
+  }
 }

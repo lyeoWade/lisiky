@@ -4,6 +4,9 @@
 .abs {
   position: absolute;
 }
+.fix {
+  position: fixed;
+}
 .snh1 {
   overflow: hidden;
   text-overflow: ellipsis;

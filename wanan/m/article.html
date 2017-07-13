@@ -20,6 +20,7 @@
 	<script type="text/javascript" src="../js/jquery.js"></script>
 	<script type="text/javascript" src="js/com.js"></script>
 	<script type="text/javascript" src="../js/angular.js"></script>
+	<script type="text/javascript" src="js/Wananm.m.1.js"></script>
 	<title>聊聊球</title>
 	<script type="text/javascript">
 	
@@ -73,10 +74,11 @@
 	});
 	</script>
 </head>
-<body style="background: #fff;" ng-controller="All">
+<body  ng-controller="All">
 	<header class="header">
-		<a href="home.html" class="fl"><img src=""></a>
-		<a href="" class="fr userIcon"></a>
+		<div class="menuIcon"></div>
+		<a href="home.html" class="fl logo-m">晚安.理想</a>
+		<a href="javascript:alert('暂未开放')" class="fr userIcon"></a> 
 	</header>
 	<section id="article">
 		<div class="newshead">
@@ -340,5 +342,25 @@
 
 		</div>
 	</div>-->
+
+<div class="sider">
+	<div class="sider-wrap">
+		<div class="logo-wrap">
+			<a href="home.html"><img src="../images/logo.png"></a>
+		</div>
+		<div class="nav-wrap">
+			<ul>
+				<li><a href="">首页    <i></i></a></li>
+				<li><a href="">晚安理想<i></i></a></li>
+				<li><a href="">段子    <i></i></a></li>
+				<li><a href="">漂流瓶  <i></i></a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="sider-mark"></div>
+</div>
+<script type="text/javascript">
+	var oWananm=new Wananm();
+</script>
 </body>
 </html>
