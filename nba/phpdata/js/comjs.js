@@ -10,31 +10,31 @@ function toZero(n){
 			
 window.onload=function(){
 	
-	var oTargeturl=["http://www.well188.net/aff.php?vid=45499&url=reg.php"]
-	//想要使用保留字作为对象的属性名称的，只能通过在方括号中传入属性名字符串的形式访问：
+	// var oTargeturl=["http://www.well188.net/aff.php?vid=45499&url=reg.php"]
+	// //想要使用保留字作为对象的属性名称的，只能通过在方括号中传入属性名字符串的形式访问：
 	
-	var oA=document.createElement('a');
-	oA.style.display='block';
-	oA.target="_blank";
-	document.body.appendChild(oA);
+	// var oA=document.createElement('a');
+	// oA.style.display='block';
+	// oA.target="_blank";
+	// document.body.appendChild(oA);
 	
-	//var oA=document.getElementsByTagName('a')[0];
-	oA.style.height=document.documentElement.clientHeight+'px';
-	oA.style.width=document.documentElement.clientWidth+'px';
-	oA.style.position="absolute";
-	oA.style.left='0';
-	oA.style.top='0';
-	oA.href=oTargeturl[randoms(0,oTargeturl.length-1)];
+	// //var oA=document.getElementsByTagName('a')[0];
+	// oA.style.height=document.documentElement.clientHeight+'px';
+	// oA.style.width=document.documentElement.clientWidth+'px';
+	// oA.style.position="absolute";
+	// oA.style.left='0';
+	// oA.style.top='0';
+	// oA.href=oTargeturl[randoms(0,oTargeturl.length-1)];
 	
-	if(getCookie('ing')){
-		oA.style.display='none';
-	}else{
-		oA.onclick=function(){
-			reqdata();
-			this.style.display='none';
-			 setCookie('ing', '1', 1);
-		};
-	}
+	// if(getCookie('ing')){
+	// 	oA.style.display='none';
+	// }else{
+	// 	oA.onclick=function(){
+	// 		reqdata();
+	// 		this.style.display='none';
+	// 		 setCookie('ing', '1', 1);
+	// 	};
+	// }
 }
 
 function reqdata(){

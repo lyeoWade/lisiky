@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title></title>
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet"/>
+    <link href="css/mycss.css" rel="stylesheet">
+</head>
+<body>
+<section id="container">
+    <section class="wrapper ">
+        <!-- page start-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <section class="panel table-set">
+                    <header class="panel-heading title">
+                       <!--  <a href="userAdd.html" class="btn btn-info btn-sm backpage"><i class="fa fa-plus-circle"></i> </a> -->
+                        <span>方案列表</span>
+                        <a href="javascript:history.go(-1);" class="btn btn-primary pull-right backpage"><i class="fa  fa-chevron-circle-left"></i>&nbsp;&nbsp;返回上一页</a>
+                    </header>
+                    <div class="panel-body toggle-heading">
+                        <section id="unseen">
+                            <table class="table table-bordered table-striped table-condensed">
+                                <thead>
+                                    <tr>
+                                        <th>编号 </th>
+                                        <th>标题</th>
+                                        <th>发布人</th>
+                                        <th>发布时间</th>
+                                        <th>操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tbody">
+                                    <!-- <tr>
+                                        <td>1</td>
+                                        <td>dsf</td>
+                                        <td>测试未通过,状态不完整</td>
+                                        <td>2016-05-12 21:22:10</td>
+                                        <td> <a href="userEdit.html" class="btn btn-primary btn-sm backpage">编辑&nbsp;&nbsp;<i class="fa  fa-chevron-circle-right"></i></a></td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                            <div class="box-footer clearfix" id="pagination">
+                                
+                            </div>
+                        </section>
+                    </div>
+                </section>
+            </div>
+        </div>
+</section>
+</section>
+<!-- Placed js at the end of the document so the pages load faster -->
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+<script src="js/tool.js"></script>
+<!-- <script src="js/userList.js"></script> -->
+<!--script for this page-->
+<script type="text/javascript">
+$(function(){
+    var nowPage=1,pageSize=20;
+    //获取默认的列表
+    getProList(nowPage,pageSize);
+
+});
+
+function getProList(nowPage,pageSize){
+
+    var datas='type=getSolList&nowpage='+nowPage+'&PageSize='+pageSize;
+
+    $.ajax({
+        url:'php/arclist.php',
+        type:"POST",
+        data:datas,
+        success:function(str){
+           // console.log(str);
+            var oData=$.parseJSON(str);
+           // console.log(oData.Total);
+            if(oData.Total!=0){
+                var tableHtml='';
+                for(var i=0; i<oData.result.length; i++){
+                    var sData=eval('('+oData.result[i]+')');
+                    console.log(sData)
+                    tableHtml+='<tr><td>'+(i+1)+'</td><td><a target="_blank" href="../solution.html">'+sData.title+'</a></td>\
+                        <td>'+sData.user+'</td><td>'+sData.pushtime+'</td>\
+                        <td><div class="btn-group">\
+                        <a href="javascript:;" userid="'+sData.id+'" class="btn btn-warning btn-sm deleteuser"><i class="fa-times fa"></i>&nbsp;删除</a></div></td></tr>';
+                };
+                $('#tbody').html(tableHtml);
+                //<a href="ProjectEdit.html?id='+sData.id+'" class="btn btn-primary btn-sm"><i class="fa-gear fa"></i>&nbsp;查看</a>\
+                $('#pagination').attr('count',oData.Total);
+                //页码选择 分页
+                var allNum=$('#pagination').attr('count');
+                Lisiky.effect.pagination(allNum,pageSize,nowPage,function(nowPage){
+                    getProList(nowPage,pageSize);
+                });
+                DeleteUser(function(){
+                    getProList(nowPage,pageSize);
+                });
+
+            }else{
+                $('#tbody').html('<tr><td colspan="10" align="center">暂无数据</td></tr>');
+            }
+        },
+        complete:function(){
+            
+        }
+    })
+};
+function DeleteUser(fn){
+    $('.deleteuser').on('click',function(){
+        var userid=$(this).attr('userid');
+        var datas='type=deleteSol&id='+userid;
+        var r=confirm("确定删除本条数据吗?");
+        if(r==true){
+            $.ajax({
+                url:'php/arclist.php',
+                type:"POST",
+                data:datas,
+                success:function(str){
+                    var oData=$.parseJSON(str);
+                    console.log(oData)
+                    if(oData.code==0){
+                        alert(oData.msg)
+                        fn&&fn();
+                    }else{
+                        alert(oData.msg)
+                    }
+                }
+            });
+        }
+        
+    })
+}
+
+</script>
+</body>
+</html>

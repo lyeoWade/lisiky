@@ -9,7 +9,7 @@
       <li><a href="video.html">极限视频</a></li>
       <li><a href="Injuries.html">NBA伤病</a></li>
       <li><a href="online.html">极限直播</a></li>
-      <li><a href="guessList.html">竞猜中心</a></li>
+      <!-- <li><a href="guessList.html">竞猜中心</a></li> -->
     </ul>
     
     <!--登录 -->

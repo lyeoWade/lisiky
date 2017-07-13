@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="WA">
+<head>
+	<meta charset="UTF-8">
+	<meta name="aplus-terminal" content="1"> 
+	<meta name="apple-mobile-web-app-capable" content="yes"> 
+	<!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏。content有两个值”yes”和”no” -->
+	<meta name="apple-touch-fullscreen" content="no"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+	<meta name="format-detection" content="telephone=no"> 
+	<!-- 清除微信缓存 -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="viewport" content="width=device-width , initial-scale=1.0 , maximum-scale=1.0 , user-scalabel=no">
+	<link href="../css/reset.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/com.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="../css/home.css">
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="js/com.js"></script>
+	<script type="text/javascript" src="js/Wananm.m.1.js"></script>
+	<script type="text/javascript" src="../js/angular.js"></script>
+	<title>晚安理想</title>
+</head>
+<body>
+	<script type="text/javascript">
+	var app=angular.module('WA',[]);
+	app.controller('main',function($scope,$location,$http){
+		$scope.Wanandata=[];
+		$scope.DuanziData=[];
+		$scope.PLPData=[];
+		//获取晚安 数据
+		try{
+			Wanan();
+			duanzi();
+			piaolp();
+        }catch(e){
+        	//console.log(e)
+        }
+        
+		function Wanan(){
+			var transform = function(data){
+	            return $.param(data);
+	        }
+        	$http.post('../admin/pushArc.php',{
+				"type":"GetArcList",
+				"nowpage":"1",
+				"PageSize":"50"
+			},{
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                transformRequest: transform
+            }).success(function(res){
+				res.result.forEach(function(str){
+					
+                    $scope.Wanandata.push(eval('('+str+')'));
+                });
+                
+			}).error(function(){
+				alert('失败;');
+			});
+        };
+        function duanzi(){
+			var transform = function(data){
+	            return $.param(data);
+	        }
+        	$http.post('../admin/satin.php',{
+				"type":"GetSatinList",
+				"nowpage":"1",
+				"PageSize":"50"
+			},{
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                transformRequest: transform
+            }).success(function(res){
+            	//console.log( res)
+            	var sHtml='';
+				res.result.forEach(function(str){
+                    $scope.DuanziData.push(eval('('+str+')'));
+                    //console.log(eval('('+str+')'))
+                });
+			}).error(function(){
+				alert('失败;');
+			});
+        };
+        function piaolp(){
+			var transform = function(data){
+	            return $.param(data);
+	        }
+        	$http.post('../admin/satin.php',{
+				"type":"GetPlpList",
+				"nowpage":"1",
+				"PageSize":"50"
+			},{
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                transformRequest: transform
+            }).success(function(res){
+            	//console.log( res)
+            	var sHtml='';
+				res.result.forEach(function(str){
+                    $scope.PLPData.push(eval('('+str+')'));
+                    console.log(eval('('+str+')'))
+                });
+			}).error(function(){
+				alert('失败;');
+			});
+        };
+
+        $scope.c=[];
+        $scope.$watch('Wanandata',function(re,old){
+        	if(re.length!=old.length){
+        		$scope.c.push($scope.Wanandata);
+        	}
+        },true);
+		$scope.iNow=0;
+
+		$scope.arrData=[
+			{"name":"晚安","datas":"111",  "hashvalue":"wanan"},
+			{"name":"段子","datas":"222",  "hashvalue":"duanzi"},
+			{"name":"图片","datas":"3333",  "hashvalue":"tupian"},
+			{"name":"漂流瓶","datas":"4444","hashvalue":"piaolp"}
+		]
+
+		$scope.tabswitch=function($event,n){
+			$location.url('/');
+			var hash=$($event.target).attr('data-hash');
+			$location.hash(hash);
+			$scope.iNow=n;
+			//alert($location.hash())
+		};
+
+		//设置默认的hash值
+		$scope.arrData.forEach(function(datas,index){
+			if(datas.hashvalue==$location.hash()){
+				$scope.iNow=index;
+			}
+		});
+
+
+	})
+	</script>
+
+	<header class="header">
+		<div class="menuIcon"></div>
+		<a href="home.html" class="fl logo-m">晚安.理想</a>
+		<!-- <a href="" class="fr userIcon"></a>  -->
+	</header>
+
+	
+	<script type="text/javascript">
+	</script>
+	<!-- banner -->
+	<section id="banner">
+		<div class="bannerwrap">
+			<ul class="bannerimg"></ul>
+			<p class="font"></p>
+			<ol class="dot"></ol>
+		</div>
+	</section>
+
+<script type="text/javascript">
+	var oWananm=new Wananm();
+	oWananm.GetBannerM();
+</script>
+
+
+	
+<section id="homeNav" ng-controller="main">
+	<div class="homeNav-head" >
+		<a href="javascript:;" ng-class="iNow==$index?'active':''" ng-repeat="v in arrData" ng-click="tabswitch($event,$index)" data-hash="{{v.hashvalue}}">{{v.name}}</a>
+	</div>
+
+	<!-- <son-div ></son-div> -->
+	<div class="homeNav-wrap">
+		<div class="line-tab" ng-show="iNow==0">
+
+			<div class="wanan-tab-line clearfix" ng-repeat="v in Wanandata">
+				<div class="wanan-tab-pic fl"><img src="../{{v.coverpic}}"></div>
+				<div class="wanan-tab-info fl">
+					<h2><a href="article.html?id={{v.id}}">{{v.title}}</a></h2>
+					<p class="tag-wrap"><span class="fl">作者:<a href="">{{v.zuozhe}}</a></span><span class="fr">评论：<a href="article.html?id={{v.id}}">({{v.comment}})</a></span></p>
+				</div>
+			</div>
+			<div class="more"><a href="">查看更多</a></div>
+		</div>
+		<div class="line-tab" ng-show="iNow==1">
+
+			<div class="duanzi-tab-line clearfix" ng-repeat="data in DuanziData">
+				<div class="duanzi-tab-pic fl"><a href=""><img src="../{{data.userpic}}"><span>{{data.zuozhe}}</span></a></div>
+				<div class="duanzi-tab-info"><a href="duanzi.html?id={{data.id}}">{{data.content}}</a></div>
+				<div class="satin-line-handle ">
+					<div class="fl">
+						<span class="zan-btn" satinid="23"><i class="zan"></i>{{data.zan}}</span>
+						<span class="cai-btn" satinid="23"><i class="cai"></i>{{data.cai}}</span>
+						<span class="shoucang-btn" satinid="23"><i class="shoucang"></i>{{data.sc}}</span>
+					</div>
+					<div class="fr">
+						<span class="comment-btn"><a target="_blank" href="satincontent.html?id=23"><i class="comment"></i>{{data.comment}}</a></span>
+					</div>
+				</div>
+			</div>
+			<div class="more"><a href="duanziList.html">查看更多</a></div>
+		</div>
+		<div class="line-tab" ng-show="iNow==2">
+			开发中...
+		</div>
+		<div class="line-tab" ng-show="iNow==3">
+			<div class="duanzi-tab-line clearfix" ng-repeat="data in PLPData">
+				<div class="duanzi-tab-pic fl"><a href=""><img src="../{{data.pic}}"><span>{{data.username}}</span></a></div>
+				<div class="duanzi-tab-info"><a href="duanzi.html?id={{data.id}}">{{data.content}}</a></div>
+				<div class="satin-line-handle ">
+					<div class="fl plptime">
+						<i>{{data.pushtime}}</i>
+					</div>
+					<div class="fr">
+						<span class="zan-btn" satinid="23"><i class="zan"></i>{{data.zan}}</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div class="sider">
+	<div class="sider-wrap">
+		
+	</div>
+</div>
+
+</body>
+</html>

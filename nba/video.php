@@ -68,32 +68,37 @@ $bannerId=array();
             </ol>
             <div class="Newswarp">  
               <div class="newswraptab tabswitch" style="display: block;">
-                <ul>
-                  <li class="clearfix">
-                  <span>[&nbsp;即时&nbsp;]</span>
-                  <a href="content_281.html" title="啊实打实的">啊实打实的</a><a href="content_277.html" title="勇士勇士勇士勇士勇士勇士勇士勇士勇士勇士勇士勇士">勇士勇士勇士勇士勇士勇士勇</a><a href="content_276.html" title="马刺马刺马刺马刺马刺">马刺马刺马刺马刺马刺</a><a href="content_275.html" title="骑士骑士骑士骑士骑士骑士骑士骑士骑士骑士骑士v">骑士骑士骑士骑士骑士骑士骑</a>          </li>
-                            <li class="clearfix"><span class="shityellow">[&nbsp;勇士&nbsp;]</span>
-                      <a target="_blank" href="content_239.html" title="卡莱尔：勇士是可以被击败的">卡莱尔：勇士是可以被击败的</a>          </li>
-                            <li class="clearfix"><span class="meihong">[&nbsp;骑士&nbsp;]</span>
-                      <a target="_blank" href="content_175.html" title="骑士103：106灰熊，托尼阿伦26分，詹姆斯28+9+5，">骑士103：106灰熊，托尼阿伦26分，詹姆斯28+</a>          </li>
-                            <li class="clearfix"><span class="red">[&nbsp;马刺&nbsp;]</span>
-                      <a target="_blank" href="content_242.html" title="科尔：球队的很多做法模仿了马刺">科尔：球队的很多做法模仿了马刺</a>          </li>
-                            <li class="clearfix"><span class="throuthblue">[&nbsp;湖人&nbsp;]</span>
-                                </li>
-                            <li class="clearfix"><span class="shityellow">[&nbsp;快船&nbsp;]</span>
-                                </li>
-                            <li class="clearfix"><span class="blueshot">[&nbsp;火箭&nbsp;]</span>
-                      <a target="_blank" href="content_150.html" title="火箭将签下迈克尔-比斯利">火箭将签下迈克尔-比斯利</a>          </li>
-                            <li class="clearfix"><span class="red">[&nbsp;雷霆&nbsp;]</span>
-                      <a target="_blank" href="content_129.html" title="官方：雷霆掘金完成2换1交易，雷霆送出奥古斯丁、诺瓦克换来弗">官方：雷霆掘金完成2换1交易，雷霆送出奥古斯丁、诺瓦</a>          </li>
-                          </ul>
-              </div>
-              <div class="injuries_nba tabswitch" style="display: none;">
-                <ul>
-                  <li><span>[&nbsp;安东尼-戴维斯&nbsp;]</span><a target="_blank" href="Injuries.html">膝伤和肩伤</a></li><li><span>[&nbsp;安德鲁-博古特&nbsp;]</span><a target="_blank" href="Injuries.html">左脚大脚趾</a></li><li><span>[&nbsp;钱德勒-帕森斯&nbsp;]</span><a target="_blank" href="Injuries.html">右腿筋</a></li><li><span>[&nbsp;安东尼-戴维斯&nbsp;]</span><a target="_blank" href="Injuries.html">左膝</a></li><li><span>[&nbsp;杰里米-埃文斯&nbsp;]</span><a target="_blank" href="Injuries.html">右肩关节唇</a></li>          
+                <ul class="v-down">
+                   <?php 
+                    $g="SELECT * FROM Video WHERE tag like '%十佳球%' or title like '%十佳球%' ORDER BY updatetime DESC limit 0,10";
+                    $getDownList=mysql_query($g) or die("获取失败:".mysql_error());;
+                    $i=0;
+                    $result=array();
+                    while ($List=mysql_fetch_array($getDownList)) {
+                      $i++;
+                  ?>
+                    <li><span><?php echo $i ?></span><a target="_blank" href="videoDetail_<?php echo $List["id"]?>.html"><?php echo $List["title"]?></a></li>
+                  <?php 
+                    }
+                  ?>
                 </ul>
               </div>
-
+              <div class="injuries_nba tabswitch" style="display: none;">
+                <ul class="v-down">
+                  <?php 
+                    $g="SELECT * FROM blong_arclist WHERE type_id=8 ORDER BY datatime DESC limit 0,10";
+                    $getDownList=mysql_query($g) or die("获取失败:".mysql_error());;
+                    $i=0;
+                    $result=array();
+                    while ($List=mysql_fetch_array($getDownList)) {
+                      $i++;
+                  ?>
+                    <li><span><?php echo $i ?></span><a target="_blank" href="content_<?php echo $List["id"]?>.html"><?php echo $List["title"]?></a></li>
+                  <?php 
+                    }
+                  ?>
+                </ul>
+              </div>
             </div>
           </div>
     </div><!-- ad -->

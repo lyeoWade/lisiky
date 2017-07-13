@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>晚安理想</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<link href="css/webuploader.css" rel="stylesheet">
+    <link href="css/uploadStyle.css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+
+
+</head>
+<body>
+	<div id="nav-warp">
+		<div class="nav-wrap-box">
+			<div class="nav-l fl">
+				<div class="site-logo fl"><img src=""></div>
+				<div class="site-nav fl">
+					<a href="index.html">晚安&nbsp;&bull;&nbsp;理想</a>
+					<a href="">陪你&nbsp;&bull;&nbsp;入眠</a>
+					<a href="satin.html">愉悦&nbsp;&bull;&nbsp;段子</a>
+					<a href="">走遍&nbsp;&bull;&nbsp;世界</a>
+				</div>
+				<div class="site-search fl">
+					<input type="text" value="" placeholder="sousuo" class="search">
+					<a href="javascrit:;"></a>
+				</div>
+			</div>
+			<div class="nav-r fr">
+				<div class="login-wrap show">
+					<a href="reg.html" class="reg">注册</a>
+					<a href="denglu.html" class="login">登录</a>
+				</div>
+				
+				<div class="login-end hide">
+					<a href="">
+						<img src="images/3.jpg">
+						<span>短友老王</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- 配置文件 -->
+    <script type="text/javascript" src="ue/ueditor.config.js"></script>
+    <!-- 编辑器源码文件 -->
+    <script type="text/javascript" src="ue/ueditor.all.js"></script>
+    <!-- 实例化编辑器 -->
+    <script type="text/javascript">
+      var ue = UE.getEditor('container',{
+			toolbars: [
+					    [
+					    	'source',
+					        'bold', //加粗
+					        'indent', //首行缩进
+					        'italic', //斜体
+					        'underline', //下划线
+					        'strikethrough', //删除线
+					        'subscript', //下标
+					        'fontborder', //字符边框
+					        'superscript', //上标
+					        'pasteplain', //纯文本粘贴模式
+					        'selectall', //全选
+					        'preview', //预览
+					        'horizontal', //分隔线
+					        'removeformat', //清除格式
+					        'time', //时间
+					        'date', //日期
+					        'fontfamily', //字体
+					        'fontsize', //字号
+					        'paragraph', //段落格式
+					        'simpleupload', //单图上传
+					        'link', //超链接
+					        'justifyleft', //居左对齐
+					        'justifyright', //居右对齐
+					        'justifycenter', //居中对齐
+					        'justifyjustify', //两端对齐
+					        'forecolor', //字体颜色
+					        'insertorderedlist', //有序列表
+					        'insertunorderedlist', //无序列表
+					        'fullscreen', //全屏
+					        'rowspacingtop', //段前距
+					        'rowspacingbottom', //段后距
+					        'imagecenter', //居中
+					        'lineheight', //行间距
+					        'edittip ', //编辑提示
+					        'customstyle', //自定义标题
+					        'inserttable', //插入表格
+					        'drafts', // 从草稿箱加载
+					    ]
+					]
+		});
+    </script>
+	<div class="push-box">
+		<div class="push-s">
+			欢迎您！
+		</div>
+		<div class="push-content-box">
+			<div class="push-select-wrap">
+				<span>请选择栏目:</span>
+				<a href="javascript:;" data-hash="article" class="active">陪你入睡</a>
+				<a href="javascript:;" data-hash="satin">愉悦段子</a>
+				<a href="javascript:;" data-hash="world">走遍世界</a>
+			</div>
+		</div>
+		<div class="push-content">
+			<div class="push-bar " data-hash="article" style="display:block;">
+				<div class="push-satin wanan-push-wrap">
+					<!-- 段子 -->
+					<ul>
+						<li><span class="lileft">标题</span><input type="text" value="" placeholder="标题" class="arctitle"></li>
+						<li>
+							<span class="lileft">摘要</span>
+							<textarea class="desc" placeholder="摘要(200字以内)"></textarea>
+                        </li>
+						<li><span class="lileft">文章封面图</span>
+							<div class="" style="margin-left: 150px;">
+								<div class="file-upload-wrap">
+									<input type="file" id="article-fm-file" />
+									<div class="markfile article-fm-file-mark">点击选择,大小4:3(图片小于1M)</div>
+									<a href="javascript:;" class="uploadbtn article-fm-file-btn">上传</a>
+								</div>
+								<div class="file-upload-pic article-fm-pic">
+									<!-- <img src=""> -->
+								</div>
+							</div>
+						</li>
+						<li><span class="lileft">推荐文章</span><input class="checkbox" type="checkbox" id="isrecommend" /><i>通过审核将会被推荐到首页banner！</i></li>
+						<li class="audio-upload-wrap isrecommendbanner hide">
+							<div class="file-upload-wrap">
+								<input type="file" id="isBanner" />
+								<div class="markfile banner-mark-wrap">点击选择封面图,大小16:9(图片小于1M)</div>
+								<a href="javascript:;" class="uploadbtn uploadbannerbtn">上传</a>
+							</div>
+							<div class="file-upload-pic banner-show-wrap">
+								<!-- <img src="images/3.jpg"> -->
+							</div>
+						</li>
+						<li><span class="lileft">我有音频文件</span><input class="checkbox" id="isaudioupload" type="checkbox" /></li>
+						<li class="audio-upload-wrap haveaudio hide">
+							<div class="file-upload-wrap">
+								<input type="file" id="audioupload" />
+								<div class="markfile audiouploadmarktip">点击选择音频文件(最大30M)</div>
+								<a href="javascript:;" class="uploadbtn audiouploadbtn">上传</a>
+							</div>
+							<div class="file-upload-wrap">
+								<input type="file" id="audiouploadpic" />
+								<div class="markfile audiouploadmark">点击选择音频封面图,大小1:1(图片小于1M)</div>
+								<a href="javascript:;" class="uploadbtn upload-audio-pic-btn">上传</a>
+							</div>
+							<div class="file-upload-pic file-audio-upload-pic">
+								<!-- <img src="images/3.jpg"> -->
+							</div>
+						</li>
+						<li><span class="lileft">正文</span>
+							<div class="" style="width:700px; margin-left:150px; line-height: 20px;">
+								<script id="container" name="content" type="text/plain"></script>
+							</div>
+						</li>
+						<li><span class="lileft">&nbsp;</span><a href="javascript:;" class="arc-btn">确定</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="push-bar " data-hash="satin">
+				<div class="push-satin">
+					<!-- 段子 -->
+					<ul>
+						<li><span class="lileft">说出你的段子&nbsp;&nbsp;→</span><textarea id="satincontent"></textarea></li>
+						<li>
+							<span class="lileft">图片(如果有)</span>
+							<div id="wrapper">
+                                <div id="container">
+                                    <!--头部，相册选择和格式选择-->
+                                    <div id="uploader">
+                                        <div class="queueList">
+                                            <div id="dndArea" class="placeholder">
+                                                <div id="filePicker"></div>
+                                                <p>或将照片拖到这里，单次最多可选300张</p>
+                                            </div>
+                                        </div>
+                                        <div class="statusBar" style="display:none;">
+                                            <div class="progress">
+                                                <span class="text">0%</span>
+                                                <span class="percentage"></span>
+                                            </div><div class="info"></div>
+                                            <div class="btns">
+                                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+						<!-- <li><span>图片集</span><input type="text"></li> -->
+						<li><span class="lileft">&nbsp;</span><a href="javascript:;" class="satin-btn">确定</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="push-bar " data-hash="world">
+				<div class="push-satin">
+					<!-- 段子 -->
+					<ul>
+						<li><span>说出你的段子&nbsp;&nbsp;→</span><textarea></textarea></li>
+						<li>
+							<span>图片(如果有)</span>
+							
+                        </li>
+						<!-- <li><span>图片集</span><input type="text"></li> -->
+						<li><span>&nbsp;</span><a href="javascript:;" class="pic-btn">确定</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="footer">
+		<div class="footer-content"><p>如有疑问，请联系：513632026@qq.com</p></div>
+	</div>
+	<script src="js/webuploader.js"></script>
+	<script type="text/javascript" src="js/upload.js"></script>
+
+	<script type="text/javascript">
+		var oSatin=new Wanan();
+		oSatin.satinPush();
+		oSatin.tableSwitch();
+		oSatin.pushArc();
+	</script>
+
+	
+</body>
+</html>

@@ -24,6 +24,8 @@
         $type="篮球心水";
       }else if($row["type_id"]==7){
         $type="足球心水";
+      }else if($row["type_id"]==8){
+        $type="视频下载";
       }
 ?>
 <!doctype html>
@@ -55,7 +57,7 @@
             <li><a href="video.html">极限视频</a></li>
             <li><a href="Injuries.html">NBA伤病</a></li>
             <li><a href="online.html">极限直播</a></li>
-            <li><a href="recommendarticles.html">推荐文章</a></li>
+            <!--<li><a href="recommendarticles.html">推荐文章</a></li>-->
         </ul>
 		<ul class="login">
 			<li><a href="register.html">注册</a></li>

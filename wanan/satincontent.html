@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>晚安理想</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+</head>
+<body>
+	<div id="nav-warp">
+		<div class="nav-wrap-box">
+			<div class="nav-l fl">
+				<div class="site-logo fl"><img src=""></div>
+				<div class="site-nav fl">
+					<a href="index.html">首页</a>
+					<a href="wananlist.html">晚安&nbsp;&bull;&nbsp;理想</a>
+					<a href="satin.html" class="active">愉悦&nbsp;&bull;&nbsp;段子</a>
+					<a href="world.html">走遍&nbsp;&bull;&nbsp;世界</a>
+				</div>
+				<div class="site-search fl">
+					<input type="text" value="" placeholder="sousuo" class="search">
+					<a href="javascrit:;"></a>
+				</div>
+			</div>
+			<div class="nav-r fr">
+				<div class="login-wrap show">
+					<a href="reg.html" class="reg">注册</a>
+					<a href="denglu.html" class="login">登录</a>
+				</div>
+
+				<div class="login-end hide">
+					<a href="">
+						<img src="images/3.jpg">
+						<span>短友老王</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="satin-warp clearfix">
+		<div class="satin-l fl">
+			<div class="satin-list">
+				<div class="satin-line">
+					<div class="satin-thumb">
+						<img src="images/2.jpg">
+						<div class="satin-line-username">
+							<a href=""></a><span></span>
+						</div>
+					</div>
+					<div class="satin-line-info">
+						
+						<div class="satin-line-content">
+							
+						</div>
+						<div class="satin-line-handle">
+							<div class="fl satin-line-j">
+								<span><i class="zan"></i></span>
+								<span><i class="cai"></i></span>
+								<span><i class="shoucang"></i></span>
+							</div>
+							<!-- <div class="fr">
+								<span class="comment-btn"><a href=""><i class="comment"></i>(23)</a></span>
+							</div> -->
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="satin-push-wrap">
+				<div class="satin-push-text">
+					<div class="user-pic"><img src="images/2.jpg"></div>
+					<textarea class="satin-push-textarea"></textarea>
+				</div>
+				<div class="satin-push-btn-wrap">
+					<span>你还可以输入<i id="fontnum">140</i>字</span>
+					<a href="javascript:;" class="satin-push-btn">评论</a>
+				</div>
+			</div>
+			
+			<!-- 段子评论 -->
+			<div class="All-comment">
+				<h2>最新评论<span class="all-num">324</span></h2>
+				<div class="all-comment-list">
+					<!-- <div class="comment-line">
+						<div class="comment-user-pic"><img src="images/4.jpg"></div>
+						<div class="comment-user-wrap">
+							<div class="comment-user-info clearfix">
+								<div class="fl comment-username">
+									<p>此乃大凶之罩啊</p>
+									<p>2017-12-21 09:09:30</p>
+								</div>
+								<div class="fr comment-handle">
+									<span class="zan-btn" satinid="4"><i class="zan"></i>278</span>								
+									<span class="cai-btn" satinid="4"><i class="cai"></i>6</span>				
+								</div>
+							</div>
+							<div class="comment-user-content">
+								蘑菇是你为了保护你儿子撒尿长得
+							</div>
+						</div>
+					</div>
+					-->
+				</div>
+				<div class="load-more"><a href="javascript:;" id="loadmore" typeid="1" nowpage="1">加载更多</a></div>
+			</div>
+		</div>
+
+
+		<div class="satin-r fr">
+			<!-- 标签 -->
+			<!-- <div class="satin-tag">
+				<h2>热门标签</h2>
+				<div class="satin-tag-wrap">
+					<a href="javascript:;" class="active" typeid="1">段子</a>
+					<a href="javascript:;" typeid="2">图片</a>
+					
+				</div>
+			</div> -->
+		</div>
+	</div>
+
+
+	<div class="footer">
+		<div class="footer-content"><p>如有疑问，请联系：513632026@qq.com</p></div>
+	</div>
+
+
+	<!-- <div class="layer" id="drag">
+		<div class="layer-wrap">
+			<h2>温馨提示</h2>
+			<div class="layer-wrap-box">
+				<p>舍友举着手机跟我说，她微博上有1000个人点赞！我轻轻一笑，说我段子里有多条评论超过10000赞呢！她说，切，段子又不是微博，也没什么人玩。我没说话，跑到阳台大喊一声，天王盖地虎！！！！！！</p>
+			</div>
+			<div class="layer-btn-wrap" id="layer-btn">
+				<a href="javascript:;">确定</a>
+				<a href="javascript:;" class="cancel">取消</a>
+			</div>
+		</div>
+	</div> -->
+
+
+	<script type="text/javascript">
+		var oSatin=new Wanan();
+		try{
+			oSatin.GetOneSatin();
+			oSatin.GetCommentList(1);
+			oSatin.SatinComment(1);
+		}catch(e){
+			console.log(e)
+		}
+	</script>
+</body>
+</html>

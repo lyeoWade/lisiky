@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>新增方案</title>
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet"/>
+    <link href="css/mycss.css" rel="stylesheet">
+</head>
+<body>
+<section id="container">
+<!--header start-->
+<!--main content start-->
+    <section class="wrapper">
+        <!-- page start-->
+
+        <!-- 项目列表 -->
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading title">
+                        <span><i class="fa fa-plus-square-o"></i>&nbsp;&nbsp;新增资质</span>
+                        <a href="javascript:history.go(-1);" class="btn btn-primary pull-right backpage"><i class="fa  fa-chevron-circle-left"></i>&nbsp;&nbsp;返回上一页</a>
+                    </header>
+                    <div class="panel-body" id="projectwarp">
+                        <div class="childproject">
+                           
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="commentForm" method="get" action="" novalidate="novalidate">
+                                    <div class="form-group ">
+                                        <label for="projectnum" class="control-label col-lg-2 col-md-2">标题</label>
+                                        <div class="col-lg-6 col-md-6">
+                                            <input class="form-control " id="projectname" type="text" name="projectname" required="">
+                                        </div>
+                                    </div>
+                                    <div class="isrecommendbox" style="display: block;">
+                                    <div class="form-group clearfix">
+                                      <label for="bannerImg" class="col-sm-2 control-label">缩略图</label>
+                                      <div class="col-sm-6" style="position: relative;">
+                                         <input type="file" class="form-control files" id="bannerImg" placeholder="BANNER图片">
+                                         <div class="markfile markfile2">点击上传缩略图</div>
+                                         <button type="button" class="btn col-sm-2 btn-success uploadbtn" id="Bannerbtn">上传</button>
+                                      </div>
+                                   </div>
+                                   <div class="form-group clearfix">
+                                      <label for="" class="col-sm-2 control-label"></label>
+                                      <div class="col-sm-6" id="thumbbox">
+                                        <img src="" id="newbanner">
+                                      </div>
+                                   </div>
+                                </div>
+                                    
+                                    <div class="form-group clearfix">
+                                         <label for="" class="control-label col-lg-2  col-md-2">&nbsp;&nbsp;</label>
+                                        <div class="col-lg-8  col-md-8">
+                                            <button class="btn btn-primary" type="button" id="addChildProjectBtn"><i class="fa fa-check-circle"></i>&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</button>
+                                            <span class="addtip"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+</section>
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+<script src="js/tool.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $('#bannerImg').on('change',function(){
+            $('.markfile2').html($(this).val());
+        });
+        $('#Bannerbtn').on('click',function(){
+            var oFile=$('#bannerImg').get(0).files[0];
+            console.log(oFile)
+            uploades(oFile,function(d){
+
+                console.log(d)
+                if(d.code==1){
+                    alert(d.msg+",请刷新！");
+                    return false;
+                }else{
+                   $('#newbanner').attr('src',d.url.substring(3));
+                };
+            });
+        });
+
+        $('#addChildProjectBtn').on('click',function(){
+            $title=$('#projectname').val();
+            $thumbnail=$('#newbanner').attr('src');
+           
+            //alert($typeid);
+            //return  false;
+            $username=cookieValue.username;
+            if($title=='' || $thumbnail==''){
+                alert('请填写完整');
+                return false;
+            }
+            var datas='type=AddZZ&title='+$title+'&thumbnail='+$thumbnail+'&username='+$username;
+            
+            $.ajax({
+                type:"POST",
+                url:'php/arclist.php',
+                data:datas,
+                success:function(str){
+                    var oData=eval('('+str+')');
+                    if(oData.respondCode==0){
+                        $('.addtip').html(oData.respondMsg);
+                    }else{
+                        $('.addtip').html(oData.respondMsg);
+                    }
+                    //console.log(str);
+                    //
+                }
+            })
+        })
+    });
+</script>
+<!--script for this page-->
+</body>
+</html>

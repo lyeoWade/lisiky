@@ -1,0 +1,172 @@
+@import "com.less";
+
+
+
+
+#homeNav{
+	background:@fff;
+	width:100%;
+
+	.homeNav-head{
+		padding:0 0.1rem;
+		font-size:0;
+		height:0.3rem;
+		margin:0.1rem 0 0 0;
+		border-bottom:1px solid @pink;
+		a{
+			display:inline-block;
+			line-height:0.3rem;
+			font-size:0.14rem;
+			padding:0 0.12rem;
+			&.active{
+				background:@pink;
+				color:@fff;
+			}
+		}
+	}
+
+	.homeNav-wrap{
+		.line-tab{
+		padding:0.2rem 0.1rem;
+			.wanan-tab-line{
+				margin-bottom:0.1rem;
+				.wanan-tab-pic{
+					width:0.9rem;
+					height:0.6rem;
+					margin-right:0.1rem;
+					img{
+						display:block;
+						width:0.9rem;
+						height:0.6rem;
+					}
+				}
+				.wanan-tab-info{
+					width:2rem;
+					h2{
+						font-size:0.18rem;
+						font-weight:normal;
+						line-height:0.22rem;
+						height:46px;
+					}
+
+					.tag-wrap{
+						//margin-top:0.16rem;
+						font-size:0.12rem;
+						height:14px;
+						span{
+							color:@c3;
+						}
+						a{
+							color:@c1;
+							margin-right:0.08rem;
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+.more{
+	text-align:center;
+	line-height:40px;
+}
+
+header{
+	.rel();
+	.menuIcon{
+		width:0.26rem;
+		height:0.26rem;
+		.abs();
+		left:0.09rem;
+		top:0.09rem;
+		background:@c1;
+		background:url('../images/menu.png') no-repeat center center;
+		background-size:contain;
+	}	
+}
+
+
+.duanzi-tab-line{
+	margin-bottom:0.1rem;
+	border:1px solid @c4;
+	padding:0.1rem;
+
+	.plptime{
+		color:@c3;
+		font-size:0.12rem;
+		i{
+			padding-left:0.18rem;
+			background:url('../images/time.png') no-repeat left center;
+			background-size:contain;
+		}
+	}
+	.duanzi-tab-pic{
+		height:0.4rem;
+		width:100%;
+		line-height:0.4rem;
+		margin-bottom:0.1rem;
+		a{
+			display:block;
+			
+		}
+		img{
+			width:0.4rem;
+			height:0.4rem;
+			.br(0.2rem,0.2rem,0.2rem,0.2rem);
+			float:left;
+		}
+		span{
+			display:inline-block;
+			vertical-align: middle;
+			line-height:0.4rem;
+			float:left;
+			margin:-0rem 0 0 0.1rem;
+
+		}
+	}
+}
+.duanzi-tab-info{
+	line-height:24px;
+}
+
+#article{
+	.articlecontent{
+		
+		p{
+			font-size:0.14rem;
+		}
+	}
+	
+}
+
+
+
+//侧边栏菜单
+
+.sider{
+	width:100%;
+	height:5.5rem;
+	background:@fff;
+	.abs();
+	left:0;
+	top:0;
+
+	.sider-wrap{
+		width:2.1rem;
+		background:@c1;
+		height:100%;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+

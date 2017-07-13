@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="aplus-terminal" content="1"> 
+	<meta name="apple-mobile-web-app-capable" content="yes"> 
+	<!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏。content有两个值”yes”和”no” -->
+	<meta name="apple-touch-fullscreen" content="no"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+	<meta name="format-detection" content="telephone=no"> 
+	<!-- 清除微信缓存 -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="viewport" content="width=device-width , initial-scale=1.0 , maximum-scale=1.0 , user-scalabel=no">
+	<link href="../css/reset.css" type="text/css" rel="stylesheet" />
+	<link rel="stylesheet" type="text/css" href="css/com.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="js/com.js"></script>
+	<script type="text/javascript" src="js/llq.m.1.js"></script>
+	<title>聊聊球</title>
+</head>
+<body>
+
+	<header class="header">
+		<a href="home.html" class="fl logo-m"><img src="images/logo.png"></a>
+		<!-- <a href="" class="fr userIcon"></a>  -->
+	</header>
+	<nav class="nav">
+		<div class="navwrap">
+			<a href="home.html" class="active">全部</a>
+			<a href="xiaoxi.html">消息</a>
+			<a href="zhibo.html">直播</a>
+			<a href="shipin.html">视频</a>
+			<a href="shangbing.html">伤病</a>
+			<a href="shoufa.html">首发</a>
+		</div>
+	</nav>
+	
+	<script type="text/javascript">
+		var oNavScroll=new Llq();
+		oNavScroll.navScroll('.navwrap');
+	</script>
+	<!-- banner -->
+	
+	<section id="banner">
+		<div class="bannerwrap">
+			<ul class="bannerimg">
+				<li><img src="../img/1.jpg"></li>
+				<li><img src="../img/2.jpg"></li>
+				<li><img src="../img/3.jpg"></li>
+				<li><img src="../img/5.jpg"></li>
+				<li><img src="../img/3.jpg"></li>
+			</ul>
+			<p class="font"></p>
+			<ol class="dot">
+				
+			</ol>
+		</div>
+	</section>
+
+<script type="text/javascript">
+	var oBanner=new Llq();
+	oBanner.Banner('#banner');
+</script>
+
+
+	
+	<!-- 部分直播赛程 5场 -->
+
+	<!-- <section id="online">
+		<ul class="online-wrap">
+			<li>
+				<div class="online-list-l fl">
+					<i class="leagen">NBA</i><span class="vs">勇士VS马刺</span>
+				</div>
+				<div class="online-list-r fr">
+					<span class="timeorsocer">2017-01-21 10:30</span>
+					<span class="status">直播</span>
+				</div>
+			</li>
+
+			<li>
+				<div class="online-list-l fl">
+					<i class="leagen">NBA</i><span class="vs">勇士VS马刺</span>
+				</div>
+				<div class="online-list-r fr">
+					<span class="timeorsocer">2017-01-21 10:30</span>
+					<span class="status">直播</span>
+				</div>
+			</li>
+
+			<li>
+				<div class="online-list-l fl">
+					<i class="leagen">NBA</i><span class="vs">勇士VS马刺</span>
+				</div>
+				<div class="online-list-r fr">
+					<span class="timeorsocer">2017-01-21 10:30</span>
+					<span class="status">录像</span>
+				</div>
+			</li>
+		</ul>
+		<div class="onlinemore"><a href="">查看全部赛程</a></div>
+	</section> -->
+
+
+	<!-- 视频推荐 -->
+
+	<section id="video">
+		<div class="video-head">
+			<h2 class="fl">最新视频</h2>
+			<a class="fr videomore" href=""></a>
+		</div>
+		<div class="videolist">
+			<ul class="clearfix">
+				<li>
+					<div class="mark"></div>
+					<img src="../img/2.jpg">
+					<p>勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺</p>
+				</li>
+				<li>
+				<div class="mark"></div>
+					<img src="../img/3.jpg">
+					<p>勇士VS马刺</p>
+				</li>
+				<li>
+					<div class="mark"></div>
+					<img src="../img/1.jpg">
+					<p>勇士VS马刺</p>
+				</li>
+				<li>
+					<div class="mark"></div>
+					<img src="../img/5.jpg">
+					<p>勇士VS马刺</p>
+				</li>
+				<li>
+					<div class="mark"></div>
+					<img src="../img/1.jpg">
+					<p>勇士VS马刺</p>
+				</li>
+				<li>
+					<img src="../img/1.jpg">
+					<p>勇士VS马刺</p>
+				</li>
+				<li>
+					<img src="../img/1.jpg">
+					<p>勇士VS马刺</p>
+				</li>
+				<li>
+					<img src="../img/1.jpg">
+					<p>勇士VS马刺</p>
+				</li>
+			</ul>
+		</div>
+		<div class="onlinemore"><a href="">查看全部视频</a></div>
+	</section>
+
+
+	<!-- 第一手 -->
+
+	<section id="video" class="news">
+		<div class="video-head news-head">
+			<h2 class="fl">第一手消息</h2>
+			<a class="fr videomore" href=""></a>
+		</div>
+		<div class="newslist">
+			<ul class="clearfix">
+				<li>
+					<img src="../img/2.jpg">
+					<div class="newinfo">
+						<h2>勇士VS马刺勇士VS马勇士VS马刺勇士VS马勇士VS马刺勇士VS马</h2>
+						<p>勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺</p>
+					</div>
+				</li>
+				<li>
+					<img src="../img/2.jpg">
+					<div class="newinfo">
+						<h2>勇士VS马刺勇士VS马</h2>
+						<p>勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺勇士VS马刺</p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="onlinemore"><a href="">查看全部消息</a></div>
+	</section>
+
+
+</body>
+</html>

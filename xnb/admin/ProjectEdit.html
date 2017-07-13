@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>APIM 新增项目</title>
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet"/>
+    <link href="css/mycss.css" rel="stylesheet">
+</head>
+<body>
+<section id="containers">
+
+    <section class="wrapper">
+        <!-- page start-->
+
+        <div class="row">
+            <div class="col-md-12">
+                <section class="panel">
+                    <header class="panel-heading title">
+                        
+                        <span><i class="fa fa-plus-square-o"></i>&nbsp;&nbsp;产品详情</span>
+                        <a href="javascript:history.go(-1);" class="btn btn-primary pull-right backpage"><i class="fa  fa-chevron-circle-left"></i>&nbsp;&nbsp;返回上一页</a>
+                    </header>
+
+                    <!-- 配置文件 -->
+                    <script type="text/javascript" src="ue/ueditor.config.js"></script>
+                    <!-- 编辑器源码文件 -->
+                    <script type="text/javascript" src="ue/ueditor.all.js"></script>
+                    <!-- 实例化编辑器 -->
+                    <script type="text/javascript">
+                      var ue = UE.getEditor('container',{
+                            toolbars: [
+                                        [
+                                            'source',
+                                            'bold', //加粗
+                                            'indent', //首行缩进
+                                            'italic', //斜体
+                                            'underline', //下划线
+                                            'strikethrough', //删除线
+                                            'subscript', //下标
+                                            'fontborder', //字符边框
+                                            'superscript', //上标
+                                            'selectall', //全选
+                                            'preview', //预览
+                                            'horizontal', //分隔线
+                                            'removeformat', //清除格式
+                                            'time', //时间
+                                            'date', //日期
+                                            'fontfamily', //字体
+                                            'fontsize', //字号
+                                            'paragraph', //段落格式
+                                            'simpleupload', //单图上传
+                                            'link', //超链接
+                                            'justifyleft', //居左对齐
+                                            'justifyright', //居右对齐
+                                            'justifycenter', //居中对齐
+                                            'justifyjustify', //两端对齐
+                                            'forecolor', //字体颜色
+                                            'insertorderedlist', //有序列表
+                                            'insertunorderedlist', //无序列
+                                            'imagecenter', //居中
+                                            'lineheight', //行间距
+                                            'inserttable', //插入表格
+                                            'drafts', // 从草稿箱加载
+                                        ]
+                                    ]
+                        });
+                    </script>
+                    <div class="panel-body toggle-heading">
+                        <div class=" form">
+                            <form class="cmxform form-horizontal " id="commentForm" method="get" action="" novalidate="novalidate">
+                                
+                                <div class="form-group ">
+                                    <label for="projectname" class="control-label col-lg-2  col-sm-2">标题</label>
+                                    <div class="col-lg-6 col-sm-6">
+                                        <input class="form-control " id="projectname" type="text" name="projectname" required="">
+                                    </div>
+                                </div>
+
+                                <div class="isrecommendbox" style="display: block;">
+                                    <div class="form-group clearfix">
+                                      <label for="bannerImg" class="col-sm-2 control-label">缩略图</label>
+                                      <div class="col-sm-6" style="position: relative;">
+                                         <input type="file" class="form-control files" id="bannerImg" placeholder="BANNER图片">
+                                         <div class="markfile markfile2">点击我上传缩略图（16:9）</div>
+                                         <button type="button" class="btn col-sm-2 btn-success uploadbtn" id="Bannerbtn">上传</button>
+                                      </div>
+                                   </div>
+                                   <div class="form-group clearfix">
+                                      <label for="" class="col-sm-2 control-label"></label>
+                                      <div class="col-sm-6" id="thumbbox">
+                                        <img src="" id="newbanner">
+                                      </div>
+                                   </div>
+                                </div>
+
+                                <div class="form-group ">
+                                    <div class="col-sm-2 red control-label">文章内容</div>
+                                    <div class="col-sm-8">
+                                      <script id="container" name="content" type="text/plain"></script>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-lg-offset-2 col-sm-offset-2 col-lg-8 col-lg-8">
+                                        <button class="btn btn-primary" type="button" id="addproject"><i class="fa fa-check-circle"></i>&nbsp;&nbsp;保存&nbsp;&nbsp;&nbsp;</button>
+                                        <span class="addtip"></span>
+                                       <!--  <a href="javascript:;" class="pull-right" style="line-height: 32px;">删除项目？</a> -->
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+</section>
+<!-- Placed js at the end of the document so the pages load faster -->
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+<script src="js/tool.js"></script>
+
+<script type="text/javascript">
+	$(function(){
+
+
+        $('#bannerImg').on('change',function(){
+            $('.markfile2').html($(this).val());
+        });
+        $('#Bannerbtn').on('click',function(){
+            var oFile=$('#bannerImg').get(0).files[0];
+            console.log(oFile)
+            uploades(oFile,function(d){
+
+                console.log(d)
+                if(d.code==1){
+                    alert(d.msg+",请刷新！");
+                    return false;
+                }else{
+                   $('#newbanner').attr('src',d.url.substring(3));
+                };
+            });
+        });
+
+		$('#addproject').on('click',function(){
+
+			$title=$('#projectname').val();
+			$thumbnail=$('#newbanner').attr('src');
+            $content=UE.getEditor('container').getContent();
+
+            $username=cookieValue.username;
+            if($title=='' || $thumbnail=='' || $content==''){
+                alert('请填写完整');
+                return false;
+            }
+			var datas='type=AddProject&title='+$title+'&thumbnail='+$thumbnail+'&content='+$content+'&username='+$username;
+
+            // alert(datas);
+			$.ajax({
+				type:"POST",
+				url:'php/arclist.php',
+				data:datas,
+				success:function(str){
+                    var oData=eval('('+str+')');
+                    if(oData.respondCode==0){
+                        $('.addtip').html(oData.respondMsg);
+                    }else{
+                        $('.addtip').html(oData.respondMsg);
+                    }
+					//console.log(str);
+                    //
+				}
+			})
+		})
+	});
+</script>
+<!--script for this page-->
+</body>
+</html>

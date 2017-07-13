@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>晚安理想</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/public.js"></script>
+</head>
+<body>
+	<div id="nav-warp">
+		<div class="nav-wrap-box">
+			<div class="nav-l fl">
+				<div class="site-logo fl"><img src=""></div>
+				<div class="site-nav fl">
+					<a href="index.html">首页</a>
+					<a href="wananlist.html" class="active">晚安&nbsp;&bull;&nbsp;理想</a>
+					<a href="satin.html">愉悦&nbsp;&bull;&nbsp;段子</a>
+					<a href="world.html">走遍&nbsp;&bull;&nbsp;世界</a>
+				</div>
+				<div class="site-search fl">
+					<input type="text" value="" placeholder="sousuo" class="search">
+					<a href="javascrit:;"></a>
+				</div>
+			</div>
+			<div class="nav-r fr">
+				<div class="login-wrap show">
+					<a href="reg.html" class="reg">注册</a>
+					<a href="denglu.html" class="login">登录</a>
+				</div>
+
+				<div class="login-end hide">
+					<a href="">
+						<img src="images/3.jpg">
+						<span>短友老王</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div class="wananlist-content satin-warp clearfix">
+		<div class="fl wananlist-l">		
+			<div class="content">
+				<div class="title">
+					<h1></h1>
+					<div class="title-info clearfix">
+						<div class="fl c-author"><span></span></div>
+						<div class="fl c-pushtime"><span></span></div>
+						<div class="fl c-comment"><a href="javascript:;"></a></div>
+						<div class="fr c-share">分享:</div>
+					</div>
+					<div class="content-box ">
+						<div class="audio-wrap-box clearfix">
+							<div class="audio-img-wrap fl"><img src="server/upload/1498793107e402ba24247df5a5b65954ffe53e48349b2feda0f400-1vTFa7.jpg" style=""><span class="paly-btn pause"></span><!-- <strong><i class="progress"></i></strong> --></div>
+							<div class="audio-wrap hide">
+								<audio id="audio" controls="" autoplay="" src="server/upload/1498793140lixiang.mp3">你的浏览器不支持HTML5播放器</audio>
+							</div>
+							<div class="audio-info-wrap">
+								<canvas class="audio-info"></canvas>
+								<p id="progress"><span></span></p>
+							</div>
+						</div>
+						<div class="arc-box">
+							
+						</div>
+
+						<div class="arc-handle">
+							<a href="javascript:;" class="zan comment-zan-btn"> 12</a>
+							<a href="javascript:;" class="sc">0</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="satin-push-wrap">
+				<div class="satin-push-text">
+					<div class="user-pic"><img src="images/2.jpg"></div>
+					<textarea class="satin-push-textarea"></textarea>
+				</div>
+				<div class="satin-push-btn-wrap">
+					<span>你还可以输入<i id="fontnum">140</i>字</span>
+					<a href="javascript:;" class="satin-push-btn">评论</a>
+				</div>
+			</div>
+			<div class="All-comment">
+				<h2>最新评论<span class="all-num">(55)</span></h2>
+				<div class="all-comment-list">
+					<!-- <div class="comment-line">
+						<div class="comment-user-pic"><img src="images/4.jpg"></div>
+						<div class="comment-user-wrap">
+							<div class="comment-user-info clearfix">
+								<div class="fl comment-username">
+									<p>此乃大凶之罩啊</p>
+									<p>2017-12-21 09:09:30</p>
+								</div>
+								<div class="fr comment-handle">
+									<span class="zan-btn" satinid="4"><i class="zan"></i>278</span>								
+									<span class="cai-btn" satinid="4"><i class="cai"></i>6</span>				
+								</div>
+							</div>
+							<div class="comment-user-content">
+								蘑菇是你为了保护你儿子撒尿长得
+							</div>
+						</div>
+					</div>
+					-->
+				<!-- <div class="comment-line">						<div class="comment-user-pic">							<img src="images/8.jpg"></div>						<div class="comment-user-wrap">							<div class="comment-user-info clearfix">								<div class="fl comment-username"><p>无聊的人做春梦</p><p>2017-06-20 10:12:15</p></div>								<div class="fr comment-handle">									<span class="comment-zan-btn" satinid="85"><i class="zan"></i>3</span>									<span class="comment-cai-btn" satinid="85"><i class="cai"></i>0</span>									</div></div>							<div class="comment-user-content">7777</div></div></div> -->
+
+
+
+				<div class="load-more"><a href="javascript:;" id="loadmore" typeid="1" nowpage="1">加载更多</a></div>
+			</div>
+			</div>
+		</div>
+		<div class="fr satin-r">
+			<div class="satin-tag">
+				<h2>热门文章</h2>
+				<div class="arcList">
+					<a href="javascript:;" class="active" typeid="1">一个人住在这城市为了填饱肚子就已精疲力尽还谈什么理想那是我们的</a>
+					<a href="javascript:;" typeid="2">一个人还谈什么理想那是我们的</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	
+	<div class="footer">
+		<div class="footer-content"><p>如有疑问，请联系：513632026@qq.com</p></div>
+	</div>
+	<script type="text/javascript">
+
+
+		var oSatin=new Wanan();
+		oSatin.GetOneArc();
+		oSatin.GetHotArcList();
+		oSatin.GetCommentList(2);
+		oSatin.SatinComment(2);
+		//oSatin.Aduio();
+	</script>
+</body>
+</html>

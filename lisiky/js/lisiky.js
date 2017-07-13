@@ -1,5 +1,5 @@
 function MyJs(){
-	this.HomeBgCanvas();
+	//this.HomeBgCanvas();
 
 }
 

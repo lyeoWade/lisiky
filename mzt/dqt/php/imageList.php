@@ -8,6 +8,9 @@
 	$id           = $_POST['id'];
 	$keywords     = $_POST['keywords'];
 	$perNumber     = $_POST['num'];
+	$modAdd     = $_POST['modAdd'];
+
+
 	if(!$perNumber){
 		$perNumber=5;
 	}
@@ -51,7 +54,6 @@
 	        	$setsql="WHERE tag like '%$keywords%' ";
 	        };
 	        
-
 	       	//$perNumber=5; //每页显示的记录数
 	        $page=$_POST['page']; //获得当前的页面值
 	        
@@ -113,5 +115,17 @@
 			echo '{"result":'.$a.'}';
 			break;
 		
+
+		//新增模特
+
+		case 'modAdd':
+			$INSERT="INSERT INTO modler (name , coverpic, intro , createTime , publisher ) VALUES ('{$title}' , '{$coverpic}', '{$desc}' , '{$tt}', '{$username}')";
+			$AddOneArticle=mysql_query($INSERT) or die('插入失败:'.mysql_error());
+			if($AddOneArticle){
+				echo_status(array('respondCode'=>'0','respondMsg'=>'发布成功'));	
+			}else{
+				echo_status(array('respondCode'=>'1','respondMsg'=>'发布失败'));	
+			};
+		break;
 	};
 ?>

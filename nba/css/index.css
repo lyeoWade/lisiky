@@ -408,9 +408,10 @@ header .nav-main .login a {
   -o-transition: ease-in 0.5s all;
   transition: ease-in 0.5s all;
 }
-.content .content-right .content-list:hover{
+
+/*.content .content-right .content-list:hover{
   box-shadow: 3px 3px 5px #999;
-}
+}*/
 .content .content-right .content-list:hover .h2_box{
   background-color: #fff;
 }

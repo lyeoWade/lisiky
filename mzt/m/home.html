@@ -192,7 +192,7 @@
 				<div class="mui-content-padded">
 					<ul class="mainWrap" id="list">
 						<li ng-repeat="arr in imageList">
-							<a href="detail.html?id={{arr.id}}"><img src={{"http://www.images007.com/"+arr.coverpic+""}}></a>
+							<a href="detail.html?id={{arr.id}}"><img src={{""+arr.coverpic+""}}></a>
 							<h2><a href="detail.html?id={{arr.id}}"> {{arr.title}}</a></h2>
 							<p class="sundry"><!-- <a href="">清纯妹子</a> --><span>浏览:{{arr.frequency}}</span><time>Time:{{arr.pushtime}}</time></p>
 						</li>

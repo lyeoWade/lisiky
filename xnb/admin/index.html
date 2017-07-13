@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>新博能管理系统</title>
+    <link href="css/mycss.css" rel="stylesheet">
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet"/>
+    <style type="text/css">
+        .form-control{ color: #333 !important;}
+    </style>
+</head>
+<body>
+<section id="container">
+<!--header start-->
+    <header class="header fixed-top clearfix">
+    <!--logo start-->
+    <div class="brand" style="overflow: hidden; ">
+
+        <a href="index.html" class="logo">
+            <img src="../images/logo.png">
+        </a>
+        <div class="sidebar-toggle-box">
+            <div class="fa fa-bars"></div>
+        </div>
+    </div>
+    <div class="nav notify-row" id="top_menu">
+        新博能管理系统
+    </div>
+    <!--logo end-->
+    <div class="top-nav clearfix">
+        <!--search & user info start-->
+        <ul class="nav pull-right top-menu">
+            <li>
+               <!--  <input type="text" class="form-control search" placeholder=" Search"> -->
+            </li>
+            <!-- user login dropdown start-->
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                    <img alt="" src="images/avatar1_small.jpg">
+                    <span class="username"></span>
+                    <!-- <b class="caret"></b> -->
+                </a>
+                <!-- <ul class="dropdown-menu extended logout">
+                    <li><a data-url="changepassword.html"><i class=" fa fa-suitcase"></i>修改密码</a></li>
+                    <li><a data-url="userInfo.html"><i class="fa fa-cog"></i>个人资料</a></li>
+                    <li id="out"><a href="javascript:;"><i class="fa fa-key"></i>退出</a></li>
+                    <li class="divider"><a data-url=".html"></a></li>
+                    <li><a  data-toggle="modal" data-target="#myModal"><i class="fa fa-info-circle"></i>关于</a></li>
+                    
+                </ul> -->
+            </li>
+        </ul>
+        <!--search & user info end-->
+    </div>
+    </header>
+<!--header end-->
+<!--sidebar start-->
+    <aside>
+        <div id="sidebar" class="nav-collapse">
+            <!-- sidebar menu start-->
+            <div class="leftside-navigation">
+                <ul class="sidebar-menu" id="nav-accordion">
+                    <li class="sub-menu dcjq-parent-li">
+                        <a href="javascript:;" class="dcjq-parent ">
+                            <i class="fa fa-tasks"></i>
+                            <span>产品管理</span>
+                        <span class="dcjq-icon"></span></a>
+                        <ul class="sub" style="display: block;">
+                            <li><a data-url="ProjectAdd.html">新增产品</a></li>
+                            <li><a data-url="proList.html">产品列表</a></li>
+                            <li><a data-url="newsList.html">新闻列表</a></li>
+                        </ul>
+                    </li>
+                    
+                    <li class="sub-menu" id="manage">
+                        <a href="javascript:;">
+                            <i class="fa fa-laptop"></i>
+                            <span>解决方案</span>
+                        </a>
+                        <ul class="sub">
+                            <li class=""><a data-url="solAdd.html">新增方案</a></li>
+                            <li class=""><a data-url="solList.html">方案列表</a></li>
+                            <li class=""><a data-url="AddBug.html">建设流程</a></li>
+                        </ul>
+                    </li>
+                    <li class="sub-menu" id="manage">
+                        <a href="javascript:;">
+                            <i class="fa fa-barcode"></i>
+                            <span>公司资质</span>
+                        </a>
+                        <ul class="sub">
+                            <li class=""><a data-url="zzAdd.html">新增资质</a></li>
+                            <li class=""><a data-url="zzList.html">资质列表</a></li>
+                        </ul>
+                    </li>
+                    <li id="addDemand">
+                        <a data-url="aboutus.html">
+                            <i class="fa fa-dashboard"></i>
+                            <span>关于我们</span>
+                        </a>
+                    </li>
+                </ul>           
+            </div>
+        </div>
+    </aside>
+
+    <section id="main-content">
+        <section id="wrapper ">
+            <iframe width="100%" border="0" frameborder="0" src="siderRight.html" name="frame" id="frame" title="frame" scrolling="no" ></iframe>
+        </section>
+    </section>
+</section>
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+<script src="js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="js/jquery.scrollTo.min.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+<!--script for this page-->
+ <script src="js/tool.js"></script>
+ <script src="js/public.js"></script>
+<script>
+$(function(){
+    
+    var cookieValue=JSON.parse(Lisiky.cookies.getCookie('userInfo'));
+    $('.username').html(cookieValue.username)
+    console.log(cookieValue);
+
+    // $('#out').on('click',function(){
+    //     //alert(cookieValue);
+    //     window.location.href='login.html';
+    //     Lisiky.cookies.removeCookie('userinfo');
+    // })
+});
+
+</script>
+<script type="text/javascript">
+$(function(){
+    $("[data-url]").on('click',function(){
+        $("[data-url]").parent('li').removeClass('active');
+        $(this).parent('li').addClass('active')
+        $("#frame").attr('src',$(this).attr("data-url"));
+    });
+});
+</script>
+
+<script type="text/javascript"> 
+setInterval(function(){
+    var ifm= document.getElementById("frame");   
+    var subWeb = document.frames ? document.frames["frame"].document : ifm.contentDocument;   
+    if(ifm != null && subWeb != null) {
+       ifm.height = subWeb.body.offsetHeight;
+    } 
+},2000);
+
+</script>
+<div id="parentWrap"></div>
+
+</body>
+</html>

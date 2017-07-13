@@ -1,0 +1,232 @@
+.rel {
+  position: relative;
+}
+.abs {
+  position: absolute;
+}
+.snh1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body {
+  background: #fcfcfc;
+  color: #222;
+}
+.autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.boxcenter {
+  width: 1100px;
+  margin: 0 auto;
+}
+.bgwrite {
+  background: #ffffff;
+}
+a {
+  color: #4f5157;
+  transition: all 0.3s ease-in;
+}
+a:hover {
+  color: #f46;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.combtn {
+  padding: 8px 20px;
+  color: #ffffff;
+  background: #f46;
+  cursor: pointer;
+}
+.combtn:active {
+  box-shadow: 0 1px 5px #f46;
+}
+.satin-line-handle {
+  height: 32px;
+  line-height: 32px;
+  margin-top: 10px;
+  position: relative;
+}
+.satin-line-handle span {
+  padding: 5px 10px;
+  border: 1px solid #f1f1f1;
+  color: #bfbfbf;
+  cursor: pointer;
+}
+.satin-line-handle span.comment-btn a {
+  color: #bfbfbf;
+}
+.satin-line-handle span:hover .zan {
+  animation: zan 1s;
+}
+.satin-line-handle span:hover .cai {
+  animation: cai 1s;
+}
+.satin-line-handle span:hover .shoucang {
+  animation: shoucang 1s;
+}
+.satin-line-handle span i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-top: -3px;
+  vertical-align: middle;
+  transition: all 0.5s ease-in;
+}
+.satin-line-handle span i.zan {
+  background: url(../images/zan.png) no-repeat left center;
+  background-size: contain;
+}
+.satin-line-handle span i.zan-active {
+  background: url(../images/zan-active.png) no-repeat left center;
+  background-size: contain;
+}
+.satin-line-handle span i.cai {
+  background: url(../images/cai.png) no-repeat left center;
+  background-size: contain;
+}
+.satin-line-handle span i.cai-active {
+  background: url(../images/cai-active.png) no-repeat left center;
+  background-size: contain;
+}
+.satin-line-handle span i.shoucang {
+  background: url(../images/shoucang.png) no-repeat left center;
+  background-size: contain;
+}
+.satin-line-handle span i.comment {
+  background: url(../images/comment.png) no-repeat left center;
+  background-size: contain;
+}
+#homeNav {
+  background: #ffffff;
+  width: 100%;
+}
+#homeNav .homeNav-head {
+  padding: 0 0.1rem;
+  font-size: 0;
+  height: 0.3rem;
+  margin: 0.1rem 0 0 0;
+  border-bottom: 1px solid #f46;
+}
+#homeNav .homeNav-head a {
+  display: inline-block;
+  line-height: 0.3rem;
+  font-size: 0.14rem;
+  padding: 0 0.12rem;
+}
+#homeNav .homeNav-head a.active {
+  background: #f46;
+  color: #ffffff;
+}
+#homeNav .homeNav-wrap .line-tab {
+  padding: 0.2rem 0.1rem;
+}
+#homeNav .homeNav-wrap .line-tab .wanan-tab-line {
+  margin-bottom: 0.1rem;
+}
+#homeNav .homeNav-wrap .line-tab .wanan-tab-line .wanan-tab-pic {
+  width: 0.9rem;
+  height: 0.6rem;
+  margin-right: 0.1rem;
+}
+#homeNav .homeNav-wrap .line-tab .wanan-tab-line .wanan-tab-pic img {
+  display: block;
+  width: 0.9rem;
+  height: 0.6rem;
+}
+#homeNav .homeNav-wrap .line-tab .wanan-tab-line .wanan-tab-info {
+  width: 2rem;
+}
+#homeNav .homeNav-wrap .line-tab .wanan-tab-line .wanan-tab-info h2 {
+  font-size: 0.18rem;
+  font-weight: normal;
+  line-height: 0.22rem;
+  height: 46px;
+}
+#homeNav .homeNav-wrap .line-tab .wanan-tab-line .wanan-tab-info .tag-wrap {
+  font-size: 0.12rem;
+  height: 14px;
+}
+#homeNav .homeNav-wrap .line-tab .wanan-tab-line .wanan-tab-info .tag-wrap span {
+  color: #bfbfbf;
+}
+#homeNav .homeNav-wrap .line-tab .wanan-tab-line .wanan-tab-info .tag-wrap a {
+  color: #4f5157;
+  margin-right: 0.08rem;
+}
+.more {
+  text-align: center;
+  line-height: 40px;
+}
+header {
+  position: relative;
+}
+header .menuIcon {
+  width: 0.26rem;
+  height: 0.26rem;
+  position: absolute;
+  left: 0.09rem;
+  top: 0.09rem;
+  background: #4f5157;
+  background: url('../images/menu.png') no-repeat center center;
+  background-size: contain;
+}
+.duanzi-tab-line {
+  margin-bottom: 0.1rem;
+  border: 1px solid #f1f1f1;
+  padding: 0.1rem;
+}
+.duanzi-tab-line .plptime {
+  color: #bfbfbf;
+  font-size: 0.12rem;
+}
+.duanzi-tab-line .plptime i {
+  padding-left: 0.18rem;
+  background: url('../images/time.png') no-repeat left center;
+  background-size: contain;
+}
+.duanzi-tab-line .duanzi-tab-pic {
+  height: 0.4rem;
+  width: 100%;
+  line-height: 0.4rem;
+  margin-bottom: 0.1rem;
+}
+.duanzi-tab-line .duanzi-tab-pic a {
+  display: block;
+}
+.duanzi-tab-line .duanzi-tab-pic img {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 0.2rem 0.2rem 0.2rem 0.2rem;
+  float: left;
+}
+.duanzi-tab-line .duanzi-tab-pic span {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0.4rem;
+  float: left;
+  margin: 0rem 0 0 0.1rem;
+}
+.duanzi-tab-info {
+  line-height: 24px;
+}
+#article .articlecontent p {
+  font-size: 0.14rem;
+}
+.sider {
+  width: 100%;
+  height: 5.5rem;
+  background: #ffffff;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.sider .sider-wrap {
+  width: 2.1rem;
+  background: #4f5157;
+  height: 100%;
+}

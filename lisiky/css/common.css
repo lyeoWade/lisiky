@@ -1,0 +1,25 @@
+/* LESS Document */
+.m-bgc {
+  background: #FAC7C7;
+}
+/* 定位 */
+.abs {
+  position: absolute;
+}
+.abs00 {
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+.rel {
+  position: relative;
+}
+.fixed {
+  position: fixed;
+}
+.fixed00 {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+/* 圆角 */

@@ -1,0 +1,157 @@
+
+@fontcolor:#222;
+@c1:#4f5157;
+@c2:#969696;
+@c3:#bfbfbf;
+@c4:#f1f1f1;
+@c5:#F8F8F8;
+@pink:#f46;
+@cw:1100px;
+@combg:#fcfcfc;
+@mauto:0 auto;
+@fff:#ffffff;
+@fonthover:red;
+.rel{
+	position:relative;	
+}
+.abs{
+	position:absolute;	
+}
+.snh1{
+	overflow: hidden;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+}
+.snh2(@num:3){
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: @num;
+	overflow: hidden;
+}
+body{
+	background:@combg;
+	color:@fontcolor; 
+}
+
+.autofill{
+    -webkit-box-shadow: 0 0 0px 1000px white inset; 
+}
+
+.boxcenter{
+	width:@cw;
+	margin:@mauto;
+}
+.bgwrite{
+	background:@fff;
+}
+.art0(@t:0,@r:0){
+	.abs();
+	top:@t;
+	right:@r;
+}
+.alb0(@l:0,@b:0){
+	.abs();
+	left:@l;
+	bottom:@b;
+}
+
+a{
+	color:@c1;
+	.transition(0.3s);
+	&:hover{
+		color:@pink;
+	}
+}
+.hide{
+	display:none;
+}
+.show{
+	display:block
+}
+.br(@lt:5px,@tr:5px,@rb:5px,@bl:5px){
+	border-radius:@lt @tr @rb @bl;
+}
+.bs(@l:1px,@t:1px,@sk:4px,@color:#f1f1f1){
+	box-shadow:@l @t @sk @color;
+}
+
+.transition(@t:0.5s){
+	transition:all @t ease-in;
+}
+.tc(@c:center){
+	text-align:@c;
+}
+.combtn{
+	padding:8px 20px;
+	color:@fff;
+	background:@pink;
+	cursor:pointer;
+	&:active{
+		box-shadow:0 1px 5px @pink;
+	}
+}
+
+
+//赞
+
+.satin-line-handle{
+	height:32px;
+	line-height:32px;
+	margin-top:10px;
+	.rel();
+	span{
+		padding:5px 10px;
+		border:1px solid @c4;
+		color:@c3;
+		cursor:pointer;
+		&.comment-btn{
+			a{
+				color:@c3;
+			}
+		}
+		&:hover{
+			.zan{
+				animation:zan 1s;
+			}
+			.cai{
+				animation:cai 1s;
+			}
+			.shoucang{
+				animation:shoucang 1s;
+			}
+		}
+		i{
+			display:inline-block;
+			width:20px;
+			height:20px;
+			margin-top:-3px;
+			vertical-align:middle;
+			.transition();
+			&.zan{
+				background:url(../images/zan.png) no-repeat left center;
+				background-size:contain;
+			}
+			&.zan-active{
+				background:url(../images/zan-active.png) no-repeat left center;
+				background-size:contain;
+			}
+			&.cai{
+				background:url(../images/cai.png) no-repeat left center;
+				background-size:contain;
+			}
+			&.cai-active{
+				background:url(../images/cai-active.png) no-repeat left center;
+				background-size:contain;
+			}
+			&.shoucang{
+				background:url(../images/shoucang.png) no-repeat left center;
+				background-size:contain;
+			}
+			&.comment{
+				background:url(../images/comment.png) no-repeat left center;
+				background-size:contain;
+			}
+
+		}
+	}
+}

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>新博能</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/xnb.css">
+
+	<script type="text/javascript" src="admin/js/jquery.js"></script>
+	<script type="text/javascript" src="admin/js/tool.js"></script>
+	<script type="text/javascript" src="js/common.js"></script>
+</head>
+<body style="background: #fff;">
+	<div class="tophead">
+		<div class="tophead-wrap">
+			<div class="contact"><i></i>联系电话:023-68859297</div>
+		</div>
+	</div>
+	<div id="head">
+		<div class="headWrap comwidth clearfix">
+			<div class="logo fl"></div>
+			<div class="nav fr">
+				<a href="index.html">新博能首页</a>
+				<a href="news.html">企业新闻</a>
+				<a href="product.html">产品介绍</a>
+				<a href="solution.html">解决方案</a>
+				<a href="about.html" class="active">关于我们</a>
+			</div>
+		</div>
+	</div>
+	<div class="uselessbanner"></div>
+
+	<div class="content comwidth">
+		<div class="about clearfix">
+			<div class="fl aboutIcon">
+				关于我们
+			</div>
+			<div class="aboutcontent aboutmes fr">
+				关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们关于我们
+				关于我们关于我们们关于我们关于我们关于我们关于我们关于我们关于我们关于我们
+			</div>
+		</div>
+
+		<div class="about clearfix">
+			<div class="fl aboutIcon">
+				产品资质
+			</div>
+			<div class="aboutcontent fr">
+				<div class="contentMain zzWrap  clearfix" style="padding:0 10px 0 16px;">
+					<!-- <dl>
+						<dt><img src="images/1.jpg" class="zzpic" alt=""></dt>
+						
+						<dd class="newstitle">江西余干露天公共停车场解决方案落实</dd>
+					</dl>
+					<dl>
+						<dt><img src="images/111.jpg" class="zzpic" alt=""></dt>
+						
+						<dd class="newstitle">江西余干露天公共停车场解决方案落实</dd>
+					</dl>
+					<dl>
+						<dt><img src="images/2.jpg" class="zzpic" alt=""></dt>
+						
+						<dd class="newstitle">江西余干露天公共停车场解决方案落实</dd>
+					</dl>
+					<dl>
+						<dt><img src="images/1.jpg" class="zzpic" alt=""></dt>
+						
+						<dd class="newstitle">江西余干露天公共停车场解决方案落实</dd>
+					</dl>
+					<dl>
+						<dt><img src="images/1.jpg" class="zzpic" alt=""></dt>
+						
+						<dd class="newstitle">江西余干露天公共停车场解决方案落实</dd>
+					</dl> -->
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<script type="text/javascript">
+
+		var oList=new Xnb();
+		
+		var nowPage=1,pageSize=20;
+    	//获取默认的列表
+		oList.getZZList(nowPage,pageSize);
+		getAboutUs();
+		function getAboutUs(){
+	        var datas='type=getAboutUs';
+	        //获取
+	        $.ajax({
+	            type:"POST",
+	            url:'admin/php/arclist.php',
+	            data:datas,
+	            success:function(str){
+	                
+	                var oData=eval('('+str+')');
+	                //console.log(oData.content.replace(/^\\n$/g,'\n'));
+	                if(oData.respondCode==0){              
+	                    $('.aboutmes').html(oData.content);
+	                }else{
+	                    $('.addtip').html(oData.respondMsg);
+	                }
+	            }
+	        })
+	    }
+	</script>
+	<div class="bottom">
+		<p>© 重庆新博能科技有限公司 版权所有&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;备案号:渝ICP备17001968号-1</p>
+	</div>
+
+	<div id="layer">
+		<div class="layerwrap"><img src="" id="lpic"><span class="a"></span></div>
+	</div>
+</body>
+</html>

@@ -4,16 +4,19 @@
 	<meta charset="UTF-8">
 	<title>Lisiky --- 夏海兵</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/index.css">
+
 	<script type="text/javascript" src="js/raF.js"></script>
 </head>
-<body >
+<body>
+
 	<div class="canvasBg">
 		<canvas id="canvas">您的浏览器版本过低；</canvas>
 	</div>
-	<div class="canvasBg2">
+	<!-- <div class="canvasBg2">
 		<canvas id="canvas2">您的浏览器版本过低；</canvas>
-	</div>
+	</div> -->
 	<div class="v">
 		<!-- <img src="images/1.jpg"> -->
 	</div>
@@ -101,7 +104,7 @@
 		            _this.scale = 0.1+Math.random()*0.3;//半径比列
 		            _this.velocity = Math.random();//
 		        }
-		        //方法
+		        
 		        this.draw = function() {
 		            if(_this.alpha <= 0) {
 		                init();
@@ -110,7 +113,7 @@
 		            _this.alpha -= 0.0005;
 		            ctx.beginPath();
 		            ctx.arc(_this.pos.x, _this.pos.y, _this.scale*10, 0, 2 * Math.PI, false);
-		            ctx.fillStyle = 'rgba(0,0,0,'+ _this.alpha+')';
+		            ctx.fillStyle = 'rgba(225,225,225,'+ _this.alpha+')';
 		            ctx.fill();
 		        };
 		    }

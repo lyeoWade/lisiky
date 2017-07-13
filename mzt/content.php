@@ -29,7 +29,7 @@
         }
 
         $arr=explode(",",$row['pic']);
-        setcookie('imgdata', $row['pic'], time()+3600);
+        setcookie('imgdata'.$_GET['id'], $row['pic'], time()+3600);
 ?> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -41,7 +41,7 @@
 <meta name="description" content="<?php echo $row['title']?> - 妹子图每日分享最新最全最优质的美女图片">
 <meta name="renderer" content="webkit">
 <link href="css/main.css" rel="stylesheet" type="text/css">
-
+<script type="text/javascript" src="js/com.js"></script>
 </head>
 <body columns="<?php echo $row['columns']?>">
 
@@ -66,9 +66,9 @@
 
       
             <div class="main-image">
-              <ul>
+              <ul id="imgcontent">
                   <?php 
-                    echo '<li id="imgdata"><img src="'.$seaverSrc.substr($arr[0],6).'" img-data=""/></li>';
+                    echo '<li id="imgdata"><img src="'.$seaverSrc.substr($arr[0],6).'" /></li>';
                   ?>
               </ul>
 
@@ -81,7 +81,9 @@
       <div class="pagenavi">
          <a href="javascript:;" id="prevpic"><span>«上一张</span></a>
 
-         <a href="javascript:;" id="nextpic"><span>下一张»</span></a>      
+         <a href="javascript:;" id="nextpic"><span>下一张»</span></a>
+         <a href="javascript:;" id="Allpic"><span>查看全部</span></a>
+         <a href="javascript:;" download="" id="DownAllpic"><span>下载全部</span></a>       
       </div>
 
       <script type="text/javascript">
@@ -95,6 +97,11 @@
     /*图加*/
     var cpro_id = "u2760895";
 </script>
+
+
+<!-- <a href="images/8.jpg" download="">sadasdasd</a> -->
+
+
 <script type="text/javascript" src="http://cpro.baidustatic.com/cpro/ui/i.js"></script>
 
       <div class="main-tags">
@@ -158,13 +165,16 @@
 <?php include 'foot.php'; ?>
 
 <script type="text/javascript" src="js/jquery.js"></script>
-
+<div id="downloadWrap" style="display: none;"></div>
 <script type="text/javascript">
 
 window.onload=function(){
   var oNext=document.getElementById('nextpic');
   var oPrev=document.getElementById('prevpic');
-  var oImgUrlArr=getCookie('imgdata').split(',');
+  var oAllpic=document.getElementById('Allpic');
+  var oDownAllpic=document.getElementById('DownAllpic');
+  var oImgcontent=document.getElementById('imgcontent');
+  var oImgUrlArr=getCookie('imgdata'+geturldata(window.location.href).id).split(',');
   var oImg=document.getElementById('imgdata').getElementsByTagName('img')[0];
   var i=1;
 
@@ -201,7 +211,28 @@ window.onload=function(){
       i=oImgUrlArr.length-1;
     }
   }
-  console.log(getCookie('imgdata'));
+  var downloadWrap=document.getElementById('downloadWrap');
+  oAllpic.onclick=function(){
+    var sHtmlLi='',dHtml='';;
+    for(var i=0; i<oImgUrlArr.length; i++){
+      console.log(oImgUrlArr[i]);
+      sHtmlLi+='<li><img src="'+oImgUrlArr[i].substring(6)+'"></li>';
+      dHtml+='<a href="'+oImgUrlArr[i].substring(6)+'" download=""></a>';
+    }
+    oImgcontent.innerHTML=sHtmlLi;
+    downloadWrap.innerHTML=dHtml;
+    oNext.style.display='none';
+    oPrev.style.display='none';
+    oDownAllpic.style.display='inline-block';
+  }
+  
+  
+  oDownAllpic.onclick=function(){
+    var oA=downloadWrap.children;
+    for(var i=0; i<oA.length; i++){
+      oA[i].click();
+    }
+  }
 }
 function getCookie(cookiename){
   var result;
@@ -216,7 +247,6 @@ function getCookie(cookiename){
     }
     result = unescape(mycookie.substring(start, end));
   }
-
   return result;
 }
 function setCookie(name, value, Hours){
@@ -234,8 +264,5 @@ function removeCookie(name)
 }
 
 </script>
-
-
-
 </body>
 </html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title>新博能管理系统</title>
+    <!--Core CSS -->
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet" />
+    <link href="css/mycss.css" rel="stylesheet" />
+</head>
+  <body class="login-body">
+    <div class="container">
+      <form class="form-signin" action="index.html">
+        <h2 class="form-signin-heading" style="position: relative"><!-- <img src="images/logo2.png" alt="" style=" "> -->&nbsp;新博能管理系统</h2>
+        <div class="login-wrap clearfix">
+            <div class="left fl">
+                <div class="user-login-info">
+                    <input type="text" class="form-control" id="mobile" value="" placeholder="手机号码" autofocus>
+                    
+                    <div class="codeWrap">
+                        <input type="password" class="form-control" id="password" style="margin-bottom: 0;" placeholder="密码">
+                    </div>
+                    <button class="btn  btn-login btn-block" id="loginbtn" type="button">登陆</button>
+                </div>
+                
+                <p id="tip"></p>
+            </div>
+        </div>
+      </form>
+    <p style="text-align: center;"><a href="http://Lisiky.com" target="_blank" style=" color: #fff;">&copy;  @ QQ - 513632026</a></p>
+    </div>
+    <!--Core js-->
+    <script src="js/jquery.js"></script>
+    <script src="bs3/js/bootstrap.min.js"></script>
+    <script src="js/tool.js"></script>
+    <script type="text/javascript">
+        /* 登录 */
+        $(function(){
+            
+            var mobile=$("#mobile");
+            var oPass=$("#password");
+            var oBtn=$("#loginbtn");    
+            oBtn.on("click",function(){
+                $.ajax({
+                    type:"POST",
+                    url:"php/login_h.php",
+                    data:"mobile="+mobile.val()+"&password="+oPass.val(),
+                    success: function(data){
+                        var oData=eval('('+data+')');
+                        console.log(oData)
+                        if(oData.error==0){
+                            $('#tip').html(oData.des);
+                            setTimeout(function(){
+                                window.location.href="index.html";
+                            },2000);
+
+
+                            var userInfo='{"username":"'+oData.username+'","phone":"'+oData.phone+'","userid":"'+oData.id+'"}';
+
+                            Lisiky.cookies.setCookie('userInfo', userInfo, 1);
+                            //setCookie('userid', userid, 1);
+                        }else{
+                            $('#tip').html(oData.des);
+                            //window.location.href="../404.html";
+                        };
+                    }   
+                }); 
+            });
+        });
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,582 @@
+
+
+
+
+
+body{
+	background:#f9f9f9;
+}
+
+img{ box-sizing: border-box;  }
+
+input:-webkit-autofill { 
+-webkit-box-shadow: 0 0 0px 1000px white inset; 
+} 
+/*  header  */
+
+header.header{
+	width: 100%;
+	height: 0.44rem;
+	/*background: #f9f9f9;*/
+}
+
+header.header .userIcon{
+	width: 0.30rem;
+	height: 0.30rem;
+	background: url(../../img/user.png) no-repeat center center;
+	background-size: contain;
+	margin: 0.07rem 0.07rem 0 0 ;
+}
+
+.logo-m{
+	display: block;width: 100%;
+	text-align: center;
+	height: 0.44rem;
+	line-height: 0.44rem;
+
+	
+}
+.logo-m img{
+	display: inline-block;
+	margin-top: 0.06rem;
+}
+
+
+/*  banner */
+
+#banner{
+	position: relative;
+	width: 100%;
+	height: 1.46rem;
+	overflow: hidden;
+}
+#banner .bannerwrap{}
+#banner .bannerimg{
+	width: 500%;
+	height: 1.46rem;
+}
+#banner .bannerimg li{
+	float: left;
+	width: 20%;
+	height: 1.46rem;
+}
+#banner .bannerimg li img{
+	width: 100%;
+	height: 1.46rem;
+}
+#banner .font{ 
+	background-color: rgba(0,0,0,0.5); 
+	color: #fff; 
+	font-size: 0.12rem;
+	height: 0.32rem;
+	line-height: 0.32rem;
+	position: absolute;
+	text-indent: 0.1rem;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+}
+#banner .dot{
+	position: absolute;
+	bottom: 0;
+	right: 0.1rem;
+	height: 0.32rem;
+	line-height: 0.32rem;
+}
+#banner .dot li{
+	display: inline-block;
+	width: 0.06rem;
+	height: 0.06rem;
+	background: #fefefe;
+	border-radius: 50%;
+	margin:0 0.02rem;
+	transition: 0.5s;
+}
+#banner .dot li.active{
+	width: 0.25rem;
+	height: 0.06rem;
+	border-radius: 0.03rem;
+}
+
+
+
+
+
+
+
+
+
+
+/*视频*/
+
+#video{
+	background: #fff;
+	
+}
+
+#video .video-head{
+	width: 100%;
+	height: 0.4rem;
+	line-height: 0.4rem;
+	border-bottom: 0.01rem solid #1fb5ad;
+	
+	border-top:0.01rem solid transparent;
+}
+
+
+
+#video .video-head h2{
+	width: 60%;
+	padding-left: 0.3rem;
+	height: 0.24rem;
+	line-height: 0.24rem;
+	background: url(../../img/video.png) no-repeat center left;
+	background-size: contain;
+	margin:0.08rem 0 0 0.05rem;
+}
+
+#video .video-head .videomore{
+	display: block;
+	height: 0.24rem;
+	width: 0.34rem;
+	line-height: 0.24rem;
+	background: url(../../img/more.png) no-repeat center left;
+	background-size: contain;
+	margin:0.08rem 0rem 0 0.05rem;
+}
+
+.videolist{
+	width: 98%;
+	padding: 0 1%;
+}
+.videolist ul{
+	padding-top: 0.06rem;
+}
+.videolist li{
+	position: relative;
+	width: 49%;
+	float: left;
+	margin-bottom: 0.08rem;
+}
+.videolist li a{
+	color:#111;
+}
+.videolist li .mark{
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: rgba(0,0,0,0.3);
+	width: 100%;
+	height: 0.96rem;
+}
+.videolist li .mark:after{
+	content: '.';
+	display: block;
+	width: 0.4rem;
+	height: 0.4rem;
+	background: url('../../img/play2.png') no-repeat center center;
+	background-size: contain;
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin: -0.2rem 0 0 -0.2rem;
+}
+.videolist li:nth-of-type(odd){
+	margin-right: 2%;
+}
+.videolist li p{
+	font-size: 0.12rem;
+	line-height: 0.18rem;
+	padding: 0.03rem 0 0.04rem;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.videolist li img{
+	height: 0.96rem;
+	width: 100%;
+	display: block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.news{}
+.news .news-head { 
+	position: relative;
+}
+.news .news-head h2{
+	background: url(../../img/news.png) no-repeat center left !important;
+	background-size: contain !important;
+
+}
+.news .newslist{
+
+}
+.news .newslist ul{
+	padding-top: 0.06rem;
+}
+.news .newslist li{
+	padding: 0 0 0.1rem 0.05rem;
+	height: 0.6rem;
+}
+.news .newslist li img{
+	width: 0.8rem;
+	height: 0.6rem;
+	float: left;
+}
+.news .newslist li .newinfo{
+	margin-left: 0.1rem;
+	float: left;
+	width: 2.2rem;
+}
+.news .newslist li a{
+	color: #111 !important;
+}
+.news .newslist li .newinfo h2{
+	line-height: 0.2rem;
+	margin-bottom: 0.06rem;
+	height: 0.4rem;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+	font-weight: normal !important;
+	font-size: 0.14rem;
+    /*border-bottom: 0.01rem solid #f1f1f1;*/
+}
+.news .newslist li .newinfo p{
+	font-size: 0.12rem;
+	line-height: 0.12rem;
+	height: 0.12rem;
+    color: #666;
+}
+.news .newslist li .newinfo p span{
+	display: inline-block;
+
+}
+.news .newslist li .newinfo p .read{
+	margin-right: 0.08rem;
+	padding-left: 0.16rem;
+	background: url('../../img/read.png') no-repeat center left;
+	background-size: contain;
+}
+
+.news .newslist li .newinfo p .column{
+	margin-right: 0.08rem;
+	padding-left: 0.16rem;
+	background: url('../../img/column.png') no-repeat center left;
+	background-size: contain;
+}
+
+.news .newslist li .newinfo p .comment{
+	margin-right: 0.08rem;
+	padding-left: 0.16rem;
+	background: url('../../img/comment.png') no-repeat center left;
+	background-size: contain;
+}
+
+
+
+
+/*新闻详情*/
+
+#article{
+	padding: 0.05rem 0.1rem;
+}
+#article .newshead{
+	
+}
+#article .newshead h1{
+	font-size: 0.2rem;
+	line-height: 0.26rem;
+	color: #444;
+}
+
+.titlebuttom{
+	margin-top: 0.08rem;
+	height: 0.16rem;
+	line-height: 0.16rem;
+	font-size: 0.12rem;
+	color: #888;
+}
+.titlebuttom span{
+	display: block;
+	height: 0.16rem;
+}
+.titlebuttom span:nth-of-type(1){
+	padding-left: 0.2rem;
+	background: url(../../images/time.png) no-repeat center left;
+    background-size: contain;
+}
+.titlebuttom span:nth-of-type(2){
+	padding-left: 0.2rem;
+	background: url(../../img/see.png) no-repeat center left;
+    background-size: contain;
+}
+
+
+.articlecontent{
+	width: 100%;
+	padding: 0.1rem 0;
+}
+.articlecontent img{ width: 100%;  }
+.articlecontent p{
+	/*font-size: 0.16rem;*/
+	color: #666;
+	line-height: 0.24rem;
+	margin-bottom: 0.1rem !important;
+	background-color: transparent !important; 
+}
+.articlecontent a{
+	color: #1fb5ad;
+}
+
+
+
+
+
+
+
+
+
+
+/*zhibo */
+
+.online h2 {
+    background: url(../../img/online.png) no-repeat center left !important;
+    background-size: contain !important;
+}
+ .online-info {
+    background-color: #f9f9f9;
+}
+
+.onlinelist{
+	padding:0.1rem 0.1rem 0 0.1rem;
+}
+ .online-info .online-link {
+    display: block;
+}
+
+.online-info .online-detail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    height: 0.7rem;
+}
+ .online-info .online-detail .time-status {
+    border-right: 0.01rem dashed #fff;
+    width: 50px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+    text-align: center;
+}
+ .online-info .online-detail .time-status p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: #444;
+}
+
+ .online-info .online-detail .match-info {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    /*background-color: #FFF;*/
+    padding: 0 8px;
+}
+ .online-info .online-detail .match-info .team {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    flex: 1;
+    padding-top: 10px;
+}
+ .online-info .online-detail .match-info .team p {
+    height: 0.22rem;
+    margin-bottom: 0.06rem;
+    color: #18191a;
+    font-size: 0.14rem;
+    line-height: 0.22rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+ .online-info .online-detail .match-info .team p img {
+    width: 0.22rem;
+    vertical-align: middle;
+    margin-right: 0.05rem;
+    margin-top: -0.02rem;
+}
+
+ .online-info .online-detail .match-info .period {
+    width: 0.7rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+}
+.online-info .online-detail .match-info .prebtn-area span{
+	display: block;
+	height: 0.28rem;
+	background: url(../../img/play2.png) no-repeat center center !important;
+	background-size: contain !important;
+}
+
+.online-info .online-detail .match-info .prebtn-area {
+    width: 38px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -ms-flex-direction: column;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    justify-content: center;
+}
+ .online-info .online-detail .match-info .period p {
+    font-size: 12px;
+    color: #abaeb2;
+    line-height: 16px;
+    text-align: right;
+}
+
+
+#othersource{
+	text-align: center;
+	display: block;
+	font-size: 0.12rem;
+}
+
+
+.descriptions{
+	font-size: 0.12rem !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+/*登录*/
+
+.denglu-body{
+	background: #fff;
+}
+.denglu-body .ad-banner{
+	width: 100%;
+}
+
+.denglu-body .ad-banner img{
+	width: 100%;
+}
+
+.denglu-body .denglu{
+	
+}
+.dl-wrap{
+	
+}
+.dl-wrap ul{
+	padding: 0.3rem 0 0 0;
+}
+.dl-wrap li{
+	padding: 0 0.1rem;
+	line-height: 0.36rem;
+	border-bottom: 0.01rem solid #ccc;
+} 
+.dl-wrap li span{
+	display: inline-block;
+	width: 20%;
+	line-height: 0.36rem;
+} 
+
+.dl-wrap li input{
+	line-height: 0.36rem;
+	width: 80%;
+	padding-left: 0.1rem;
+	box-sizing:border-box;
+} 
+.dl-wrap li:nth-last-of-type(1){
+	border-bottom: none;
+	margin-top: 0.2rem;
+}
+.dl-wrap li input.dl-btn{
+	width: 100%;
+	background: #1fb5ad;
+	color: #fff;
+	border-radius: 0.03rem;
+}
+
+
+
+
+
+
+
+

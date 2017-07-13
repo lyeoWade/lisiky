@@ -70,14 +70,13 @@
           </li>
           <?php 
             $arr=array('勇士','骑士','马刺','湖人','快船','火箭','雷霆');
-            $class=array('shityellow','meihong','red','throuthblue','shityellow','blueshot','red','blueshot');
+            $class=array('shityellow','meihong','throuthblue','shityellow','blueshot','red','blueshot');
             for($i=0; $i<count($arr); $i++){
 
           ?>
           <li class="clearfix"><span class="<?php echo $class[$i]?>">[&nbsp;<?php echo $arr[$i]?>&nbsp;]</span>
               <?php 
                 $query=mysql_query("SELECT * FROM blong_arclist WHERE status=1 and keywords like '%$arr[$i]%' or title like '%$arr[$i]%' order by datatime desc LiMIT 2,1") or die('查询失败'.mysql_error());
-
                 while (@$row=mysql_fetch_array($query)) {
                   echo '<a target="_blank" href="content_'.$row['id'].'.html" title="'.$row['title'].'">'.mb_substr($row['title'],0,26,"utf-8").'</a>';
                 };

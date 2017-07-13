@@ -54,7 +54,7 @@
 	$got3=0;
 	$got4=0;
 	$got5=0;
-	$isBalance=0;
+	//$isBalance='0';
 	$summary=$_POST['summary'];
 	//发布或者修改的标识
 	$method=$_POST['method'];
@@ -65,8 +65,6 @@
 	$seasonAgenaList=$_POST['seasonAgenaList'];
 	// nowtime
 	$nowtime=date("Y-m-d H:i:s");
-
-
 	$times=$_POST['times'];
 	//查询球队
 	//echo $times;
@@ -135,11 +133,16 @@
 
 			// 添加赛程
 			if($method==''){
+
+				//echo $isBalance;
+
 				$agena="INSERT INTO basketball_agena (
-					league , homeid , guestid , season , ptime , l1  , b1  ,lb1 ,bb1,analysis,isend,nowtime , firsthomescore,secondhomescore,thirdhomescore,fourthhomescore,firstguestscore,secondguestscore,thirdguestscore,fourthguestscore,hot1,hot2,hot3,hot4,hot5,got1,got2,got3,got4,got5,summary,isBalance
+					league , homeid , guestid , season , ptime , l1  , b1  ,lb1 ,bb1,analysis,isend,nowtime , firsthomescore,secondhomescore,thirdhomescore,fourthhomescore,firstguestscore,secondguestscore,thirdguestscore,fourthguestscore,hot1,hot2,hot3,hot4,hot5,got1,got2,got3,got4,got5,summary
 				) VALUES (
-				'{$league}','{$homeId}','{$guestId}','{$seasons}' , '{$ptime}','{$l1}', '{$b1}','{$lb1}' , '{$bb1}','{$analysis}','{$isend}' ,'{$nowtime}','{$firsthomescore}','{$secondhomescore}','{$thirdhomescore}','{$fourthhomescore}','{$firstguestscore}','{$secondguestscore}','{$thirdguestscore}','{$fourthguestscore}','{$hot1}','{$hot2}','{$hot3}','{$hot4}','{$hot5}','{$got1}','{$got2}','{$got3}','{$got4}','{$got5}','{$summary}','{$isBalance}'
+				'{$league}','{$homeId}','{$guestId}','{$seasons}' , '{$ptime}','{$l1}', '{$b1}','{$lb1}' , '{$bb1}','{$analysis}','{$isend}' ,'{$nowtime}','{$firsthomescore}','{$secondhomescore}','{$thirdhomescore}','{$fourthhomescore}','{$firstguestscore}','{$secondguestscore}','{$thirdguestscore}','{$fourthguestscore}','{$hot1}','{$hot2}','{$hot3}','{$hot4}','{$hot5}','{$got1}','{$got2}','{$got3}','{$got4}','{$got5}','{$summary}'
 				)";
+
+				// ,isBalance  ,'{$isBalance}'
 				$agenaQuery=mysql_query($agena) or die("~~插入错误:".mysql_error());
 
 				if($agenaQuery){
@@ -172,9 +175,12 @@
 				 	'guestteam':'".$guestteam["team"]."','guestteamLink':'".$guestteam["homelink"]."',
 				 	'season':'".$row["season"]."','ptime':'".$row["ptime"]."','l1':'".$row["l1"]."',
 				 	'b1':'".$row["b1"]."','lb1':'".$row["lb1"]."','bb1':'".$row["bb1"]."',
-				 	'analysis':'".$row["analysis"]."','isend':'".$row["isend"]."','homescore':'".$homescore."','guestscore':'".$guestscore."','summary':'".$row["summary"]."','isBalance':'".$row["isBalance"]."'}";
+				 	'analysis':'".$row["analysis"]."','isend':'".$row["isend"]."','homescore':'".$homescore."','guestscore':'".$guestscore."','summary':'".$row["summary"]."'}";
 				$i++;
 			};
+
+			//,'isBalance':'".$row["isBalance"]."'
+			
 			$a=json_encode($result);
 			echo '{"result":'.$a.',"counts":'.count($result).'}';
 			

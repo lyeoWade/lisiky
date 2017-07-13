@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>发布需求</title>
+
+	<meta name="aplus-terminal" content="1"> 
+	<meta name="apple-mobile-web-app-capable" content="yes"> 
+	<!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏。content有两个值”yes”和”no” -->
+	<meta name="apple-touch-fullscreen" content="no"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+	<meta name="format-detection" content="telephone=no"> 
+	
+	<!-- 清除微信缓存 -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/rem.js"></script>
+	<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/index.css">
+</head>
+<body>
+<section class="header">
+	<div class="header-wrap">
+		<h2>谷城土鸡</h2>
+		<p>20170414</p>
+		<div class="header-wrap-detail">
+			<div class="header-wrap-col">
+				<strong>1.21kg</strong>
+				<span>重量</span>
+			</div>
+			<div class="header-wrap-col">
+				<strong>12次</strong>
+				<span>健康检查</span>
+			</div>
+			<div class="header-wrap-col">
+				<strong>121天</strong>
+				<span>距离出栏</span>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<section class="atlas">
+	<ul class="atlas-ul">
+		<li><img src="image/1.jpg" alt=""></li>
+		<li><img src="image/3.jpg" alt=""></li>
+		<li><img src="image/4.jpg" alt=""></li>
+	</ul>
+</section>
+
+<section class="work-info">
+	<div class="work-info-col">
+		<span class="time">今天</span>
+		<p class="info">”打扫了鸡舍的卫生，保持清洁是我们每天必须的工作“</p>
+	</div>
+	<div class="work-info-col">
+		<span class="time">昨天</span>
+		<p class="info">”打扫了鸡舍的卫生，保持清洁是我们每天必须的工作“</p>
+	</div>
+	<div class="work-info-col">
+		<span class="time">2017-04-11</span>
+		<p class="info">”打扫了鸡舍的卫生，保持清洁是我们每天必须的工作“</p>
+	</div>
+	<div class="work-info-col">
+		<span class="time">2017-04-10</span>
+		<p class="info">”打扫了鸡舍的卫生，保持清洁是我们每天必须的工作“</p>
+	</div>
+</section>
+
+
+<!-- 弹出层 -->
+<section id="layer" class="hide">
+	<div class="layer-wrap">
+		<div class="layer-wrap-box">
+			<ul id="layer-ul">
+				<li><img src="image/1.jpg" alt=""><span class="doy"></span></li>
+				<li><img src="image/3.jpg" alt=""><span class="doy"></span></li>
+				<li><img src="image/4.jpg" alt=""><span class="doy"></span></li>
+			</ul>
+			<ol id="nav-dot">
+				<li class="active"></li>
+				<li></li>
+				<li></li>
+			</ol>
+		</div>
+	</div>
+	<span class=" layer-close"></span>
+</section>
+<section class="sub-btn">
+	<a href="">再认养一只</a>
+</section>
+
+
+<script type="text/javascript">
+
+
+
+clickList();
+function clickList(){
+	
+	var oAtlasUlLi=document.getElementsByClassName('atlas-ul')[0].getElementsByTagName('li');
+	var oTab=document.getElementById("layer");
+	for(var i=0; i<oAtlasUlLi.length; i++){
+		(function(ind){
+			bind(oAtlasUlLi[ind],"touchend",function(){
+				fnTab(ind);
+				removeClass(oTab,"hide");
+			});
+		})(i);
+	}
+
+	var oLayerClose=document.getElementsByClassName('layer-close')[0];
+
+	bind(oLayerClose,"touchend",function(){
+		addClass(oTab,"hide");
+	})
+	
+}
+
+
+
+function fnTab(iNow){
+
+
+//	alert(iNow)
+	var oTab=document.getElementsByClassName("layer-wrap-box")[0];
+	var oList=document.getElementById("layer-ul");
+	var oLi=oList.children;
+	//var picnum=document.getElementById('picnum');
+	var aNav=document.getElementById("nav-dot").children;
+	
+	var iX=0;
+	var iW=view().w*0.9;
+	var oTimer=0;
+	var iStartTouchX=0;
+	var iStartX=0;
+	oTab.style.width=iW+'px';
+	oList.style.width=oLi.length*100+'%';
+	//picnum.innerHTML=(iNow+1)+'/'+oLi.length;
+	for(var i=0; i<oLi.length; i++){
+		oLi[i].style.width=100/oLi.length+'%';
+		//oLi[i].style.height=view().h+'px';
+	}
+
+	tab();
+	bind(oTab,"touchstart",fnStart);
+	bind(oTab,"touchmove",fnMove);
+	bind(oTab,"touchend",fnEnd);
+	function fnStart(ev)
+	{
+		oList.style.transition="none";
+		ev=ev.changedTouches[0];
+		iStartTouchX=ev.pageX;
+		iStartX=iX;
+		//clearInterval(oTimer);
+	}
+	function fnMove(ev)
+	{
+		ev=ev.changedTouches[0];
+		var iDis=ev.pageX-iStartTouchX;
+		iX=iStartX+iDis;
+		oList.style.WebkitTransform=oList.style.transform="translateX("+iX+"px)";
+	}
+	function fnEnd()
+	{
+		iNow=iX/iW;
+		iNow=-Math.round(iNow);
+		if(iNow<0)
+		{
+			iNow=0;
+		}
+		if(iNow>oLi.length-1)
+		{
+			iNow=oLi.length-1;
+		}
+		// if(iNow>aNav.length-1)
+		// {
+		// 	iNow=aNav.length-1;
+		// }
+		//picnum.innerHTML=(iNow+1)+'/'+oLi.length;
+		tab();
+	}
+	function tab()
+	{
+		iX=-iNow*iW;
+		oList.style.transition="0.5s";
+		oList.style.WebkitTransform=oList.style.transform="translateX("+iX+"px)";
+
+		for(var i=0;i<aNav.length;i++)
+		{
+			removeClass(aNav[i],"active");
+		}
+		addClass(aNav[iNow],"active");
+	}
+
+}
+function view() {
+    return {
+        w: document.documentElement.clientWidth,
+        h: document.documentElement.clientHeight
+    };
+}
+
+</script>
+</body>
+</html>

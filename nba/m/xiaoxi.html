@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="aplus-terminal" content="1"> 
+	<meta name="apple-mobile-web-app-capable" content="yes"> 
+	<!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏。content有两个值”yes”和”no” -->
+	<meta name="apple-touch-fullscreen" content="no"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+	<meta name="format-detection" content="telephone=no"> 
+	<!-- 清除微信缓存 -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="viewport" content="width=device-width , initial-scale=1.0 , maximum-scale=1.0">
+	<link href="../css/reset.css" type="text/css" rel="stylesheet" />
+	<!-- <link rel="stylesheet" type="text/css" href="css/com.css"> -->
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<script type="text/javascript" src="../js/jquery.js"></script>
+	<script type="text/javascript" src="js/com.js"></script>
+	<script type="text/javascript" src="js/llq.m.1.js"></script>
+	<title>聊聊球</title>
+</head>
+<body style="background: #fff;">
+	<header class="header">
+		<a href="home.html" class="fl logo-m"><img src="images/logo.png"></a>
+		<!-- <a href="" class="fr userIcon"></a>  -->
+	</header>
+	<nav class="nav">
+		<div class="navwrap">
+			<a href="home.html">全部</a>
+			<a href="xiaoxi.html" class="active">消息</a>
+			<a href="zhibo.html">直播</a>
+			<a href="shipin.html">视频</a>
+			<a href="shangbing.html">伤病</a>
+			<a href="shoufa.html">首发</a>
+		</div>
+	</nav>
+	
+	<script type="text/javascript">
+		//var oNavScroll=new Llq();
+		
+	</script>
+	<!-- banner -->
+	
+	<!-- 第一手 -->
+	
+	<section id="video" class="news">
+		<div class="video-head news-head">
+			<h2 class="fl">第一手消息</h2>
+			<!-- <a class="fr videomore" href="javascript:;"></a> -->
+			
+		</div>
+		<div class="newslist">
+			<ul class="clearfix" id="newsWrap">
+				<li>
+					<img src="../img/2.jpg">
+					<div class="newinfo">
+						<h2>勇士VS马刺勇士VS马勇士VS马刺勇士VS马勇士VS马刺勇士VS马</h2>
+						<p><span class="comment">20</span><span class="read">4324</span><span><span class="column">NBA</span></p>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="onlinemore"><a href="javascript:;">加载更多...</a></div>
+	</section>
+
+	<div style="height: 0.3rem; width: 100%; background: #fff;"></div>
+	<!-- 底部菜单 -->
+	
+	<div class="moreNav"></div>
+	<div class="dropup">
+		<a href="javascript:;" newtype="">全部</a>
+		<a href="javascript:;" newtype="5">推荐文章</a>
+		<a href="javascript:;" newtype="1">篮球</a>
+		<a href="javascript:;" newtype="2">足球</a>
+		<a href="javascript:;" newtype="6">篮球心水</a>
+		<a href="javascript:;" newtype="4">神棍区</a>
+	</div>
+
+	<script type="text/javascript">
+		var newtype='',nowpage=1,PageSize=20;
+		var oLlq=new Llq();
+		oLlq.navScroll('.navwrap');
+		//console.log(oLlq)
+		oLlq.GetNewsList(newtype,nowpage,PageSize);
+		oLlq.SelectNews(nowpage,PageSize);
+	</script>
+</body>
+</html>

@@ -67,7 +67,17 @@
 			$i=0;
 			$result=array();
 			while($row=mysql_fetch_array($query)){
-				$result[$i]="{'id':'".$row["id"]."','title':'".$row["title"]."','descption':'".$row["descption"]."','banner':'".$row["bannerimg"]."','datatime':'".$row["datatime"]."','keywords':'".$row["keywords"]."','page_view':'".$row["page_view"]."','username':'".$row["username"]."','isrecommend':'".$row["isrecommend"]."','newtype':'".$row["type_id"]."','userid':'".$row["userid"]."','status':'".$row["status"]."'}";
+
+				// $firstIndex=strpos($row["article"],'src="');
+				// $lastIndex=strpos($row["article"],'title');
+				// //echo ("/".$firstIndex.'---'.$lastIndex);
+				// $substrStr=substr($row["article"],$firstIndex,$lastIndex);
+
+
+				preg_match('/<img.+src=\"?(.+\.(jpg|gif|bmp|bnp|png))\"?.+>/i',$row["article"],$match);
+				//echo $match[1];
+
+				$result[$i]="{'id':'".$row["id"]."','title':'".$row["title"]."','descption':'".$row["descption"]."','banner':'".$row["bannerimg"]."','datatime':'".$row["datatime"]."','keywords':'".$row["keywords"]."','page_view':'".$row["page_view"]."','username':'".$row["username"]."','isrecommend':'".$row["isrecommend"]."','newtype':'".$row["type_id"]."','userid':'".$row["userid"]."','status':'".$row["status"]."','thumb':'".$match[1]."'}";
 				$i++;
 			};
 			$a=json_encode($result);
@@ -132,7 +142,7 @@
 			$query=mysql_query($GetOneArticleInfo) or die("获取失败:".mysql_error());
 			if($query){
 				while ($row=mysql_fetch_array($query)) {
-					echo_status(array("respondCode"=>"0","respondMsg"=>"数据获取成功！","id"=>$row['id'],"title"=>$row['title'],"descption"=>$row['descption'],"article"=>$row['article'],"type_id"=>$row['type_id'],"keywords"=>$row['keywords'],"bannerimg"=>$row['bannerimg'],"isrecommend"=>$row['isrecommend']));
+					echo_status(array("respondCode"=>"0","respondMsg"=>"数据获取成功！","id"=>$row['id'],"title"=>$row['title'],"descption"=>$row['descption'],"article"=>$row['article'],"type_id"=>$row['type_id'],"keywords"=>$row['keywords'],"bannerimg"=>$row['bannerimg'],"isrecommend"=>$row['isrecommend'],"pushtime"=>$row['datatime']));
 				}
 			}else{
 				echo_status(array("respondCode"=>"1","respondMsg"=>"获取失败"));

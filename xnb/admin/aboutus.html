@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="ThemeBucket">
+    <link rel="shortcut icon" href="images/favicon.png">
+    <title></title>
+    <link href="bs3/css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/jquery-ui/jquery-ui-1.10.1.custom.min.css" rel="stylesheet">
+    <link href="css/bootstrap-reset.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/style-responsive.css" rel="stylesheet"/>
+    <link href="css/mycss.css" rel="stylesheet">
+</head>
+<body>
+<section id="container">
+<!--header start-->
+<!--main content start-->
+    <section class="wrapper">
+        <!-- page start-->
+        <div class="row">
+            <div class="col-sm-12">
+                <section class="panel">
+                    <header class="panel-heading title">
+                        <span><i class="fa fa-tasks"></i>&nbsp;&nbsp;关于我们</span>
+                        <a href="javascript:history.go(-1);" class="btn btn-primary pull-right backpage"><i class="fa  fa-chevron-circle-left"></i>&nbsp;&nbsp;返回上一页</a>
+                        <!-- <button type="button" id="addproject" class="btn btn-info btn-sm"><i class="fa fa-plus-circle"></i>&nbsp;&nbsp;新增项目组</button> -->
+                    </header>
+                    <div class="panel-body" id="projectwarp">
+                        <div class="childproject">
+                            <div class="form">
+                                <form class="cmxform form-horizontal " id="commentForm" method="get" action="" novalidate="novalidate">
+                                    
+                                    <div class="form-group ">
+                                        <label for="note" class="control-label col-lg-2 col-sm-2">关于我们</label>
+                                        <div class="col-lg-8  col-sm-8">
+
+                                            <textarea class="form-control " rows="7" id="note" name="note" placeholder="换行请在段位加标签：<br/>" required=""></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="form-group clearfix" style="margin-top: 20px;">
+                                        <div class="col-lg-offset-2 col-sm-offset-2 col-lg-8  col-sm-8">
+                                            <button class="btn btn-primary noroot" type="button" id="savaApiGroup"><i class="fa fa-check-circle"></i>&nbsp;&nbsp;保存</button>
+                                            <span class="addtip"></span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+</section>
+<!-- Placed js at the end of the document so the pages load faster -->
+<!--Core js-->
+<script src="js/jquery.js"></script>
+<script src="js/jquery-ui/jquery-ui-1.10.1.custom.min.js"></script>
+<script src="bs3/js/bootstrap.min.js"></script>
+<!--common script init for all pages-->
+<script src="js/scripts.js"></script>
+<script src="js/tool.js"></script>
+
+<script type="text/javascript">
+    
+      // 数据库  product ; typeid=3 -->流程
+
+    $(function(){
+        //更新
+        $('#savaApiGroup').on('click',function(){
+
+            $note=$('#note').val();
+            
+            $username=cookieValue.username;
+            $id=1;
+            if($note==''){
+                alert('请填写完整');
+                return false;
+            }else if($username==''){
+                alert('用户id获取失败');
+                return false;
+            }
+            var datas='type=UpdateAboutUs&id='+$id+'&content='+$note+'&username='+$username;
+            console.log(datas);
+            $.ajax({
+                type:"POST",
+                url:'php/arclist.php',
+                data:datas,
+                success:function(str){
+                    console.log(str)
+                    var oData=eval('('+str+')');
+                    if(oData.respondCode==0){
+                        $('.addtip').html(oData.responseMsg);
+                    }else{
+                        $('.addtip').html(oData.responseMsg);
+                    }
+                }
+            })
+        });
+        getAboutUs();
+    });
+
+
+
+    function getAboutUs(){
+        var datas='type=getAboutUs';
+        //获取
+        $.ajax({
+            type:"POST",
+            url:'php/arclist.php',
+            data:datas,
+            success:function(str){
+                
+                var oData=eval('('+str+')');
+                console.log(oData);
+                if(oData.respondCode==0){                 
+                    $('#note').val(oData.content);
+                }else{
+                    $('.addtip').html(oData.respondMsg);
+                }
+            }
+        })
+    }
+</script>
+
+</body>
+</html>

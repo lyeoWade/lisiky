@@ -2,8 +2,14 @@
     include "dqt/php/com.php";
 
 
-    $searchs = $_POST['search'];
-          
+    //判断进来的渠道是搜索进来的还是通过模特列表
+    $searchs=$_GET['name'];
+    if (empty($searchs)) { 
+      $searchs=  $_POST['search'];
+    }
+
+    //$searchs = $_POST['search'];
+    
     if (!isset($searchs) || $searchs=='') {
       $searchs='yuy&*67……%￥%￥';
     };
@@ -40,7 +46,12 @@
 <div class="main">
   <?php include "topad.php";?>
   <div class="main-content">
-    <div class="currentpath">搜索结果:<?php echo '共'.$totalNumber.'条结果'; ?></div>
+
+    <!-- <div class="currentpath">搜索结果:<?php  //echo '共'.$totalNumber.'条结果'; ?></div> -->
+
+    <div class="moteerinfo">
+      刘飞儿---居住地：广东省深圳市，三围97-63-90。居住地：广东省深圳市，三围97-63-90。居住地：广东省深圳市，三围97-63-90。居住地：广东省深圳市，三围97-63-90。居住地：广东省深圳市，三围97-63-90。居住地：广东省深圳市，三围97-63-90。居住地：广东省深圳市，三围97-63-90。居住地：广东省深圳市，三围97-63-90。
+    </div>
     <div class="postlist">
       <ul id="pins">
         <?php 
@@ -57,9 +68,11 @@
         $startCount=($page-1)*$perNumber; //分页开始,根据此方法计算出开始的记录
 
         $result=mysql_query("select * from imagearr WHERE title like '%$searchs%' order by pushtime desc limit $startCount,$perNumber"); //根据前面的计算出开始的记录和记录数
-        
+        //echo $result;
         while ($row=mysql_fetch_array($result)) {
           //print_r($row)
+
+          //echo $row;
         ?>
         <li>
           <a href="content.html?id=<?php echo $row['id']?>" target="_blank"><img width="236" height="354" class="lazy" alt="<?php echo $row['title'];?>" src="<?php echo substr($row['coverpic'],3)?>" data-original="" style="display: inline;"></a><span><a href="content.html?id=<?php echo $row['id']?>" target="_blank"><?php echo $row['title'];?></a></span><span class="time"><?php echo $row['pushtime']?></span><span class="view"><?php echo $row['frequency']?>次</span>

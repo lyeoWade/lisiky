@@ -13,7 +13,6 @@
 <link href="css/reset.css" type="text/css" rel="stylesheet" />
 <link href="css/bascketball.css" type="text/css" rel="stylesheet" />
 <link rel="bookmark"  type="image/x-icon"  href="favicon.ico"/>
-
 <link rel="shortcut icon" href="favicon.ico">
 <script src="js/jquery.js"></script>
 <script src="js/com.js"></script>
@@ -64,7 +63,6 @@
     </ul>
 </div>
 <!-- NBA -->
-
 <div class="content gamelist">
     <div class="gameday-warp">
         <div class="game-head">

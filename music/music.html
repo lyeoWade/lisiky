@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://cool.miaov.com/20160629js/fanzhongyong/zhuomian/music/index.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/iconfont.css">
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+	</head>
+	<body>
+		
+		<div class="music">
+			<div class="title">
+				<span>音乐播放器</span>
+				<p>
+					<input type="text" placeholder="请输入要搜索的歌曲..." id="searchInput">
+					<a href="javascript:void(0)" title="搜索" id="search" class="iconfont ic"></a>
+				</p>
+				<a href="javascript:void(0)" title="关闭" class="iconfont close"></a>
+			</div>
+			<div class="music-container">
+				<!--歌曲列表-->
+				<div class="ms-lists">
+					<div class="song-title">
+						默认列表[<span id="countNum">5</span>]
+					</div>
+					<ul class="s-lists" id="s-lists"><li class="active"> 	<a href="javascript:void(0)">海阔天空</a></li><li> 	<a href="javascript:void(0)">泡沫</a></li><li> 	<a href="javascript:void(0)">我懂了</a></li><li> 	<a href="javascript:void(0)">特别的爱给特别的你</a></li><li> 	<a href="javascript:void(0)">半壶纱</a></li></ul>
+				</div>
+				
+				<!--歌词展示-->
+				<div class="ms-lyrics">
+					
+					<!--搜索列表-->
+					<div class="searchLists" id="searchLists">
+						<div class="song-title">
+							<ul>
+								<li><a href="javascript:;">歌手</a></li>
+								<li><a href="javascript:;">歌曲名</a></li>
+								<li><a href="javascript:;">专辑</a></li>
+								<li><a href="javascript:;">时间</a></li>
+								<li><a href="javascript:;">品质</a></li>
+							</ul>
+							<a href="javascript:void(0)" class="packupLists" id="packupLists" title="关闭搜索列表">✖</a>
+						</div>
+						<div class="sl-details">
+							<ul id="sl-details"></ul>
+							<div id="pagesbox"></div>
+						</div>
+					</div>
+					
+					<!--歌词显示-->
+					<div class="lrcCon" id="lrcCon"><p id="gc0" style="display: none;">海阔天空-Beyond</p><p id="gc18" style="display: none;">今天我寒夜里看雪飘过</p><p id="gc25" style="display: none;">怀着冷却了的心窝飘远方</p><p id="gc30" style="display: none;">风雨里追赶</p><p id="gc33" style="display: none;">雾里分不清影踪</p><p id="gc36" style="display: none;">天空海阔你与我</p><p id="gc39" style="display: none;">可会变(谁没在变)</p><p id="gc43" style="display: none;">多少次迎着冷眼与嘲笑</p><p id="gc49" style="display: none;">从没有放弃过心中的理想</p><p id="gc55" style="display: none;">一刹那恍惚</p><p id="gc58" style="display: none;">若有所失的感觉</p><p id="gc61" style="display: none;">不知不觉已变淡</p><p id="gc65" style="display: none;">心里爱(谁明白我)</p><p id="gc68" style="display: none;">原谅我这一生不羁放纵爱自由</p><p id="gc75" style="display: none;">也会怕有一天会跌倒 哦NO</p><p id="gc81" style="display: none;">背弃了理想谁人都可以</p><p id="gc88" style="display: none;">哪会怕有一天只你共我</p><p id="gc102" style="display: none;">今天我寒夜里看雪飘过</p><p id="gc109" style="display: none;">怀着冷却了的心窝飘远方</p><p id="gc114" style="display: none;">风雨里追赶</p><p id="gc117" style="display: none;">雾里分不清影踪</p><p id="gc121" style="display: none;">天空海阔你与我可会变</p><p id="gc125" style="display: none;">(谁没在变)</p><p id="gc127" style="display: block;">原谅我这一生不羁放纵爱自由</p><p id="gc135" style="display: none;">也会怕有一天会跌倒 哦NO</p><p id="gc141" style="display: none;">背弃了理想谁人都可以</p><p id="gc147" style="display: none;">哪会怕有一天只你共我</p><p id="gc152" style="display: none;">哦 yeah</p><p id="gc188" style="display: none;">仍然自由自我</p><p id="gc191" style="display: none;">永远高唱我歌</p><p id="gc194" style="display: none;">走遍千里</p><p id="gc199" style="display: none;">原谅我这一生不羁放纵爱自由</p><p id="gc206" style="display: none;">也会怕有一天会跌倒</p><p id="gc211" style="display: none;">哦NO</p><p id="gc212" style="display: none;">背弃了理想谁人都可以</p><p id="gc219" style="display: none;">哪会怕有一天只你共我</p><p id="gc225" style="display: none;">被弃了理想谁人都可以</p><p id="gc231" style="display: none;">哪会怕有一天只你共我</p><p id="gc236" style="display: none;">哦yeah</p><p id="gc237" style="display: none;">原谅我这一生不羁放纵爱自由</p><p id="gc242" style="display: none;">哦yeah</p><p id="gc244" style="display: none;">也会怕有一天会跌倒哦</p><p id="gc250" style="display: none;">背弃了理想谁人都可以</p><p id="gc256" style="display: none;">哪会怕有一天只你共我</p></div>
+					
+					<!--音频跳动-->
+					<canvas id="canvasVoice" class="canvas" width="600" height="300"></canvas>
+					
+				</div>
+			</div>
+			
+			<div class="control-bar">
+				<!--播放控制-->
+				<div class="ctro-play">
+					<div class="prev-song">
+						<a href="javascript:void(0);" title="上一曲" class="pn-btn prev" id="prev"></a>
+					</div>
+					<div class="playBtn">
+						<a href="javascript:void(0);" class="play" id="play"></a>
+					</div>
+					<div class="next-song">
+						<a href="javascript:void(0);" title="下一曲" class="pn-btn next" id="next"></a>
+					</div>
+				</div>
+				
+				<!--音量控制-->
+				<div class="ctro-volume">
+					<a href="javascript:void(0)" class="icon-vol" id="volume-mute"></a>
+					<div class="volume-bar" id="vol-process">
+						<span class="dragBar" id="vol-bar" style="width: 4px;"></span>
+						<a href="javascript:void(0)" class="circle-bar" id="vol-btn" style="left: 4px;"></a>
+					</div>
+				</div>
+				
+				<!--进度控制-->
+				<div class="ctro-progress">
+					<div class="timer">
+						<span id="totalTime">05: 23</span>/<span id="wp_playTime">02: 13</span></div>
+					<div class="progress-bar" id="wp_process">
+						<span class="dragBar" id="wp_processBar" style="width: 160.546px;"></span>
+						<a href="javascript:void(0)" class="circle-bar" id="wp_processBtn" style="left: 160.546px;"></a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--http://m6.file.xiami.com/177/2177/2100391242/1776422243_1474688173785.mp3?auth_key=315bfe388b018292df7f784c65df1e0d-1477018800-0-null-->
+		<audio id="audio" src="music/1.mp3" ossorigin="anonymous"></audio>
+		<!--
+			//	arttemplate 模板的使用方法
+			<script type="text/javascript" src="../../js/jquery-1.11.1.min.js" ></script>
+			<script src="js/arttemplate.js"></script>
+			<script type="text/html" id="text">
+				<%for (var i=0;i<data.length;i++) {%>
+			        <li>
+						<a href="javascript:;" data-url="<%=data[i].url_list[1].url%>"><%=data[i].song_name%></a>
+						<a href="javascript:;"><%=data[i].singer_name%></a>
+						<a href="javascript:;"><%=data[i].album_name%></a>
+						<a href="javascript:;"><%=data[i].url_list[1].duration%></a>
+						<a href="javascript:;"><%=data[i].url_list[1].typeDescription%></a>
+					</li>
+			    <%}%>
+			</script>
+		-->
+		
+		<script type="text/javascript" src="js/data.js"></script>
+		<script type="text/javascript" src="js/laypage.js"></script>
+		<script type="text/javascript" src="js/jsonp.js"></script>
+		<script type="text/javascript" src="js/music.js"></script>
+		<script>
+			window.onload = function(){
+				myMusic();
+			};
+		</script>
+		
+		
+		
+	
+
+<script type="text/javascript" src="js/jquery-latest.js">
+</script><link rel="stylesheet" href="css/juhuoyuan.css">
+<script type="text/javascript" src="js/juhuoyuan.js"></script>
+</body>
+</html>

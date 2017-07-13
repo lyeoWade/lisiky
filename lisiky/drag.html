@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0; }
+.bar{ width:400px; height:12px; background:#09C; position:relative; margin:200px 0 0 200px;  }
+.dot{ width:40px; height:12px; background:#999;  position:absolute; left:0; top:0; cursor:pointer; }
+</style>
+<script>
+window.onload=function(){
+	var oBar=document.getElementsByClassName('bar')[0];
+	var oDot=document.getElementsByClassName('dot')[0];
+	
+	oDot.onmousedown=function(ev){
+		var disx=ev.clientX-oDot.offsetLeft;
+		document.onmousemove=function(ev){
+			var L=ev.clientX-disx;
+			console.log(L)
+			if(L<=0)L=0;
+			if(L>=(oBar.offsetWidth-oDot.offsetWidth))L=oBar.offsetWidth-oDot.offsetWidth;
+			oDot.style.left=L+'px';	
+			
+			
+		}
+		document.onmouseup=function(){
+			document.onmousemove=document.onmouseup=null;	
+		}
+		//console.log(ev.clientX)	
+		
+		return false;
+	}
+}
+</script>
+</head>
+
+<body>
+
+	<div class="bar"><div class="dot"></div></div>
+
+</body>
+</html>

@@ -12,4 +12,5 @@ RewriteRule xinggan_(.*)$ xinggan.php?page=$1
 RewriteRule qingchun_(.*)$ qingchun.php?page=$1
 RewriteRule siwa_(.*)$ siwa.php?page=$1
 RewriteRule gif_(.*)$ gif.php?page=$1
+RewriteRule moteer_(.*)$ moteer.php?page=$1
 RewriteRule search.html$ search.php

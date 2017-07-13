@@ -1,0 +1,103 @@
+.rel {
+  position: relative;
+}
+.abs {
+  position: absolute;
+}
+.snh1 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body {
+  background: #fcfcfc;
+  color: #222;
+}
+.autofill {
+  -webkit-box-shadow: 0 0 0px 1000px white inset;
+}
+.boxcenter {
+  width: 1100px;
+  margin: 0 auto;
+}
+.bgwrite {
+  background: #ffffff;
+}
+a {
+  color: #4f5157;
+  transition: all 0.3s ease-in;
+}
+a:hover {
+  color: #f46;
+}
+.hide {
+  display: none;
+}
+.show {
+  display: block;
+}
+.combtn {
+  padding: 8px 20px;
+  color: #ffffff;
+  background: #f46;
+  cursor: pointer;
+}
+.combtn:active {
+  box-shadow: 0 1px 5px #f46;
+}
+.satin-line-handle {
+  height: 32px;
+  line-height: 32px;
+  margin-top: 10px;
+  position: relative;
+}
+.satin-line-handle span {
+  padding: 5px 10px;
+  border: 1px solid #f1f1f1;
+  color: #bfbfbf;
+  cursor: pointer;
+}
+.satin-line-handle span.comment-btn a {
+  color: #bfbfbf;
+}
+.satin-line-handle span:hover .zan {
+  animation: zan 1s;
+}
+.satin-line-handle span:hover .cai {
+  animation: cai 1s;
+}
+.satin-line-handle span:hover .shoucang {
+  animation: shoucang 1s;
+}
+.satin-line-handle span i {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-top: -3px;
+  vertical-align: middle;
+  transition: all 0.5s ease-in;
+}
+.satin-line-handle span i.zan {
+  background: url(../images/zan.png) no-repeat left center;
+  background-size: contain;
+}
+.satin-line-handle span i.zan-active {
+  background: url(../images/zan-active.png) no-repeat left center;
+  background-size: contain;
+}
+.satin-line-handle span i.cai {
+  background: url(../images/cai.png) no-repeat left center;
+  background-size: contain;
+}
+.satin-line-handle span i.cai-active {
+  background: url(../images/cai-active.png) no-repeat left center;
+  background-size: contain;
+}
+.satin-line-handle span i.shoucang {
+  background: url(../images/shoucang.png) no-repeat left center;
+  background-size: contain;
+}
+.satin-line-handle span i.comment {
+  background: url(../images/comment.png) no-repeat left center;
+  background-size: contain;
+}

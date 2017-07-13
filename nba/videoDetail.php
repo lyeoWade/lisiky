@@ -137,6 +137,24 @@
                     </div>
                 <?php
                             //echo $VidIndexLast.'-'.$dotIndex.'-'.$Vid;
+                        }else if($row['sourceSite']=='h5'){
+                            $VidIndexLast=strripos($ListArr[0],'/');
+                            $dotIndex=strripos($ListArr[0],'.h');
+                            $Vid=substr($ListArr[0],$VidIndexLast+1,($dotIndex-$VidIndexLast-1));
+                ?>
+                    <div class="onlyOne">
+                        <div class="clickEle">
+                            
+
+                            <video width="750" height="510" controls autobuffer autoplay>
+                                <source src="<?php echo $ListArr[0];?>"   type='video/mp4;'></source>
+                            </video>
+                        </div>
+                        <p><a href="javascript:;" class="newopen" id="showClick" targetUrl="<?php echo $ListArr[0];?>">[播放不了?  PC窗口/PAD观看]</a></p>
+                        <p style="text-align: center; line-height: 40px; font-size: 12px;">温馨提示:由于视频高清,需要时间缓冲,大家可下载到本地观看！</p>
+                    </div>
+                <?php
+                            //echo $VidIndexLast.'-'.$dotIndex.'-'.$Vid;
                         }else{
 
                 ?>

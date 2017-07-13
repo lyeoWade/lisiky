@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+*{ margin:0; padding:0; }
+@-webkit-keyframes dot{
+	0%{
+		-webkit-box-shadow:0 0 0px #ffffff;
+	}
+	20%{
+		-webkit-box-shadow:0 0 8px #ffffff;
+	}
+	15%{
+		-webkit-box-shadow:0 0 4px #ffffff;
+	}
+	45%{
+		-webkit-box-shadow:0 0 18px #ffffff;
+	}
+	40%{
+		-webkit-box-shadow:0 0 6px #ffffff;
+	}
+	75%{
+		-webkit-box-shadow:0 0 30px #ffffff;
+	}
+	70%{
+		-webkit-box-shadow:0 0 20px #ffffff;
+	}
+	100%{
+		-webkit-box-shadow:0 0 0px #ffffff;
+	}
+}
+.dot{ margin:300px 0 0 300px; width:10px; height:10px; border-radius:50%; background:#ccc; 
+	-webkit-animation:dot 3s;
+	animation:dot 3s infinite;
+ }
+</style>
+</head>
+
+<body style="background:#000;">
+
+	<div class="dot"></div>
+
+</body>
+</html>

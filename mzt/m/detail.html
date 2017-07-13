@@ -190,6 +190,8 @@
 			$scope.imagesArr=[];
 			$scope.GuessYouLike=[];
 			$scope.isShow=0;
+			$scope.isTrue=0;
+			$scope.isAll=1;
 			var transform = function(data){
                 return $.param(data);
             }
@@ -261,10 +263,14 @@
             };
 
     		$scope.downImg=function(){
-    			var oImg=document.getElementsByClassName('contentimgwarp');
-	   			for(var i=0; i<angular.element(oImg).length; i++){
-        			angular.element(oImg)[i].click();	
-        		}
+    			// var oImg=document.getElementsByClassName('contentimgwarp');
+	   			// for(var i=0; i<angular.element(oImg).length; i++){
+		        //  			angular.element(oImg)[i].click();	
+		        //  		}
+       			
+       			$scope.isTrue=1;
+       			$scope.isAll=0;
+       			//alert($scope.imagesArr)
     		}
     		$scope.downs=function(){
 				var a = document.getElementsByClassName('aaaaaa')[0];  
@@ -278,7 +284,7 @@
 		app.directive('alldown',function(){
 			return {
 				restrict:'EA',
-				template:'<span class="AllDown" ng-click="downImg()">批量下载</span>',
+				template:'<span class="AllDown" ng-click="downImg()">查看全部</span>',
 				//replace:true
 			}
 		});
@@ -288,9 +294,6 @@
 <a class="aaaaaa" href="http://www.images007.com/../../server/upload/14764512630002.jpg"  download="true" >111</a> -->
 
 <body class="mui-ios mui-ios-9 mui-ios-9-1 mui-fullscreen" ng-controller='main'>
-
-
-
 
 <!-- mui-draggable -->
 <div id="offCanvasWrapper" class="mui-off-canvas-wrap ">
@@ -332,12 +335,17 @@
 					<div class="content-main">
 						<h1>{{imageContent.title}}</h1>
 						<p class="sundry"><span>浏览:{{imageContent.frequency}}</span><time>Time:{{imageContent.pushtime}}</time><!-- <a href="">清纯妹子</a> --></p>
-						<p class="content-main-wrap">
+						<p class="content-main-wrap"  ng-show="isShow==isTrue">
 							<a href="http://www.images007.com/{{v}}" class="contentimgwarp" ng-repeat="v in imagesArr" download>
 								<img ng-show="isShow==$index" title="{{$index}}-{{isShow}}" src="http://www.images007.com/{{v}}" data-preview-src="" data-preview-group="1" />
 							</a>
 						</p>
 						
+						<p class="content-main-wrap"  ng-show="isShow==isAll">
+							<a href="javascript:;" class="contentimgwarp" ng-repeat="v in imagesArr" download>
+								<img title="{{$index}}-{{isShow}}" src="http://www.images007.com/{{v}}"  />
+							</a>
+						</p>
 						<script type="text/javascript">
 						    /*自适应 创建于 2016/11/8*/
 						    var cpro_id = "u2811270";
@@ -411,7 +419,6 @@
 	//plus.downloader.clear();
 	mui('body').on( 'tap' , 'a' , function(){
 		window.location.href=this.href;//业务逻辑
-
 	});
 </script>
 

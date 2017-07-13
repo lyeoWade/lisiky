@@ -9,13 +9,14 @@ small, strike, strong, sub, sup, tt, var,
 b, u, i, center, dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td {
-margin: 0;
-padding: 0;
-border: 0;
-outline: 0;
-font-size: 100%;
-vertical-align: baseline;
-background: transparent;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+	font-family: "微软雅黑";
 }
 body {
 line-height: 1;
@@ -89,6 +90,17 @@ a{text-decoration:none; }
 .nodata a:hover{
 	color: #1fb5ad;
 }
+
+
+.dataisno{
+	padding-top: 210px;
+	height:60px; 
+	line-height:60px; 
+	margin-top: 40px;
+	text-align:center; 
+	background:url('../img/error.png') no-repeat top center;
+}
+
 /*     强制不换行  
 white-space:nowrap;  */
 
@@ -132,6 +144,7 @@ a{
 .injshare{ position: relative; height: 20px; margin-left: 200px; margin-top: 40px; }
 /*IE10 文本框后面的XX*/
 input::-ms-clear{ display:none }
+
 
 
 .cw{ margin:auto; width:1000px; }
@@ -731,5 +744,72 @@ header .avatar img:hover{
 
 
 
+
+
+
+
+
+
+#comment{
+
+}
+#comment h2{
+	border-bottom: 0.01rem solid #f1f1f1;
+	border-top: 0.01rem solid #f1f1f1;
+	height: 0.3rem;
+	line-height: 0.3rem;
+	padding-left: 0.1rem;
+	font-weight: normal;
+	border-left: 0.04rem solid #1fb5ad;
+}
+#comment .comment-wrap{
+	
+}
+#comment .reply-list{
+	padding: 0.1rem;
+	border-bottom: 0.01rem solid #f1f1f1;
+}
+#comment .operations-user{
+	position: relative;
+}
+#comment .user-info{
+	
+}
+#comment .avatar{
+	float: left;
+	margin-right: 0.08rem;
+
+}
+#comment .avatar img{
+	border-radius: 50%;
+	width: 0.3rem;
+	height: 0.3rem;
+}
+#comment .user-name{
+	color: #111;
+}
+#comment .user-other{
+	font-size: 0.12rem;
+	line-height: 0.2rem;
+	color: #999;
+}
+#comment .zan em{
+	color: #999;
+	font-style: normal;
+	font-size: 0.12rem;
+}
+#comment .operations{
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.reply-content{
+	padding: 0 0 0rem 0.35rem;
+    font-size: 0.14rem;
+}
+.current-content{
+	line-height: 0.2rem;
+	color: #666;
+}
 
 

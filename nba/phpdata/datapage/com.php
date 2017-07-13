@@ -1,17 +1,12 @@
 <?php
-/*//第一步：链接数据库 
-$conn=@mysql_connect("localhost:3306","root","root")or die ("mysql链接失败"); 
-//第二步: 选择指定的数据库，设置字符集 
-@mysql_select_db("php_blog",$conn) or die ("db链接失败".mysql_error()); 
-mysql_query('SET NAMES UTF8')or die ("字符集设置错误"); 
-*/
-	//$conn=mysql_connect('www.chuanshangwuyu.com','a0822222809','16622437') or die("数据库连接失败");
-
-	//mysql_select_db('a0822222809') or die("数据库查询失败".mysql_error());
-	
 	$conn=mysql_connect('localhost','root','') or die("数据库连接失败");
 	mysql_select_db('ilovenba') or die("数据库查询失败".mysql_error());;
 	
+	
+	
+	// $conn=mysql_connect('www.ilovenba.cn','wadebing333','74113991') or die("数据库连接失败");
+	// mysql_select_db('wadebing333') or die("数据库查询失败".mysql_error());
+
 	mysql_query("SET NAMES UTF8") or die("字符编码设置失败".mysql_error());
 
 	function echo_status($str){

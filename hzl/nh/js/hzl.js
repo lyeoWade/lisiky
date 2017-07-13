@@ -5,7 +5,6 @@ app.controller('hzlWrap',function($scope,$http,$timeout){
 
 	//
 
-
 	$scope.classNum=[];
 	$scope.dataList=[];
 	//$scope.num=0;

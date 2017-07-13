@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="aplus-terminal" content="1"> 
+	<meta name="apple-mobile-web-app-capable" content="yes"> 
+	<!-- 这meta的作用就是删除默认的苹果工具栏和菜单栏。content有两个值”yes”和”no” -->
+	<meta name="apple-touch-fullscreen" content="no"> 
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"> 
+	<meta name="format-detection" content="telephone=no"> 
+	<!-- 清除微信缓存 -->
+	<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="0" />
+	<meta name="viewport" content="width=device-width , initial-scale=1.0 , maximum-scale=1.0 , user-scalabel=no">
+	<link rel="stylesheet" type="text/css" href="css/com.css">
+	<link rel="stylesheet" type="text/css" href="css/qd.css">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/com.js"></script>
+	<script type="text/javascript" src="js/qd.js"></script>
+	<title>每日签到</title>
+</head>
+<body>
+	<!-- header -->
+	<header class="header">
+		<div class="qdwrap">
+			<!-- 未签到之前的状态 -->
+			<a class="qdbtn"></a>
+
+
+			<!-- 已签到之后的状态 -->
+			<!-- <a class="qdbtn-active">连续5天</a> -->
+		</div>
+		<div class="qddesc">
+			<p class="blue">您已连续签到<span class="red">10</span>天,今天签到可获得<span class="red">10</span>积分</p>
+			<p class="write">在坚持签到10天可以领取<span class="red">1只土鸡</span></p>
+		</div>
+	</header>
+
+
+	<section class="relation-shop-wrap">
+		<div class="relation-shop-wrap-head clearfix">
+			<h2 class="fl"><i></i>热卖商品</h2>
+			<a class="more fr blue1" href="">查看更多&gt;&gt;</a>
+		</div>
+		<ul class="shop-list">
+			<li><img src="images/1.jpg"><a href="">580积分兑换</a></li>
+			<li><img src="images/1.jpg"><a href="">580积分兑换</a></li>
+			<li><img src="images/1.jpg"><a href="">580积分兑换</a></li>
+		</ul>
+	</section>
+	<div class="line"></div>
+
+	<div id="rl">
+		<div class="calendarBox">
+            <div class="head">
+            	<div class="premonth"><a href="javascript:;" class="prevx"></a></div>
+                <div class="head_day">
+                    <span></span>
+                </div>
+                <div class="nextmonth"><a href="javascript:;" class="nextx"></a></div>
+            </div>
+            <!-- <div class="nowDay"></div> -->
+            <div class="divbox">
+                    <ul class="week">
+                        <li>一</li>	
+                        <li>二</li>	
+                        <li>三</li>	
+                        <li>四</li>	
+                        <li>五</li>	
+                        <li>六</li>	
+                        <li>日</li>	
+                    </ul>
+                    
+                    <ul class="day">
+                            
+                    </ul>
+            </div>
+        </div>
+	</div>
+</body>
+</html>
+
+
+<script type="text/javascript">
+	rili();
+
+	function getByClass(parent,sClass)
+	{
+		if(document.getElementsByClassName)
+		{
+			return document.getElementsByClassName(sClass);
+		}
+		
+		var aEle=parent.getElementsByTagName('*');
+		var re=new RegExp('\\b'+sClass+'\\b');
+		
+		var result=[];
+		for(var i=0; i<aEle.length; i++)
+		{
+			if(re.test(aEle[i].className))
+			{
+				result.push(aEle[i]);
+			}
+		}
+		return result;
+	}
+	function rili()
+	{
+		var oRiliBox=getByClass(document,'calendarBox')[0];
+		var oHead=getByClass(oRiliBox,'head')[0];
+		var oDay=getByClass(oRiliBox,'day')[0];
+		var oHeadDay=getByClass(oRiliBox,'head_day')[0];
+		var oTime=getByClass(oRiliBox,'time')[0];
+		var oPrev=getByClass(oRiliBox,'prevx')[0];
+		var oNext=getByClass(oRiliBox,'nextx')[0];
+		var arrWeek=['一','二','三','四','五','六','日'];
+		iNow=0;
+		function setDay()
+		{
+			var oDate=new Date();
+			oDate.setMonth(oDate.getMonth()+iNow);
+			oDate.setMonth((oDate.getMonth()+1));
+			oDate.setDate(0);
+			return oDate.getDate();
+		}
+
+		function setMonth()
+		{
+			var oDate=new Date();
+			oDate.setMonth(oDate.getMonth()+iNow);
+			oDate.setMonth((oDate.getMonth()+1));
+			oDate.setDate(1);
+			return oDate.getMonth();
+		}
+
+		function setWeek()
+		{
+			var oDate=new Date();
+			oDate.setMonth(oDate.getMonth()+iNow);
+			oDate.setDate(0);
+			
+			return oDate.getDay()
+		}
+		var cY=0;
+		//alert(setMonth())
+		DayTime();
+		function DayTime()
+		{
+			oDay.innerHTML='';
+			var Toweek=setWeek();
+			var oDaynum=setDay();
+			var oMonths=setMonth();
+			if(Toweek==0){ Toweek=7 }
+			for(var i=0; i<Toweek; i++)
+			{
+				var oLi=document.createElement('li');
+				oLi.innerHTML='';
+				oDay.appendChild(oLi);
+			}
+			
+			
+			for(var i=0; i<oDaynum; i++)
+			{
+				var oLi=document.createElement('li');
+				oLi.innerHTML=i+1;
+				oDay.appendChild(oLi);
+			}
+			
+			var oDate=new Date();
+			oDate.setMonth(oDate.getMonth()+iNow);
+			var NowDay=oDate.getDate();
+			//var oDayX3=getByClass(document,'dayX')[0];
+			//.innerHTML=oDate.getDate();
+			clock();
+			//setInterval(clock,1000);
+			function clock()
+			{
+				var oDate=new Date();
+				
+				var oM=0;
+
+				var oY=oDate.getFullYear();
+				if((oDate.getMonth()+1+iNow)>12){
+					oM=(oDate.getMonth()+1+iNow)%12
+
+					if(oM==0){oM=12;}
+					if(oM==1){
+						cY++;
+						oY=oDate.getFullYear()+cY;
+					}
+				}else if((oDate.getMonth()+1+iNow)<1){
+					oM=(oDate.getMonth()+1+iNow)%12+12;
+
+					if(oM==12){
+						cY--
+						oY=oDate.getFullYear()+cY;
+					}
+				}else{
+					oM=oDate.getMonth()+1+iNow;
+				}
+
+
+				if(cY!=0){
+					oY=oDate.getFullYear()+cY;
+				}
+				console.log(oDate.getMonth()+1+iNow)
+				oHeadDay.innerHTML=oY+'年'+(oM)+'月';
+			}
+			var aLi=oDay.getElementsByTagName('li');
+			
+			
+			if(iNow<0)
+			{
+				for(var i=0; i<aLi.length; i++)
+				{
+					
+						aLi[i].className='smallDay';
+					
+				}
+			}else if(iNow==0)
+			{
+				for(var i=0; i<aLi.length; i++)
+				{
+					if(aLi[i].innerHTML==NowDay)
+					{
+						aLi[i].className='NowDay';
+					}else if(aLi[i].innerHTML<NowDay)
+					{
+						aLi[i].className='smallDay';
+					}else if(i%7==6|| i%7==5)
+					{
+						aLi[i].className='sunday';
+					}
+					
+				}
+			}else
+			{
+				for(var i=0; i<aLi.length; i++)
+				{
+					if(i%7==6|| i%7==5)
+					{
+						aLi[i].className='sunday';
+					}
+					
+				}
+			}
+		}
+	
+	
+		oPrev.onclick=function()
+		{
+			iNow--;
+			DayTime();
+			
+		}
+		oNext.onclick=function()
+		{
+			iNow++;
+			DayTime();
+		}
+}
+
+
+function tozero(n)
+{
+	if(n<10)
+	{
+		return '0'+n;
+	}else
+	{
+		return n;
+	}
+}
+</script>

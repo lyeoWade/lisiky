@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<textarea id="t"></textarea>
+	<input type="button" value="测试" id="b">
+	<script type="text/javascript">
+	var oB=document.getElementById('b');
+	var oT=document.getElementById('t');
+	oB.onclick=function(){
+		console.log(oT.value.replace(/[\n]/ig,'<br/>'))
+	}
+	</script>	
+</body>
+</html>

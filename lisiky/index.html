@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>个人中心</title>
+<link type="text/css" rel="stylesheet" href="css/reset.css" />
+<link href="css/index.css" type="text/css" rel="stylesheet" />
+<!-- <script src="js/jquery.js"></script> -->
+<script src="js/raF.js"></script>
+<script src="js/data.js"></script>
+<script src="js/com.js"></script>
+
+</head>
+
+<body>
+
+<a href="javascript:;" id="music-btn">听歌</a>
+
+<div id="music" >
+	<div class="music-warp " style="background:url(images/3.jpeg) no-repeat center center; background-size:110%;">
+		<div class="music-head">
+			<div class="m-col">
+				<ul>
+					<li class="m-title">
+                    	<span class="titles"></span>
+                        <i class="like"></i>
+                    </li>
+					<li class="m-progress">
+                    	<div class="progress_line">
+                        	<div class="line-pro"><div class="line-progress"><i class="dots"></i></div></div>
+                        	<span class="startTime">00:00</span>
+                            <span class="durationTime">00:00</span>
+                        </div>
+                    </li>
+					<li class="clearfix playCol">
+						<a href="javascript:;" class="loop"></a>
+						<a href="javascript:;" class="prev"></a>
+						<a href="javascript:;" class="end" id="paus"></a>
+						<a href="javascript:;" class="next"></a>
+						<a href="javascript:;" class="volume-m" id="volumeid"></a>
+						
+						<div class="loop-list">
+							<span loopType="SinglePlay">单曲播放</span>
+							<span loopType="SingleCycle">单曲循环</span>
+							<span loopType="SequentialPlay">顺序播放</span>
+							<span class="active" loopType="ListLoop">列表循环</span>
+							<span loopType="RandomPlay">随机播放</span>
+							<span loopType="AutomaticSwitchingList">自动切换列表</span>
+						</div>
+						<div class="volume-warp">
+							<div class="volume-line">
+								<div class="volume-pro"><span class="volume-dot"></span></div>
+							</div>
+							
+						</div>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="music-content clearfix">
+			<div class="leftCol fl">
+				<div class="music-other fl">
+				
+				</div>
+				<div class="music-list fl roll_parent">
+					<div class="listing">
+						<div class="listing-t">默认列表<span>[123]</span></div>
+						<div class="listing_warp">
+
+							<ul class="list-warp">
+								<!-- <li res="Eminem - Beautiful"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								<li class="active" res="Eminem - Rap God"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								
+								<li class="" res="Hari - 可爱颂"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								
+								<li class="" res="刘心 - 凭什么说"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								
+								<li class="" res="潘玮柏 - 咖哩辣椒"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								
+								<li class="" res="沈懿 - 战舞"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								<li class="" res="苏醒 - 分裂"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								
+								<li class="" res="苏醒、鲁赛赛 - 北京City"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								
+								<li class="" res="汪苏泷 - 巴赫旧约"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								
+								<li class="" res="汪苏泷、Hari - 吵架歌"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								
+								<li class="" res="幼稚园杀手、醉人 - 中国的说法"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+								
+								<li class="" res="王妃 - 萧敬腾"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li>
+                                <li class="" res="战死街头 - 黄硕"><a href="javascript:;"></a><i class="times"></i> <div class="o-options"><span class="add-Album"></span><span class="delete-music"></span></div> </li> -->
+							</ul>
+						</div>
+					</div>
+					<div class="scroll-bar"><span></span></div>
+				</div>
+			</div>
+			<div class="centerCol fl">
+				<canvas id="Voice" width="600" height="400"></canvas>
+				<div class="lrc-box">
+					<ul class="lrc-warp">
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<audio id="audio" controls src="">你的浏览器不支持HTML5播放器</audio>
+<div id="Virtual" style="display:none;"></div>
+<script src="js/index.js"></script>
+<script src="js/col.js"></script>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<html >
+    <head>
+        <!--下面有很多style都是没用到的，但是我改不动了-->
+        <!--css觉得真是很麻烦-->
+        <style type="text/css">
+            audio
+            {
+                align:center;
+            }
+            .tiaojieshijian
+            {
+                color:yellow;
+                background:black;
+            }
+            * {
+                margin:0;
+            }
+            div {
+                display:block;
+                text-align:right;
+                position:relative;
+                right:300px;
+            }
+            div #wenzi{
+                right:0px;
+            }
+            div .ctrl
+            {
+                width:200px;
+            }
+            body {
+                font: 14px "Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+                background: #333;
+                color: #fff;
+            }
+        .icon{
+            background-repeat: no-repeat;
+            background-position: center;
+            display: inline-block;
+            opacity: 0.6;
+            cursor: pointer;
+            @include square(24px);
+            @include transition(0.3s);
+            @include user-select(none);
+            &:hover, &.enable{
+                opacity: 1;
+            }
+            &:active{
+                opacity: 0.3;
+            }
+        }
+             
+            #background {
+                background-size: cover;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                -moz-user-select: none;
+                -khtml-user-select: none;
+                -webkit-user-select: none;
+                -o-user-select: none;
+                user-select: none;
+            }           
+            #player {
+                width: 500px;
+                height: 130px;
+                padding: 25px;
+                margin: 50px auto 30px;
+            }
+            .control {
+                margin-top: 10px;
+                height: 25px;
+            }
+            .fastforward
+            {
+                background-image:url(fastforward.png);
+                width:24px;
+                height:24px;
+            }
+            .rewind
+            {
+                background-image:url(rewind.png);
+                width:24px;
+                height:24px;
+            }
+            .play
+            {
+                background-image:url(play.png);
+                width:24px;
+                height:24px;
+            }
+            .mute
+            {
+                background-image: url(volume.png);
+                width:24px;
+                height:24px;
+            }
+            .left
+            {
+                float:left;
+            }
+            .right
+            {
+                float:right;
+            }
+        </style>
+        <meta charset="utf-8">
+    </head>
+    <body>
+        <script>
+            //这个，存储调节的时间值
+            //localStorage是HTML5的新东西
+            //localStorage代表着实际歌词时间和lrc歌词时间差
+            if(!localStorage.time)
+            {
+                localStorage.time=0;
+            }
+            //var a="[00:11.22]我[00:22.33]看[00:33.44]这样[00:44.55]不好吧";
+			
+			
+            var a=" [00:03.56]摇晃的红酒杯 嘴唇像染着鲜血 [00:07.48]那不寻常的美 难赦免的罪 [00:11.46]谁忠心的跟随 充其量当个侍卫 [00:15.24]脚下踩着玫瑰 回敬一个吻当安慰 可怜 [00:26.09]像蠢动的音乐 教人们怎么成眠 [00:30.36]不知名的香水 窒息的鬼魅 [00:34.10]锋利的高跟鞋 让多少心肠破碎 [00:37.93]弯刀一般的眉 捍卫你的秘密花园 [00:42.76]夜太美 尽管再危险 [00:46.77]总有人黑着眼眶熬着夜 [00:50.70]爱太美 尽管再危险 [00:54.21]愿赔上了一切超支千年的泪[00:58.26]痛太美 尽管再卑微 [01:01.83]也想尝粉身碎骨的滋味 [01:05.82]你太美 尽管再无言 [01:09.65]我都想用石堆隔绝世界 [01:12.34]我的王妃 我要霸占你的美 [01:22.45]那催情的音乐 听起来多么愚昧 [01:27.02]你武装的防备 伤你的是谁 [01:30.85]靠近我一点点 是不一样的世界 [01:34.69]安睡在我的肩 我用生命为你加冕 [01:39.64]夜太美 尽管再危险 [01:43.49]总有人黑着眼眶熬着夜 [01:47.41]爱太美 尽管再危险 [01:51.10]愿赔上了一切超支千年的泪 [01:54.90]痛太美 尽管再卑微 [01:58.53]也想尝粉身碎骨的滋味 [02:02.49]你太美 尽管再无言 [02:06.09]我都想用石堆隔绝世界 [02:09.05]我的王妃 我要霸占你的美 [02:26.75]夜太美 尽管再危险 [02:30.75]总有人黑着眼眶熬着夜[02:34.80]爱太美 尽管再危险 [02:38.35]愿赔上了一切超支千年的泪 [02:42.25]痛太美 尽管再卑微 [02:45.81]也想尝粉身碎骨的滋味 [02:50.01]你太美 尽管再无言 [02:53.54]我都想用石堆隔绝世界 [02:56.35]我的王妃 我要霸占你的美";
+			
+			
+            var shijianshuzu=new Array();
+            var gecishuzu=new Array();
+            //解析歌词，将时间和歌词分开
+            //时间放到shijianshuzu中
+            //歌词放到gecishuzu中
+            //shijianshuzu[i]就是对应的时间值
+            //gecishuzu[i]就是对应的歌词
+            //lrc歌词在代码中直接用变量a存储了，可以改
+            //这两个数组的长度就是lrc歌词中有多少个类似"[xx:xx.xx]歌词"这样的
+            function parse(lrc)
+            {
+                //如果lrc的内容是"[xx:xx.xx]歌词1[yy:yy.yy]歌词二"
+                //那str这个数组长度是3
+                //str[0]=""
+                //str[1]="xx:xx.xx]歌词一"
+                //str[2]="yy:yy.yy]歌词二"
+                str=lrc.split("[");
+                //因为str[0]="",所以跳过它
+                for(var i=1;i<str.length;i++)
+                {
+                    //str[i]格式是00:11.22]我
+                    //shijian格式是00:11.22
+                    var shijian=str[i].split(']')[0];
+                    //geci格式是"我"
+                    var geci=str[i].split(']')[1];
+                    var fen=shijian.split(":")[0];
+                    var miao=shijian.split(":")[1];
+                    //xx:xx.xx 时间转换成总的秒数
+                    var sec=parseInt(fen)*60+parseInt(miao);
+                    //存时间
+                    shijianshuzu[i-1]=sec-localStorage.time;
+                    //存歌词
+                    gecishuzu[i-1]=geci;
+                }
+                //这段代码本来是用来显示所有歌词的，这里注释掉了，可以掠过不看
+                var quanbugeci=document.getElementById("quanbugeci");
+                for(var i=0;i<shijianshuzu.length;i++)
+                {
+                    //      quanbugeci.innerHTML=quanbugeci.innerHTML+gecishuzu[i]+"<br>";
+                }
+                //上面是用来显示所有歌词的，不用看
+                //定时器，隔1s更新下歌词的显示
+                setInterval(updategeci,1000);
+            }
+            //更新歌词
+            function updategeci()
+            {
+                //显示了六行歌词，每一行分别改变innerHTML
+                var geciyi=document.getElementById("yi");
+                var gecier=document.getElementById("er");
+                var gecisan=document.getElementById("san");
+                var gecisi=document.getElementById("si");
+                var geciwu=document.getElementById("wu");
+                var geciliu=document.getElementById("liu");
+                //由歌词时间计算出i，得到现在应该显示哪部分歌词
+                //这函数下面有介绍
+                var i=getcurrent();
+                //如果gecishuzu[i-2]定义了，就显示，没定义，就不显示
+                //下面几个类似的if-else结构类似。
+                //这里写的很罗嗦，以后空了再改
+                if(gecishuzu[i-2])
+                {
+                    geciyi.innerHTML=gecishuzu[i-2];
+                }
+                else
+                {
+                    geciyi.innerHTML="&nbsp;";
+                }
+                if(gecishuzu[i-1])
+                {
+                    gecier.innerHTML=gecishuzu[i-1];
+                }
+                else
+                {
+                    gecier.innerHTML="&nbsp;";
+                }
+                gecisan.innerHTML=gecishuzu[i];
+                if(gecishuzu[i+1])
+                {
+                    gecisi.innerHTML=gecishuzu[i+1];
+                }
+                else
+                {
+                    gecisi.innerHTML="&nbsp;";
+                }
+                if(gecishuzu[i+2])
+                {
+                    geciwu.innerHTML=gecishuzu[i+2];
+                }
+                else
+                {
+                    geciwu.innerHTML="&nbsp";
+                }
+                if(gecishuzu[i+3])
+                {
+                    geciliu.innerHTML=gecishuzu[i+3];
+                }
+                else
+                {
+                    geciliu.innerHTML="&nbsp;";
+                }
+            }
+            //将歌曲实际播放的时间，和我们自己的歌词的时间，进行比较，算出现在应该显示的歌词
+            function getcurrent()
+            {
+                var a=document.getElementById("test");
+                var i=0;
+                //152,154存歌词和时间的时候
+                //时间是由小到大的
+                //当然实际的歌词不一定都是由小到大，还可能是两个时间重复的歌词就合并到一起，其他的情况都没做处理
+                for(i=0;i<shijianshuzu.length;i++)
+                {
+                    //数和undefined比较，undefined要大些。
+                    if(shijianshuzu[i]>=a.currentTime)
+                    {
+                        return i;
+                    }
+                }
+                return i-1;
+            }
+            //函数写成这种形式是为了加载页面的时候自动执行
+            //(function 函数名{})()
+            (function ok()
+            {
+                parse(a);
+            })()
+            //歌词时间减少2S
+            function back()
+            {
+                localStorage.time=parseInt(localStorage.time)-2;
+                parse(a);
+            }
+            //歌词时间增加2s
+            function forward()
+            {
+                localStorage.time=parseInt(localStorage.time)+2;
+ 
+                parse(a);
+            }
+        </script>
+        <!--被注释掉的是因为开始的时候，打算把UI做好看些，后来觉得CSS真的是很难伺候,放弃了-->
+            <!--<div id="player">
+            <div class="ctrl">
+                <div class="control ">
+                    <div class="left">
+                        <div class="rewind icon"></div>
+                        <div class="play icon"></div>
+                        <div class="fastforward icon"></div>
+                    </div>
+                    <div class="right volume">
+                        <div class="icon mute"></div>
+                        </div>
+                </div>
+ 
+            </div>
+        </div>-->
+         
+        <div>
+            <!--audio 是HTML5中的新元素-->
+            <!--controls显示那个播放器 autoplay歌曲就绪后自动播放 loop歌曲放完了循环-->
+            <audio  controls  id="test" autoplay loop>
+           	 	<source src="test.mp3" >
+            </audio>
+        </div>
+        <div id="wenzi">
+            <!--显示六行歌词-->
+            <div id="yi" style="color:yellow"></div>
+            <div id="er" style="color:yellow"></div>
+            <div id="san" style="color:blue"></div>
+            <div id="si" style="color:yellow"></div>
+            <div id="wu" style="color:yellow"></div>
+            <div id="liu" style="color:yellow"></div>
+            <div id="quanbugeci" style="color:red"></div>
+        </div>
+        <div align="center">
+            <input type="button"  value="后退2s" class="tiaojieshijian" onclick=back()></input>
+            <input type="button"  value="前进2s" class="tiaojieshijian" onclick=forward()></input>
+        </div>
+    </body>
+</html>
