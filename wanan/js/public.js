@@ -23,7 +23,7 @@ Wanan.prototype.isLogin=function(){
 	}
 }
 
-Wanan.prototype.checkeUser=function(){
+Wanan.prototype.checkeUser=function(fn){
 	var _this=this;
 	if(!this.userdatas){
 		_this.createLayer({
@@ -31,6 +31,8 @@ Wanan.prototype.checkeUser=function(){
 			handle:1
 		});
 		return false;
+	}else{
+		fn&&fn()
 	}
 }
 
@@ -152,14 +154,8 @@ Wanan.prototype.Aduio=function(){
 				},false);
 			};
 		});
-	
-
 }
-
-
 //首页banner
-
-
 Wanan.prototype.getBanner=function(){
 
 	$.ajax({
@@ -167,11 +163,11 @@ Wanan.prototype.getBanner=function(){
 		type:"POST",
 		data:"type=getbanner",
 		beforeSend: function(data){
-				//loading();
+				loading();
 		},
 		success:function(data){
-			//$('.layer_loading').css('display','none');
-			//$(".layer_loading").remove();
+			$('.layer_loading').css('display','none');
+			$(".layer_loading").remove();
 			var d=eval('('+data+')');
 			//console.log(d)
 			var oUlHtml='',
@@ -186,10 +182,7 @@ Wanan.prototype.getBanner=function(){
 			banner();
 		}
 	})
-
 }
-
-
 function banner(){
 	var $oBanner=$('.banner');
 	var $oBannerul=$('.banner-ul');
@@ -275,11 +268,8 @@ function banner(){
 		timer=setInterval(play,3000);
 		$('.nextprev span').css({'display':'none'})
 	});
-
 }
-
 //漂流瓶
-
 Wanan.prototype.plp=function(){
 
 	var oPlpbtn=$_('#plpbtn'),
@@ -304,7 +294,6 @@ Wanan.prototype.plp=function(){
 
 		});
 	}
-
 }
 Wanan.prototype.GetPlpList=function(nowpage,PageSize){
 
@@ -342,7 +331,6 @@ Wanan.prototype.GetPlpList=function(nowpage,PageSize){
 	},function(str){
 		
 	});
-
 }
 Wanan.prototype.oAjax=function(url,datas,sfn,ffn,loadfn){
 	$.ajax({
@@ -360,7 +348,6 @@ Wanan.prototype.oAjax=function(url,datas,sfn,ffn,loadfn){
 		}
 	})
 }
-
 Wanan.prototype.AduioOne=function(k){
 
 	var _this=this,
@@ -433,12 +420,7 @@ Wanan.prototype.AduioOne=function(k){
 			initAudio(k);	
 		},false);
 	};
-	
-
 }
-
-
-
 //创建音频
 Wanan.prototype.createAnalysers=function(obj){ 
 	//音频文件接口：用来监听音乐的播放
@@ -574,7 +556,13 @@ Wanan.prototype.satin=function(){
 			type:"POST",
 			url:"admin/satin.php",
 			data:"type=GetSatinList&nowpage="+nowpage+"&PageSize="+PageSize+"&satintype="+satintype,
+			beforeSend: function(data){
+				loading();
+			},
 			success:function(data){
+				$('.layer_loading').css('display','none');
+				$(".layer_loading").remove();
+			//success:function(data){
 				var datas=eval('('+data+')');
 				console.log(datas)
 				if(datas.Total!=0){
@@ -793,7 +781,12 @@ Wanan.prototype.GetOneSatin=function(){
 		type:"POST",
 		url:"admin/satin.php",
 		data:"type=GetOneSatin&satinid="+satinid,
+		beforeSend: function(data){
+			loading();
+		},
 		success:function(data){
+			$('.layer_loading').css('display','none');
+			$(".layer_loading").remove();
 			var oData=eval('('+data+')');
 			if(oData.respondCode==0){
 				
@@ -925,7 +918,12 @@ Wanan.prototype.GetArcList=function(ismedias){
 			type:"POST",
 			url:"admin/pushArc.php",
 			data:"type=GetArcList&nowpage="+nowpage+"&PageSize="+PageSize+"&ismedias="+ismedias,
+			beforeSend: function(data){
+				loading();
+			},
 			success:function(data){
+				$('.layer_loading').css('display','none');
+				$(".layer_loading").remove();
 				var datas=eval('('+data+')');
 				console.log(datas)
 				$('.all-num').html('('+datas.Total+')');
@@ -936,9 +934,7 @@ Wanan.prototype.GetArcList=function(ismedias){
 						if(strs.coverpic==''){
 							strs.coverpic="images/default.jpg";
 						};
-						
-
-						shtml+='<div class="wanan-line line-style-6">\
+						shtml+='<div class="wanan-line line-style-'+_this.random(1,8)+'">\
 					<div class="img-wrap"><img src="'+strs.coverpic+'"></div>\
 					<div class="wanan-line-content">\
 							<h2 class=""><a target="_blank" href="content.html?id='+strs.id+'">'+strs.title+'</a></h2>\
@@ -989,11 +985,18 @@ Wanan.prototype.GetArcList=function(ismedias){
 		GetArcList(nowpage,PageSize,ismedias);
 	});
 };
-
+//写段子  写文章公用模块
+Wanan.prototype.Write=function(obj,url){
+	var _this=this;
+	obj.onclick=function(){
+		_this.checkeUser(function(){
+			window.location.href=url;
+		});
+	}
+}
 Wanan.prototype.GetOneArc=function(){
 	var _this=this,
 		id   =_this.geturldata(window.location.href).id;
-
 	$.ajax({
 		type:"POST",
 		url:"admin/pushArc.php",
@@ -1003,7 +1006,6 @@ Wanan.prototype.GetOneArc=function(){
 			console.log(datas);
 			$('.all-num').html('('+datas.Total+')');
 			if(datas.Total!=0){
-
 				if(datas.ismedia==1){
 					$('.audio-wrap-box').css('display','none');
 				}
@@ -1013,7 +1015,7 @@ Wanan.prototype.GetOneArc=function(){
 				$('.c-author').html('<span>'+datas.username+'</span>');
 				$('.c-pushtime').html('<span>'+datas.pushtime+'</span>');
 				$('.c-comment').html('<a target="_blank" href="#comment">('+datas.comment+')</a>');
-			}
+			};
 		}
 	});	
 }
@@ -1021,7 +1023,6 @@ Wanan.prototype.GetHotArcList=function(ismedias){
 	var nowpage=1,
 		PageSize=10,
 		_this=this;
-		//alert(ismedias)
 	GetHotList();
 
 	function GetHotList(){
@@ -2034,3 +2035,12 @@ $_.browser.ie11=$_.browser.userAgent.indexOf('trident')!=-1&&$_.browser.userAgen
 $_.browser.chrome=$_.browser.userAgent.indexOf('chrome')!=-1;
 $_.browser.ff=$_.browser.userAgent.indexOf('firefox')!=-1;
 
+
+function loading(){
+	
+	var oLoayer=document.createElement('div');
+	oLoayer.className='layer_loading';
+	
+	oLoayer.innerHTML='<div id="load"><div>加</div><div>载</div><div>中</div><div>,</div><div>请</div><div>稍</div><div>后</div></div>';
+	document.body.appendChild(oLoayer);
+};

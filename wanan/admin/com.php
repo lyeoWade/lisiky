@@ -6,7 +6,7 @@
 	
 	// $conn=mysql_connect('www.ilovenba.cn','wadebing333','74113991') or die("数据库连接失败");
 	// mysql_select_db('wadebing333') or die("数据库查询失败".mysql_error());
-
+	
 	mysql_query("SET NAMES UTF8") or die("字符编码设置失败".mysql_error());
 
 	function echo_status($str){

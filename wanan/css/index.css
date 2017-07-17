@@ -213,7 +213,7 @@ a:hover {
   position: absolute;
   left: 40px;
   bottom: 40px;
-  z-index: 900999;
+  z-index: 9099;
 }
 .second-wrap .banner-box .font-wrap p {
   font-size: 24px;
@@ -263,7 +263,6 @@ a:hover {
 .second-wrap .audio .audio-content .audio-img-wrap {
   padding: 20px;
   position: relative;
-  cursor: pointer;
   width: 230px;
   height: 230px;
 }
@@ -272,6 +271,9 @@ a:hover {
   height: 230px;
   border-radius: 115px 115px 115px 115px;
   animation: musicpic 5s infinite linear;
+}
+.second-wrap .audio .audio-content .audio-img-wrap span {
+  cursor: pointer;
 }
 .second-wrap .audio .audio-content .audio-img-wrap .play {
   position: absolute;
@@ -1113,6 +1115,7 @@ a:hover {
 .wananlist-content {
   width: 1100px;
   margin: 0 auto;
+  margin-top: 20px;
 }
 .wananlist-content .wananlist-l {
   width: 740px;
@@ -1143,7 +1146,6 @@ a:hover {
 .wananlist-content .wananlist-l .content .audio-img-wrap {
   padding: 20px;
   position: relative;
-  cursor: pointer;
   width: 160px;
   height: 160px;
 }
@@ -1152,6 +1154,9 @@ a:hover {
   height: 160px;
   border-radius: 80px 80px 80px 80px;
   animation: musicpic 5s infinite linear;
+}
+.wananlist-content .wananlist-l .content .audio-img-wrap span {
+  cursor: pointer;
 }
 .wananlist-content .wananlist-l .content .audio-img-wrap .play {
   position: absolute;
@@ -1685,6 +1690,32 @@ a:hover {
   background: #f46;
   border: 1px solid #f46;
   color: #ffffff;
+}
+.satin-r .satin-tag .write-wrap {
+  padding: 10px;
+}
+.satin-r .satin-tag .write-wrap a {
+  font-size: 14px;
+  color: #222;
+  display: inline-block;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 30px 0 40px;
+  border: 1px solid #f46;
+  margin: 0 10px 10px 0px;
+  position: relative;
+  color: #ffffff;
+  background: #f46;
+}
+.satin-r .satin-tag .write-wrap a i {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: url('../images/edit.png') no-repeat center center;
+  background-size: contain;
 }
 .satin-r .arcList {
   padding: 10px;

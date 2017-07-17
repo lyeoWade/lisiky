@@ -119,6 +119,13 @@
 					
 				</div>
 			</div> -->
+			<!-- 写段子 -->
+			<div class="satin-tag">
+				<h2>写段子</h2>
+				<div class="write-wrap">
+					<a href="javascript:;" id="write"><i></i>我要写段子</a>
+				</div>
+			</div>
 		</div>
 	</div>
 
@@ -145,9 +152,12 @@
 	<script type="text/javascript">
 		var oSatin=new Wanan();
 		try{
+			var oW=document.getElementById('write');
+			oSatin.Write(oW,"push.html#satin");
 			oSatin.GetOneSatin();
 			oSatin.GetCommentList(1);
 			oSatin.SatinComment(1);
+
 		}catch(e){
 			console.log(e)
 		}

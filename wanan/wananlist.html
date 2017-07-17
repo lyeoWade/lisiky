@@ -90,9 +90,14 @@
 		<div class="fr satin-r">
 			<div class="satin-tag">
 				<h2>热门文章</h2>
-				<div class="arcList">
-					<a href="javascript:;" class="active" typeid="1">一个人住在这城市为了填饱肚子就已精疲力尽还谈什么理想那是我们的</a>
-					<a href="javascript:;" typeid="2">一个人还谈什么理想那是我们的</a>
+				<div class="arcList"></div>
+			</div>
+
+			<!-- 写文章 -->
+			<div class="satin-tag">
+				<h2>写文章</h2>
+				<div class="write-wrap">
+					<a href="javascript:;" id="write"><i></i>我要写文章</a>
 				</div>
 			</div>
 		</div>
@@ -115,6 +120,8 @@
 		var oSatin=new Wanan();
 		oSatin.GetArcList(ismedias);
 		oSatin.GetHotArcList();
+		var oW=document.getElementById('write');
+		oSatin.Write(oW,"push.html#article");
 	</script>
 </body>
 </html>

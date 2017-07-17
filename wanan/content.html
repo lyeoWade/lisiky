@@ -123,6 +123,14 @@
 					<a href="javascript:;" typeid="2">一个人还谈什么理想那是我们的</a>
 				</div>
 			</div>
+
+			<!-- 写文章 -->
+			<div class="satin-tag">
+				<h2>写文章</h2>
+				<div class="write-wrap">
+					<a href="javascript:;" id="write"><i></i>我要写文章</a>
+				</div>
+			</div>
 		</div>
 	</div>
 	
@@ -134,6 +142,9 @@
 
 
 		var oSatin=new Wanan();
+		
+		var oW=document.getElementById('write');
+		oSatin.Write(oW,"push.html#article");
 		oSatin.GetOneArc();
 		oSatin.GetHotArcList();
 		oSatin.GetCommentList(2);

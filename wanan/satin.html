@@ -92,9 +92,8 @@
 			<!-- 写段子 -->
 			<div class="satin-tag">
 				<h2>写段子</h2>
-				<div class="satin-tag-wrap">
-					<a href="javascript:;" class="active" typeid="1">段子</a>
-					<a href="javascript:;" typeid="2">图片</a>
+				<div class="write-wrap">
+					<a href="javascript:;" id="write"><i></i>我要写段子</a>
 				</div>
 			</div>
 		</div>
@@ -103,6 +102,8 @@
 	<script type="text/javascript">
 		var oSatin=new Wanan();
 		oSatin.satin();
+		var oW=document.getElementById('write');
+		oSatin.Write(oW,"push.html#satin");
 	</script>
 
 
